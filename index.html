@@ -252,7 +252,9 @@ td.params{text-align:left;font-size:12px;color:var(--muted)}
           <div class="btn-row" style="margin-top:8px"><button id="tplYes" class="btn primary sm">Load case</button><button id="tplNo" class="btn ghost sm">Cancel</button></div>
         </div>
         <div id="exportPanel" class="panel" hidden>
-          <p class="small muted">This file holds the whole case: brief, inputs, formula, settings and fit data. Give it to students, who load it with Import case.</p>
+          <p class="small muted">This file holds the whole case: brief, inputs, calculation steps, formula and settings. Give it to students, who load it with Import case or open the share link.</p>
+          <label class="inline" for="exportData" style="color:var(--ink);font-size:13px"><input type="checkbox" id="exportData" checked style="width:auto"> Include the data on the Fit data tab <span id="exportDataN" class="muted"></span></label>
+          <p class="small muted" style="margin-top:-4px">Untick this for licensed case data, so students enter the data from their own copy. Fitted parameters and any “Resample data” inputs stay in the case.</p>
           <div class="btn-row">
             <button id="dlBtn" class="btn primary sm">Download case file (.json)</button>
             <button id="linkBtn" class="btn ghost sm">Copy share link</button>
@@ -544,6 +546,7 @@ function synth(seed,n,f){const R=rngObj(seed);return Array.from({length:n},()=>f
 const r6=p=>Object.fromEntries(Object.entries(p).map(([k,v])=>[k,sig(v,6)]));
 const fixed=(name,value)=>({name,dist:'constant',p:{value}});
 const TEMPLATES={
+  blank:{label:'New blank model',build(){return{title:'',notes:'',inputs:[],calcs:[],outName:'Output',formula:'',thresh:0,fitText:'',fitNote:'',fitTarget:null};}},
   launch:{label:'Strategy · Product launch profit',build(){const data=synth(7,40,R=>Math.round(Math.exp(Math.log(17000)+0.32*R.n())));
     return{title:'Product launch profit',notes:'A company is launching a new product. First-year unit sales are uncertain; sales of 40 comparable launches are on the Fit data tab. Price, unit cost and fixed cost are also uncertain.\nWhat is the chance the launch loses money, and which input drives that risk most?',
       inputs:[{name:'Units',dist:'lognormal',p:r6(DIST.lognormal.fit(data)),src:'Fitted: Lognormal, 40 observations'},{name:'Price',dist:'triangular',p:{min:44,mode:50,max:54}},
@@ -583,9 +586,9 @@ function sanitize(m){if(!m||typeof m!=='object'||!Array.isArray(m.inputs))throw 
   return{title:String(m.title||''),notes:String(m.notes||''),inputs,calcs,outName:String(m.outName||'Output'),formula:String(m.formula||''),
     iters:[1000,5000,10000,25000,50000,100000].includes(+m.iters)?+m.iters:10000,seed:Math.round(num(m.seed,42)),thresh:num(m.thresh,0),
     fitText:String(m.fitText||''),fitNote:String(m.fitNote||''),fitIsSample:!!(m.fitText&&m.fitNote),fitTarget:m.fitTarget?String(m.fitTarget):null,rankBy:['aic','bic','ks'].includes(m.rankBy)?m.rankBy:'aic'};}
-function exportObj(){return{app:'Stochastic Business Toolkit (SBT)',version:1,title:S.title||'',notes:S.notes||'',
+function exportObj(withData=true){return{app:'Stochastic Business Toolkit (SBT)',version:1,title:S.title||'',notes:S.notes||'',
   inputs:S.inputs.map(i=>i.dist==='empirical'?{name:i.name,dist:i.dist,p:{data:i.p.data},src:i.src||null}:{name:i.name,dist:i.dist,p:Object.fromEntries(DIST[i.dist].params.map(([k])=>[k,i.p[k]])),src:i.src||null}),
-  calcs:S.calcs.map(c=>({name:c.name,formula:c.formula})),outName:S.outName,formula:S.formula,iters:S.iters,seed:S.seed,thresh:S.thresh,fitText:S.fitText,fitNote:S.fitIsSample?(S.fitNote||''):'',fitTarget:S.fitTarget||null,rankBy:S.rankBy};}
+  calcs:S.calcs.map(c=>({name:c.name,formula:c.formula})),outName:S.outName,formula:S.formula,iters:S.iters,seed:S.seed,thresh:S.thresh,fitText:withData?S.fitText:'',fitNote:withData&&S.fitIsSample?(S.fitNote||''):'',fitTarget:S.fitTarget||null,rankBy:S.rankBy};}
 function b64enc(str){const b=new TextEncoder().encode(str);let s='';for(let i=0;i<b.length;i+=0x8000)s+=String.fromCharCode.apply(null,b.subarray(i,i+0x8000));return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');}
 function b64dec(t){t=t.replace(/-/g,'+').replace(/_/g,'/');while(t.length%4)t+='=';const s=atob(t);const b=new Uint8Array(s.length);for(let i=0;i<s.length;i++)b[i]=s.charCodeAt(i);return new TextDecoder().decode(b);}
 function strHash(s){let h=5381;for(let i=0;i<s.length;i++)h=(h*33^s.charCodeAt(i))>>>0;return h.toString(36);}
@@ -845,7 +848,7 @@ function applyFit(empirical){const msg=$('#applyMsg');const tgt=$('#applyTarget'
   if(!inp)return;
   if(empirical){inp.dist='empirical';inp.data=[...fitData];inp.p={data:inp.data};inp.src=`Resampling ${fitData.length} observations`;}
   else{const f=fits.find(x=>x.key===selFit);inp.dist=f.key;inp.p=Object.fromEntries(Object.entries(f.p).map(([k,v])=>[k,sig(v,6)]));inp.src=`Fitted: ${DIST[f.key].label}, ${fitData.length} observations`;}
-  touched();renderInputs();renderApplyTargets();$('#applyTarget').value=String(inp.id);$('#applyName').hidden=true;$('#applyName').value='';
+  S.fitTarget=inp.name;touched();renderInputs();renderApplyTargets();$('#applyTarget').value=String(inp.id);$('#applyName').hidden=true;$('#applyName').value='';
   msg.hidden=false;msg.className='ok';msg.innerHTML=`${esc(inp.name)} now uses ${empirical?'the data directly':DIST[inp.dist].label}. <button class="btn link" data-go="model">Go to Model</button> and run the simulation to see the effect.`;}
 function parseCSV(text){const lines=text.split(/\r?\n/).filter(l=>l.trim());if(!lines.length)return[];
   const delim=[',',';','\t'].map(d=>[d,lines[0].split(d).length]).sort((a,b)=>b[1]-a[1])[0][0];
@@ -881,6 +884,7 @@ $('#runBtn').addEventListener('click',()=>{const b=$('#runBtn');b.disabled=true;
 $('#caseTitle').addEventListener('input',e=>{S.title=e.target.value;S.edited=true;renderCaseView();save();});
 $('#caseNotes').addEventListener('input',e=>{S.notes=e.target.value;S.edited=true;renderCaseView();save();});
 $('#tplSel').innerHTML=Object.entries(TEMPLATES).map(([k,t])=>`<option value="${k}">${esc(t.label)}</option>`).join('');
+const withData=()=>$('#exportData').checked;
 const closePanels=()=>{$('#tplConfirm').hidden=true;$('#exportPanel').hidden=true;$('#importPanel').hidden=true;$('#histPanel').hidden=true;};
 const label=m=>(m.title||m.outName||'Untitled model');
 let undoEntry=null;
@@ -896,19 +900,20 @@ function renderHist(){const a=histGet();$('#histCount').textContent=a.length;$('
   L.querySelectorAll('[data-restore]').forEach(b=>b.addEventListener('click',()=>{const e=histGet()[+b.dataset.restore];if(!e)return;closePanels();histSet(histGet().filter(x=>x.at!==e.at));restoreEntry(e);showTab('model');}));
   L.querySelectorAll('[data-hdel]').forEach(b=>b.addEventListener('click',()=>{const a2=histGet();a2.splice(+b.dataset.hdel,1);histSet(a2);renderHist();}));}
 $('#histBtn').addEventListener('click',()=>{const open=$('#histPanel').hidden;closePanels();if(!open)return;renderHist();$('#histPanel').hidden=false;});
-$('#tplLoad').addEventListener('click',()=>{const t=TEMPLATES[$('#tplSel').value];closePanels();$('#tplConfirmText').textContent=`Load “${t.label.split(' · ')[1]}”? Your current model is kept under Saved models, so you can switch back.`;$('#tplConfirm').hidden=false;});
+$('#tplLoad').addEventListener('click',()=>{const t=TEMPLATES[$('#tplSel').value];closePanels();$('#tplConfirmText').textContent=`Load “${t.label.split(' · ').pop()}”? Your current model is kept under Saved models, so you can switch back.`;$('#tplConfirm').hidden=false;});
 $('#tplNo').addEventListener('click',closePanels);
-$('#tplYes').addEventListener('click',()=>{closePanels();const k=$('#tplSel').value;replaceModel(buildTemplate(k),`“${TEMPLATES[k].label.split(' · ')[1]}”`);showTab('model');});
+$('#tplYes').addEventListener('click',()=>{closePanels();const k=$('#tplSel').value;replaceModel(buildTemplate(k),`“${TEMPLATES[k].label.split(' · ').pop()}”`);showTab('model');});
 const framed=(()=>{try{return window.self!==window.top;}catch(e){return true;}})();
 function slug(){return((S.title||S.outName||'case').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'case');}
 $('#exportBtn').addEventListener('click',()=>{const open=$('#exportPanel').hidden;closePanels();if(!open)return;$('#exportPanel').hidden=false;$('#exportMsg').hidden=true;
-  $('#exportText').value=JSON.stringify(exportObj(),null,1);$('#dlBtn').hidden=framed;$('#linkBtn').hidden=framed;$('#framedNote').hidden=!framed;});
+  $('#exportDataN').textContent=fitData.length?`(${fitData.length} values)`:'(none)';$('#exportText').value=JSON.stringify(exportObj(withData()),null,1);$('#dlBtn').hidden=framed;$('#linkBtn').hidden=framed;$('#framedNote').hidden=!framed;});
 function exportCopy(text,ok){const m=$('#exportMsg');const fb=()=>{const t=$('#exportText');t.value=text;t.focus();t.select();m.hidden=false;m.className='small muted';m.textContent='Copying isn’t allowed here. The text is selected; press Ctrl+C or ⌘C.';};
   try{navigator.clipboard.writeText(text).then(()=>{m.hidden=false;m.className='ok';m.textContent=ok;},fb);}catch(e){fb();}}
-$('#copyExport').addEventListener('click',()=>exportCopy(JSON.stringify(exportObj(),null,1),'Case text copied. Paste it into a text file saved as .json, or straight into Import case.'));
-$('#dlBtn').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(exportObj(),null,1)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=slug()+'.json';
+$('#exportData').addEventListener('change',()=>{$('#exportText').value=JSON.stringify(exportObj(withData()),null,1);$('#exportMsg').hidden=true;});
+$('#copyExport').addEventListener('click',()=>exportCopy(JSON.stringify(exportObj(withData()),null,1),'Case text copied. Paste it into a text file saved as .json, or straight into Import case.'));
+$('#dlBtn').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(exportObj(withData()),null,1)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=slug()+'.json';
   document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);const m=$('#exportMsg');m.hidden=false;m.className='ok';m.textContent=`Downloaded ${slug()}.json.`;});
-$('#linkBtn').addEventListener('click',()=>{const url=location.href.split('#')[0]+'#case='+b64enc(JSON.stringify(exportObj()));
+$('#linkBtn').addEventListener('click',()=>{const url=location.href.split('#')[0]+'#case='+b64enc(JSON.stringify(exportObj(withData())));
   exportCopy(url,url.length>8000?`Link copied (${Math.round(url.length/1000)}k characters). Long links can break in some apps; the case file is safer for large data.`:'Share link copied. Anyone who opens it gets this case loaded.');});
 $('#importBtn').addEventListener('click',()=>{const open=$('#importPanel').hidden;closePanels();if(!open)return;$('#importPanel').hidden=false;$('#importMsg').hidden=true;$('#importText').focus();});
 $('#importCancel').addEventListener('click',closePanels);
