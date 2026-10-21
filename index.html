@@ -1,0 +1,953 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Fit distributions to data, build a model and run Monte Carlo simulations in the browser.">
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Monte Carlo Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: tabbed analyst workbench. Controls on the left, instrument-style charts on the right; one column under 900px. */
+:root{
+  --bg:#f2f4f8; --surface:#ffffff; --sunk:#eceff5; --ink:#141824; --muted:#586176; --line:#d8dde7; --grid:#e7eaf0;
+  --accent:#2b3fbf; --accent-ink:#ffffff; --accent-soft:#dfe4fb; --fit:#c4570f; --bad:#b4302a; --bad-soft:#f7e0de; --good:#1d7a4c;
+  --f-display:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0d1016; --surface:#161a22; --sunk:#1c212b; --ink:#e6e9f0; --muted:#9aa3b6; --line:#2b313d; --grid:#222833;
+  --accent:#8d9dff; --accent-ink:#0d1016; --accent-soft:#252c4d; --fit:#f2913f; --bad:#ff7b70; --bad-soft:#3b201f; --good:#5cc994; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1016; --surface:#161a22; --sunk:#1c212b; --ink:#e6e9f0; --muted:#9aa3b6; --line:#2b313d; --grid:#222833;
+  --accent:#8d9dff; --accent-ink:#0d1016; --accent-soft:#252c4d; --fit:#f2913f; --bad:#ff7b70; --bad-soft:#3b201f; --good:#5cc994; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.5}
+.app{max-width:1260px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{margin:0;text-wrap:balance}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(26px,4vw,34px);letter-spacing:-.02em;line-height:1.1}
+h2{font-size:15px;font-weight:600}
+p{margin:0}
+.muted{color:var(--muted)} .small{font-size:12.5px}
+.mono,.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+.top{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:flex-end;justify-content:space-between}
+.brand p{color:var(--muted);margin-top:6px;max-width:58ch}
+.brand .kicker{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+.tabs{display:flex;gap:2px;background:var(--sunk);border:1px solid var(--line);border-radius:999px;padding:3px}
+.tabs button{border:0;background:transparent;color:var(--muted);font:500 13.5px var(--f-body);padding:7px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgb(0 0 0 / .12)}
+.tabs button:hover{color:var(--ink)}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.chart-head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between}
+canvas.chart{width:100%;height:280px;display:block}
+canvas.chart.short{height:220px}
+
+label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted);font-weight:500}
+label.inline{flex-direction:row;align-items:center;gap:8px}
+input,select,textarea{font:inherit;font-size:13.5px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:7px 9px;min-width:0;width:100%}
+label.inline input,label.inline select{width:auto}
+textarea{font-family:var(--f-mono);font-size:12.5px;resize:vertical}
+input[type=number]{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px var(--accent-soft)}
+
+.btn{font:500 13.5px var(--f-body);border-radius:8px;padding:8px 14px;cursor:pointer;border:1px solid transparent;display:inline-flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn.ghost:hover{background:var(--sunk)}
+.btn.link{background:none;border:0;color:var(--muted);padding:4px 0;text-decoration:underline;text-underline-offset:3px}
+.btn.sm{padding:5px 10px;font-size:12.5px}
+.btn:disabled{opacity:.5;cursor:default}
+
+.err{color:var(--bad);font-size:12.5px}
+.ok{color:var(--good);font-size:13px}
+.chip{font:500 11.5px var(--f-mono);padding:3px 9px;border-radius:999px;background:var(--sunk);color:var(--muted);border:1px solid var(--line);white-space:nowrap}
+.chip.warn{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+.chip.best{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+
+/* Model tab */
+.model-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:18px;align-items:start}
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin-bottom:12px}
+.sec-head .hint{color:var(--muted);font-size:12.5px;flex:1}
+.input-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.icard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.icard.has-err{border-color:var(--bad)}
+.icard-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) auto;gap:8px;align-items:center}
+.iname{font-family:var(--f-mono);font-weight:500}
+.icon{border:0;background:none;color:var(--muted);font-size:18px;line-height:1;cursor:pointer;padding:4px 6px;border-radius:6px}
+.icon:hover{background:var(--sunk);color:var(--bad)}
+.iparams{display:grid;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));gap:8px}
+.ifoot{display:flex;gap:10px;align-items:center;border-top:1px dashed var(--line);padding-top:10px}
+.ifoot canvas{width:96px;height:34px;flex:none}
+.isum{font:12px var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums;min-width:0}
+.isrc{font-size:11.5px;color:var(--fit);font-family:var(--f-mono)}
+.empnote{font-size:12.5px;color:var(--muted);background:var(--sunk);border-radius:7px;padding:8px 10px}
+.col-model{position:static}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{font:12px var(--f-mono);background:var(--accent-soft);color:var(--accent);border:0;border-radius:6px;padding:3px 8px;cursor:pointer}
+.help{font-size:12px;color:var(--muted)}
+.help code{font-family:var(--f-mono);font-size:11.5px;background:var(--sunk);padding:1px 4px;border-radius:4px}
+.calc-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.calc-head .lbl{font-size:12px;color:var(--muted);font-weight:500}
+.calc-list{display:flex;flex-direction:column;gap:8px}
+.calc-list:empty{display:none}
+.calc{border:1px solid var(--line);border-radius:8px;padding:8px;display:flex;flex-direction:column;gap:6px;background:var(--sunk)}
+.calc.has-err{border-color:var(--bad)}
+.calc-top{display:flex;align-items:center;gap:4px}
+.calc-n{font:500 11px var(--f-mono);color:var(--muted);width:18px;flex:none;text-align:center}
+.calc-top .cname{font-family:var(--f-mono);font-weight:500;flex:1;padding:5px 8px}
+.calc-top .eq{font-family:var(--f-mono);color:var(--muted);padding:0 2px}
+.calc-top .icon{font-size:14px;padding:4px 5px}
+.calc-top .icon:disabled{opacity:.3;cursor:default;background:none}
+.calc-top .icon.del{font-size:18px}
+.calc .cformula{background:var(--surface)}
+.divider{border:0;border-top:1px solid var(--line);margin:2px 0}
+.chips button.calc-chip{background:transparent;color:var(--fit);box-shadow:inset 0 0 0 1px var(--fit)}
+#pctTable tr.grp td{font:600 11px var(--f-body);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-top:12px;text-align:left}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.run-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+
+/* Case card */
+.case-card{margin-bottom:18px}
+.case-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:start}
+.case-fields{display:flex;flex-direction:column;gap:10px;min-width:0}
+#caseNotes,#caseTitle{font-family:var(--f-body);font-size:13.5px}
+.case-actions{display:flex;flex-direction:column;gap:10px;padding-left:16px;border-left:1px solid var(--line);min-width:0}
+.case-actions .btn-row .btn{flex:1}
+.panel{display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--line);padding-top:12px}
+.panel textarea{min-height:110px}
+.kick{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 4px}
+.notes-view{font-size:13.5px;background:var(--accent-soft);color:var(--ink);border-radius:8px;padding:10px 12px;white-space:pre-line;max-width:95ch}
+@media (max-width:760px){.case-grid{grid-template-columns:minmax(0,1fr)}.case-actions{padding-left:0;border-left:0;border-top:1px solid var(--line);padding-top:12px}}
+
+.undo-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;background:var(--accent-soft);border-radius:8px;padding:8px 12px;font-size:13px}
+.undo-bar span{flex:1;min-width:200px}
+.hist{display:flex;flex-direction:column}
+.hist-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--grid)}
+.hist-row:last-child{border-bottom:0}
+.hist-t{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hist-m{font-size:12px;color:var(--muted);font-family:var(--f-mono)}
+
+/* Fit tab */
+.fit-grid{display:grid;grid-template-columns:320px minmax(0,1fr);gap:18px;align-items:start}
+.fit-main{display:flex;flex-direction:column;gap:18px;min-width:0}
+.file-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.file-row select{flex:1}
+.desc{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0;font-size:13px}
+.desc dt{color:var(--muted)} .desc dd{margin:0;text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.note{font-size:12px;color:var(--muted);border-left:2px solid var(--fit);padding-left:10px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{display:inline-block;width:16px;height:0;border-top:2px solid}
+.legend i.bar{height:9px;border:0;width:12px;border-radius:2px}
+.table-wrap{overflow-x:auto;margin:0 -4px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{font-weight:500;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);text-align:right;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,th:nth-child(2),th:nth-child(3){text-align:left}
+td{padding:7px 8px;border-bottom:1px solid var(--grid);text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.l{text-align:left;font-family:var(--f-body)}
+td.params{text-align:left;font-size:12px;color:var(--muted)}
+#fitTable tbody tr{cursor:pointer}
+#fitTable tbody tr:hover{background:var(--sunk)}
+#fitTable tbody tr.sel{background:var(--accent-soft)}
+#fitTable tbody tr.na{cursor:default;color:var(--muted)}
+#fitTable tbody tr.na:hover{background:none}
+.footnote{font-size:12px;color:var(--muted)}
+.apply{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-top:12px;border-top:1px solid var(--line)}
+.apply select,.apply input{width:auto;flex:1 1 140px}
+
+/* Results tab */
+.res-head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:flex-start;justify-content:space-between}
+.res-head h2{font-family:var(--f-display);font-size:24px;font-weight:700;letter-spacing:-.01em}
+.res-meta{color:var(--muted);font-size:12.5px;margin-top:4px;overflow-wrap:anywhere}
+.res-meta code{font-family:var(--f-mono);font-size:12px;color:var(--ink)}
+.example{font-size:13px;background:var(--accent-soft);color:var(--ink);border-radius:8px;padding:9px 12px}
+.example button{color:var(--accent);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;min-width:0}
+.stat .k{font-size:11.5px;color:var(--muted);letter-spacing:.03em;overflow-wrap:anywhere}
+.stat .v{font:500 21px var(--f-mono);font-variant-numeric:tabular-nums;margin-top:4px;overflow-wrap:anywhere}
+.stat .s{font-size:11.5px;color:var(--muted);font-family:var(--f-mono)}
+.stat.risk{background:var(--bad-soft);border-color:transparent}
+.stat.risk .v{color:var(--bad)}
+.res-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:18px}
+.res-grid .wide{grid-column:1 / -1}
+.caption{font-size:12px;color:var(--muted)}
+.trow{display:grid;grid-template-columns:minmax(70px,auto) minmax(0,1fr) 54px 46px;gap:10px;align-items:center;font-size:13px;padding:5px 0}
+.tname{font-family:var(--f-mono);overflow:hidden;text-overflow:ellipsis}
+.tbar{display:grid;grid-template-columns:1fr 1fr;height:16px;background:linear-gradient(var(--line),var(--line)) center/1px 100% no-repeat}
+.tbar div{display:flex}
+.tbar .neg{justify-content:flex-end}
+.tbar i{display:block;height:100%;border-radius:3px}
+.tbar .neg i{background:var(--fit)} .tbar .pos i{background:var(--accent)}
+.tval{font-family:var(--f-mono);text-align:right;font-variant-numeric:tabular-nums}
+.tpct{font-family:var(--f-mono);text-align:right;color:var(--muted);font-size:12px}
+.thead{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+#pctTable td:first-child{text-align:left;color:var(--muted);font-family:var(--f-body)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.copy-fallback{width:100%;height:90px}
+.empty{padding:40px 16px;text-align:center;color:var(--muted)}
+
+@media (max-width:1100px){.stats{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:900px){
+  .model-grid,.fit-grid,.res-grid{grid-template-columns:minmax(0,1fr)}
+  .col-model{position:static}
+}
+@media (max-width:520px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tabs{width:100%} .tabs button{flex:1;padding:7px 8px}
+  .stat .v{font-size:18px}
+  .input-list{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <p class="kicker">Risk simulation workbench</p>
+      <h1>Monte Carlo Studio</h1>
+      <p>Fit probability distributions to your data, describe how inputs combine into an outcome, and simulate thousands of scenarios.</p>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button role="tab" id="t-model" data-tab="model" aria-controls="tab-model">Model</button>
+      <button role="tab" id="t-fit" data-tab="fit" aria-controls="tab-fit">Fit data</button>
+      <button role="tab" id="t-results" data-tab="results" aria-controls="tab-results">Results</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- MODEL -->
+    <section id="tab-model" role="tabpanel" aria-labelledby="t-model" hidden>
+      <div class="card case-card">
+        <div class="case-grid">
+          <div class="case-fields">
+            <label for="caseTitle">Case title<input id="caseTitle" autocomplete="off" placeholder="e.g. Seasonal inventory decision"></label>
+            <label for="caseNotes">Case brief for students<textarea id="caseNotes" rows="4" placeholder="Describe the situation, the question to answer and what the data is."></textarea></label>
+          </div>
+          <div class="case-actions">
+            <label for="tplSel">Case library<select id="tplSel"></select></label>
+            <button id="tplLoad" class="btn ghost sm">Load this case</button>
+            <div class="btn-row"><button id="exportBtn" class="btn ghost sm">Export case</button><button id="importBtn" class="btn ghost sm">Import case</button></div>
+            <button id="histBtn" class="btn ghost sm">Saved models <span id="histCount" class="chip" style="padding:0 7px"></span></button>
+          </div>
+        </div>
+        <div id="undoBar" class="undo-bar" hidden><span id="undoText"></span><button id="undoBtn" class="btn primary sm">Undo</button><button id="undoClose" class="btn link" aria-label="Dismiss">Dismiss</button></div>
+        <div id="histPanel" class="panel" hidden>
+          <p class="small muted">Each time you load a case, import one or restore one, the model you were working on is kept here (up to 15, in this browser only). Export a case to keep a permanent copy.</p>
+          <div id="histList" class="hist"></div>
+        </div>
+        <div id="tplConfirm" class="empnote" hidden>
+          <span id="tplConfirmText"></span>
+          <div class="btn-row" style="margin-top:8px"><button id="tplYes" class="btn primary sm">Load case</button><button id="tplNo" class="btn ghost sm">Cancel</button></div>
+        </div>
+        <div id="exportPanel" class="panel" hidden>
+          <p class="small muted">This file holds the whole case: brief, inputs, formula, settings and fit data. Give it to students, who load it with Import case.</p>
+          <div class="btn-row">
+            <button id="dlBtn" class="btn primary sm">Download case file (.json)</button>
+            <button id="linkBtn" class="btn ghost sm">Copy share link</button>
+            <button id="copyExport" class="btn ghost sm">Copy case text</button>
+          </div>
+          <p id="framedNote" class="small muted" hidden>File downloads and share links work when the tool runs from your own site (such as GitHub Pages) or as a file on your computer. Here, copy the case text instead and save it in a .json file.</p>
+          <textarea id="exportText" readonly spellcheck="false" aria-label="Case file contents"></textarea>
+          <p id="exportMsg" class="ok" hidden></p>
+        </div>
+        <div id="importPanel" class="panel" hidden>
+          <div class="file-row">
+            <label class="btn ghost sm" for="importFile" style="flex-direction:row;color:var(--ink)">Choose case file</label>
+            <input type="file" id="importFile" accept=".json,application/json,.txt" hidden>
+            <span class="small muted">or paste the case text below</span>
+          </div>
+          <textarea id="importText" spellcheck="false" aria-label="Case text to import"></textarea>
+          <div class="btn-row"><button id="importGo" class="btn primary sm">Load case</button><button id="importCancel" class="btn ghost sm">Cancel</button></div>
+          <p id="importMsg" class="err" hidden></p>
+        </div>
+      </div>
+      <div class="model-grid">
+        <div>
+          <div class="sec-head">
+            <h2>Inputs</h2>
+            <span class="hint">Each uncertain quantity gets a distribution. Its name is what you use in the formula.</span>
+            <button id="addInput" class="btn ghost sm">+ Add input</button>
+          </div>
+          <div id="inputList" class="input-list"></div>
+        </div>
+        <aside class="card col-model">
+          <h2>Calculations and output</h2>
+          <div class="calc-head"><span class="lbl">Calculation steps (optional)</span><button id="addCalc" class="btn ghost sm">+ Add step</button></div>
+          <p class="help">Work the model out in named steps, like rows in a spreadsheet. Steps run from top to bottom, and each can use the inputs and the steps above it.</p>
+          <div id="calcList" class="calc-list"></div>
+          <hr class="divider">
+          <label for="outName">Output name<input id="outName" autocomplete="off"></label>
+          <label for="formula">Output formula<textarea id="formula" rows="3" spellcheck="false"></textarea></label>
+          <div id="chips" class="chips" aria-label="Insert a name into the formula you are editing"></div>
+          <p class="help">Click a name to insert it into the formula you're editing (outlined names are calculation steps). Use names with <code>+ - * /</code>, <code>^</code> for powers, comparisons, and <code>min max abs sqrt exp ln log10 round floor ceil</code>. For conditions use <code>IF(cond, a, b)</code>, e.g. <code>IF(Units &gt; 20000, 0.9, 1)</code>. Constants such as a price or an order quantity are inputs set to <em>Fixed value</em>.</p>
+          <p id="formulaErr" class="err" hidden></p>
+          <div class="row2">
+            <label for="iters">Iterations
+              <select id="iters"><option>1000</option><option>5000</option><option>10000</option><option>25000</option><option>50000</option><option>100000</option></select>
+            </label>
+            <label for="seed">Random seed<input id="seed" type="number" step="1"></label>
+          </div>
+          <p id="modelErr" class="err" hidden></p>
+          <div class="run-row">
+            <button id="runBtn" class="btn primary">Run simulation</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FIT -->
+    <section id="tab-fit" role="tabpanel" aria-labelledby="t-fit" hidden>
+      <div class="fit-grid">
+        <div class="card">
+          <h2>Data</h2>
+          <label for="fitData">Paste values, one per line or separated by spaces
+            <textarea id="fitData" rows="9" spellcheck="false"></textarea>
+          </label>
+          <div class="file-row">
+            <label class="btn ghost sm" for="fitFile" style="flex-direction:row;color:var(--ink)">Upload CSV</label>
+            <input type="file" id="fitFile" accept=".csv,.txt,.tsv" hidden>
+            <select id="fitCol" aria-label="Column to fit" hidden></select>
+          </div>
+          <p id="parseMsg" class="small muted" hidden></p>
+          <dl id="descStats" class="desc"></dl>
+          <p class="note" id="sampleNote" hidden></p>
+        </div>
+        <div class="fit-main">
+          <div class="card">
+            <div class="chart-head"><h2>Histogram and fitted density</h2><div id="fitLegend" class="legend"></div></div>
+            <canvas id="fitPdf" class="chart" role="img" aria-label="Histogram of the data with fitted density curves"></canvas>
+          </div>
+          <div class="card">
+            <div class="chart-head"><h2>Cumulative: data against fit</h2><div class="legend"><span><i style="border-color:var(--muted)"></i>Data (empirical)</span><span><i style="border-color:var(--fit)"></i>Selected fit</span></div></div>
+            <canvas id="fitCdf" class="chart short" role="img" aria-label="Empirical cumulative distribution against fitted distribution"></canvas>
+          </div>
+          <div class="card">
+            <div class="chart-head">
+              <h2>Candidate distributions</h2>
+              <label class="inline" for="rankBy">Rank by
+                <select id="rankBy"><option value="aic">AIC</option><option value="bic">BIC</option><option value="ks">KS statistic</option></select>
+              </label>
+            </div>
+            <div class="table-wrap"><table id="fitTable"></table></div>
+            <p class="footnote">Mean, variance and std dev are those of the fitted distribution (the data's own sample values are on the left). Lower AIC, BIC and KS D indicate a closer fit; click a row to inspect it. Parameters are maximum-likelihood estimates, except: Normal uses the sample standard deviation (n − 1, as Excel’s STDEV.S and @RISK do), and scaled beta and triangular use the method of moments. KS p-values are approximate and optimistic, because the parameters were estimated from the same data.</p>
+            <div class="apply">
+              <span>Use <strong id="selName">—</strong> for</span>
+              <select id="applyTarget" aria-label="Input to update"></select>
+              <input id="applyName" placeholder="New input name" aria-label="New input name" autocomplete="off">
+              <button id="applyBtn" class="btn primary sm">Apply to model</button>
+              <button id="applyEmp" class="btn ghost sm">Resample the data instead</button>
+            </div>
+            <p id="applyMsg" class="ok" hidden></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="tab-results" role="tabpanel" aria-labelledby="t-results" hidden>
+      <div id="resEmpty" class="card empty" hidden>No results yet. Set up your inputs and formula on the Model tab, then run the simulation.</div>
+      <div id="resBody" style="display:flex;flex-direction:column;gap:18px">
+        <div class="res-head">
+          <div style="min-width:0">
+            <p id="caseKick" class="kick" hidden></p>
+            <h2 id="resTitle">Profit</h2>
+            <p id="resMeta" class="res-meta"></p>
+          </div>
+          <span id="staleChip" class="chip warn" hidden>Model changed since this run</span>
+        </div>
+        <p id="notesView" class="notes-view" hidden></p>
+        <div class="stats" id="statRow"></div>
+        <div class="res-grid">
+          <div class="card wide">
+            <div class="chart-head">
+              <h2>Distribution of outcomes</h2>
+              <label class="inline" for="thresh">Threshold <input id="thresh" type="number" step="any" style="width:130px"></label>
+            </div>
+            <canvas id="resHist" class="chart" role="img" aria-label="Histogram of simulated outcomes"></canvas>
+            <p class="caption" id="histCap"></p>
+          </div>
+          <div class="card">
+            <h2>Cumulative probability</h2>
+            <canvas id="resCdf" class="chart short" role="img" aria-label="Cumulative distribution of simulated outcomes"></canvas>
+            <p class="caption">Read across from any probability to find the outcome it corresponds to.</p>
+          </div>
+          <div class="card">
+            <h2>What drives the result</h2>
+            <p class="small muted">Spearman rank correlation of each input with the output, and its approximate share of the explained variation.</p>
+            <div id="tornado"></div>
+          </div>
+          <div class="card wide">
+            <div class="chart-head">
+              <h2>Percentiles</h2>
+              <div class="btn-row"><button id="copyBtn" class="btn ghost sm">Copy table</button><button id="copyRaw" class="btn ghost sm">Copy simulated values (CSV)</button></div>
+            </div>
+            <div class="table-wrap"><table id="pctTable"></table></div>
+            <p id="copyMsg" class="small muted" hidden></p>
+            <textarea id="copyFallback" class="copy-fallback" readonly hidden aria-label="Text to copy"></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+"use strict";
+/* ---------- math ---------- */
+const SQ2PI = Math.sqrt(2*Math.PI);
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function rngObj(seed){const r=mulberry32(seed>>>0);let spare=null;return{
+  u(){let x;do x=r();while(x===0);return x;},
+  n(){if(spare!==null){const s=spare;spare=null;return s;}let u,v,s;do{u=2*r()-1;v=2*r()-1;s=u*u+v*v;}while(s>=1||s===0);const m=Math.sqrt(-2*Math.log(s)/s);spare=v*m;return u*m;}};}
+function lgamma(x){const c=[0.99999999999980993,676.5203681218851,-1259.1392167224028,771.32342877765313,-176.61502916214059,12.507343278686905,-0.13857109526572012,9.9843695780195716e-6,1.5056327351493116e-7];
+  if(x<0.5)return Math.log(Math.PI/Math.abs(Math.sin(Math.PI*x)))-lgamma(1-x);
+  x-=1;let a=c[0];const t=x+7.5;for(let i=1;i<9;i++)a+=c[i]/(x+i);return 0.5*Math.log(2*Math.PI)+(x+0.5)*Math.log(t)-t+Math.log(a);}
+function erf(x){const s=Math.sign(x);x=Math.abs(x);const t=1/(1+0.3275911*x);const y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x);return s*y;}
+const normCdf=z=>0.5*(1+erf(z/Math.SQRT2));
+function gammaP(a,x){if(x<=0)return 0;const lg=-x+a*Math.log(x)-lgamma(a);
+  if(x<a+1){let ap=a,sum=1/a,del=sum;for(let n=0;n<1000;n++){ap++;del*=x/ap;sum+=del;if(Math.abs(del)<Math.abs(sum)*1e-14)break;}return Math.min(1,sum*Math.exp(lg));}
+  const F=1e-300;let b=x+1-a,c=1/F,d=1/b,h=d;for(let i=1;i<1000;i++){const an=-i*(i-a);b+=2;d=an*d+b;if(Math.abs(d)<F)d=F;c=b+an/c;if(Math.abs(c)<F)c=F;d=1/d;const del=d*c;h*=del;if(Math.abs(del-1)<1e-14)break;}
+  return Math.max(0,1-Math.exp(lg)*h);}
+function betacf(a,b,x){const F=1e-300;const qab=a+b,qap=a+1,qam=a-1;let c=1,d=1-qab*x/qap;if(Math.abs(d)<F)d=F;d=1/d;let h=d;
+  for(let m=1;m<=500;m++){const m2=2*m;let aa=m*(b-m)*x/((qam+m2)*(a+m2));d=1+aa*d;if(Math.abs(d)<F)d=F;c=1+aa/c;if(Math.abs(c)<F)c=F;d=1/d;h*=d*c;
+    aa=-(a+m)*(qab+m)*x/((a+m2)*(qap+m2));d=1+aa*d;if(Math.abs(d)<F)d=F;c=1+aa/c;if(Math.abs(c)<F)c=F;d=1/d;const del=d*c;h*=del;if(Math.abs(del-1)<1e-14)break;}return h;}
+function betaI(a,b,x){if(x<=0)return 0;if(x>=1)return 1;const bt=Math.exp(lgamma(a+b)-lgamma(a)-lgamma(b)+a*Math.log(x)+b*Math.log(1-x));
+  return x<(a+1)/(a+b+2)?bt*betacf(a,b,x)/a:1-bt*betacf(b,a,1-x)/b;}
+function digamma(x){let r=0;while(x<6){r-=1/x;x+=1;}const f=1/(x*x);return r+Math.log(x)-0.5/x-f*(1/12-f*(1/120-f*(1/252-f*(1/240-f/132))));}
+function trigamma(x){let r=0;while(x<6){r+=1/(x*x);x+=1;}const f=1/(x*x);return r+1/x+f/2+(1/x)*f*(1/6-f*(1/30-f*(1/42-f/30)));}
+function rgamma(a,R){if(a<1)return rgamma(a+1,R)*Math.pow(R.u(),1/a);const d=a-1/3,c=1/Math.sqrt(9*d);
+  for(;;){let x,v;do{x=R.n();v=1+c*x;}while(v<=0);v=v*v*v;const u=R.u();if(u<1-0.0331*x*x*x*x)return d*v;if(Math.log(u)<0.5*x*x+d*(1-v+Math.log(v)))return d*v;}}
+const mean=a=>{let s=0;for(const x of a)s+=x;return s/a.length;};
+const variance=(a,m=mean(a))=>{let s=0;for(const x of a)s+=(x-m)**2;return s/a.length;};
+const amin=a=>{let m=Infinity;for(const x of a)if(x<m)m=x;return m;};
+const amax=a=>{let m=-Infinity;for(const x of a)if(x>m)m=x;return m;};
+function pct(s,q){const n=s.length;if(!n)return NaN;const h=(n-1)*q;const i=Math.floor(h);return i>=n-1?s[n-1]:s[i]+(h-i)*(s[i+1]-s[i]);}
+function ksP(D,n){const sn=Math.sqrt(n);const lam=(sn+0.12+0.11/sn)*D;if(lam<0.2)return 1;let p=0;for(let k=1;k<=100;k++){const t=2*(k%2?1:-1)*Math.exp(-2*k*k*lam*lam);p+=t;if(Math.abs(t)<1e-12)break;}return Math.max(0,Math.min(1,p));}
+function ranks(a){const n=a.length;const idx=new Uint32Array(n);for(let i=0;i<n;i++)idx[i]=i;idx.sort((x,y)=>a[x]-a[y]);const r=new Float64Array(n);let i=0;
+  while(i<n){let j=i;while(j+1<n&&a[idx[j+1]]===a[idx[i]])j++;const avg=(i+j)/2+1;for(let k=i;k<=j;k++)r[idx[k]]=avg;i=j+1;}return r;}
+function pearson(x,y){const n=x.length;let mx=0,my=0;for(let i=0;i<n;i++){mx+=x[i];my+=y[i];}mx/=n;my/=n;let sxy=0,sxx=0,syy=0;
+  for(let i=0;i<n;i++){const dx=x[i]-mx,dy=y[i]-my;sxy+=dx*dy;sxx+=dx*dx;syy+=dy*dy;}return sxx>0&&syy>0?sxy/Math.sqrt(sxx*syy):NaN;}
+const sig=(v,d=4)=>+(+v).toPrecision(d);
+
+/* ---------- distributions ---------- */
+const DIST={
+  normal:{label:'Normal',params:[['mean','Mean'],['sd','Std dev']],k:2,
+    check:p=>p.sd>0?null:'Std dev must be above 0.',
+    sample:(p,R)=>p.mean+p.sd*R.n(),
+    pdf:(x,p)=>Math.exp(-0.5*((x-p.mean)/p.sd)**2)/(p.sd*SQ2PI),
+    cdf:(x,p)=>normCdf((x-p.mean)/p.sd),
+    fit:d=>{const m=mean(d);return{mean:m,sd:Math.sqrt(variance(d,m)*d.length/(d.length-1))};},
+    show:p=>`mean ${fmt(p.mean)}, sd ${fmt(p.sd)}`},
+  lognormal:{label:'Lognormal',params:[['mu','μ (mean of ln)'],['sigma','σ (sd of ln)']],k:2,needs:'pos',
+    check:p=>p.sigma>0?null:'σ must be above 0.',
+    sample:(p,R)=>Math.exp(p.mu+p.sigma*R.n()),
+    pdf:(x,p)=>x<=0?0:Math.exp(-0.5*((Math.log(x)-p.mu)/p.sigma)**2)/(x*p.sigma*SQ2PI),
+    cdf:(x,p)=>x<=0?0:normCdf((Math.log(x)-p.mu)/p.sigma),
+    fit:d=>{const l=d.map(Math.log);const m=mean(l);return{mu:m,sigma:Math.sqrt(variance(l,m))};},
+    show:p=>`μ ${fmt(p.mu)}, σ ${fmt(p.sigma)}`},
+  gamma:{label:'Gamma',params:[['shape','Shape k'],['scale','Scale θ']],k:2,needs:'pos',
+    check:p=>p.shape>0&&p.scale>0?null:'Shape and scale must be above 0.',
+    sample:(p,R)=>rgamma(p.shape,R)*p.scale,
+    pdf:(x,p)=>x<=0?0:Math.exp((p.shape-1)*Math.log(x)-x/p.scale-lgamma(p.shape)-p.shape*Math.log(p.scale)),
+    cdf:(x,p)=>gammaP(p.shape,x/p.scale),
+    fit:d=>{const m=mean(d);const s=Math.log(m)-mean(d.map(Math.log));let a=(3-s+Math.sqrt((s-3)**2+24*s))/(12*s);
+      for(let i=0;i<60;i++){const da=(Math.log(a)-digamma(a)-s)/(1/a-trigamma(a));a-=da;if(a<=0)a=1e-3;if(Math.abs(da)<1e-10)break;}return{shape:a,scale:m/a};},
+    show:p=>`k ${fmt(p.shape)}, θ ${fmt(p.scale)}`},
+  weibull:{label:'Weibull',params:[['shape','Shape k'],['scale','Scale λ']],k:2,needs:'pos',
+    check:p=>p.shape>0&&p.scale>0?null:'Shape and scale must be above 0.',
+    sample:(p,R)=>p.scale*Math.pow(-Math.log(R.u()),1/p.shape),
+    pdf:(x,p)=>x<0?0:(p.shape/p.scale)*Math.pow(x/p.scale,p.shape-1)*Math.exp(-Math.pow(x/p.scale,p.shape)),
+    cdf:(x,p)=>x<=0?0:1-Math.exp(-Math.pow(x/p.scale,p.shape)),
+    fit:d=>{const mx=amax(d);const y=d.map(x=>x/mx);const ly=y.map(Math.log);const mly=mean(ly);let k=1.28/(Math.sqrt(variance(ly))||1);
+      for(let i=0;i<200;i++){let A=0,B=0,C=0;for(let j=0;j<y.length;j++){const yk=Math.pow(y[j],k);A+=yk;B+=yk*ly[j];C+=yk*ly[j]*ly[j];}
+        const g=B/A-1/k-mly;const dg=(C*A-B*B)/(A*A)+1/(k*k);let step=g/dg;if(step>k*0.5)step=k*0.5;k-=step;if(k<=0)k=0.01;if(Math.abs(step)<1e-11)break;}
+      return{shape:k,scale:mx*Math.pow(mean(y.map(v=>Math.pow(v,k))),1/k)};},
+    show:p=>`k ${fmt(p.shape)}, λ ${fmt(p.scale)}`},
+  exponential:{label:'Exponential',params:[['mean','Mean']],k:1,needs:'nonneg',
+    check:p=>p.mean>0?null:'Mean must be above 0.',
+    sample:(p,R)=>-p.mean*Math.log(R.u()),
+    pdf:(x,p)=>x<0?0:Math.exp(-x/p.mean)/p.mean,
+    cdf:(x,p)=>x<=0?0:1-Math.exp(-x/p.mean),
+    fit:d=>({mean:mean(d)}),
+    show:p=>`mean ${fmt(p.mean)}`},
+  uniform:{label:'Uniform',params:[['min','Min'],['max','Max']],k:2,
+    check:p=>p.min<p.max?null:'Min must be below max.',
+    sample:(p,R)=>p.min+(p.max-p.min)*R.u(),
+    pdf:(x,p)=>x<p.min||x>p.max?0:1/(p.max-p.min),
+    cdf:(x,p)=>x<=p.min?0:x>=p.max?1:(x-p.min)/(p.max-p.min),
+    fit:d=>{const a=amin(d),b=amax(d),pad=(b-a)/(d.length-1);return{min:a-pad,max:b+pad};},
+    show:p=>`${fmt(p.min)} to ${fmt(p.max)}`},
+  triangular:{label:'Triangular',params:[['min','Min'],['mode','Most likely'],['max','Max']],k:3,
+    check:p=>p.min<p.max&&p.mode>=p.min&&p.mode<=p.max?null:'Needs min ≤ most likely ≤ max, with min below max.',
+    sample:(p,R)=>{const{min:a,mode:c,max:b}=p;const u=R.u();return u<(c-a)/(b-a)?a+Math.sqrt(u*(b-a)*(c-a)):b-Math.sqrt((1-u)*(b-a)*(b-c));},
+    pdf:(x,p)=>{const{min:a,mode:c,max:b}=p;if(x<a||x>b)return 0;return x<c?2*(x-a)/((b-a)*(c-a)):(b===c?2/(b-a):2*(b-x)/((b-a)*(b-c)));},
+    cdf:(x,p)=>{const{min:a,mode:c,max:b}=p;if(x<=a)return 0;if(x>=b)return 1;return x<=c?(x-a)**2/((b-a)*(c-a)):1-(b-x)**2/((b-a)*(b-c));},
+    fit:d=>{const lo=amin(d),hi=amax(d),pad=(hi-lo)/d.length,a=lo-pad,b=hi+pad;let c=3*mean(d)-a-b;c=Math.min(b,Math.max(a,c));return{min:a,mode:c,max:b};},
+    show:p=>`${fmt(p.min)} / ${fmt(p.mode)} / ${fmt(p.max)}`},
+  beta:{label:'Beta (scaled)',params:[['alpha','α'],['beta','β'],['min','Min'],['max','Max']],k:4,
+    check:p=>p.alpha>0&&p.beta>0&&p.min<p.max?null:'α and β must be above 0, and min below max.',
+    sample:(p,R)=>{const g1=rgamma(p.alpha,R),g2=rgamma(p.beta,R);return p.min+(p.max-p.min)*g1/(g1+g2);},
+    pdf:(x,p)=>{const w=p.max-p.min,y=(x-p.min)/w;if(y<=0||y>=1)return 0;return Math.exp((p.alpha-1)*Math.log(y)+(p.beta-1)*Math.log(1-y)+lgamma(p.alpha+p.beta)-lgamma(p.alpha)-lgamma(p.beta))/w;},
+    cdf:(x,p)=>betaI(p.alpha,p.beta,(x-p.min)/(p.max-p.min)),
+    fit:d=>{const lo=amin(d),hi=amax(d),pad=(hi-lo)/d.length,a=lo-pad,b=hi+pad;const y=d.map(x=>(x-a)/(b-a));const m=mean(y),v=variance(y,m);const c=m*(1-m)/v-1;return{alpha:m*c,beta:(1-m)*c,min:a,max:b};},
+    show:p=>`α ${fmt(p.alpha)}, β ${fmt(p.beta)} on ${fmt(p.min)}–${fmt(p.max)}`},
+  pert:{label:'PERT',params:[['min','Min'],['mode','Most likely'],['max','Max']],k:3,
+    check:p=>p.min<p.max&&p.mode>=p.min&&p.mode<=p.max?null:'Needs min ≤ most likely ≤ max, with min below max.',
+    sample:(p,R)=>{const w=p.max-p.min,a=1+4*(p.mode-p.min)/w,b=1+4*(p.max-p.mode)/w;const g1=rgamma(a,R),g2=rgamma(b,R);return p.min+w*g1/(g1+g2);}},
+  constant:{label:'Fixed value',params:[['value','Value']],k:0,check:()=>null,sample:p=>p.value},
+  empirical:{label:'Resample data',params:[],k:0,check:p=>p.data&&p.data.length?null:'No data to resample.',sample:(p,R)=>p.data[Math.floor(R.u()*p.data.length)]}
+};
+const G=x=>Math.exp(lgamma(x));
+const MOM={
+  normal:p=>[p.mean,p.sd**2],
+  lognormal:p=>[Math.exp(p.mu+p.sigma**2/2),(Math.exp(p.sigma**2)-1)*Math.exp(2*p.mu+p.sigma**2)],
+  gamma:p=>[p.shape*p.scale,p.shape*p.scale**2],
+  weibull:p=>{const g1=G(1+1/p.shape),g2=G(1+2/p.shape);return[p.scale*g1,p.scale**2*(g2-g1*g1)];},
+  exponential:p=>[p.mean,p.mean**2],
+  uniform:p=>[(p.min+p.max)/2,(p.max-p.min)**2/12],
+  triangular:p=>{const{min:a,mode:c,max:b}=p;return[(a+b+c)/3,(a*a+b*b+c*c-a*b-a*c-b*c)/18];},
+  beta:p=>{const w=p.max-p.min,s=p.alpha+p.beta;return[p.min+w*p.alpha/s,w*w*p.alpha*p.beta/(s*s*(s+1))];},
+  pert:p=>{const w=p.max-p.min,a=1+4*(p.mode-p.min)/w,b=1+4*(p.max-p.mode)/w,s=a+b;return[p.min+w*a/s,w*w*a*b/(s*s*(s+1))];},
+  constant:p=>[p.value,0]};
+const FIT_KEYS=['normal','lognormal','gamma','weibull','exponential','uniform','triangular','beta'];
+const MANUAL_KEYS=['normal','lognormal','triangular','pert','uniform','gamma','weibull','exponential','beta','constant'];
+const MATHN=['abs','min','max','sqrt','exp','log','ln','log10','pow','round','floor','ceil','PI','E','IF'];
+const RESERVED=new Set([...MATHN,'if','else','return','var','let','const','new','this','true','false','null','function','typeof','void','delete','in','of','do','for','while','class','with','Math','NaN','Infinity','undefined']);
+
+/* ---------- formatting ---------- */
+function fmt(x){if(x==null||!isFinite(x))return '—';const a=Math.abs(x);
+  if(a>=1e6)return new Intl.NumberFormat('en',{notation:'compact',maximumSignificantDigits:4}).format(x);
+  if(a>=1000)return Math.round(x).toLocaleString('en');if(a===0)return '0';
+  return (+x.toPrecision(4)).toLocaleString('en',{maximumFractionDigits:8});}
+function fmtAxis(x){const a=Math.abs(x);if(a>=1e4)return new Intl.NumberFormat('en',{notation:'compact',maximumSignificantDigits:3}).format(x);return fmt(x);}
+const fmtPct=p=>!isFinite(p)?'—':p<0.001&&p>0?'<0.1%':(p>0.999&&p<1)?'>99.9%':(p*100).toFixed(1)+'%';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- state ---------- */
+const $=s=>document.querySelector(s);
+const KEY='mcstudio.v1';
+let S,nextId=1,lastRun=null,stale=false,fits=[],fitData=[],selFit=null;
+
+function synth(seed,n,f){const R=rngObj(seed);return Array.from({length:n},()=>f(R));}
+const r6=p=>Object.fromEntries(Object.entries(p).map(([k,v])=>[k,sig(v,6)]));
+const fixed=(name,value)=>({name,dist:'constant',p:{value}});
+const TEMPLATES={
+  launch:{label:'Strategy · Product launch profit',build(){const data=synth(7,40,R=>Math.round(Math.exp(Math.log(17000)+0.32*R.n())));
+    return{title:'Product launch profit',notes:'A company is launching a new product. First-year unit sales are uncertain; sales of 40 comparable launches are on the Fit data tab. Price, unit cost and fixed cost are also uncertain.\nWhat is the chance the launch loses money, and which input drives that risk most?',
+      inputs:[{name:'Units',dist:'lognormal',p:r6(DIST.lognormal.fit(data)),src:'Fitted: Lognormal, 40 observations'},{name:'Price',dist:'triangular',p:{min:44,mode:50,max:54}},
+        {name:'UnitCost',dist:'pert',p:{min:22,mode:26,max:34}},{name:'FixedCost',dist:'normal',p:{mean:350000,sd:40000}}],
+      outName:'Profit',calcs:[{name:'UnitMargin',formula:'Price - UnitCost'}],formula:'Units * UnitMargin - FixedCost',thresh:0,fitText:data.join('\n'),fitNote:'Sample data: first-year unit sales of 40 comparable product launches.',fitTarget:'Units'};}},
+  newsvendor:{label:'Operations · Seasonal order quantity',build(){const data=synth(11,30,R=>Math.max(0,Math.round(5000+1200*R.n())));
+    return{title:'Seasonal order quantity',notes:'A retailer places one order Q before the season. Each unit costs 18 and sells for 40; unsold units are cleared at 6, and unmet demand is lost. Demand for the last 30 seasons is on the Fit data tab.\nFit demand, then try different values of Q. Which order quantity gives the highest expected profit, and how does the risk change? Compare with the critical ratio (Price − Cost) / (Price − Salvage).',
+      inputs:[{name:'Demand',dist:'normal',p:r6(DIST.normal.fit(data)),src:'Fitted: Normal, 30 observations'},fixed('Q',5500),fixed('Price',40),fixed('Cost',18),fixed('Salvage',6)],
+      outName:'Profit',calcs:[{name:'Sold',formula:'min(max(Demand, 0), Q)'},{name:'Leftover',formula:'max(Q - Demand, 0)'},{name:'Revenue',formula:'Price*Sold + Salvage*Leftover'}],formula:'Revenue - Cost*Q',thresh:0,fitText:data.join('\n'),fitNote:'Sample data: units demanded in each of the last 30 seasons.',fitTarget:'Demand'};}},
+  npv:{label:'Finance · Capital project NPV',build(){const data=synth(21,25,R=>+(0.04+0.03*R.n()).toFixed(4));
+    return{title:'Capital project NPV',notes:'A project costs 1,000,000 today and runs for five years with a residual value of 150,000. The first-year cash flow is uncertain, cash flows then grow each year, and the discount rate is uncertain. Annual growth rates of 25 similar projects are on the Fit data tab.\nWhat is the expected NPV, and how likely is the project to destroy value (NPV < 0)?',
+      inputs:[fixed('Invest',1000000),{name:'CF1',dist:'normal',p:{mean:250000,sd:35000}},{name:'Growth',dist:'normal',p:r6(DIST.normal.fit(data)),src:'Fitted: Normal, 25 observations'},
+        {name:'Rate',dist:'triangular',p:{min:0.08,mode:0.10,max:0.13}},fixed('Residual',150000)],
+      outName:'NPV',calcs:[{name:'CF2',formula:'CF1*(1+Growth)'},{name:'CF3',formula:'CF2*(1+Growth)'},{name:'CF4',formula:'CF3*(1+Growth)'},{name:'CF5',formula:'CF4*(1+Growth)'},{name:'PVFlows',formula:'CF1/(1+Rate) + CF2/(1+Rate)^2 + CF3/(1+Rate)^3 + CF4/(1+Rate)^4 + (CF5 + Residual)/(1+Rate)^5'}],formula:'PVFlows - Invest',
+      thresh:0,fitText:data.join('\n'),fitNote:'Sample data: annual cash-flow growth rates of 25 comparable projects (0.04 = 4%).',fitTarget:'Growth'};}},
+  campaign:{label:'Marketing · Digital campaign ROI',build(){const data=synth(31,30,R=>+Math.exp(Math.log(0.02)+0.3*R.n()).toFixed(5));
+    return{title:'Digital campaign ROI',notes:'A brand plans a 15,000 digital campaign. Impressions, click-through rate (CTR), conversion rate and order value are all uncertain; the gross margin is 35%. CTRs of 30 past campaigns are on the Fit data tab.\nFit CTR, then find the probability that the campaign loses money. Which lever matters most: reach, CTR, conversion or order value?',
+      inputs:[{name:'Impressions',dist:'triangular',p:{min:400000,mode:600000,max:900000}},{name:'CTR',dist:'lognormal',p:r6(DIST.lognormal.fit(data)),src:'Fitted: Lognormal, 30 observations'},
+        {name:'ConvRate',dist:'beta',p:{alpha:30,beta:970,min:0,max:1}},{name:'OrderValue',dist:'triangular',p:{min:90,mode:120,max:170}},fixed('Margin',0.35),fixed('Budget',15000)],
+      outName:'CampaignProfit',calcs:[{name:'Clicks',formula:'Impressions * CTR'},{name:'Orders',formula:'Clicks * ConvRate'},{name:'Revenue',formula:'Orders * OrderValue'}],formula:'Revenue * Margin - Budget',thresh:0,fitText:data.join('\n'),fitNote:'Sample data: click-through rates of 30 past campaigns (0.02 = 2%).',fitTarget:'CTR'};}},
+  clv:{label:'Marketing · Customer lifetime value',build(){const data=synth(41,24,R=>+(0.04+0.008*R.n()).toFixed(4));
+    return{title:'Customer lifetime value',notes:'A subscription business earns a monthly margin per customer, loses a share of customers each month (churn) and discounts at 1% a month. Acquiring a customer costs 80 to 180. Monthly churn for the last 24 months is on the Fit data tab.\nNet CLV = Margin × (1 − Churn) / (Discount + Churn) − AcqCost. What is the expected net CLV, and how often does a customer fail to pay back the acquisition cost?',
+      inputs:[{name:'Margin',dist:'normal',p:{mean:25,sd:4}},{name:'Churn',dist:'normal',p:r6(DIST.normal.fit(data)),src:'Fitted: Normal, 24 observations'},fixed('Discount',0.01),{name:'AcqCost',dist:'triangular',p:{min:80,mode:120,max:180}}],
+      outName:'NetCLV',calcs:[{name:'Retention',formula:'1 - Churn'},{name:'LifetimeMargin',formula:'Margin * Retention / (Discount + Churn)'}],formula:'LifetimeMargin - AcqCost',thresh:0,fitText:data.join('\n'),fitNote:'Sample data: monthly churn rate for the last 24 months (0.04 = 4%).',fitTarget:'Churn'};}},
+  option:{label:'Finance · Option pricing',build(){const data=synth(51,250,R=>+(0.0004+0.018*R.n()).toFixed(5));const sd=Math.sqrt(variance(data)*data.length/(data.length-1));const sg=+(sd*Math.sqrt(252)).toFixed(4);
+    return{title:'European call option pricing',notes:`Price a 6-month European call on a stock at 100 with strike 105 and a 6% risk-free rate. Daily log returns for the last 250 trading days are on the Fit data tab.\nFit a Normal to the returns; its standard deviation × √252 is the annual volatility Sigma (here ${sg}). Z is a standard normal draw. The mean simulated CallValue estimates the option price; compare it with Black–Scholes.`,
+      inputs:[{name:'Z',dist:'normal',p:{mean:0,sd:1}},fixed('S0',100),fixed('K',105),fixed('r',0.06),fixed('T',0.5),fixed('Sigma',sg)],
+      outName:'CallValue',calcs:[{name:'ST',formula:'S0*exp((r - 0.5*Sigma^2)*T + Sigma*sqrt(T)*Z)'},{name:'Payoff',formula:'max(ST - K, 0)'}],formula:'exp(-r*T) * Payoff',thresh:0.01,iters:50000,fitText:data.join('\n'),fitNote:'Sample data: 250 daily log returns of the stock.',fitTarget:null};}}
+};
+function buildTemplate(key){const t=TEMPLATES[key].build();return{iters:10000,seed:42,rankBy:'aic',calcs:[],...t,inputs:t.inputs.map((x,i)=>({id:i+1,src:null,...x})),fitIsSample:true,origin:'tpl:'+key};}
+function sanitize(m){if(!m||typeof m!=='object'||!Array.isArray(m.inputs))throw new Error('This isn’t a Monte Carlo Studio case file.');
+  const inputs=m.inputs.map((i,k)=>{if(!i||!DIST[i.dist])throw new Error(`Input ${k+1} uses an unknown distribution.`);const src=i.src?String(i.src):null,name=String(i.name||'Input'+(k+1));
+    if(i.dist==='empirical'){const d=((i.p&&i.p.data)||i.data||[]).map(Number).filter(isFinite);return{id:k+1,name,dist:'empirical',p:{data:d},data:d,src};}
+    const p={};for(const[key]of DIST[i.dist].params)p[key]=Number(i.p&&i.p[key]);return{id:k+1,name,dist:i.dist,p,src};});
+  const num=(v,d)=>Number.isFinite(+v)&&v!==null&&v!==''?+v:d;
+  const calcs=Array.isArray(m.calcs)?m.calcs.filter(c=>c&&typeof c==='object').map(c=>({name:String(c.name||''),formula:String(c.formula||'')})):[];
+  return{title:String(m.title||''),notes:String(m.notes||''),inputs,calcs,outName:String(m.outName||'Output'),formula:String(m.formula||''),
+    iters:[1000,5000,10000,25000,50000,100000].includes(+m.iters)?+m.iters:10000,seed:Math.round(num(m.seed,42)),thresh:num(m.thresh,0),
+    fitText:String(m.fitText||''),fitNote:String(m.fitNote||''),fitIsSample:!!(m.fitText&&m.fitNote),fitTarget:m.fitTarget?String(m.fitTarget):null,rankBy:['aic','bic','ks'].includes(m.rankBy)?m.rankBy:'aic'};}
+function exportObj(){return{app:'Monte Carlo Studio',version:1,title:S.title||'',notes:S.notes||'',
+  inputs:S.inputs.map(i=>i.dist==='empirical'?{name:i.name,dist:i.dist,p:{data:i.p.data},src:i.src||null}:{name:i.name,dist:i.dist,p:Object.fromEntries(DIST[i.dist].params.map(([k])=>[k,i.p[k]])),src:i.src||null}),
+  calcs:S.calcs.map(c=>({name:c.name,formula:c.formula})),outName:S.outName,formula:S.formula,iters:S.iters,seed:S.seed,thresh:S.thresh,fitText:S.fitText,fitNote:S.fitIsSample?(S.fitNote||''):'',fitTarget:S.fitTarget||null,rankBy:S.rankBy};}
+function b64enc(str){const b=new TextEncoder().encode(str);let s='';for(let i=0;i<b.length;i+=0x8000)s+=String.fromCharCode.apply(null,b.subarray(i,i+0x8000));return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');}
+function b64dec(t){t=t.replace(/-/g,'+').replace(/_/g,'/');while(t.length%4)t+='=';const s=atob(t);const b=new Uint8Array(s.length);for(let i=0;i<s.length;i++)b[i]=s.charCodeAt(i);return new TextDecoder().decode(b);}
+function strHash(s){let h=5381;for(let i=0;i<s.length;i++)h=(h*33^s.charCodeAt(i))>>>0;return h.toString(36);}
+const HKEY='mcstudio.saved';
+function histGet(){try{const a=JSON.parse(localStorage.getItem(HKEY)||'[]');return Array.isArray(a)?a:[];}catch(e){return[];}}
+function histSet(a){for(let k=0;k<6;k++){try{localStorage.setItem(HKEY,JSON.stringify(a));return true;}catch(e){if(a.length<=1)return false;a=a.slice(0,a.length-1);}}return false;}
+function snapshot(st){const prev=S;S=st;try{return exportObj();}finally{S=prev;}}
+function isWorth(st){return !!(st&&Array.isArray(st.inputs)&&st.edited);}
+function stash(st){if(!isWorth(st))return null;const snap=snapshot(st);const txt=JSON.stringify(snap);const a=histGet().filter(e=>JSON.stringify(e.model)!==txt);
+  const entry={at:Date.now(),model:snap};a.unshift(entry);histSet(a.slice(0,15));return entry;}
+let linkError=null;
+function load(){let h='';try{h=decodeURIComponent(location.hash.slice(1));}catch(e){}let saved=null;
+  try{const raw=localStorage.getItem(KEY);if(raw){const s=JSON.parse(raw);if(s&&Array.isArray(s.inputs))saved=s;}}catch(e){}
+  if(h.startsWith('case=')){const tag='link:'+strHash(h);if(saved&&saved.origin===tag)return saved;stash(saved);
+    try{const m=sanitize(JSON.parse(b64dec(h.slice(5))));m.origin=tag;return m;}catch(e){linkError='The case in this link couldn’t be read. Ask for the link again, or import the case file.';}}
+  const tk=h.replace(/^case-/,'');if(TEMPLATES[tk]){if(saved&&saved.origin==='tpl:'+tk)return saved;stash(saved);return buildTemplate(tk);}
+  if(saved){if(saved.title===undefined&&saved.isExample!==false&&!saved.origin)return buildTemplate('launch');return saved;}
+  return buildTemplate('launch');}
+let saveT;function save(){clearTimeout(saveT);saveT=setTimeout(()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}},300);}
+function touched(){S.edited=true;if(lastRun){stale=true;$('#staleChip').hidden=false;}save();}
+
+/* ---------- canvas helpers ---------- */
+function colors(){const cs=getComputedStyle(document.documentElement);const g=n=>cs.getPropertyValue(n).trim();
+  return{ink:g('--ink'),muted:g('--muted'),line:g('--line'),grid:g('--grid'),accent:g('--accent'),accentSoft:g('--accent-soft'),fit:g('--fit'),bad:g('--bad'),badSoft:g('--bad-soft'),surface:g('--surface')};}
+function prep(c){const r=c.getBoundingClientRect();const dpr=window.devicePixelRatio||1;const w=Math.max(1,r.width),h=Math.max(1,r.height);
+  c.width=Math.round(w*dpr);c.height=Math.round(h*dpr);const ctx=c.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);return{ctx,w,h};}
+function ticks(a,b,n){const span=b-a;if(!(span>0))return[a];const s0=span/n,mag=10**Math.floor(Math.log10(s0)),e=s0/mag;const st=(e>=7.5?10:e>=3.5?5:e>=1.5?2:1)*mag;
+  const t=[];for(let v=Math.ceil(a/st)*st;v<=b+st*1e-9;v+=st)t.push(+v.toPrecision(12));return t;}
+function frame(canvas,xr,yr,o={}){const{ctx,w,h}=prep(canvas);const C=colors();
+  const m={l:o.yLabels?46:14,r:16,t:22,b:26};const pw=w-m.l-m.r,ph=h-m.t-m.b;
+  const X=v=>m.l+(v-xr[0])/(xr[1]-xr[0])*pw,Y=v=>m.t+ph-(v-yr[0])/(yr[1]-yr[0])*ph;
+  ctx.font='11px "IBM Plex Mono", ui-monospace, monospace';ctx.lineWidth=1;
+  ctx.strokeStyle=C.grid;ctx.fillStyle=C.muted;ctx.textBaseline='top';ctx.textAlign='center';
+  for(const t of ticks(xr[0],xr[1],Math.max(3,Math.floor(pw/95)))){const x=Math.round(X(t))+.5;if(x<m.l-1||x>m.l+pw+1)continue;
+    ctx.beginPath();ctx.moveTo(x,m.t);ctx.lineTo(x,m.t+ph);ctx.stroke();const lab=fmtAxis(t),tw=ctx.measureText(lab).width;
+    ctx.fillText(lab,Math.min(w-tw/2-1,Math.max(tw/2+1,x)),m.t+ph+7);}
+  if(o.yLabels){ctx.textAlign='right';ctx.textBaseline='middle';for(const t of ticks(yr[0],yr[1],4)){const y=Math.round(Y(t))+.5;
+    ctx.beginPath();ctx.moveTo(m.l,y);ctx.lineTo(m.l+pw,y);ctx.stroke();ctx.fillText(o.yLabels(t),m.l-6,y);}}
+  ctx.strokeStyle=C.line;ctx.beginPath();ctx.moveTo(m.l,m.t+ph+.5);ctx.lineTo(m.l+pw,m.t+ph+.5);ctx.stroke();
+  return{ctx,X,Y,C,m,pw,ph,w,h};}
+function vline(f,x,color,label,dash,row=0){const{ctx,X,m,ph}=f;const px=Math.round(X(x))+.5;if(px<m.l||px>m.l+f.pw)return;
+  ctx.save();ctx.strokeStyle=color;ctx.lineWidth=1.25;if(dash)ctx.setLineDash(dash);ctx.beginPath();ctx.moveTo(px,m.t-4);ctx.lineTo(px,m.t+ph);ctx.stroke();ctx.restore();
+  if(label){ctx.save();ctx.font='500 11px "IBM Plex Mono", ui-monospace, monospace';ctx.fillStyle=color;ctx.textBaseline='bottom';const tw=ctx.measureText(label).width;
+    const left=px+tw+6>m.l+f.pw;ctx.textAlign=left?'right':'left';ctx.fillText(label,left?px-4:px+4,m.t-4-row*13+(row?0:0));ctx.restore();}}
+
+/* ---------- input cards ---------- */
+function previewStats(inp){const d=DIST[inp.dist];if(d.check(inp.p))return null;const R=rngObj(1);const n=2000;const a=new Float64Array(n);
+  try{for(let i=0;i<n;i++)a[i]=d.sample(inp.p,R);}catch(e){return null;}a.sort();return{a,m:mean(a),sd:Math.sqrt(variance(a)),p5:pct(a,.05),p95:pct(a,.95)};}
+function drawSpark(c,st){const{ctx,w,h}=prep(c);const C=colors();if(!st)return;const a=st.a,lo=pct(a,.005),hi=pct(a,.995);
+  if(!(hi>lo)){ctx.fillStyle=C.accent;ctx.fillRect(w/2-1.5,2,3,h-4);return;}
+  const nb=24,bw=(hi-lo)/nb,cnt=new Array(nb).fill(0);for(const v of a){if(v<lo||v>hi)continue;cnt[Math.min(nb-1,Math.floor((v-lo)/bw))]++;}
+  const mx=Math.max(...cnt);const cw=w/nb;ctx.fillStyle=C.accent;for(let i=0;i<nb;i++){const bh=(cnt[i]/mx)*(h-2);ctx.fillRect(i*cw+0.5,h-bh,Math.max(1,cw-1),bh);}}
+function defaultsFor(dist,st){const m=st?st.m:100,s=st&&st.sd>0?st.sd:Math.abs(m)*0.1||1;const pm=m>0?m:1;
+  switch(dist){case 'normal':return{mean:sig(m),sd:sig(s)};
+    case 'lognormal':{const s2=Math.log(1+(s*s)/(pm*pm));return{mu:sig(Math.log(pm)-s2/2,5),sigma:sig(Math.sqrt(s2),4)};}
+    case 'uniform':return{min:sig(m-1.732*s),max:sig(m+1.732*s)};
+    case 'triangular':case 'pert':return{min:sig(m-2*s),mode:sig(m),max:sig(m+2*s)};
+    case 'exponential':return{mean:sig(Math.abs(m)||1)};
+    case 'gamma':return{shape:sig((pm/s)**2),scale:sig(s*s/pm)};
+    case 'weibull':return{shape:2,scale:sig(pm/0.8862)};
+    case 'beta':return{alpha:2,beta:2,min:sig(m-2.236*s),max:sig(m+2.236*s)};
+    case 'constant':return{value:sig(m)};}return{};}
+function inputError(inp){if(!/^[A-Za-z_][A-Za-z0-9_]*$/.test(inp.name))return 'Names use letters, digits and _ and start with a letter.';
+  if(RESERVED.has(inp.name))return `“${inp.name}” is reserved for a function. Pick another name.`;
+  if(S.inputs.filter(o=>o.name===inp.name).length>1||(S.calcs||[]).some(c=>c.name===inp.name))return 'Another input or calculation already uses this name.';
+  const d=DIST[inp.dist];for(const[k]of d.params)if(!isFinite(inp.p[k]))return 'Fill in every parameter.';return d.check(inp.p);}
+function renderInputs(){const list=$('#inputList');list.innerHTML='';
+  for(const inp of S.inputs){const el=document.createElement('article');el.className='icard';el.dataset.id=inp.id;
+    const keys=[...MANUAL_KEYS];if(inp.data||inp.dist==='empirical')keys.push('empirical');
+    el.innerHTML=`<div class="icard-top">
+      <input class="iname" id="nm-${inp.id}" value="${esc(inp.name)}" aria-label="Input name" autocomplete="off" spellcheck="false">
+      <select class="idist" id="ds-${inp.id}" aria-label="Distribution">${keys.map(k=>`<option value="${k}"${k===inp.dist?' selected':''}>${DIST[k].label}</option>`).join('')}</select>
+      <button class="icon del" aria-label="Remove ${esc(inp.name)}" title="Remove input">×</button></div>
+      ${inp.dist==='empirical'?`<p class="empnote">Draws at random, with replacement, from ${inp.p.data.length} observed values.</p>`:
+        `<div class="iparams">${DIST[inp.dist].params.map(([k,l])=>`<label for="p-${inp.id}-${k}">${l}<input type="number" step="any" id="p-${inp.id}-${k}" data-k="${k}" value="${inp.p[k]??''}"></label>`).join('')}</div>`}
+      <div class="ifoot"><canvas aria-hidden="true"></canvas><span class="isum"></span></div>
+      ${inp.src?`<p class="isrc">${esc(inp.src)}</p>`:''}
+      <p class="err" hidden></p>`;
+    list.appendChild(el);wireCard(el,inp);refreshCard(el,inp);}
+  renderChips();}
+function refreshCard(el,inp){const e=inputError(inp);const ep=el.querySelector('.err');ep.hidden=!e;ep.textContent=e||'';el.classList.toggle('has-err',!!e);
+  const st=e?null:previewStats(inp);inp._st=st;drawSpark(el.querySelector('canvas'),st);
+  const mo=!e&&MOM[inp.dist]?MOM[inp.dist](inp.p):null;
+  el.querySelector('.isum').textContent=st?(st.sd>0?(mo?`mean ${fmt(mo[0])} · var ${fmt(mo[1])} · 90% in ${fmt(st.p5)}–${fmt(st.p95)}`:`mean ${fmt(st.m)} · var ${fmt(st.sd**2)} · 90% in ${fmt(st.p5)}–${fmt(st.p95)}`):`always ${fmt(st.m)}`):'';}
+function wireCard(el,inp){
+  const nm=el.querySelector('.iname');
+  nm.addEventListener('input',()=>{inp.name=nm.value.trim();refreshAllCards();renderChips();checkFormula();touched();});
+  let before=inp.name;nm.addEventListener('focus',()=>{before=inp.name;});
+  nm.addEventListener('change',()=>{const now=inp.name;if(before&&now!==before&&!inputError(inp))renameRef(before,now);before=now;});
+  el.querySelector('.idist').addEventListener('change',ev=>{const nd=ev.target.value;if(inp.dist==='empirical')inp.data=inp.p.data;
+    inp.p=nd==='empirical'?{data:inp.data}:defaultsFor(nd,inp._st);inp.dist=nd;inp.src=null;touched();renderInputs();});
+  el.querySelector('.del').addEventListener('click',()=>{S.inputs=S.inputs.filter(o=>o!==inp);touched();renderInputs();checkFormula();renderApplyTargets();});
+  el.querySelectorAll('.iparams input').forEach(f=>f.addEventListener('input',()=>{inp.p[f.dataset.k]=f.value===''?NaN:+f.value;inp.src=null;
+    const s=el.querySelector('.isrc');if(s)s.remove();refreshCard(el,inp);touched();}));}
+function refreshAllCards(){document.querySelectorAll('.icard').forEach(el=>{const inp=S.inputs.find(o=>o.id==el.dataset.id);if(inp)refreshCard(el,inp);});}
+let lastF=null;
+document.addEventListener('focusin',e=>{if(e.target.matches&&e.target.matches('#formula,.cformula'))lastF=e.target;});
+function renderChips(){const c=$('#chips');c.innerHTML='';const items=[...S.inputs.map(i=>[i.name,false]),...(S.calcs||[]).map(x=>[x.name,true])];
+  for(const[name,isCalc]of items){if(!name)continue;const b=document.createElement('button');b.type='button';b.textContent=name;if(isCalc)b.className='calc-chip';
+    b.title=`Insert ${name} into the formula you're editing`;
+    b.addEventListener('mousedown',e=>e.preventDefault());
+    b.addEventListener('click',()=>{const t=lastF&&document.body.contains(lastF)?lastF:$('#formula');const s=t.selectionStart??t.value.length,e=t.selectionEnd??s;
+      t.value=t.value.slice(0,s)+name+t.value.slice(e);t.focus();t.selectionStart=t.selectionEnd=s+name.length;t.dispatchEvent(new Event('input',{bubbles:true}));});c.appendChild(b);}}
+function renameRef(before,now){if(!before||before===now||!/^[A-Za-z_]\w*$/.test(before))return;const mk=()=>new RegExp('\\b'+before+'\\b','g');let ch=false;
+  if(mk().test(S.formula)){S.formula=S.formula.replace(mk(),now);$('#formula').value=S.formula;ch=true;}
+  for(const c of S.calcs||[]){if(mk().test(c.formula)){c.formula=c.formula.replace(mk(),now);const t=document.getElementById('cf-'+c.id);if(t)t.value=c.formula;ch=true;}}
+  if(ch)checkFormula();}
+let calcSeq=1;
+function renderCalcs(){const L=$('#calcList');L.innerHTML='';const n=S.calcs.length;
+  S.calcs.forEach((c,ix)=>{if(!c.id)c.id=calcSeq++;const el=document.createElement('div');el.className='calc';el.dataset.id=c.id;
+    el.innerHTML=`<div class="calc-top"><span class="calc-n">${ix+1}</span><input class="cname" id="cn-${c.id}" value="${esc(c.name)}" aria-label="Step ${ix+1} name" autocomplete="off" spellcheck="false"><span class="eq">=</span>
+      <button class="icon up" type="button" title="Move up" aria-label="Move step ${ix+1} up" ${ix===0?'disabled':''}>↑</button><button class="icon down" type="button" title="Move down" aria-label="Move step ${ix+1} down" ${ix===n-1?'disabled':''}>↓</button><button class="icon del" type="button" title="Remove step" aria-label="Remove step ${ix+1}">×</button></div>
+      <textarea class="cformula" id="cf-${c.id}" rows="2" spellcheck="false" aria-label="Formula for step ${ix+1}">${esc(c.formula)}</textarea><p class="err" hidden></p>`;
+    const nm=el.querySelector('.cname'),tf=el.querySelector('.cformula');let before=c.name;
+    nm.addEventListener('focus',()=>{before=c.name;});
+    nm.addEventListener('input',()=>{c.name=nm.value.trim();renderChips();refreshAllCards();checkFormula();touched();});
+    nm.addEventListener('change',()=>{const r=compileModel();if(!r.errs[c.id]||!/name|reserved|already/.test(r.errs[c.id]))renameRef(before,c.name);before=c.name;});
+    tf.addEventListener('input',()=>{c.formula=tf.value;checkFormula();touched();});
+    const move=d=>{const j=ix+d;[S.calcs[ix],S.calcs[j]]=[S.calcs[j],S.calcs[ix]];touched();renderCalcs();const b=document.querySelector(`.calc[data-id="${c.id}"] .${d<0?'up':'down'}`);if(b&&!b.disabled)b.focus();};
+    el.querySelector('.up').addEventListener('click',()=>move(-1));el.querySelector('.down').addEventListener('click',()=>move(1));
+    el.querySelector('.del').addEventListener('click',()=>{S.calcs=S.calcs.filter(x=>x!==c);touched();renderCalcs();refreshAllCards();});
+    L.appendChild(el);});
+  renderChips();checkFormula();}
+
+/* ---------- formula ---------- */
+const conv=e=>e.replace(/\^/g,'**');
+function nameProblem(name){if(!/^[A-Za-z_][A-Za-z0-9_]*$/.test(name))return 'Names use letters, digits and _ and start with a letter.';
+  if(RESERVED.has(name))return `“${name}” is reserved for a function. Pick another name.`;
+  if(S.inputs.some(i=>i.name===name)||S.calcs.filter(c=>c.name===name).length>1)return 'An input or another step already uses this name.';return null;}
+function checkExpr(expr,allowed,later,what,self){if(!expr.trim())return `Enter a formula for ${what}.`;
+  const bad=expr.match(/[^\w\s.+\-*/%()<>=!&|?:,^]/);if(bad)return `The formula can’t use “${bad[0]}”.`;
+  const toks=expr.match(/\d*\.?\d+(?:e[+-]?\d+)?|[A-Za-z_]\w*/gi)||[];
+  for(const t of toks){if(!/^[A-Za-z_]/.test(t)||allowed.has(t)||MATHN.includes(t))continue;
+    if(t===self)return 'A step can’t use its own name in its formula.';
+    return later.has(t)?`“${t}” is worked out further down. Move this step below it.`:`“${t}” isn’t an input, a step or a known function.`;}
+  try{new Function(`return (${conv(expr)});`);}catch(e){return 'This formula has a syntax problem. Check brackets and operators.';}return null;}
+function compileModel(){const calcs=S.calcs||[];const inNames=S.inputs.map(i=>i.name);const allowed=new Set(inNames);const errs={};
+  calcs.forEach((c,ix)=>{const later=new Set(calcs.slice(ix+1).map(x=>x.name));const e=nameProblem(c.name)||checkExpr(c.formula,allowed,later,`step ${ix+1}`,c.name);if(e)errs[c.id]=e;allowed.add(c.name);});
+  const outErr=checkExpr(S.formula,allowed,new Set(),'the output');
+  if(Object.keys(errs).length)return{errs,outErr:outErr||'Fix the calculation steps marked above.',fn:null};
+  if(outErr)return{errs,outErr,fn:null};
+  const body='const {abs,min,max,sqrt,exp,log,log10,pow,round,floor,ceil,PI,E}=Math;const ln=Math.log;const IF=(c,a,b)=>c?a:b;'+
+    calcs.map(c=>`const ${c.name}=(${conv(c.formula)});`).join('')+`return [(${conv(S.formula)})${calcs.map(c=>','+c.name).join('')}];`;
+  try{return{errs,outErr:null,fn:new Function(...inNames,body)};}catch(e){return{errs,outErr:'The model has a syntax problem. Check the input names, brackets and operators.',fn:null};}}
+function checkFormula(){const r=compileModel();
+  document.querySelectorAll('.calc').forEach(el=>{const e=r.errs[el.dataset.id];const p=el.querySelector('.err');p.hidden=!e;p.textContent=e||'';el.classList.toggle('has-err',!!e);});
+  let msg=r.outErr;
+  if(!msg&&r.fn){try{const v=r.fn(...S.inputs.map(i=>i._st?i._st.m:1));if(typeof v[0]!=='number'&&typeof v[0]!=='boolean')msg='The output formula must produce a number.';}catch(e){msg='The model couldn’t be worked out: '+e.message;}}
+  const p=$('#formulaErr');p.hidden=!msg;p.textContent=msg||'';return msg?null:r.fn;}
+
+/* ---------- simulation ---------- */
+function simulate(){const errs=S.inputs.map(inputError).filter(Boolean);const me=$('#modelErr');
+  if(!S.inputs.length){me.hidden=false;me.textContent='Add at least one input.';return false;}
+  if(errs.length){me.hidden=false;me.textContent='Fix the highlighted inputs before running.';return false;}
+  const fn=checkFormula();if(!fn){me.hidden=false;me.textContent='Fix the formula before running.';return false;}
+  me.hidden=true;const t0=performance.now();const N=S.iters,R=rngObj(S.seed),k=S.inputs.length;
+  const cols=S.inputs.map(()=>new Float64Array(N)),out=new Float64Array(N),vals=new Array(k),nc=S.calcs.length,ccols=S.calcs.map(()=>new Float64Array(N));
+  for(let i=0;i<N;i++){for(let j=0;j<k;j++){const inp=S.inputs[j];vals[j]=cols[j][i]=DIST[inp.dist].sample(inp.p,R);}const rv=fn.apply(null,vals);out[i]=+rv[0];for(let c=0;c<nc;c++)ccols[c][i]=+rv[c+1];}
+  let keep=[];for(let i=0;i<N;i++)if(isFinite(out[i]))keep.push(i);const bad=N-keep.length;
+  const o2=Float64Array.from(keep,i=>out[i]),c2=cols.map(c=>Float64Array.from(keep,i=>c[i])),c3=ccols.map(c=>Float64Array.from(keep,i=>c[i]));
+  if(!o2.length){me.hidden=false;me.textContent='Every iteration produced an invalid number (for example a division by zero). Check the formula.';return false;}
+  const sorted=Float64Array.from(o2).sort();const n=o2.length,m=mean(o2),sd=Math.sqrt(variance(o2,m)*n/Math.max(1,n-1));
+  let sk=0;for(const v of o2)sk+=((v-m)/(sd||1))**3;sk/=n;
+  const ro=ranks(o2);const rho=S.inputs.map((inp,j)=>({name:inp.name,r:pearson(ranks(c2[j]),ro)})).filter(x=>isFinite(x.r));
+  lastRun={n,N,bad,out:o2,cols:c2,names:S.inputs.map(i=>i.name),calcNames:S.calcs.map(c=>c.name),calcCols:c3,sorted,m,sd,sk,rho,outName:S.outName||'Output',formula:S.formula,seed:S.seed,ms:performance.now()-t0};
+  stale=false;$('#staleChip').hidden=true;return true;}
+function renderResults(){const R=lastRun;$('#resEmpty').hidden=!!R;$('#resBody').hidden=!R;if(!R)return;
+  $('#resTitle').textContent=R.outName;
+  $('#resMeta').innerHTML=`${R.N.toLocaleString('en')} iterations · seed ${R.seed} · <code>${esc(R.outName)} = ${esc(R.formula)}</code>${R.calcNames.length?` · ${R.calcNames.length} calculation step${R.calcNames.length>1?'s':''}`:''}${R.bad?` · ${R.bad.toLocaleString('en')} invalid results left out`:''}`;
+  renderCaseView();
+  const s=R.sorted,t=S.thresh;let below=0;for(const v of s){if(v<t)below++;else break;}const pb=below/R.n;const ci=1.96*R.sd/Math.sqrt(R.n);
+  const tiles=[['Mean',fmt(R.m),`± ${fmt(ci)} (95% CI)`],['Std deviation',fmt(R.sd),`var ${fmt(R.sd*R.sd)} · skew ${R.sk.toFixed(2)}`],['P5',fmt(pct(s,.05)),'5% fall below'],
+    ['Median',fmt(pct(s,.5)),'P50'],['P95',fmt(pct(s,.95)),'95% fall below'],[`P(${R.outName} < ${fmt(t)})`,fmtPct(pb),`${below.toLocaleString('en')} of ${R.n.toLocaleString('en')}`,'risk']];
+  $('#statRow').innerHTML=tiles.map(([k,v,sub,c])=>`<div class="stat ${c||''}"><div class="k">${esc(k)}</div><div class="v">${v}</div><div class="s">${esc(sub)}</div></div>`).join('');
+  const qs=[.01,.05,.10,.25,.50,.75,.90,.95,.99];
+  $('#pctTable').innerHTML=`<thead><tr><th>Percentile</th>${qs.map(q=>`<th>P${Math.round(q*100)}</th>`).join('')}</tr></thead><tbody><tr><td>${esc(R.outName)}</td>${qs.map(q=>`<td>${fmt(pct(s,q))}</td>`).join('')}</tr>
+    ${R.calcNames.length?`<tr class="grp"><td colspan="${qs.length+1}">Calculation steps</td></tr>`+R.calcNames.map((nm,j)=>{const cs=Float64Array.from(R.calcCols[j]).sort();return `<tr><td>${esc(nm)}</td>${qs.map(q=>`<td>${fmt(pct(cs,q))}</td>`).join('')}</tr>`;}).join('')+`<tr class="grp"><td colspan="${qs.length+1}">Inputs</td></tr>`:''}
+    ${R.names.map((nm,j)=>{const cs=Float64Array.from(R.cols[j]).sort();return `<tr><td>${esc(nm)}</td>${qs.map(q=>`<td>${fmt(pct(cs,q))}</td>`).join('')}</tr>`;}).join('')}</tbody>`;
+  const rows=[...R.rho].sort((a,b)=>Math.abs(b.r)-Math.abs(a.r));const tot=rows.reduce((a,x)=>a+x.r*x.r,0)||1;
+  $('#tornado').innerHTML=rows.length?`<div class="trow thead"><span>Input</span><span style="display:flex;justify-content:space-between"><span>− lowers</span><span>raises +</span></span><span style="text-align:right">ρ</span><span style="text-align:right">Share</span></div>`+
+    rows.map(x=>`<div class="trow"><span class="tname" title="${esc(x.name)}">${esc(x.name)}</span><div class="tbar"><div class="neg">${x.r<0?`<i style="width:${Math.abs(x.r)*100}%"></i>`:''}</div><div class="pos">${x.r>0?`<i style="width:${x.r*100}%"></i>`:''}</div></div><span class="tval">${x.r>=0?'+':'−'}${Math.abs(x.r).toFixed(2)}</span><span class="tpct">${Math.round(x.r*x.r/tot*100)}%</span></div>`).join('')
+    :'<p class="small muted">No varying inputs to compare.</p>';
+  drawResults();}
+function drawResults(){const R=lastRun;if(!R||$('#tab-results').hidden)return;const s=R.sorted,t=S.thresh;
+  let lo=pct(s,.002),hi=pct(s,.998);if(!(hi>lo)){lo-=1;hi+=1;}
+  const nb=Math.min(70,Math.max(24,Math.round(Math.sqrt(R.n)/2))),bw=(hi-lo)/nb,cnt=new Array(nb).fill(0);
+  for(const v of s){if(v<lo||v>hi)continue;cnt[Math.min(nb-1,Math.floor((v-lo)/bw))]++;}
+  const f=frame($('#resHist'),[lo,hi],[0,Math.max(...cnt)*1.08]);const{ctx,X,Y,C}=f;
+  for(let i=0;i<nb;i++){if(!cnt[i])continue;const a=lo+i*bw,x0=X(a)+0.5,x1=X(a+bw)-0.5;ctx.fillStyle=(a+bw/2)<t?C.bad:C.accent;ctx.fillRect(x0,Y(cnt[i]),Math.max(1,x1-x0),Y(0)-Y(cnt[i]));}
+  vline(f,pct(s,.05),C.muted,'P5',[4,3]);vline(f,pct(s,.95),C.muted,'P95',[4,3]);vline(f,R.m,C.ink,'Mean');
+  if(t>lo&&t<hi)vline(f,t,C.bad,`${fmt(t)}`,[2,2]);
+  const out=(pct(s,.002)>s[0]||pct(s,.998)<s[s.length-1]);
+  $('#histCap').textContent=`Red bars fall below the threshold of ${fmt(t)}. Dashed lines mark P5 and P95.${out?` The extreme 0.2% tails on each side (down to ${fmt(s[0])}, up to ${fmt(s[s.length-1])}) are off the chart.`:''}`;
+  const g=frame($('#resCdf'),[lo,hi],[0,1],{yLabels:v=>Math.round(v*100)+'%'});
+  g.ctx.strokeStyle=g.C.accent;g.ctx.lineWidth=2;g.ctx.beginPath();let started=false;
+  for(let k=0;k<=400;k++){const q=k/400,x=pct(s,q);if(x<lo||x>hi)continue;const px=g.X(x),py=g.Y(q);started?g.ctx.lineTo(px,py):(g.ctx.moveTo(px,py),started=true);}g.ctx.stroke();
+  if(t>lo&&t<hi){let b=0;for(const v of s){if(v<t)b++;else break;}const q=b/R.n;vline(g,t,g.C.bad,null,[2,2]);
+    const px=g.X(t),py=g.Y(q);g.ctx.save();g.ctx.setLineDash([2,2]);g.ctx.strokeStyle=g.C.bad;g.ctx.beginPath();g.ctx.moveTo(g.m.l,py);g.ctx.lineTo(px,py);g.ctx.stroke();g.ctx.restore();
+    g.ctx.fillStyle=g.C.bad;g.ctx.beginPath();g.ctx.arc(px,py,3.5,0,7);g.ctx.fill();g.ctx.font='500 11px "IBM Plex Mono", monospace';g.ctx.textBaseline='bottom';
+    const lab=`${fmtPct(q)} below ${fmt(t)}`;const tw=g.ctx.measureText(lab).width;const right=px+8+tw<g.m.l+g.pw;g.ctx.textAlign=right?'left':'right';g.ctx.fillText(lab,right?px+8:px-8,py-5);}}
+
+/* ---------- fitting ---------- */
+function parseValues(text){const toks=text.split(/[\s,;]+/).filter(Boolean);const v=[];let skipped=0;for(const t of toks){const x=Number(t);if(isFinite(x))v.push(x);else skipped++;}return{v,skipped};}
+function runFits(){const{v,skipped}=parseValues(S.fitText);fitData=v;const pm=$('#parseMsg');pm.hidden=!skipped;pm.textContent=skipped?`${skipped} non-numeric ${skipped===1?'entry was':'entries were'} skipped.`:'';
+  $('#sampleNote').hidden=!(S.fitIsSample&&S.fitNote);$('#sampleNote').textContent=(S.fitNote||'')+' Replace it with your own.';fits=[];const n=v.length;renderDesc();
+  if(n<5){selFit=null;renderFitTable();drawFit();return;}
+  const s=[...v].sort((a,b)=>a-b),pos=s[0]>0,nonneg=s[0]>=0,distinct=s[0]!==s[n-1];
+  for(const key of FIT_KEYS){const d=DIST[key];
+    if(!distinct){fits.push({key,na:'All values are equal'});continue;}
+    if(d.needs==='pos'&&!pos){fits.push({key,na:'Needs all values above 0'});continue;}
+    if(d.needs==='nonneg'&&!nonneg){fits.push({key,na:'Needs values of 0 or more'});continue;}
+    let p=null;try{p=d.fit(s);}catch(e){}
+    if(!p||Object.values(p).some(x=>!isFinite(x))||d.check(p)){fits.push({key,na:'Could not fit'});continue;}
+    let ll=0;for(const x of s){const q=d.pdf(x,p);ll+=q>0?Math.log(q):-Infinity;}
+    let D=0;for(let i=0;i<n;i++){const F=d.cdf(s[i],p);D=Math.max(D,F-i/n,(i+1)/n-F);}
+    fits.push({key,p,ll,mom:MOM[key](p),aic:2*d.k-2*ll,bic:d.k*Math.log(n)-2*ll,ks:D,ksp:ksP(D,n)});}
+  sortFits();selFit=fits[0]&&!fits[0].na?fits[0].key:null;renderFitTable();drawFit();}
+function sortFits(){const k=S.rankBy;fits.sort((a,b)=>(a.na?1:0)-(b.na?1:0)||((isFinite(a[k])?a[k]:1e300)-(isFinite(b[k])?b[k]:1e300)));}
+function renderDesc(){const v=fitData,n=v.length;if(!n){$('#descStats').innerHTML='<dt>Values</dt><dd>0</dd>';return;}
+  const s=[...v].sort((a,b)=>a-b),m=mean(v),sd=Math.sqrt(variance(v,m)*n/Math.max(1,n-1));let sk=0;for(const x of v)sk+=((x-m)/(sd||1))**3;sk/=n;
+  $('#descStats').innerHTML=[['Values',n.toLocaleString('en')],['Mean',fmt(m)],['Variance',fmt(sd*sd)],['Std dev',fmt(sd)],['Min',fmt(s[0])],['Median',fmt(pct(s,.5))],['Max',fmt(s[n-1])],['Skewness',sk.toFixed(2)]]
+    .map(([k,x])=>`<dt>${k}</dt><dd>${x}</dd>`).join('')+(n<5?'<dt class="err" style="grid-column:1/-1">Enter at least 5 values to fit.</dt>':'');}
+function renderFitTable(){const t=$('#fitTable');
+  if(!fits.length){t.innerHTML='<tbody><tr><td class="l muted">Enter at least 5 values to compare distributions.</td></tr></tbody>';$('#selName').textContent='—';$('#applyBtn').disabled=true;$('#applyEmp').disabled=fitData.length<1;return;}
+  const best=fits[0].key;
+  t.innerHTML=`<thead><tr><th>#</th><th>Distribution</th><th>Parameters</th><th>Mean</th><th>Variance</th><th>Std dev</th><th>AIC</th><th>BIC</th><th>KS D</th><th>KS p</th></tr></thead><tbody>`+
+    fits.map((f,i)=>f.na?`<tr class="na"><td class="l">–</td><td class="l">${DIST[f.key].label}</td><td class="params" colspan="8">${f.na}</td></tr>`:
+    `<tr data-key="${f.key}" tabindex="0" class="${f.key===selFit?'sel':''}" aria-selected="${f.key===selFit}"><td class="l">${i+1}</td><td class="l">${DIST[f.key].label} ${f.key===best?'<span class="chip best">Best</span>':''}</td><td class="params">${DIST[f.key].show(f.p)}</td>
+      <td>${fmt(f.mom[0])}</td><td>${fmt(f.mom[1])}</td><td>${fmt(Math.sqrt(f.mom[1]))}</td><td>${isFinite(f.aic)?f.aic.toFixed(1):'—'}</td><td>${isFinite(f.bic)?f.bic.toFixed(1):'—'}</td><td>${f.ks.toFixed(3)}</td><td>${f.ksp<0.001?'<0.001':f.ksp.toFixed(3)}</td></tr>`).join('')+'</tbody>';
+  t.querySelectorAll('tbody tr[data-key]').forEach(r=>{const pick=()=>{selFit=r.dataset.key;renderFitTable();drawFit();};r.addEventListener('click',pick);r.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick();}});});
+  $('#selName').textContent=selFit?DIST[selFit].label:'—';$('#applyBtn').disabled=!selFit;$('#applyEmp').disabled=!fitData.length;}
+function drawFit(){if($('#tab-fit').hidden)return;const v=fitData,n=v.length;const C=colors();
+  const lg=$('#fitLegend');const sel=fits.find(f=>f.key===selFit),best=fits[0]&&!fits[0].na?fits[0]:null;
+  lg.innerHTML=n?`<span><i class="bar" style="background:var(--accent-soft);border:1px solid var(--accent)"></i>Data</span>`+(sel?`<span><i style="border-color:var(--fit)"></i>${DIST[sel.key].label}</span>`:'')+(best&&sel&&best.key!==sel.key?`<span><i style="border-color:var(--accent);border-top-style:dashed"></i>${DIST[best.key].label} (best)</span>`:''):'';
+  if(n<2){prep($('#fitPdf'));prep($('#fitCdf'));return;}
+  const s=[...v].sort((a,b)=>a-b),r=s[n-1]-s[0]||Math.abs(s[0])||1,lo=s[0]-r*0.08,hi=s[n-1]+r*0.08;
+  const nb=Math.min(40,Math.max(6,Math.round(Math.sqrt(n)*1.2))),bw=(s[n-1]-s[0]||1)/nb,cnt=new Array(nb).fill(0);
+  for(const x of s)cnt[Math.min(nb-1,Math.floor((x-s[0])/bw))]++;const dens=cnt.map(c=>c/(n*bw));const hmax=Math.max(...dens);
+  const curves=[];for(const f of [sel,best&&sel&&best.key!==sel.key?best:null]){if(!f)continue;const pts=[];for(let i=0;i<=240;i++){const x=lo+(hi-lo)*i/240;pts.push([x,DIST[f.key].pdf(x,f.p)]);}curves.push({f,pts});}
+  let ymax=hmax;for(const c of curves)for(const[,y]of c.pts)if(isFinite(y))ymax=Math.max(ymax,Math.min(y,hmax*1.6));
+  const g=frame($('#fitPdf'),[lo,hi],[0,ymax*1.08]);
+  for(let i=0;i<nb;i++){const a=s[0]+i*bw,x0=g.X(a)+0.5,x1=g.X(a+bw)-0.5;g.ctx.fillStyle=C.accentSoft;g.ctx.fillRect(x0,g.Y(dens[i]),Math.max(1,x1-x0),g.Y(0)-g.Y(dens[i]));
+    g.ctx.strokeStyle=C.accent;g.ctx.globalAlpha=.55;g.ctx.strokeRect(x0+.5,g.Y(dens[i])+.5,Math.max(1,x1-x0)-1,g.Y(0)-g.Y(dens[i])-1);g.ctx.globalAlpha=1;}
+  g.ctx.save();g.ctx.beginPath();g.ctx.rect(g.m.l,g.m.t-2,g.pw,g.ph+2);g.ctx.clip();
+  curves.slice().reverse().forEach(c=>{const isSel=c.f===sel;g.ctx.strokeStyle=isSel?C.fit:C.accent;g.ctx.lineWidth=isSel?2.25:1.5;g.ctx.setLineDash(isSel?[]:[5,4]);g.ctx.beginPath();
+    let st=false;for(const[x,y]of c.pts){if(!isFinite(y))continue;const py=g.Y(Math.min(y,ymax*1.2));st?g.ctx.lineTo(g.X(x),py):(g.ctx.moveTo(g.X(x),py),st=true);}g.ctx.stroke();});g.ctx.restore();
+  const h=frame($('#fitCdf'),[lo,hi],[0,1],{yLabels:x=>Math.round(x*100)+'%'});h.ctx.strokeStyle=C.muted;h.ctx.lineWidth=1.5;h.ctx.beginPath();h.ctx.moveTo(h.X(lo),h.Y(0));
+  for(let i=0;i<n;i++){h.ctx.lineTo(h.X(s[i]),h.Y(i/n));h.ctx.lineTo(h.X(s[i]),h.Y((i+1)/n));}h.ctx.lineTo(h.X(hi),h.Y(1));h.ctx.stroke();
+  if(sel){h.ctx.strokeStyle=C.fit;h.ctx.lineWidth=2.25;h.ctx.beginPath();for(let i=0;i<=240;i++){const x=lo+(hi-lo)*i/240,y=DIST[sel.key].cdf(x,sel.p);i?h.ctx.lineTo(h.X(x),h.Y(y)):h.ctx.moveTo(h.X(x),h.Y(y));}h.ctx.stroke();}}
+function renderApplyTargets(){const sel=$('#applyTarget');const cur=sel.value;sel.innerHTML=S.inputs.map(i=>`<option value="${i.id}">${esc(i.name)}</option>`).join('')+'<option value="new">a new input</option>';
+  if([...sel.options].some(o=>o.value===cur))sel.value=cur;
+  else{const t=S.inputs.find(i=>i.name===S.fitTarget);sel.value=t?String(t.id):(S.inputs[0]?String(S.inputs[0].id):'new');}
+  $('#applyName').hidden=sel.value!=='new';}
+function applyFit(empirical){const msg=$('#applyMsg');const tgt=$('#applyTarget').value;let inp;
+  if(tgt==='new'){const name=$('#applyName').value.trim();if(!/^[A-Za-z_][A-Za-z0-9_]*$/.test(name)||RESERVED.has(name)||S.inputs.some(i=>i.name===name)){msg.hidden=false;msg.className='err';msg.textContent='Give the new input a unique name using letters, digits and _, starting with a letter.';return;}
+    inp={id:nextId++,name,dist:'normal',p:{}};S.inputs.push(inp);}else inp=S.inputs.find(i=>String(i.id)===tgt);
+  if(!inp)return;
+  if(empirical){inp.dist='empirical';inp.data=[...fitData];inp.p={data:inp.data};inp.src=`Resampling ${fitData.length} observations`;}
+  else{const f=fits.find(x=>x.key===selFit);inp.dist=f.key;inp.p=Object.fromEntries(Object.entries(f.p).map(([k,v])=>[k,sig(v,6)]));inp.src=`Fitted: ${DIST[f.key].label}, ${fitData.length} observations`;}
+  touched();renderInputs();renderApplyTargets();$('#applyTarget').value=String(inp.id);$('#applyName').hidden=true;$('#applyName').value='';
+  msg.hidden=false;msg.className='ok';msg.innerHTML=`${esc(inp.name)} now uses ${empirical?'the data directly':DIST[inp.dist].label}. <button class="btn link" data-go="model">Go to Model</button> and run the simulation to see the effect.`;}
+function parseCSV(text){const lines=text.split(/\r?\n/).filter(l=>l.trim());if(!lines.length)return[];
+  const delim=[',',';','\t'].map(d=>[d,lines[0].split(d).length]).sort((a,b)=>b[1]-a[1])[0][0];
+  const rows=lines.map(l=>l.split(delim).map(c=>c.trim().replace(/^"|"$/g,'')));const header=rows[0].some(c=>c!==''&&!isFinite(Number(c)));
+  const body=header?rows.slice(1):rows;const w=Math.max(...rows.map(r=>r.length));const cols=[];
+  for(let i=0;i<w;i++){const vals=body.map(r=>r[i]).filter(c=>c!==undefined&&c!==''&&isFinite(Number(c))).map(Number);if(vals.length>=2)cols.push({name:(header&&rows[0][i])||`Column ${i+1}`,vals});}return cols;}
+
+/* ---------- tabs & wiring ---------- */
+function showTab(name){for(const t of ['model','fit','results']){$('#tab-'+t).hidden=t!==name;$('#t-'+t).setAttribute('aria-selected',t===name);$('#t-'+t).tabIndex=t===name?0:-1;}
+  try{localStorage.setItem(KEY+'.tab',name);}catch(e){}
+  requestAnimationFrame(()=>{if(name==='results')drawResults();if(name==='fit')drawFit();if(name==='model')refreshAllCards();});}
+document.querySelectorAll('.tabs button').forEach(b=>{b.addEventListener('click',()=>showTab(b.dataset.tab));
+  b.addEventListener('keydown',e=>{const order=['model','fit','results'];let i=order.indexOf(b.dataset.tab);if(e.key==='ArrowRight')i=(i+1)%3;else if(e.key==='ArrowLeft')i=(i+2)%3;else return;showTab(order[i]);$('#t-'+order[i]).focus();});});
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g)showTab(g.dataset.go);});
+
+function renderCaseView(){const k=$('#caseKick'),n=$('#notesView');k.hidden=!S.title;k.textContent=S.title||'';n.hidden=!S.notes;n.textContent=S.notes||'';}
+function applyState(){if(!Array.isArray(S.calcs))S.calcs=[];S.calcs.forEach(c=>{c.id=calcSeq++;});nextId=Math.max(0,...S.inputs.map(i=>i.id||0))+1;S.inputs.forEach(i=>{if(!i.id)i.id=nextId++;});lastRun=null;stale=false;$('#staleChip').hidden=true;
+  $('#applyTarget').value='';bindTop();renderInputs();renderCalcs();renderApplyTargets();runFits();checkFormula();simulate();renderResults();renderCaseView();save();}
+function bindTop(){$('#caseTitle').value=S.title||'';$('#caseNotes').value=S.notes||'';$('#outName').value=S.outName;$('#formula').value=S.formula;$('#iters').value=String(S.iters);$('#seed').value=S.seed;$('#thresh').value=S.thresh;
+  $('#fitData').value=S.fitText;$('#rankBy').value=S.rankBy;}
+$('#outName').addEventListener('input',e=>{S.outName=e.target.value.trim()||'Output';touched();});
+$('#formula').addEventListener('input',e=>{S.formula=e.target.value;checkFormula();touched();});
+$('#iters').addEventListener('change',e=>{S.iters=+e.target.value;touched();});
+$('#seed').addEventListener('input',e=>{S.seed=Math.round(+e.target.value)||0;touched();});
+$('#thresh').addEventListener('input',e=>{const v=parseFloat(e.target.value);if(isFinite(v)){S.thresh=v;save();renderResults();}});
+$('#addCalc').addEventListener('click',()=>{let k=S.calcs.length+1;const used=n=>S.inputs.some(i=>i.name===n)||S.calcs.some(c=>c.name===n);while(used('Step'+k))k++;
+  const c={id:calcSeq++,name:'Step'+k,formula:''};S.calcs.push(c);touched();renderCalcs();const el=document.getElementById('cn-'+c.id);if(el){el.focus();el.select();}});
+$('#addInput').addEventListener('click',()=>{let k=S.inputs.length+1;while(S.inputs.some(i=>i.name==='Input'+k))k++;
+  S.inputs.push({id:nextId++,name:'Input'+k,dist:'normal',p:{mean:100,sd:10}});touched();renderInputs();renderApplyTargets();
+  const el=document.querySelector(`#nm-${nextId-1}`);if(el){el.focus();el.select();}});
+$('#runBtn').addEventListener('click',()=>{const b=$('#runBtn');b.disabled=true;b.textContent='Running…';
+  setTimeout(()=>{const ok=simulate();b.disabled=false;b.textContent='Run simulation';if(ok){renderResults();showTab('results');}},20);});
+$('#caseTitle').addEventListener('input',e=>{S.title=e.target.value;S.edited=true;renderCaseView();save();});
+$('#caseNotes').addEventListener('input',e=>{S.notes=e.target.value;S.edited=true;renderCaseView();save();});
+$('#tplSel').innerHTML=Object.entries(TEMPLATES).map(([k,t])=>`<option value="${k}">${esc(t.label)}</option>`).join('');
+const closePanels=()=>{$('#tplConfirm').hidden=true;$('#exportPanel').hidden=true;$('#importPanel').hidden=true;$('#histPanel').hidden=true;};
+const label=m=>(m.title||m.outName||'Untitled model');
+let undoEntry=null;
+function replaceModel(next,what){const entry=stash(S);S=next;applyState();renderHist();
+  undoEntry=entry;const ub=$('#undoBar');if(entry){$('#undoText').textContent=`Loaded ${what}. Your previous model, “${label(entry.model)}”, is kept under Saved models.`;$('#undoBtn').hidden=false;ub.hidden=false;}else ub.hidden=true;}
+function restoreEntry(entry){let m;try{m=sanitize(entry.model);}catch(e){return;}m.edited=true;m.origin='restored:'+entry.at;replaceModel(m,`“${label(entry.model)}”`);}
+$('#undoBtn').addEventListener('click',()=>{if(!undoEntry)return;const e=undoEntry;const a=histGet().filter(x=>x.at!==e.at);restoreEntry(e);histSet([...histGet().filter(x=>x.at!==e.at)]);renderHist();$('#undoBar').hidden=true;undoEntry=null;});
+$('#undoClose').addEventListener('click',()=>{$('#undoBar').hidden=true;});
+function renderHist(){const a=histGet();$('#histCount').textContent=a.length;$('#histCount').hidden=!a.length;const L=$('#histList');
+  if(!a.length){L.innerHTML='<p class="small muted">No saved models yet.</p>';return;}
+  L.innerHTML=a.map((e,i)=>{const m=e.model||{};const d=new Date(e.at);return `<div class="hist-row"><div style="min-width:0"><div class="hist-t">${esc(label(m))}</div><div class="hist-m">${esc(d.toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'}))} · ${(m.inputs||[]).length} inputs${(m.calcs||[]).length?` · ${m.calcs.length} step${m.calcs.length>1?'s':''}`:''}</div></div>
+    <button class="btn primary sm" data-restore="${i}">Restore</button><button class="btn ghost sm" data-hdel="${i}" aria-label="Delete ${esc(label(m))}">Delete</button></div>`;}).join('');
+  L.querySelectorAll('[data-restore]').forEach(b=>b.addEventListener('click',()=>{const e=histGet()[+b.dataset.restore];if(!e)return;closePanels();histSet(histGet().filter(x=>x.at!==e.at));restoreEntry(e);showTab('model');}));
+  L.querySelectorAll('[data-hdel]').forEach(b=>b.addEventListener('click',()=>{const a2=histGet();a2.splice(+b.dataset.hdel,1);histSet(a2);renderHist();}));}
+$('#histBtn').addEventListener('click',()=>{const open=$('#histPanel').hidden;closePanels();if(!open)return;renderHist();$('#histPanel').hidden=false;});
+$('#tplLoad').addEventListener('click',()=>{const t=TEMPLATES[$('#tplSel').value];closePanels();$('#tplConfirmText').textContent=`Load “${t.label.split(' · ')[1]}”? Your current model is kept under Saved models, so you can switch back.`;$('#tplConfirm').hidden=false;});
+$('#tplNo').addEventListener('click',closePanels);
+$('#tplYes').addEventListener('click',()=>{closePanels();const k=$('#tplSel').value;replaceModel(buildTemplate(k),`“${TEMPLATES[k].label.split(' · ')[1]}”`);showTab('model');});
+const framed=(()=>{try{return window.self!==window.top;}catch(e){return true;}})();
+function slug(){return((S.title||S.outName||'case').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'case');}
+$('#exportBtn').addEventListener('click',()=>{const open=$('#exportPanel').hidden;closePanels();if(!open)return;$('#exportPanel').hidden=false;$('#exportMsg').hidden=true;
+  $('#exportText').value=JSON.stringify(exportObj(),null,1);$('#dlBtn').hidden=framed;$('#linkBtn').hidden=framed;$('#framedNote').hidden=!framed;});
+function exportCopy(text,ok){const m=$('#exportMsg');const fb=()=>{const t=$('#exportText');t.value=text;t.focus();t.select();m.hidden=false;m.className='small muted';m.textContent='Copying isn’t allowed here. The text is selected; press Ctrl+C or ⌘C.';};
+  try{navigator.clipboard.writeText(text).then(()=>{m.hidden=false;m.className='ok';m.textContent=ok;},fb);}catch(e){fb();}}
+$('#copyExport').addEventListener('click',()=>exportCopy(JSON.stringify(exportObj(),null,1),'Case text copied. Paste it into a text file saved as .json, or straight into Import case.'));
+$('#dlBtn').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(exportObj(),null,1)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=slug()+'.json';
+  document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);const m=$('#exportMsg');m.hidden=false;m.className='ok';m.textContent=`Downloaded ${slug()}.json.`;});
+$('#linkBtn').addEventListener('click',()=>{const url=location.href.split('#')[0]+'#case='+b64enc(JSON.stringify(exportObj()));
+  exportCopy(url,url.length>8000?`Link copied (${Math.round(url.length/1000)}k characters). Long links can break in some apps; the case file is safer for large data.`:'Share link copied. Anyone who opens it gets this case loaded.');});
+$('#importBtn').addEventListener('click',()=>{const open=$('#importPanel').hidden;closePanels();if(!open)return;$('#importPanel').hidden=false;$('#importMsg').hidden=true;$('#importText').focus();});
+$('#importCancel').addEventListener('click',closePanels);
+$('#importFile').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{$('#importText').value=String(rd.result);e.target.value='';importNow();};rd.readAsText(f);});
+function importNow(){const m=$('#importMsg');let obj;try{obj=sanitize(JSON.parse($('#importText').value));}catch(e){m.hidden=false;m.textContent=e instanceof SyntaxError?'This text isn’t a valid case file. Paste the whole file, from the first { to the last }.':e.message;return;}
+  obj.origin='import:'+strHash($('#importText').value);closePanels();$('#importText').value='';replaceModel(obj,`“${label(obj)}”`);showTab('model');}
+$('#importGo').addEventListener('click',importNow);
+let fitT;$('#fitData').addEventListener('input',e=>{S.fitText=e.target.value;S.fitIsSample=false;S.edited=true;$('#fitCol').hidden=true;save();clearTimeout(fitT);fitT=setTimeout(runFits,300);});
+$('#rankBy').addEventListener('change',e=>{S.rankBy=e.target.value;save();if(fits.length){sortFits();renderFitTable();drawFit();}});
+let csvCols=[];
+$('#fitFile').addEventListener('change',e=>{const file=e.target.files[0];if(!file)return;const rd=new FileReader();rd.onload=()=>{csvCols=parseCSV(String(rd.result));const pm=$('#parseMsg');
+  if(!csvCols.length){pm.hidden=false;pm.textContent=`No numeric column found in ${file.name}.`;return;}
+  const sel=$('#fitCol');sel.innerHTML=csvCols.map((c,i)=>`<option value="${i}">${esc(c.name)} (${c.vals.length})</option>`).join('');sel.hidden=csvCols.length<2;sel.value='0';useCol(0);
+  pm.hidden=false;pm.textContent=`Loaded ${file.name}${csvCols.length>1?' — choose the column to fit':''}.`;e.target.value='';};rd.readAsText(file);});
+$('#fitCol').addEventListener('change',e=>useCol(+e.target.value));
+function useCol(i){const c=csvCols[i];if(!c)return;S.fitText=c.vals.join('\n');S.fitIsSample=false;S.edited=true;$('#fitData').value=S.fitText;save();const keep=$('#parseMsg').textContent;runFits();$('#parseMsg').hidden=false;$('#parseMsg').textContent=keep;}
+$('#applyTarget').addEventListener('change',e=>{$('#applyName').hidden=e.target.value!=='new';if(e.target.value==='new')$('#applyName').focus();});
+$('#applyBtn').addEventListener('click',()=>applyFit(false));
+$('#applyEmp').addEventListener('click',()=>applyFit(true));
+
+function copyText(text,okMsg){const m=$('#copyMsg'),fb=$('#copyFallback');const fallback=()=>{fb.hidden=false;fb.value=text;fb.focus();fb.select();m.hidden=false;m.textContent='Copying isn’t allowed here. The text is selected below; press Ctrl+C or ⌘C.';};
+  try{navigator.clipboard.writeText(text).then(()=>{fb.hidden=true;m.hidden=false;m.textContent=okMsg;},fallback);}catch(e){fallback();}}
+$('#copyBtn').addEventListener('click',()=>{const t=$('#pctTable');copyText([...t.rows].map(r=>[...r.cells].map(c=>c.textContent).join('\t')).join('\n'),'Percentile table copied. It pastes into a spreadsheet as columns.');});
+$('#copyRaw').addEventListener('click',()=>{const R=lastRun;if(!R)return;const lim=Math.min(R.n,20000);const L=[[...R.names,...R.calcNames,R.outName].join(',')];
+  for(let i=0;i<lim;i++)L.push([...R.cols.map(c=>c[i]),...R.calcCols.map(c=>c[i]),R.out[i]].join(','));copyText(L.join('\n'),lim<R.n?`First ${lim.toLocaleString('en')} of ${R.n.toLocaleString('en')} iterations copied as CSV.`:`${lim.toLocaleString('en')} iterations copied as CSV.`);});
+
+let rz;const redraw=()=>{cancelAnimationFrame(rz);rz=requestAnimationFrame(()=>{drawResults();drawFit();if(!$('#tab-model').hidden)refreshAllCards();});};
+new ResizeObserver(redraw).observe(document.querySelector('main'));
+try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',redraw);}catch(e){}
+new MutationObserver(redraw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme','class']});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(redraw);
+
+/* ---------- boot ---------- */
+S=load();applyState();renderHist();
+{const k=(S.origin||'').startsWith('tpl:')?S.origin.slice(4):null;if(k&&TEMPLATES[k])$('#tplSel').value=k;}
+if(linkError){closePanels();$('#importPanel').hidden=false;const m=$('#importMsg');m.hidden=false;m.textContent=linkError;}
+let startTab='results';try{const h=location.hash.replace('#','');const st=localStorage.getItem(KEY+'.tab');startTab=['model','fit','results'].includes(h)?h:(['model','fit','results'].includes(st)?st:'results');}catch(e){}
+showTab(linkError?'model':(lastRun?startTab:'model'));
+</script>
+
+</body>
+</html>
