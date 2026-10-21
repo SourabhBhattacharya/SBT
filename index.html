@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Fit distributions to data, build a model and run Monte Carlo simulations in the browser.">
+<meta name="description" content="Stochastic Business Toolkit (SBT): fit distributions to data, build a model in steps and run Monte Carlo simulations in the browser.">
 <style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Monte Carlo Studio</title>
+<title>SBT – Stochastic Business Toolkit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -215,8 +215,8 @@ td.params{text-align:left;font-size:12px;color:var(--muted)}
 <div class="app">
   <header class="top">
     <div class="brand">
-      <p class="kicker">Risk simulation workbench</p>
-      <h1>Monte Carlo Studio</h1>
+      <p class="kicker">SBT · Monte Carlo simulation for business decisions</p>
+      <h1>Stochastic Business Toolkit</h1>
       <p>Fit probability distributions to your data, describe how inputs combine into an outcome, and simulate thousands of scenarios.</p>
     </div>
     <nav class="tabs" role="tablist" aria-label="Sections">
@@ -574,7 +574,7 @@ const TEMPLATES={
       outName:'CallValue',calcs:[{name:'ST',formula:'S0*exp((r - 0.5*Sigma^2)*T + Sigma*sqrt(T)*Z)'},{name:'Payoff',formula:'max(ST - K, 0)'}],formula:'exp(-r*T) * Payoff',thresh:0.01,iters:50000,fitText:data.join('\n'),fitNote:'Sample data: 250 daily log returns of the stock.',fitTarget:null};}}
 };
 function buildTemplate(key){const t=TEMPLATES[key].build();return{iters:10000,seed:42,rankBy:'aic',calcs:[],...t,inputs:t.inputs.map((x,i)=>({id:i+1,src:null,...x})),fitIsSample:true,origin:'tpl:'+key};}
-function sanitize(m){if(!m||typeof m!=='object'||!Array.isArray(m.inputs))throw new Error('This isn’t a Monte Carlo Studio case file.');
+function sanitize(m){if(!m||typeof m!=='object'||!Array.isArray(m.inputs))throw new Error('This isn’t an SBT case file.');
   const inputs=m.inputs.map((i,k)=>{if(!i||!DIST[i.dist])throw new Error(`Input ${k+1} uses an unknown distribution.`);const src=i.src?String(i.src):null,name=String(i.name||'Input'+(k+1));
     if(i.dist==='empirical'){const d=((i.p&&i.p.data)||i.data||[]).map(Number).filter(isFinite);return{id:k+1,name,dist:'empirical',p:{data:d},data:d,src};}
     const p={};for(const[key]of DIST[i.dist].params)p[key]=Number(i.p&&i.p[key]);return{id:k+1,name,dist:i.dist,p,src};});
@@ -583,7 +583,7 @@ function sanitize(m){if(!m||typeof m!=='object'||!Array.isArray(m.inputs))throw 
   return{title:String(m.title||''),notes:String(m.notes||''),inputs,calcs,outName:String(m.outName||'Output'),formula:String(m.formula||''),
     iters:[1000,5000,10000,25000,50000,100000].includes(+m.iters)?+m.iters:10000,seed:Math.round(num(m.seed,42)),thresh:num(m.thresh,0),
     fitText:String(m.fitText||''),fitNote:String(m.fitNote||''),fitIsSample:!!(m.fitText&&m.fitNote),fitTarget:m.fitTarget?String(m.fitTarget):null,rankBy:['aic','bic','ks'].includes(m.rankBy)?m.rankBy:'aic'};}
-function exportObj(){return{app:'Monte Carlo Studio',version:1,title:S.title||'',notes:S.notes||'',
+function exportObj(){return{app:'Stochastic Business Toolkit (SBT)',version:1,title:S.title||'',notes:S.notes||'',
   inputs:S.inputs.map(i=>i.dist==='empirical'?{name:i.name,dist:i.dist,p:{data:i.p.data},src:i.src||null}:{name:i.name,dist:i.dist,p:Object.fromEntries(DIST[i.dist].params.map(([k])=>[k,i.p[k]])),src:i.src||null}),
   calcs:S.calcs.map(c=>({name:c.name,formula:c.formula})),outName:S.outName,formula:S.formula,iters:S.iters,seed:S.seed,thresh:S.thresh,fitText:S.fitText,fitNote:S.fitIsSample?(S.fitNote||''):'',fitTarget:S.fitTarget||null,rankBy:S.rankBy};}
 function b64enc(str){const b=new TextEncoder().encode(str);let s='';for(let i=0;i<b.length;i+=0x8000)s+=String.fromCharCode.apply(null,b.subarray(i,i+0x8000));return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');}
