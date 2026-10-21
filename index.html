@@ -301,6 +301,9 @@ td.params{text-align:left;font-size:12px;color:var(--muted)}
             </label>
             <label for="seed">Random seed<input id="seed" type="number" step="1"></label>
           </div>
+          <label for="sampling">Sampling method
+            <select id="sampling"><option value="lhs">Latin Hypercube (@RISK default)</option><option value="mc">Monte Carlo (simple random)</option></select>
+          </label>
           <p id="modelErr" class="err" hidden></p>
           <div class="run-row">
             <button id="runBtn" class="btn primary">Run simulation</button>
@@ -523,6 +526,32 @@ const MOM={
   beta:p=>{const w=p.max-p.min,s=p.alpha+p.beta;return[p.min+w*p.alpha/s,w*w*p.alpha*p.beta/(s*s*(s+1))];},
   pert:p=>{const w=p.max-p.min,a=1+4*(p.mode-p.min)/w,b=1+4*(p.max-p.mode)/w,s=a+b;return[p.min+w*a/s,w*w*a*b/(s*s*(s+1))];},
   constant:p=>[p.value,0]};
+/* inverse CDFs for Latin Hypercube sampling */
+function normInv(p){const a=[-3.969683028665376e1,2.209460984245205e2,-2.759285104469687e2,1.383577518672690e2,-3.066479806614716e1,2.506628277459239],
+  b=[-5.447609879822406e1,1.615858368580409e2,-1.556989798598866e2,6.680131188771972e1,-1.328068155288572e1],c=[-7.784894002430293e-3,-3.223964580411365e-1,-2.400758277161838,-2.549732539343734,4.374664141464968,2.938163982698783],
+  d=[7.784695709041462e-3,3.224671290700398e-1,2.445134137142996,3.754408661907416];let q,r,x;
+  if(p<0.02425){q=Math.sqrt(-2*Math.log(p));x=(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+  else if(p>1-0.02425){q=Math.sqrt(-2*Math.log(1-p));x=-(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+  else{q=p-0.5;r=q*q;x=(((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);}
+  const e=normCdf(x)-p,u=e*SQ2PI*Math.exp(x*x/2);return x-u/(1+x*u/2);}
+function tableInv(cdf,lo,hi){const M=8000,xs=new Float64Array(M+1),F=new Float64Array(M+1);for(let i=0;i<=M;i++){xs[i]=lo+(hi-lo)*i/M;F[i]=cdf(xs[i]);}
+  return u=>{let l=0,h=M;while(h-l>1){const m=(l+h)>>1;if(F[m]<u)l=m;else h=m;}const d=F[h]-F[l];return d>0?xs[l]+(xs[h]-xs[l])*(u-F[l])/d:xs[l];};}
+function quantileFn(inp){const p=inp.p;switch(inp.dist){
+  case 'normal':return u=>p.mean+p.sd*normInv(u);
+  case 'lognormal':return u=>Math.exp(p.mu+p.sigma*normInv(u));
+  case 'uniform':return u=>p.min+(p.max-p.min)*u;
+  case 'triangular':{const{min:a,mode:c,max:b}=p;return u=>u<(c-a)/(b-a)?a+Math.sqrt(u*(b-a)*(c-a)):b-Math.sqrt((1-u)*(b-a)*(b-c));}
+  case 'exponential':return u=>-p.mean*Math.log(1-u);
+  case 'weibull':return u=>p.scale*Math.pow(-Math.log(1-u),1/p.shape);
+  case 'gamma':{const m=p.shape*p.scale,sd=Math.sqrt(p.shape)*p.scale;return tableInv(x=>gammaP(p.shape,x/p.scale),0,m+14*sd);}
+  case 'beta':return tableInv(x=>betaI(p.alpha,p.beta,(x-p.min)/(p.max-p.min)),p.min,p.max);
+  case 'pert':{const w=p.max-p.min,a=1+4*(p.mode-p.min)/w,b=1+4*(p.max-p.mode)/w;return tableInv(x=>betaI(a,b,(x-p.min)/w),p.min,p.max);}
+  case 'constant':return()=>p.value;
+  case 'empirical':{const d=[...p.data].sort((x,y)=>x-y);return u=>d[Math.min(d.length-1,Math.floor(u*d.length))];}}
+  return null;}
+function lhsColumn(inp,N,R){const q=quantileFn(inp),out=new Float64Array(N);if(inp.dist==='constant'){out.fill(inp.p.value);return out;}
+  const perm=new Uint32Array(N);for(let i=0;i<N;i++)perm[i]=i;for(let i=N-1;i>0;i--){const j=Math.floor(R.u()*(i+1));const t=perm[i];perm[i]=perm[j];perm[j]=t;}
+  for(let i=0;i<N;i++){let u=(perm[i]+R.u())/N;if(u<=0)u=1e-12;if(u>=1)u=1-1e-12;out[i]=q(u);}return out;}
 const FIT_KEYS=['normal','lognormal','gamma','weibull','exponential','uniform','triangular','beta'];
 const MANUAL_KEYS=['normal','lognormal','triangular','pert','uniform','gamma','weibull','exponential','beta','constant'];
 const MATHN=['abs','min','max','sqrt','exp','log','ln','log10','pow','round','floor','ceil','PI','E','IF'];
@@ -576,7 +605,7 @@ const TEMPLATES={
       inputs:[{name:'Z',dist:'normal',p:{mean:0,sd:1}},fixed('S0',100),fixed('K',105),fixed('r',0.06),fixed('T',0.5),fixed('Sigma',sg)],
       outName:'CallValue',calcs:[{name:'ST',formula:'S0*exp((r - 0.5*Sigma^2)*T + Sigma*sqrt(T)*Z)'},{name:'Payoff',formula:'max(ST - K, 0)'}],formula:'exp(-r*T) * Payoff',thresh:0.01,iters:50000,fitText:data.join('\n'),fitNote:'Sample data: 250 daily log returns of the stock.',fitTarget:null};}}
 };
-function buildTemplate(key){const t=TEMPLATES[key].build();return{iters:10000,seed:42,rankBy:'aic',calcs:[],...t,inputs:t.inputs.map((x,i)=>({id:i+1,src:null,...x})),fitIsSample:true,origin:'tpl:'+key};}
+function buildTemplate(key){const t=TEMPLATES[key].build();return{iters:10000,seed:42,sampling:'lhs',rankBy:'aic',calcs:[],...t,inputs:t.inputs.map((x,i)=>({id:i+1,src:null,...x})),fitIsSample:true,origin:'tpl:'+key};}
 function sanitize(m){if(!m||typeof m!=='object'||!Array.isArray(m.inputs))throw new Error('This isn’t an SBT case file.');
   const inputs=m.inputs.map((i,k)=>{if(!i||!DIST[i.dist])throw new Error(`Input ${k+1} uses an unknown distribution.`);const src=i.src?String(i.src):null,name=String(i.name||'Input'+(k+1));
     if(i.dist==='empirical'){const d=((i.p&&i.p.data)||i.data||[]).map(Number).filter(isFinite);return{id:k+1,name,dist:'empirical',p:{data:d},data:d,src};}
@@ -584,11 +613,11 @@ function sanitize(m){if(!m||typeof m!=='object'||!Array.isArray(m.inputs))throw 
   const num=(v,d)=>Number.isFinite(+v)&&v!==null&&v!==''?+v:d;
   const calcs=Array.isArray(m.calcs)?m.calcs.filter(c=>c&&typeof c==='object').map(c=>({name:String(c.name||''),formula:String(c.formula||'')})):[];
   return{title:String(m.title||''),notes:String(m.notes||''),inputs,calcs,outName:String(m.outName||'Output'),formula:String(m.formula||''),
-    iters:[1000,5000,10000,25000,50000,100000].includes(+m.iters)?+m.iters:10000,seed:Math.round(num(m.seed,42)),thresh:num(m.thresh,0),
+    iters:[1000,5000,10000,25000,50000,100000].includes(+m.iters)?+m.iters:10000,seed:Math.round(num(m.seed,42)),sampling:m.sampling==='mc'?'mc':'lhs',thresh:num(m.thresh,0),
     fitText:String(m.fitText||''),fitNote:String(m.fitNote||''),fitIsSample:!!(m.fitText&&m.fitNote),fitTarget:m.fitTarget?String(m.fitTarget):null,rankBy:['aic','bic','ks'].includes(m.rankBy)?m.rankBy:'aic'};}
 function exportObj(withData=true){return{app:'Stochastic Business Toolkit (SBT)',version:1,title:S.title||'',notes:S.notes||'',
   inputs:S.inputs.map(i=>i.dist==='empirical'?{name:i.name,dist:i.dist,p:{data:i.p.data},src:i.src||null}:{name:i.name,dist:i.dist,p:Object.fromEntries(DIST[i.dist].params.map(([k])=>[k,i.p[k]])),src:i.src||null}),
-  calcs:S.calcs.map(c=>({name:c.name,formula:c.formula})),outName:S.outName,formula:S.formula,iters:S.iters,seed:S.seed,thresh:S.thresh,fitText:withData?S.fitText:'',fitNote:withData&&S.fitIsSample?(S.fitNote||''):'',fitTarget:S.fitTarget||null,rankBy:S.rankBy};}
+  calcs:S.calcs.map(c=>({name:c.name,formula:c.formula})),outName:S.outName,formula:S.formula,iters:S.iters,seed:S.seed,sampling:S.sampling==='mc'?'mc':'lhs',thresh:S.thresh,fitText:withData?S.fitText:'',fitNote:withData&&S.fitIsSample?(S.fitNote||''):'',fitTarget:S.fitTarget||null,rankBy:S.rankBy};}
 function b64enc(str){const b=new TextEncoder().encode(str);let s='';for(let i=0;i<b.length;i+=0x8000)s+=String.fromCharCode.apply(null,b.subarray(i,i+0x8000));return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');}
 function b64dec(t){t=t.replace(/-/g,'+').replace(/_/g,'/');while(t.length%4)t+='=';const s=atob(t);const b=new Uint8Array(s.length);for(let i=0;i<s.length;i++)b[i]=s.charCodeAt(i);return new TextDecoder().decode(b);}
 function strHash(s){let h=5381;for(let i=0;i<s.length;i++)h=(h*33^s.charCodeAt(i))>>>0;return h.toString(36);}
@@ -745,19 +774,20 @@ function simulate(){const errs=S.inputs.map(inputError).filter(Boolean);const me
   if(errs.length){me.hidden=false;me.textContent='Fix the highlighted inputs before running.';return false;}
   const fn=checkFormula();if(!fn){me.hidden=false;me.textContent='Fix the formula before running.';return false;}
   me.hidden=true;const t0=performance.now();const N=S.iters,R=rngObj(S.seed),k=S.inputs.length;
-  const cols=S.inputs.map(()=>new Float64Array(N)),out=new Float64Array(N),vals=new Array(k),nc=S.calcs.length,ccols=S.calcs.map(()=>new Float64Array(N));
-  for(let i=0;i<N;i++){for(let j=0;j<k;j++){const inp=S.inputs[j];vals[j]=cols[j][i]=DIST[inp.dist].sample(inp.p,R);}const rv=fn.apply(null,vals);out[i]=+rv[0];for(let c=0;c<nc;c++)ccols[c][i]=+rv[c+1];}
+  let cols=S.inputs.map(()=>new Float64Array(N));const out=new Float64Array(N),vals=new Array(k),nc=S.calcs.length,ccols=S.calcs.map(()=>new Float64Array(N));
+  const lhs=S.sampling!=='mc';if(lhs)S.inputs.forEach((inp,j)=>{cols[j]=lhsColumn(inp,N,R);});
+  for(let i=0;i<N;i++){if(lhs){for(let j=0;j<k;j++)vals[j]=cols[j][i];}else{for(let j=0;j<k;j++){const inp=S.inputs[j];vals[j]=cols[j][i]=DIST[inp.dist].sample(inp.p,R);}}const rv=fn.apply(null,vals);out[i]=+rv[0];for(let c=0;c<nc;c++)ccols[c][i]=+rv[c+1];}
   let keep=[];for(let i=0;i<N;i++)if(isFinite(out[i]))keep.push(i);const bad=N-keep.length;
   const o2=Float64Array.from(keep,i=>out[i]),c2=cols.map(c=>Float64Array.from(keep,i=>c[i])),c3=ccols.map(c=>Float64Array.from(keep,i=>c[i]));
   if(!o2.length){me.hidden=false;me.textContent='Every iteration produced an invalid number (for example a division by zero). Check the formula.';return false;}
   const sorted=Float64Array.from(o2).sort();const n=o2.length,m=mean(o2),sd=Math.sqrt(variance(o2,m)*n/Math.max(1,n-1));
   let sk=0;for(const v of o2)sk+=((v-m)/(sd||1))**3;sk/=n;
   const ro=ranks(o2);const rho=S.inputs.map((inp,j)=>({name:inp.name,r:pearson(ranks(c2[j]),ro)})).filter(x=>isFinite(x.r));
-  lastRun={n,N,bad,out:o2,cols:c2,names:S.inputs.map(i=>i.name),calcNames:S.calcs.map(c=>c.name),calcCols:c3,sorted,m,sd,sk,rho,outName:S.outName||'Output',formula:S.formula,seed:S.seed,ms:performance.now()-t0};
+  lastRun={sampling:S.sampling!=='mc'?'Latin Hypercube':'Monte Carlo',n,N,bad,out:o2,cols:c2,names:S.inputs.map(i=>i.name),calcNames:S.calcs.map(c=>c.name),calcCols:c3,sorted,m,sd,sk,rho,outName:S.outName||'Output',formula:S.formula,seed:S.seed,ms:performance.now()-t0};
   stale=false;$('#staleChip').hidden=true;return true;}
 function renderResults(){const R=lastRun;$('#resEmpty').hidden=!!R;$('#resBody').hidden=!R;if(!R)return;
   $('#resTitle').textContent=R.outName;
-  $('#resMeta').innerHTML=`${R.N.toLocaleString('en')} iterations · seed ${R.seed} · <code>${esc(R.outName)} = ${esc(R.formula)}</code>${R.calcNames.length?` · ${R.calcNames.length} calculation step${R.calcNames.length>1?'s':''}`:''}${R.bad?` · ${R.bad.toLocaleString('en')} invalid results left out`:''}`;
+  $('#resMeta').innerHTML=`${R.N.toLocaleString('en')} iterations · ${R.sampling} · seed ${R.seed} · <code>${esc(R.outName)} = ${esc(R.formula)}</code>${R.calcNames.length?` · ${R.calcNames.length} calculation step${R.calcNames.length>1?'s':''}`:''}${R.bad?` · ${R.bad.toLocaleString('en')} invalid results left out`:''}`;
   renderCaseView();
   const s=R.sorted,t=S.thresh;let below=0;for(const v of s){if(v<t)below++;else break;}const pb=below/R.n;const ci=1.96*R.sd/Math.sqrt(R.n);
   const tiles=[['Mean',fmt(R.m),`± ${fmt(ci)} (95% CI)`],['Std deviation',fmt(R.sd),`var ${fmt(R.sd*R.sd)} · skew ${R.sk.toFixed(2)}`],['P5',fmt(pct(s,.05)),'5% fall below'],
@@ -867,12 +897,13 @@ document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g
 function renderCaseView(){const k=$('#caseKick'),n=$('#notesView');k.hidden=!S.title;k.textContent=S.title||'';n.hidden=!S.notes;n.textContent=S.notes||'';}
 function applyState(){if(!Array.isArray(S.calcs))S.calcs=[];S.calcs.forEach(c=>{c.id=calcSeq++;});nextId=Math.max(0,...S.inputs.map(i=>i.id||0))+1;S.inputs.forEach(i=>{if(!i.id)i.id=nextId++;});lastRun=null;stale=false;$('#staleChip').hidden=true;
   $('#applyTarget').value='';bindTop();renderInputs();renderCalcs();renderApplyTargets();runFits();checkFormula();simulate();renderResults();renderCaseView();save();}
-function bindTop(){$('#caseTitle').value=S.title||'';$('#caseNotes').value=S.notes||'';$('#outName').value=S.outName;$('#formula').value=S.formula;$('#iters').value=String(S.iters);$('#seed').value=S.seed;$('#thresh').value=S.thresh;
+function bindTop(){$('#caseTitle').value=S.title||'';$('#caseNotes').value=S.notes||'';$('#outName').value=S.outName;$('#formula').value=S.formula;$('#iters').value=String(S.iters);$('#seed').value=S.seed;$('#sampling').value=S.sampling==='mc'?'mc':'lhs';$('#thresh').value=S.thresh;
   $('#fitData').value=S.fitText;$('#rankBy').value=S.rankBy;}
 $('#outName').addEventListener('input',e=>{S.outName=e.target.value.trim()||'Output';touched();});
 $('#formula').addEventListener('input',e=>{S.formula=e.target.value;checkFormula();touched();});
 $('#iters').addEventListener('change',e=>{S.iters=+e.target.value;touched();});
 $('#seed').addEventListener('input',e=>{S.seed=Math.round(+e.target.value)||0;touched();});
+$('#sampling').addEventListener('change',e=>{S.sampling=e.target.value;touched();});
 $('#thresh').addEventListener('input',e=>{const v=parseFloat(e.target.value);if(isFinite(v)){S.thresh=v;save();renderResults();}});
 $('#addCalc').addEventListener('click',()=>{let k=S.calcs.length+1;const used=n=>S.inputs.some(i=>i.name===n)||S.calcs.some(c=>c.name===n);while(used('Step'+k))k++;
   const c={id:calcSeq++,name:'Step'+k,formula:''};S.calcs.push(c);touched();renderCalcs();const el=document.getElementById('cn-'+c.id);if(el){el.focus();el.select();}});
