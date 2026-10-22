@@ -131,7 +131,18 @@ input:focus,select:focus,textarea:focus{border-color:var(--accent);outline:none;
 .undo-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;background:var(--accent-soft);border-radius:8px;padding:8px 12px;font-size:13px}
 .undo-bar span{flex:1;min-width:200px}
 .hist{display:flex;flex-direction:column}
-.hist-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--grid)}
+.top-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.lib{gap:14px}
+.lib-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.lib-head h2{font-family:var(--f-display);font-size:20px;font-weight:700}
+.lib-save{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end}
+.lib-save label{flex:1 1 240px}
+.lib-h{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;margin:6px 0 0}
+.lib-h span{text-transform:none;letter-spacing:0;font-weight:400}
+.hist-row .btn-row{justify-content:flex-end}
+.chip.now{background:var(--accent-soft);color:var(--accent);border-color:transparent;margin-left:6px}
+@media (max-width:560px){.hist-row{grid-template-columns:minmax(0,1fr)!important}.hist-row .btn-row{justify-content:flex-start}}
+.hist-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--grid)}
 .hist-row:last-child{border-bottom:0}
 .hist-t{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .hist-m{font-size:12px;color:var(--muted);font-family:var(--f-mono)}
@@ -196,6 +207,14 @@ td.params{text-align:left;font-size:12px;color:var(--muted)}
 .copy-fallback{width:100%;height:90px}
 .empty{padding:40px 16px;text-align:center;color:var(--muted)}
 
+.sweep-form{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.sweep-form label{flex:1 1 120px;min-width:0}
+.sweep-form label.wide{flex:2 1 240px}
+.sweep-form .btn{flex:none}
+#swTable tbody tr.best{background:var(--accent-soft)}
+#swTable td:first-child{text-align:left}
+#swTable th:first-child{text-align:left}
+.legend i.band{height:10px;border:0;width:16px;border-radius:2px}
 @media (max-width:1100px){.stats{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:900px){
   .model-grid,.fit-grid,.res-grid{grid-template-columns:minmax(0,1fr)}
@@ -219,12 +238,30 @@ td.params{text-align:left;font-size:12px;color:var(--muted)}
       <h1>Stochastic Business Toolkit</h1>
       <p>Fit probability distributions to your data, describe how inputs combine into an outcome, and simulate thousands of scenarios.</p>
     </div>
+    <div class="top-actions">
+    <button id="libBtn" class="btn ghost" aria-expanded="false" aria-controls="libPanel">My models <span id="libCount" class="chip" style="padding:0 7px">0</span></button>
     <nav class="tabs" role="tablist" aria-label="Sections">
       <button role="tab" id="t-model" data-tab="model" aria-controls="tab-model">Model</button>
       <button role="tab" id="t-fit" data-tab="fit" aria-controls="tab-fit">Fit data</button>
       <button role="tab" id="t-results" data-tab="results" aria-controls="tab-results">Results</button>
     </nav>
+    </div>
   </header>
+
+  <section id="libPanel" class="card lib" hidden aria-label="My models">
+    <div class="lib-head"><h2>My models</h2><button id="libClose" class="btn ghost sm">Close</button></div>
+    <div class="lib-save">
+      <label for="libName">Save the current model as<input id="libName" autocomplete="off" placeholder="Model name, e.g. Konys – Contract A"></label>
+      <button id="libSave" class="btn primary">Save</button>
+      <button id="libSaveNew" class="btn ghost" hidden>Save as new copy</button>
+    </div>
+    <p id="libStatus" class="small muted"></p>
+    <h3 class="lib-h">Saved models</h3>
+    <div id="libList" class="hist"></div>
+    <h3 class="lib-h">Recently replaced <span>· kept automatically when you load another case without saving</span></h3>
+    <div id="histList" class="hist"></div>
+    <p class="small muted">Models are stored in this browser on this device (Ctrl+S or ⌘S saves). For a copy that works anywhere, use Download here or Export case on the Model tab.</p>
+  </section>
 
   <main>
     <!-- MODEL -->
@@ -239,14 +276,9 @@ td.params{text-align:left;font-size:12px;color:var(--muted)}
             <label for="tplSel">Case library<select id="tplSel"></select></label>
             <button id="tplLoad" class="btn ghost sm">Load this case</button>
             <div class="btn-row"><button id="exportBtn" class="btn ghost sm">Export case</button><button id="importBtn" class="btn ghost sm">Import case</button></div>
-            <button id="histBtn" class="btn ghost sm">Saved models <span id="histCount" class="chip" style="padding:0 7px"></span></button>
           </div>
         </div>
         <div id="undoBar" class="undo-bar" hidden><span id="undoText"></span><button id="undoBtn" class="btn primary sm">Undo</button><button id="undoClose" class="btn link" aria-label="Dismiss">Dismiss</button></div>
-        <div id="histPanel" class="panel" hidden>
-          <p class="small muted">Each time you load a case, import one or restore one, the model you were working on is kept here (up to 15, in this browser only). Export a case to keep a permanent copy.</p>
-          <div id="histList" class="hist"></div>
-        </div>
         <div id="tplConfirm" class="empnote" hidden>
           <span id="tplConfirmText"></span>
           <div class="btn-row" style="margin-top:8px"><button id="tplYes" class="btn primary sm">Load case</button><button id="tplNo" class="btn ghost sm">Cancel</button></div>
@@ -392,6 +424,25 @@ td.params{text-align:left;font-size:12px;color:var(--muted)}
             <h2>What drives the result</h2>
             <p class="small muted">Spearman rank correlation of each input with the output, and its approximate share of the explained variation.</p>
             <div id="tornado"></div>
+          </div>
+          <div class="card wide" id="sweepCard">
+            <div class="chart-head"><h2>Scenario sweep</h2><span class="small muted">Rerun the whole simulation for a range of values of one setting, such as an order quantity or the standard deviation of demand.</span></div>
+            <div class="sweep-form">
+              <label for="swParam" class="wide">Vary<select id="swParam"></select></label>
+              <label for="swFrom">From<input id="swFrom" type="number" step="any"></label>
+              <label for="swTo">To<input id="swTo" type="number" step="any"></label>
+              <label for="swSteps">Values<select id="swSteps"><option>3</option><option>5</option><option>6</option><option selected>11</option><option>21</option></select></label>
+              <button id="swRun" class="btn primary">Run sweep</button>
+            </div>
+            <p id="swMsg" class="small muted" hidden></p>
+            <div id="swOut" hidden style="display:flex;flex-direction:column;gap:12px">
+              <div class="chart-head"><span class="small" id="swTitle"></span>
+                <div class="legend"><span><i class="band" style="background:var(--accent-soft)"></i>P5–P95</span><span><i class="band" style="background:var(--accent);opacity:.35"></i>P25–P75</span><span><i style="border-color:var(--accent)"></i>Mean</span><span><i style="border-color:var(--bad);border-top-style:dashed"></i>Threshold</span></div></div>
+              <canvas id="swChart" class="chart" role="img" aria-label="Output distribution across the swept values"></canvas>
+              <div class="table-wrap"><table id="swTable"></table></div>
+              <div class="btn-row"><button id="swCopy" class="btn ghost sm">Copy sweep table</button><span id="swCopyMsg" class="small muted" hidden></span></div>
+              <p class="caption">Every value uses the same iterations, seed and random draws, so differences between rows come from the setting you changed, not from sampling noise.</p>
+            </div>
           </div>
           <div class="card wide">
             <div class="chart-head">
@@ -614,10 +665,11 @@ function sanitize(m){if(!m||typeof m!=='object'||!Array.isArray(m.inputs))throw 
   const calcs=Array.isArray(m.calcs)?m.calcs.filter(c=>c&&typeof c==='object').map(c=>({name:String(c.name||''),formula:String(c.formula||'')})):[];
   return{title:String(m.title||''),notes:String(m.notes||''),inputs,calcs,outName:String(m.outName||'Output'),formula:String(m.formula||''),
     iters:[1000,5000,10000,25000,50000,100000].includes(+m.iters)?+m.iters:10000,seed:Math.round(num(m.seed,42)),sampling:m.sampling==='mc'?'mc':'lhs',thresh:num(m.thresh,0),
-    fitText:String(m.fitText||''),fitNote:String(m.fitNote||''),fitIsSample:!!(m.fitText&&m.fitNote),fitTarget:m.fitTarget?String(m.fitTarget):null,rankBy:['aic','bic','ks'].includes(m.rankBy)?m.rankBy:'aic'};}
+    fitText:String(m.fitText||''),fitNote:String(m.fitNote||''),fitIsSample:!!(m.fitText&&m.fitNote),fitTarget:m.fitTarget?String(m.fitTarget):null,rankBy:['aic','bic','ks'].includes(m.rankBy)?m.rankBy:'aic',
+    sweep:m.sweep&&typeof m.sweep==='object'?{key:String(m.sweep.key||''),from:num(m.sweep.from,NaN),to:num(m.sweep.to,NaN),steps:[3,5,6,11,21].includes(+m.sweep.steps)?+m.sweep.steps:11}:null};}
 function exportObj(withData=true){return{app:'Stochastic Business Toolkit (SBT)',version:1,title:S.title||'',notes:S.notes||'',
   inputs:S.inputs.map(i=>i.dist==='empirical'?{name:i.name,dist:i.dist,p:{data:i.p.data},src:i.src||null}:{name:i.name,dist:i.dist,p:Object.fromEntries(DIST[i.dist].params.map(([k])=>[k,i.p[k]])),src:i.src||null}),
-  calcs:S.calcs.map(c=>({name:c.name,formula:c.formula})),outName:S.outName,formula:S.formula,iters:S.iters,seed:S.seed,sampling:S.sampling==='mc'?'mc':'lhs',thresh:S.thresh,fitText:withData?S.fitText:'',fitNote:withData&&S.fitIsSample?(S.fitNote||''):'',fitTarget:S.fitTarget||null,rankBy:S.rankBy};}
+  calcs:S.calcs.map(c=>({name:c.name,formula:c.formula})),outName:S.outName,formula:S.formula,iters:S.iters,seed:S.seed,sampling:S.sampling==='mc'?'mc':'lhs',thresh:S.thresh,fitText:withData?S.fitText:'',fitNote:withData&&S.fitIsSample?(S.fitNote||''):'',fitTarget:S.fitTarget||null,rankBy:S.rankBy,sweep:S.sweep||null};}
 function b64enc(str){const b=new TextEncoder().encode(str);let s='';for(let i=0;i<b.length;i+=0x8000)s+=String.fromCharCode.apply(null,b.subarray(i,i+0x8000));return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');}
 function b64dec(t){t=t.replace(/-/g,'+').replace(/_/g,'/');while(t.length%4)t+='=';const s=atob(t);const b=new Uint8Array(s.length);for(let i=0;i<s.length;i++)b[i]=s.charCodeAt(i);return new TextDecoder().decode(b);}
 function strHash(s){let h=5381;for(let i=0;i<s.length;i++)h=(h*33^s.charCodeAt(i))>>>0;return h.toString(36);}
@@ -625,7 +677,10 @@ const HKEY='mcstudio.saved';
 function histGet(){try{const a=JSON.parse(localStorage.getItem(HKEY)||'[]');return Array.isArray(a)?a:[];}catch(e){return[];}}
 function histSet(a){for(let k=0;k<6;k++){try{localStorage.setItem(HKEY,JSON.stringify(a));return true;}catch(e){if(a.length<=1)return false;a=a.slice(0,a.length-1);}}return false;}
 function snapshot(st){const prev=S;S=st;try{return exportObj();}finally{S=prev;}}
-function isWorth(st){return !!(st&&Array.isArray(st.inputs)&&st.edited);}
+const LKEY='mcstudio.library';
+function libGet(){try{const a=JSON.parse(localStorage.getItem(LKEY)||'[]');return Array.isArray(a)?a:[];}catch(e){return[];}}
+function libSet(a){try{localStorage.setItem(LKEY,JSON.stringify(a));return true;}catch(e){return false;}}
+function isWorth(st){if(!(st&&Array.isArray(st.inputs)&&st.edited))return false;if(st.libId&&st.dirty===false&&libGet().some(e=>e.id===st.libId))return false;return true;}
 function stash(st){if(!isWorth(st))return null;const snap=snapshot(st);const txt=JSON.stringify(snap);const a=histGet().filter(e=>JSON.stringify(e.model)!==txt);
   const entry={at:Date.now(),model:snap};a.unshift(entry);histSet(a.slice(0,15));return entry;}
 let linkError=null;
@@ -637,7 +692,7 @@ function load(){let h='';try{h=decodeURIComponent(location.hash.slice(1));}catch
   if(saved){if(saved.title===undefined&&saved.isExample!==false&&!saved.origin)return buildTemplate('launch');return saved;}
   return buildTemplate('launch');}
 let saveT;function save(){clearTimeout(saveT);saveT=setTimeout(()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}},300);}
-function touched(){S.edited=true;if(lastRun){stale=true;$('#staleChip').hidden=false;}save();}
+function touched(){S.edited=true;S.dirty=true;if(!$('#libPanel').hidden)renderLib();sweepRes=null;if(document.getElementById('swOut'))$('#swOut').hidden=true;if(lastRun){stale=true;$('#staleChip').hidden=false;}save();}
 
 /* ---------- canvas helpers ---------- */
 function colors(){const cs=getComputedStyle(document.documentElement);const g=n=>cs.getPropertyValue(n).trim();
@@ -785,7 +840,7 @@ function simulate(){const errs=S.inputs.map(inputError).filter(Boolean);const me
   const ro=ranks(o2);const rho=S.inputs.map((inp,j)=>({name:inp.name,r:pearson(ranks(c2[j]),ro)})).filter(x=>isFinite(x.r));
   lastRun={sampling:S.sampling!=='mc'?'Latin Hypercube':'Monte Carlo',n,N,bad,out:o2,cols:c2,names:S.inputs.map(i=>i.name),calcNames:S.calcs.map(c=>c.name),calcCols:c3,sorted,m,sd,sk,rho,outName:S.outName||'Output',formula:S.formula,seed:S.seed,ms:performance.now()-t0};
   stale=false;$('#staleChip').hidden=true;return true;}
-function renderResults(){const R=lastRun;$('#resEmpty').hidden=!!R;$('#resBody').hidden=!R;if(!R)return;
+function renderResults(){const R=lastRun;$('#resEmpty').hidden=!!R;$('#resBody').hidden=!R;if(!R)return;renderSweepForm();
   $('#resTitle').textContent=R.outName;
   $('#resMeta').innerHTML=`${R.N.toLocaleString('en')} iterations · ${R.sampling} · seed ${R.seed} · <code>${esc(R.outName)} = ${esc(R.formula)}</code>${R.calcNames.length?` · ${R.calcNames.length} calculation step${R.calcNames.length>1?'s':''}`:''}${R.bad?` · ${R.bad.toLocaleString('en')} invalid results left out`:''}`;
   renderCaseView();
@@ -819,6 +874,66 @@ function drawResults(){const R=lastRun;if(!R||$('#tab-results').hidden)return;co
     const px=g.X(t),py=g.Y(q);g.ctx.save();g.ctx.setLineDash([2,2]);g.ctx.strokeStyle=g.C.bad;g.ctx.beginPath();g.ctx.moveTo(g.m.l,py);g.ctx.lineTo(px,py);g.ctx.stroke();g.ctx.restore();
     g.ctx.fillStyle=g.C.bad;g.ctx.beginPath();g.ctx.arc(px,py,3.5,0,7);g.ctx.fill();g.ctx.font='500 11px "IBM Plex Mono", monospace';g.ctx.textBaseline='bottom';
     const lab=`${fmtPct(q)} below ${fmt(t)}`;const tw=g.ctx.measureText(lab).width;const right=px+8+tw<g.m.l+g.pw;g.ctx.textAlign=right?'left':'right';g.ctx.fillText(lab,right?px+8:px-8,py-5);}}
+
+/* ---------- scenario sweep ---------- */
+let sweepRes=null;
+function sweepOptions(){const o=[];S.inputs.forEach(inp=>{if(inp.dist==='empirical'||!inp.name)return;const d=DIST[inp.dist];
+  for(const[k,l]of d.params)o.push({key:inp.name+'|'+k,label:inp.dist==='constant'?inp.name:`${inp.name} · ${l}`,inp,k});});return o;}
+const curVal=(inp,k)=>k==='var'?inp.p.sd**2:inp.p[k];
+function sweepDefaults(o){const v=curVal(o.inp,o.k);if(!isFinite(v)||v===0)return[0,1];return[sig(v*0.5,4),sig(v*1.5,4)];}
+function renderSweepForm(){const sel=$('#swParam');const opts=sweepOptions();const want=(S.sweep&&S.sweep.key)||sel.value;
+  sel.innerHTML=opts.map(o=>`<option value="${esc(o.key)}">${esc(o.label)} (now ${fmt(curVal(o.inp,o.k))})</option>`).join('');
+  let pick=opts.find(o=>o.key===want);if(!pick)pick=opts.find(o=>o.inp.dist==='constant'&&o.inp.p.value!==0)||opts[0];
+  if(!pick){$('#swRun').disabled=true;return;}$('#swRun').disabled=false;sel.value=pick.key;
+  if(S.sweep&&S.sweep.key===pick.key&&isFinite(S.sweep.from)&&isFinite(S.sweep.to)){$('#swFrom').value=S.sweep.from;$('#swTo').value=S.sweep.to;$('#swSteps').value=String(S.sweep.steps||11);}
+  else if(document.activeElement!==$('#swFrom')&&document.activeElement!==$('#swTo')){const[a,b]=sweepDefaults(pick);$('#swFrom').value=a;$('#swTo').value=b;}}
+function storeSweep(){S.sweep={key:$('#swParam').value,from:parseFloat($('#swFrom').value),to:parseFloat($('#swTo').value),steps:+$('#swSteps').value};save();}
+$('#swParam').addEventListener('change',()=>{const o=sweepOptions().find(x=>x.key===$('#swParam').value);if(o){const[a,b]=sweepDefaults(o);$('#swFrom').value=a;$('#swTo').value=b;}storeSweep();});
+['#swFrom','#swTo','#swSteps'].forEach(id=>$(id).addEventListener('change',storeSweep));
+function sampleOutputs(inputs,fn,N,seed,sampling){const R=rngObj(seed),k=inputs.length,vals=new Array(k),out=[];let cols=null;
+  if(sampling!=='mc')cols=inputs.map(inp=>lhsColumn(inp,N,R));
+  for(let i=0;i<N;i++){if(cols){for(let j=0;j<k;j++)vals[j]=cols[j][i];}else{for(let j=0;j<k;j++)vals[j]=DIST[inputs[j].dist].sample(inputs[j].p,R);}
+    const v=+fn.apply(null,vals)[0];if(isFinite(v))out.push(v);}
+  return Float64Array.from(out).sort();}
+async function runSweep(){const msg=$('#swMsg');const say=t=>{msg.hidden=!t;msg.textContent=t||'';msg.className=/^(Fix|Enter|Choose)/.test(t||'')?'err':'small muted';};
+  const fn=checkFormula();if(!fn||S.inputs.some(i=>inputError(i))){say('Fix the model on the Model tab first; it has to run before it can be swept.');return;}
+  const o=sweepOptions().find(x=>x.key===$('#swParam').value);if(!o){say('Choose a setting to vary.');return;}
+  const a=parseFloat($('#swFrom').value),b=parseFloat($('#swTo').value),n=+$('#swSteps').value;
+  if(!isFinite(a)||!isFinite(b)||a===b){say('Enter two different numbers for From and To.');return;}
+  storeSweep();const idx=S.inputs.indexOf(o.inp);const vals=Array.from({length:n},(_,i)=>a+(b-a)*i/(n-1));const rows=[];const btn=$('#swRun');btn.disabled=true;
+  const t=S.thresh;
+  for(let i=0;i<n;i++){say(`Running ${i+1} of ${n}…`);btn.textContent=`Running ${i+1}/${n}`;await new Promise(r=>setTimeout(r,0));
+    const v=vals[i];const p={...o.inp.p};if(o.k==='var')p.sd=v>=0?Math.sqrt(v):NaN;else p[o.k]=v;
+    const err=!isFinite(o.k==='var'?p.sd:v)?'Not a valid value':DIST[o.inp.dist].check(p);if(err){rows.push({v,err});continue;}
+    const inputs=S.inputs.map((x,j)=>j===idx?{...x,p}:x);let s;try{s=sampleOutputs(inputs,fn,S.iters,S.seed,S.sampling);}catch(e){rows.push({v,err:'The model failed for this value'});continue;}
+    if(!s.length){rows.push({v,err:'No valid results'});continue;}
+    const m=mean(s),sd=Math.sqrt(variance(s,m)*s.length/Math.max(1,s.length-1));let below=0;for(const x of s){if(x<t)below++;else break;}
+    rows.push({v,m,sd,p5:pct(s,.05),p25:pct(s,.25),p50:pct(s,.5),p75:pct(s,.75),p95:pct(s,.95),pb:below/s.length});}
+  btn.disabled=false;btn.textContent='Run sweep';say('');
+  sweepRes={label:o.label,rows,thr:t,outName:S.outName||'Output',N:S.iters,sampling:S.sampling!=='mc'?'Latin Hypercube':'Monte Carlo'};renderSweep();}
+$('#swRun').addEventListener('click',runSweep);
+function renderSweep(){const R=sweepRes;$('#swOut').hidden=!R;if(!R)return;const ok=R.rows.filter(r=>!r.err);
+  const best=ok.length?ok.reduce((x,y)=>y.m>x.m?y:x):null;
+  $('#swTitle').innerHTML=`<strong>${esc(R.outName)}</strong> as <strong>${esc(R.label)}</strong> changes · ${R.N.toLocaleString('en')} iterations per value · ${R.sampling}`;
+  $('#swTable').innerHTML=`<thead><tr><th>${esc(R.label)}</th><th>Mean</th><th>Std dev</th><th>P5</th><th>Median</th><th>P95</th><th>P(${esc(R.outName)} &lt; ${fmt(R.thr)})</th></tr></thead><tbody>`+
+    R.rows.map(r=>r.err?`<tr><td>${fmt(r.v)}</td><td class="l muted" colspan="6">${esc(r.err)}</td></tr>`:
+    `<tr class="${r===best?'best':''}"><td>${fmt(r.v)} ${r===best?'<span class="chip best">Highest mean</span>':''}</td><td>${fmt(r.m)}</td><td>${fmt(r.sd)}</td><td>${fmt(r.p5)}</td><td>${fmt(r.p50)}</td><td>${fmt(r.p95)}</td><td>${fmtPct(r.pb)}</td></tr>`).join('')+'</tbody>';
+  drawSweep();}
+function drawSweep(){const R=sweepRes;if(!R||$('#tab-results').hidden||$('#swOut').hidden)return;const ok=R.rows.filter(r=>!r.err);const c=$('#swChart');if(ok.length<2){prep(c);return;}
+  let lo=Math.min(...ok.map(r=>r.p5)),hi=Math.max(...ok.map(r=>r.p95));if(R.thr>lo-(hi-lo)*0.15&&R.thr<hi+(hi-lo)*0.15){lo=Math.min(lo,R.thr);hi=Math.max(hi,R.thr);}
+  const pad=(hi-lo||1)*0.06;const xs=ok.map(r=>r.v);const f=frame(c,[Math.min(...xs),Math.max(...xs)],[lo-pad,hi+pad],{yLabels:fmtAxis});const{ctx,X,Y,C}=f;
+  const band=(k1,k2,style,alpha)=>{ctx.save();ctx.globalAlpha=alpha;ctx.fillStyle=style;ctx.beginPath();ok.forEach((r,i)=>i?ctx.lineTo(X(r.v),Y(r[k2])):ctx.moveTo(X(r.v),Y(r[k2])));
+    for(let i=ok.length-1;i>=0;i--)ctx.lineTo(X(ok[i].v),Y(ok[i][k1]));ctx.closePath();ctx.fill();ctx.restore();};
+  band('p5','p95',C.accentSoft,1);band('p25','p75',C.accent,0.3);
+  if(R.thr>lo-pad&&R.thr<hi+pad){const y=Math.round(Y(R.thr))+.5;ctx.save();ctx.strokeStyle=C.bad;ctx.setLineDash([4,3]);ctx.beginPath();ctx.moveTo(f.m.l,y);ctx.lineTo(f.m.l+f.pw,y);ctx.stroke();ctx.restore();}
+  ctx.strokeStyle=C.accent;ctx.lineWidth=2;ctx.beginPath();ok.forEach((r,i)=>i?ctx.lineTo(X(r.v),Y(r.m)):ctx.moveTo(X(r.v),Y(r.m)));ctx.stroke();
+  const best=ok.reduce((x,y)=>y.m>x.m?y:x);
+  for(const r of ok){ctx.fillStyle=r===best?C.fit:C.accent;ctx.beginPath();ctx.arc(X(r.v),Y(r.m),r===best?5:3,0,7);ctx.fill();}
+  ctx.font='500 11px "IBM Plex Mono", ui-monospace, monospace';ctx.fillStyle=C.fit;ctx.textBaseline='bottom';const lab=`Highest mean ${fmt(best.m)}`;const tw=ctx.measureText(lab).width;
+  const bx=X(best.v);ctx.textAlign=bx+tw/2>f.m.l+f.pw?'right':bx-tw/2<f.m.l?'left':'center';ctx.fillText(lab,bx,Y(best.m)-8);}
+$('#swCopy').addEventListener('click',()=>{const t=$('#swTable');const text=[...t.rows].map(r=>[...r.cells].map(c=>c.textContent.replace('Highest mean','').trim()).join('\t')).join('\n');const m=$('#swCopyMsg');
+  const done=ok=>{m.hidden=false;m.textContent=ok?'Sweep table copied. It pastes into a spreadsheet as columns.':'Copying isn’t allowed here. Select the table and copy it by hand.';};
+  try{navigator.clipboard.writeText(text).then(()=>done(true),()=>done(false));}catch(e){done(false);}});
 
 /* ---------- fitting ---------- */
 function parseValues(text){const toks=text.split(/[\s,;]+/).filter(Boolean);const v=[];let skipped=0;for(const t of toks){const x=Number(t);if(isFinite(x))v.push(x);else skipped++;}return{v,skipped};}
@@ -889,13 +1004,13 @@ function parseCSV(text){const lines=text.split(/\r?\n/).filter(l=>l.trim());if(!
 /* ---------- tabs & wiring ---------- */
 function showTab(name){for(const t of ['model','fit','results']){$('#tab-'+t).hidden=t!==name;$('#t-'+t).setAttribute('aria-selected',t===name);$('#t-'+t).tabIndex=t===name?0:-1;}
   try{localStorage.setItem(KEY+'.tab',name);}catch(e){}
-  requestAnimationFrame(()=>{if(name==='results')drawResults();if(name==='fit')drawFit();if(name==='model')refreshAllCards();});}
+  requestAnimationFrame(()=>{if(name==='results'){drawResults();drawSweep();}if(name==='fit')drawFit();if(name==='model')refreshAllCards();});}
 document.querySelectorAll('.tabs button').forEach(b=>{b.addEventListener('click',()=>showTab(b.dataset.tab));
   b.addEventListener('keydown',e=>{const order=['model','fit','results'];let i=order.indexOf(b.dataset.tab);if(e.key==='ArrowRight')i=(i+1)%3;else if(e.key==='ArrowLeft')i=(i+2)%3;else return;showTab(order[i]);$('#t-'+order[i]).focus();});});
 document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g)showTab(g.dataset.go);});
 
 function renderCaseView(){const k=$('#caseKick'),n=$('#notesView');k.hidden=!S.title;k.textContent=S.title||'';n.hidden=!S.notes;n.textContent=S.notes||'';}
-function applyState(){if(!Array.isArray(S.calcs))S.calcs=[];S.calcs.forEach(c=>{c.id=calcSeq++;});nextId=Math.max(0,...S.inputs.map(i=>i.id||0))+1;S.inputs.forEach(i=>{if(!i.id)i.id=nextId++;});lastRun=null;stale=false;$('#staleChip').hidden=true;
+function applyState(){sweepRes=null;$('#swOut').hidden=true;$('#swMsg').hidden=true;if(!Array.isArray(S.calcs))S.calcs=[];S.calcs.forEach(c=>{c.id=calcSeq++;});nextId=Math.max(0,...S.inputs.map(i=>i.id||0))+1;S.inputs.forEach(i=>{if(!i.id)i.id=nextId++;});lastRun=null;stale=false;$('#staleChip').hidden=true;
   $('#applyTarget').value='';bindTop();renderInputs();renderCalcs();renderApplyTargets();runFits();checkFormula();simulate();renderResults();renderCaseView();save();}
 function bindTop(){$('#caseTitle').value=S.title||'';$('#caseNotes').value=S.notes||'';$('#outName').value=S.outName;$('#formula').value=S.formula;$('#iters').value=String(S.iters);$('#seed').value=S.seed;$('#sampling').value=S.sampling==='mc'?'mc':'lhs';$('#thresh').value=S.thresh;
   $('#fitData').value=S.fitText;$('#rankBy').value=S.rankBy;}
@@ -912,26 +1027,62 @@ $('#addInput').addEventListener('click',()=>{let k=S.inputs.length+1;while(S.inp
   const el=document.querySelector(`#nm-${nextId-1}`);if(el){el.focus();el.select();}});
 $('#runBtn').addEventListener('click',()=>{const b=$('#runBtn');b.disabled=true;b.textContent='Running…';
   setTimeout(()=>{const ok=simulate();b.disabled=false;b.textContent='Run simulation';if(ok){renderResults();showTab('results');}},20);});
-$('#caseTitle').addEventListener('input',e=>{S.title=e.target.value;S.edited=true;renderCaseView();save();});
-$('#caseNotes').addEventListener('input',e=>{S.notes=e.target.value;S.edited=true;renderCaseView();save();});
+$('#caseTitle').addEventListener('input',e=>{S.title=e.target.value;if(document.activeElement!==$('#libName'))$('#libName').value=S.title;S.edited=true;S.dirty=true;renderCaseView();save();});
+$('#caseNotes').addEventListener('input',e=>{S.notes=e.target.value;S.edited=true;S.dirty=true;renderCaseView();save();});
 $('#tplSel').innerHTML=Object.entries(TEMPLATES).map(([k,t])=>`<option value="${k}">${esc(t.label)}</option>`).join('');
 const withData=()=>$('#exportData').checked;
-const closePanels=()=>{$('#tplConfirm').hidden=true;$('#exportPanel').hidden=true;$('#importPanel').hidden=true;$('#histPanel').hidden=true;};
+const closePanels=()=>{$('#tplConfirm').hidden=true;$('#exportPanel').hidden=true;$('#importPanel').hidden=true;};
 const label=m=>(m.title||m.outName||'Untitled model');
 let undoEntry=null;
-function replaceModel(next,what){const entry=stash(S);S=next;applyState();renderHist();
-  undoEntry=entry;const ub=$('#undoBar');if(entry){$('#undoText').textContent=`Loaded ${what}. Your previous model, “${label(entry.model)}”, is kept under Saved models.`;$('#undoBtn').hidden=false;ub.hidden=false;}else ub.hidden=true;}
+function replaceModel(next,what){const entry=stash(S);S=next;applyState();renderHist();renderLib();
+  undoEntry=entry;const ub=$('#undoBar');if(entry){$('#undoText').textContent=`Loaded ${what}. Your previous model, “${label(entry.model)}”, is kept in My models under Recently replaced.`;$('#undoBtn').hidden=false;ub.hidden=false;}else ub.hidden=true;}
 function restoreEntry(entry){let m;try{m=sanitize(entry.model);}catch(e){return;}m.edited=true;m.origin='restored:'+entry.at;replaceModel(m,`“${label(entry.model)}”`);}
 $('#undoBtn').addEventListener('click',()=>{if(!undoEntry)return;const e=undoEntry;const a=histGet().filter(x=>x.at!==e.at);restoreEntry(e);histSet([...histGet().filter(x=>x.at!==e.at)]);renderHist();$('#undoBar').hidden=true;undoEntry=null;});
 $('#undoClose').addEventListener('click',()=>{$('#undoBar').hidden=true;});
-function renderHist(){const a=histGet();$('#histCount').textContent=a.length;$('#histCount').hidden=!a.length;const L=$('#histList');
-  if(!a.length){L.innerHTML='<p class="small muted">No saved models yet.</p>';return;}
+function renderHist(){const a=histGet();const L=$('#histList');
+  if(!a.length){L.innerHTML='<p class="small muted">Nothing here yet.</p>';return;}
   L.innerHTML=a.map((e,i)=>{const m=e.model||{};const d=new Date(e.at);return `<div class="hist-row"><div style="min-width:0"><div class="hist-t">${esc(label(m))}</div><div class="hist-m">${esc(d.toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'}))} · ${(m.inputs||[]).length} inputs${(m.calcs||[]).length?` · ${m.calcs.length} step${m.calcs.length>1?'s':''}`:''}</div></div>
-    <button class="btn primary sm" data-restore="${i}">Restore</button><button class="btn ghost sm" data-hdel="${i}" aria-label="Delete ${esc(label(m))}">Delete</button></div>`;}).join('');
-  L.querySelectorAll('[data-restore]').forEach(b=>b.addEventListener('click',()=>{const e=histGet()[+b.dataset.restore];if(!e)return;closePanels();histSet(histGet().filter(x=>x.at!==e.at));restoreEntry(e);showTab('model');}));
+    <div class="btn-row"><button class="btn primary sm" data-restore="${i}">Restore</button><button class="btn ghost sm" data-hdel="${i}" aria-label="Delete ${esc(label(m))}">Delete</button></div></div>`;}).join('');
+  L.querySelectorAll('[data-restore]').forEach(b=>b.addEventListener('click',()=>{const e=histGet()[+b.dataset.restore];if(!e)return;closePanels();closeLib();histSet(histGet().filter(x=>x.at!==e.at));restoreEntry(e);showTab('model');}));
   L.querySelectorAll('[data-hdel]').forEach(b=>b.addEventListener('click',()=>{const a2=histGet();a2.splice(+b.dataset.hdel,1);histSet(a2);renderHist();}));}
-$('#histBtn').addEventListener('click',()=>{const open=$('#histPanel').hidden;closePanels();if(!open)return;renderHist();$('#histPanel').hidden=false;});
-$('#tplLoad').addEventListener('click',()=>{const t=TEMPLATES[$('#tplSel').value];closePanels();$('#tplConfirmText').textContent=`Load “${t.label.split(' · ').pop()}”? Your current model is kept under Saved models, so you can switch back.`;$('#tplConfirm').hidden=false;});
+const when=t=>new Date(t).toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'});
+let pendingDel=null;
+function renderLib(){const a=libGet();$('#libCount').textContent=a.length;const name=$('#libName');if(document.activeElement!==name)name.value=S.title||'';
+  const cur=a.find(e=>e.id===S.libId);
+  $('#libStatus').textContent=cur?(S.dirty?`“${cur.name}” has changes that aren’t saved yet.`:`“${cur.name}” is saved (${when(cur.at)}).`):'The model you have open isn’t saved in My models yet.';
+  $('#libSave').textContent=cur?'Save changes':'Save';$('#libSaveNew').hidden=!cur;
+  const L=$('#libList');if(!a.length){L.innerHTML='<p class="small muted">No saved models yet. Name the model you have open and click Save.</p>';return;}
+  const list=[...a].sort((x,y)=>y.at-x.at);
+  L.innerHTML=list.map(e=>{const m=e.model||{};const isCur=e.id===S.libId;
+    const btns=pendingDel===e.id?`<span class="small">Delete “${esc(e.name)}”?</span><button class="btn primary sm" data-ldelyes="${e.id}">Delete</button><button class="btn ghost sm" data-ldelno="1">Cancel</button>`:
+      `<button class="btn ${isCur?'ghost':'primary'} sm" data-lopen="${e.id}">${isCur?'Reopen saved version':'Open'}</button>${framed?'':`<button class="btn ghost sm" data-ldl="${e.id}">Download</button>`}<button class="btn ghost sm" data-ldel="${e.id}" aria-label="Delete ${esc(e.name)}">Delete</button>`;
+    return `<div class="hist-row"><div style="min-width:0"><div class="hist-t">${esc(e.name)}${isCur?'<span class="chip now">Open now</span>':''}</div><div class="hist-m">Saved ${esc(when(e.at))} · ${(m.inputs||[]).length} inputs${(m.calcs||[]).length?` · ${m.calcs.length} step${m.calcs.length>1?'s':''}`:''}</div></div><div class="btn-row">${btns}</div></div>`;}).join('');
+  L.querySelectorAll('[data-lopen]').forEach(b=>b.addEventListener('click',()=>libOpen(b.dataset.lopen)));
+  L.querySelectorAll('[data-ldel]').forEach(b=>b.addEventListener('click',()=>{pendingDel=b.dataset.ldel;renderLib();}));
+  L.querySelectorAll('[data-ldelno]').forEach(b=>b.addEventListener('click',()=>{pendingDel=null;renderLib();}));
+  L.querySelectorAll('[data-ldelyes]').forEach(b=>b.addEventListener('click',()=>{const id=b.dataset.ldelyes;libSet(libGet().filter(x=>x.id!==id));if(S.libId===id){S.libId=null;save();}pendingDel=null;renderLib();}));
+  L.querySelectorAll('[data-ldl]').forEach(b=>b.addEventListener('click',()=>{const e=libGet().find(x=>x.id===b.dataset.ldl);if(!e)return;
+    const blob=new Blob([JSON.stringify(e.model,null,1)],{type:'application/json'});const a2=document.createElement('a');a2.href=URL.createObjectURL(blob);
+    a2.download=(e.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'model')+'.json';document.body.appendChild(a2);a2.click();setTimeout(()=>{URL.revokeObjectURL(a2.href);a2.remove();},500);}));}
+function libSaveCurrent(asNew,fromKey){const nm=(fromKey?(S.title||$('#libName').value):$('#libName').value).trim();
+  if(!nm){openLib();$('#libStatus').textContent='Enter a name for the model, then click Save.';$('#libName').focus();return;}
+  S.title=nm;$('#caseTitle').value=nm;renderCaseView();
+  const a=libGet();let e=!asNew&&a.find(x=>x.id===S.libId);
+  if(!e){e={id:'m'+Date.now().toString(36)+Math.random().toString(36).slice(2,6)};a.unshift(e);}
+  e.name=nm;e.at=Date.now();e.model=exportObj(true);
+  if(!libSet(a)){$('#libStatus').textContent='This browser’s storage is full. Delete some saved models, or use Export case to keep this one as a file.';return;}
+  S.libId=e.id;S.dirty=false;S.edited=true;save();pendingDel=null;renderLib();}
+function libOpen(id){const e=libGet().find(x=>x.id===id);if(!e)return;let m;try{m=sanitize(e.model);}catch(x){return;}
+  m.libId=id;m.dirty=false;m.edited=true;m.origin='lib:'+id;closeLib();replaceModel(m,`“${e.name}”`);showTab('results');}
+function openLib(){$('#libPanel').hidden=false;$('#libBtn').setAttribute('aria-expanded','true');renderLib();renderHist();}
+function closeLib(){$('#libPanel').hidden=true;$('#libBtn').setAttribute('aria-expanded','false');pendingDel=null;}
+$('#libBtn').addEventListener('click',()=>{if($('#libPanel').hidden){openLib();$('#libName').focus();}else closeLib();});
+$('#libClose').addEventListener('click',closeLib);
+$('#libSave').addEventListener('click',()=>libSaveCurrent(false));
+$('#libSaveNew').addEventListener('click',()=>libSaveCurrent(true));
+$('#libName').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();libSaveCurrent(false);}});
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'){e.preventDefault();if(!S.libId&&!$('#libName').value.trim()&&!S.title){openLib();$('#libName').focus();return;}libSaveCurrent(false,true);if($('#libPanel').hidden){openLib();}}});
+$('#tplLoad').addEventListener('click',()=>{const t=TEMPLATES[$('#tplSel').value];closePanels();$('#tplConfirmText').textContent=`Load “${t.label.split(' · ').pop()}”? If your current model isn’t saved, it’s kept in My models under Recently replaced.`;$('#tplConfirm').hidden=false;});
 $('#tplNo').addEventListener('click',closePanels);
 $('#tplYes').addEventListener('click',()=>{closePanels();const k=$('#tplSel').value;replaceModel(buildTemplate(k),`“${TEMPLATES[k].label.split(' · ').pop()}”`);showTab('model');});
 const framed=(()=>{try{return window.self!==window.top;}catch(e){return true;}})();
@@ -952,7 +1103,7 @@ $('#importFile').addEventListener('change',e=>{const f=e.target.files[0];if(!f)r
 function importNow(){const m=$('#importMsg');let obj;try{obj=sanitize(JSON.parse($('#importText').value));}catch(e){m.hidden=false;m.textContent=e instanceof SyntaxError?'This text isn’t a valid case file. Paste the whole file, from the first { to the last }.':e.message;return;}
   obj.origin='import:'+strHash($('#importText').value);closePanels();$('#importText').value='';replaceModel(obj,`“${label(obj)}”`);showTab('model');}
 $('#importGo').addEventListener('click',importNow);
-let fitT;$('#fitData').addEventListener('input',e=>{S.fitText=e.target.value;S.fitIsSample=false;S.edited=true;$('#fitCol').hidden=true;save();clearTimeout(fitT);fitT=setTimeout(runFits,300);});
+let fitT;$('#fitData').addEventListener('input',e=>{S.fitText=e.target.value;S.fitIsSample=false;S.edited=true;S.dirty=true;$('#fitCol').hidden=true;save();clearTimeout(fitT);fitT=setTimeout(runFits,300);});
 $('#rankBy').addEventListener('change',e=>{S.rankBy=e.target.value;save();if(fits.length){sortFits();renderFitTable();drawFit();}});
 let csvCols=[];
 $('#fitFile').addEventListener('change',e=>{const file=e.target.files[0];if(!file)return;const rd=new FileReader();rd.onload=()=>{csvCols=parseCSV(String(rd.result));const pm=$('#parseMsg');
@@ -960,7 +1111,7 @@ $('#fitFile').addEventListener('change',e=>{const file=e.target.files[0];if(!fil
   const sel=$('#fitCol');sel.innerHTML=csvCols.map((c,i)=>`<option value="${i}">${esc(c.name)} (${c.vals.length})</option>`).join('');sel.hidden=csvCols.length<2;sel.value='0';useCol(0);
   pm.hidden=false;pm.textContent=`Loaded ${file.name}${csvCols.length>1?' — choose the column to fit':''}.`;e.target.value='';};rd.readAsText(file);});
 $('#fitCol').addEventListener('change',e=>useCol(+e.target.value));
-function useCol(i){const c=csvCols[i];if(!c)return;S.fitText=c.vals.join('\n');S.fitIsSample=false;S.edited=true;$('#fitData').value=S.fitText;save();const keep=$('#parseMsg').textContent;runFits();$('#parseMsg').hidden=false;$('#parseMsg').textContent=keep;}
+function useCol(i){const c=csvCols[i];if(!c)return;S.fitText=c.vals.join('\n');S.fitIsSample=false;S.edited=true;S.dirty=true;$('#fitData').value=S.fitText;save();const keep=$('#parseMsg').textContent;runFits();$('#parseMsg').hidden=false;$('#parseMsg').textContent=keep;}
 $('#applyTarget').addEventListener('change',e=>{$('#applyName').hidden=e.target.value!=='new';if(e.target.value==='new')$('#applyName').focus();});
 $('#applyBtn').addEventListener('click',()=>applyFit(false));
 $('#applyEmp').addEventListener('click',()=>applyFit(true));
@@ -971,14 +1122,14 @@ $('#copyBtn').addEventListener('click',()=>{const t=$('#pctTable');copyText([...
 $('#copyRaw').addEventListener('click',()=>{const R=lastRun;if(!R)return;const lim=Math.min(R.n,20000);const L=[[...R.names,...R.calcNames,R.outName].join(',')];
   for(let i=0;i<lim;i++)L.push([...R.cols.map(c=>c[i]),...R.calcCols.map(c=>c[i]),R.out[i]].join(','));copyText(L.join('\n'),lim<R.n?`First ${lim.toLocaleString('en')} of ${R.n.toLocaleString('en')} iterations copied as CSV.`:`${lim.toLocaleString('en')} iterations copied as CSV.`);});
 
-let rz;const redraw=()=>{cancelAnimationFrame(rz);rz=requestAnimationFrame(()=>{drawResults();drawFit();if(!$('#tab-model').hidden)refreshAllCards();});};
+let rz;const redraw=()=>{cancelAnimationFrame(rz);rz=requestAnimationFrame(()=>{drawResults();drawSweep();drawFit();if(!$('#tab-model').hidden)refreshAllCards();});};
 new ResizeObserver(redraw).observe(document.querySelector('main'));
 try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',redraw);}catch(e){}
 new MutationObserver(redraw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme','class']});
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(redraw);
 
 /* ---------- boot ---------- */
-S=load();applyState();renderHist();
+S=load();applyState();renderHist();renderLib();
 {const k=(S.origin||'').startsWith('tpl:')?S.origin.slice(4):null;if(k&&TEMPLATES[k])$('#tplSel').value=k;}
 if(linkError){closePanels();$('#importPanel').hidden=false;const m=$('#importMsg');m.hidden=false;m.textContent=linkError;}
 let startTab='results';try{const h=location.hash.replace('#','');const st=localStorage.getItem(KEY+'.tab');startTab=['model','fit','results'].includes(h)?h:(['model','fit','results'].includes(st)?st:'results');}catch(e){}
