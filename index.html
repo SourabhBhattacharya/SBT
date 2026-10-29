@@ -111,6 +111,9 @@ input:focus,select:focus,textarea:focus{border-color:var(--accent);outline:none;
 .calc .cformula{background:var(--surface)}
 .divider{border:0;border-top:1px solid var(--line);margin:2px 0}
 .chips button.calc-chip{background:transparent;color:var(--fit);box-shadow:inset 0 0 0 1px var(--fit)}
+#pctTable td.cats{white-space:normal;font-family:var(--f-body)}
+.cat{display:inline-flex;gap:6px;align-items:baseline;margin:2px 14px 2px 0;font-family:var(--f-mono);font-size:12.5px}
+.cat b{font-family:var(--f-body);font-weight:600}
 #pctTable tr.grp td{font:600 11px var(--f-body);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-top:12px;text-align:left}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .run-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
@@ -162,7 +165,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--accent);outline:none;
 .table-wrap{overflow-x:auto;margin:0 -4px}
 table{border-collapse:collapse;width:100%;font-size:13px}
 th{font-weight:500;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);text-align:right;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
-th:first-child,th:nth-child(2),th:nth-child(3){text-align:left}
+th:first-child,#fitTable th:nth-child(2),#fitTable th:nth-child(3){text-align:left}
 td{padding:7px 8px;border-bottom:1px solid var(--grid);text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
 td.l{text-align:left;font-family:var(--f-body)}
 td.params{text-align:left;font-size:12px;color:var(--muted)}
@@ -325,7 +328,7 @@ td.params{text-align:left;font-size:12px;color:var(--muted)}
           <label for="outName">Output name<input id="outName" autocomplete="off"></label>
           <label for="formula">Output formula<textarea id="formula" rows="3" spellcheck="false"></textarea></label>
           <div id="chips" class="chips" aria-label="Insert a name into the formula you are editing"></div>
-          <p class="help">Click a name to insert it into the formula you're editing (outlined names are calculation steps). Use names with <code>+ - * /</code>, <code>^</code> for powers, comparisons, and <code>min max abs sqrt exp ln log10 round floor ceil</code>. For conditions use <code>IF(cond, a, b)</code>, e.g. <code>IF(Units &gt; 20000, 0.9, 1)</code>. Constants such as a price or an order quantity are inputs set to <em>Fixed value</em>.</p>
+          <p class="help">Click a name to insert it into the formula you're editing (outlined names are calculation steps). Use names with <code>+ - * /</code>, <code>^</code> for powers, comparisons, and <code>min max abs sqrt exp ln log10 round floor ceil</code>. For conditions use <code>IF(cond, a, b)</code>, e.g. <code>IF(Units &gt; 20000, 0.9, 1)</code>, with <code>=</code>, <code>&lt;&gt;</code>, <code>AND()</code>, <code>OR()</code>, <code>NOT()</code>, nested <code>IF</code>s and <code>IFS()</code> as in Excel (capitals or lowercase). Steps can give text in quotes, e.g. <code>IF(Spot &gt; 16.75, "Options", "Spot")</code>; the results show how often each occurs. Constants such as a price or an order quantity are inputs set to <em>Fixed value</em>.</p>
           <p id="formulaErr" class="err" hidden></p>
           <div class="row2">
             <label for="iters">Iterations
@@ -605,7 +608,7 @@ function lhsColumn(inp,N,R){const q=quantileFn(inp),out=new Float64Array(N);if(i
   for(let i=0;i<N;i++){let u=(perm[i]+R.u())/N;if(u<=0)u=1e-12;if(u>=1)u=1-1e-12;out[i]=q(u);}return out;}
 const FIT_KEYS=['normal','lognormal','gamma','weibull','exponential','uniform','triangular','beta'];
 const MANUAL_KEYS=['normal','lognormal','triangular','pert','uniform','gamma','weibull','exponential','beta','constant'];
-const MATHN=['abs','min','max','sqrt','exp','log','ln','log10','pow','round','floor','ceil','PI','E','IF'];
+const MATHN=['abs','min','max','sqrt','exp','log','ln','log10','pow','round','floor','ceil','PI','E','IF','IFS','AND','OR','NOT','TRUE','FALSE'];
 const RESERVED=new Set([...MATHN,'if','else','return','var','let','const','new','this','true','false','null','function','typeof','void','delete','in','of','do','for','while','class','with','Math','NaN','Infinity','undefined']);
 
 /* ---------- formatting ---------- */
@@ -777,8 +780,8 @@ function renderChips(){const c=$('#chips');c.innerHTML='';const items=[...S.inpu
     b.addEventListener('click',()=>{const t=lastF&&document.body.contains(lastF)?lastF:$('#formula');const s=t.selectionStart??t.value.length,e=t.selectionEnd??s;
       t.value=t.value.slice(0,s)+name+t.value.slice(e);t.focus();t.selectionStart=t.selectionEnd=s+name.length;t.dispatchEvent(new Event('input',{bubbles:true}));});c.appendChild(b);}}
 function renameRef(before,now){if(!before||before===now||!/^[A-Za-z_]\w*$/.test(before))return;const mk=()=>new RegExp('\\b'+before+'\\b','g');let ch=false;
-  if(mk().test(S.formula)){S.formula=S.formula.replace(mk(),now);$('#formula').value=S.formula;ch=true;}
-  for(const c of S.calcs||[]){if(mk().test(c.formula)){c.formula=c.formula.replace(mk(),now);const t=document.getElementById('cf-'+c.id);if(t)t.value=c.formula;ch=true;}}
+  if(mk().test(codeOnly(S.formula))){S.formula=mapCode(S.formula,x=>x.replace(mk(),now));$('#formula').value=S.formula;ch=true;}
+  for(const c of S.calcs||[]){if(mk().test(codeOnly(c.formula))){c.formula=mapCode(c.formula,x=>x.replace(mk(),now));const t=document.getElementById('cf-'+c.id);if(t)t.value=c.formula;ch=true;}}
   if(ch)checkFormula();}
 let calcSeq=1;
 function renderCalcs(){const L=$('#calcList');L.innerHTML='';const n=S.calcs.length;
@@ -798,29 +801,36 @@ function renderCalcs(){const L=$('#calcList');L.innerHTML='';const n=S.calcs.len
   renderChips();checkFormula();}
 
 /* ---------- formula ---------- */
-const conv=e=>e.replace(/\^/g,'**');
+const STR_RE=/("[^"]*"|'[^']*')/;
+function mapCode(e,f){return e.split(STR_RE).map((seg,i)=>i%2?seg:f(seg)).join('');}
+const FN_CANON={};for(const n of ['IF','IFS','AND','OR','NOT','abs','min','max','sqrt','exp','log','ln','log10','pow','round','floor','ceil'])FN_CANON[n.toLowerCase()]=n;
+const normFn=c=>c.replace(/\b(true|false)\b/gi,m=>m.toUpperCase()).replace(/\b([A-Za-z_]\w*)(\s*\()/g,(m,n,p)=>FN_CANON[n.toLowerCase()]?FN_CANON[n.toLowerCase()]+p:m);
+function codeOnly(e){return e.split(STR_RE).map((seg,i)=>i%2?'0':seg).join('');}
+const conv=e=>mapCode(e,c=>normFn(c).replace(/<>/g,'!=').replace(/(^|[^<>=!])=(?!=)/g,'$1==').replace(/\^/g,'**'));
 function nameProblem(name){if(!/^[A-Za-z_][A-Za-z0-9_]*$/.test(name))return 'Names use letters, digits and _ and start with a letter.';
   if(RESERVED.has(name))return `“${name}” is reserved for a function. Pick another name.`;
   if(S.inputs.some(i=>i.name===name)||S.calcs.filter(c=>c.name===name).length>1)return 'An input or another step already uses this name.';return null;}
-function checkExpr(expr,allowed,later,what,self){if(!expr.trim())return `Enter a formula for ${what}.`;
-  const bad=expr.match(/[^\w\s.+\-*/%()<>=!&|?:,^]/);if(bad)return `The formula can’t use “${bad[0]}”.`;
-  const toks=expr.match(/\d*\.?\d+(?:e[+-]?\d+)?|[A-Za-z_]\w*/gi)||[];
+function checkExpr(expr,allowed,later,what,self,isOutput){if(!expr.trim())return `Enter a formula for ${what}.`;
+  const q=normFn(codeOnly(expr));if(/["']/.test(q))return 'A text value is missing its closing quote mark.';
+  if(isOutput&&STR_RE.test(expr)&&!/[=<>!]/.test(codeOnly(expr)))return 'The output must be a number. Put text values like "Spot" in a calculation step instead.';
+  const bad=q.match(/[^\w\s.+\-*/%()<>=!&|?:,^]/);if(bad)return `The formula can’t use “${bad[0]}”.`;
+  const toks=q.match(/\d*\.?\d+(?:e[+-]?\d+)?|[A-Za-z_]\w*/gi)||[];
   for(const t of toks){if(!/^[A-Za-z_]/.test(t)||allowed.has(t)||MATHN.includes(t))continue;
     if(t===self)return 'A step can’t use its own name in its formula.';
     return later.has(t)?`“${t}” is worked out further down. Move this step below it.`:`“${t}” isn’t an input, a step or a known function.`;}
   try{new Function(`return (${conv(expr)});`);}catch(e){return 'This formula has a syntax problem. Check brackets and operators.';}return null;}
 function compileModel(){const calcs=S.calcs||[];const inNames=S.inputs.map(i=>i.name);const allowed=new Set(inNames);const errs={};
   calcs.forEach((c,ix)=>{const later=new Set(calcs.slice(ix+1).map(x=>x.name));const e=nameProblem(c.name)||checkExpr(c.formula,allowed,later,`step ${ix+1}`,c.name);if(e)errs[c.id]=e;allowed.add(c.name);});
-  const outErr=checkExpr(S.formula,allowed,new Set(),'the output');
+  const outErr=checkExpr(S.formula,allowed,new Set(),'the output',null,true);
   if(Object.keys(errs).length)return{errs,outErr:outErr||'Fix the calculation steps marked above.',fn:null};
   if(outErr)return{errs,outErr,fn:null};
-  const body='const {abs,min,max,sqrt,exp,log,log10,pow,round,floor,ceil,PI,E}=Math;const ln=Math.log;const IF=(c,a,b)=>c?a:b;'+
+  const body='const {abs,min,max,sqrt,exp,log,log10,pow,floor,ceil,PI,E}=Math;const ln=Math.log;const round=(x,d=0)=>{const f=10**d;return Math.round(x*f)/f;};const TRUE=true,FALSE=false;const IF=(c,a,b=false)=>c?a:b;const IFS=(...a)=>{for(let i=0;i+1<a.length;i+=2)if(a[i])return a[i+1];return NaN;};const AND=(...a)=>a.every(Boolean)?1:0;const OR=(...a)=>a.some(Boolean)?1:0;const NOT=x=>x?0:1;'+
     calcs.map(c=>`const ${c.name}=(${conv(c.formula)});`).join('')+`return [(${conv(S.formula)})${calcs.map(c=>','+c.name).join('')}];`;
   try{return{errs,outErr:null,fn:new Function(...inNames,body)};}catch(e){return{errs,outErr:'The model has a syntax problem. Check the input names, brackets and operators.',fn:null};}}
 function checkFormula(){const r=compileModel();
   document.querySelectorAll('.calc').forEach(el=>{const e=r.errs[el.dataset.id];const p=el.querySelector('.err');p.hidden=!e;p.textContent=e||'';el.classList.toggle('has-err',!!e);});
   let msg=r.outErr;
-  if(!msg&&r.fn){try{const v=r.fn(...S.inputs.map(i=>i._st?i._st.m:1));if(typeof v[0]!=='number'&&typeof v[0]!=='boolean')msg='The output formula must produce a number.';}catch(e){msg='The model couldn’t be worked out: '+e.message;}}
+  if(!msg&&r.fn){try{const v=r.fn(...S.inputs.map(i=>i._st?i._st.m:1));if(typeof v[0]==='string')msg='The output must be a number. Text values like "Spot" can only be used in calculation steps.';else if(typeof v[0]!=='number'&&typeof v[0]!=='boolean')msg='The output formula must produce a number.';}catch(e){msg='The model couldn’t be worked out: '+e.message;}}
   const p=$('#formulaErr');p.hidden=!msg;p.textContent=msg||'';return msg?null:r.fn;}
 
 /* ---------- simulation ---------- */
@@ -829,12 +839,12 @@ function simulate(){const errs=S.inputs.map(inputError).filter(Boolean);const me
   if(errs.length){me.hidden=false;me.textContent='Fix the highlighted inputs before running.';return false;}
   const fn=checkFormula();if(!fn){me.hidden=false;me.textContent='Fix the formula before running.';return false;}
   me.hidden=true;const t0=performance.now();const N=S.iters,R=rngObj(S.seed),k=S.inputs.length;
-  let cols=S.inputs.map(()=>new Float64Array(N));const out=new Float64Array(N),vals=new Array(k),nc=S.calcs.length,ccols=S.calcs.map(()=>new Float64Array(N));
+  let cols=S.inputs.map(()=>new Float64Array(N));const out=new Float64Array(N),vals=new Array(k),nc=S.calcs.length,ccols=S.calcs.map(()=>new Array(N));let textOut=false;
   const lhs=S.sampling!=='mc';if(lhs)S.inputs.forEach((inp,j)=>{cols[j]=lhsColumn(inp,N,R);});
-  for(let i=0;i<N;i++){if(lhs){for(let j=0;j<k;j++)vals[j]=cols[j][i];}else{for(let j=0;j<k;j++){const inp=S.inputs[j];vals[j]=cols[j][i]=DIST[inp.dist].sample(inp.p,R);}}const rv=fn.apply(null,vals);out[i]=+rv[0];for(let c=0;c<nc;c++)ccols[c][i]=+rv[c+1];}
+  for(let i=0;i<N;i++){if(lhs){for(let j=0;j<k;j++)vals[j]=cols[j][i];}else{for(let j=0;j<k;j++){const inp=S.inputs[j];vals[j]=cols[j][i]=DIST[inp.dist].sample(inp.p,R);}}const rv=fn.apply(null,vals);if(typeof rv[0]==='string')textOut=true;out[i]=+rv[0];for(let c=0;c<nc;c++)ccols[c][i]=rv[c+1];}
   let keep=[];for(let i=0;i<N;i++)if(isFinite(out[i]))keep.push(i);const bad=N-keep.length;
-  const o2=Float64Array.from(keep,i=>out[i]),c2=cols.map(c=>Float64Array.from(keep,i=>c[i])),c3=ccols.map(c=>Float64Array.from(keep,i=>c[i]));
-  if(!o2.length){me.hidden=false;me.textContent='Every iteration produced an invalid number (for example a division by zero). Check the formula.';return false;}
+  const o2=Float64Array.from(keep,i=>out[i]),c2=cols.map(c=>Float64Array.from(keep,i=>c[i])),c3=ccols.map(c=>{const isText=keep.some(i=>typeof c[i]==='string');return isText?keep.map(i=>{const v=c[i];return typeof v==='string'?v:(typeof v==='boolean'?(v?'TRUE':'FALSE'):String(+v));}):Float64Array.from(keep,i=>+c[i]);});
+  if(!o2.length){me.hidden=false;me.textContent=textOut?'The output produced text. The output must be a number; use text values only in calculation steps.':'Every iteration produced an invalid number (for example a division by zero). Check the formula.';return false;}
   const sorted=Float64Array.from(o2).sort();const n=o2.length,m=mean(o2),sd=Math.sqrt(variance(o2,m)*n/Math.max(1,n-1));
   let sk=0;for(const v of o2)sk+=((v-m)/(sd||1))**3;sk/=n;
   const ro=ranks(o2);const rho=S.inputs.map((inp,j)=>({name:inp.name,r:pearson(ranks(c2[j]),ro)})).filter(x=>isFinite(x.r));
@@ -850,7 +860,10 @@ function renderResults(){const R=lastRun;$('#resEmpty').hidden=!!R;$('#resBody')
   $('#statRow').innerHTML=tiles.map(([k,v,sub,c])=>`<div class="stat ${c||''}"><div class="k">${esc(k)}</div><div class="v">${v}</div><div class="s">${esc(sub)}</div></div>`).join('');
   const qs=[.01,.05,.10,.25,.50,.75,.90,.95,.99];
   $('#pctTable').innerHTML=`<thead><tr><th>Percentile</th>${qs.map(q=>`<th>P${Math.round(q*100)}</th>`).join('')}</tr></thead><tbody><tr><td>${esc(R.outName)}</td>${qs.map(q=>`<td>${fmt(pct(s,q))}</td>`).join('')}</tr>
-    ${R.calcNames.length?`<tr class="grp"><td colspan="${qs.length+1}">Calculation steps</td></tr>`+R.calcNames.map((nm,j)=>{const cs=Float64Array.from(R.calcCols[j]).sort();return `<tr><td>${esc(nm)}</td>${qs.map(q=>`<td>${fmt(pct(cs,q))}</td>`).join('')}</tr>`;}).join('')+`<tr class="grp"><td colspan="${qs.length+1}">Inputs</td></tr>`:''}
+    ${R.calcNames.length?`<tr class="grp"><td colspan="${qs.length+1}">Calculation steps</td></tr>`+R.calcNames.map((nm,j)=>{const col=R.calcCols[j];if(Array.isArray(col)){const cnt=new Map();for(const v of col)cnt.set(v,(cnt.get(v)||0)+1);
+      const parts=[...cnt.entries()].sort((a,b)=>b[1]-a[1]).map(([k,c])=>`<span class="cat"><b>${esc(k)}</b> ${fmtPct(c/col.length)}</span>`).join('');
+      return `<tr><td>${esc(nm)}</td><td class="l cats" colspan="${qs.length}">${parts}</td></tr>`;}
+      const cs=Float64Array.from(col).sort();return `<tr><td>${esc(nm)}</td>${qs.map(q=>`<td>${fmt(pct(cs,q))}</td>`).join('')}</tr>`;}).join('')+`<tr class="grp"><td colspan="${qs.length+1}">Inputs</td></tr>`:''}
     ${R.names.map((nm,j)=>{const cs=Float64Array.from(R.cols[j]).sort();return `<tr><td>${esc(nm)}</td>${qs.map(q=>`<td>${fmt(pct(cs,q))}</td>`).join('')}</tr>`;}).join('')}</tbody>`;
   const rows=[...R.rho].sort((a,b)=>Math.abs(b.r)-Math.abs(a.r));const tot=rows.reduce((a,x)=>a+x.r*x.r,0)||1;
   $('#tornado').innerHTML=rows.length?`<div class="trow thead"><span>Input</span><span style="display:flex;justify-content:space-between"><span>− lowers</span><span>raises +</span></span><span style="text-align:right">ρ</span><span style="text-align:right">Share</span></div>`+
@@ -1120,7 +1133,7 @@ function copyText(text,okMsg){const m=$('#copyMsg'),fb=$('#copyFallback');const 
   try{navigator.clipboard.writeText(text).then(()=>{fb.hidden=true;m.hidden=false;m.textContent=okMsg;},fallback);}catch(e){fallback();}}
 $('#copyBtn').addEventListener('click',()=>{const t=$('#pctTable');copyText([...t.rows].map(r=>[...r.cells].map(c=>c.textContent).join('\t')).join('\n'),'Percentile table copied. It pastes into a spreadsheet as columns.');});
 $('#copyRaw').addEventListener('click',()=>{const R=lastRun;if(!R)return;const lim=Math.min(R.n,20000);const L=[[...R.names,...R.calcNames,R.outName].join(',')];
-  for(let i=0;i<lim;i++)L.push([...R.cols.map(c=>c[i]),...R.calcCols.map(c=>c[i]),R.out[i]].join(','));copyText(L.join('\n'),lim<R.n?`First ${lim.toLocaleString('en')} of ${R.n.toLocaleString('en')} iterations copied as CSV.`:`${lim.toLocaleString('en')} iterations copied as CSV.`);});
+  const cq=v=>typeof v==='string'?(/[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v):v;for(let i=0;i<lim;i++)L.push([...R.cols.map(c=>c[i]),...R.calcCols.map(c=>cq(c[i])),R.out[i]].join(','));copyText(L.join('\n'),lim<R.n?`First ${lim.toLocaleString('en')} of ${R.n.toLocaleString('en')} iterations copied as CSV.`:`${lim.toLocaleString('en')} iterations copied as CSV.`);});
 
 let rz;const redraw=()=>{cancelAnimationFrame(rz);rz=requestAnimationFrame(()=>{drawResults();drawSweep();drawFit();if(!$('#tab-model').hidden)refreshAllCards();});};
 new ResizeObserver(redraw).observe(document.querySelector('main'));
