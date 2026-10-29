@@ -1129,6 +1129,10 @@ new MutationObserver(redraw).observe(document.documentElement,{attributes:true,a
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(redraw);
 
 /* ---------- boot ---------- */
+const bootHash=location.hash;
+const isCaseHash=h=>/^#(case=|case-)/.test(h||'');
+window.addEventListener('hashchange',()=>{if(isCaseHash(location.hash)&&location.hash!==bootHash)location.reload();});
+window.addEventListener('pageshow',e=>{if(e.persisted&&isCaseHash(location.hash)&&location.hash!==bootHash)location.reload();});
 S=load();applyState();renderHist();renderLib();
 {const k=(S.origin||'').startsWith('tpl:')?S.origin.slice(4):null;if(k&&TEMPLATES[k])$('#tplSel').value=k;}
 if(linkError){closePanels();$('#importPanel').hidden=false;const m=$('#importMsg');m.hidden=false;m.textContent=linkError;}
