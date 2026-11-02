@@ -30,7 +30,7 @@ for (const e of EXAMS) {
   if (e.open) add(e.id + "-open", e.open, `Form opens: ${e.name}${est(e.closeExp)}`, info, e.url, [["-PT15H", `${e.name} application opens tomorrow`]]);
   if (e.close) add(e.id + "-close", e.close, `LAST DATE to apply: ${e.name}${est(e.closeExp)}`, `${e.note}\n${info}`, e.url,
     [["-P6DT15H", `${e.name}: application closes in 7 days`], ["-PT15H", `${e.name}: application closes TOMORROW`]]);
-  if (e.exam) add(e.id + "-exam", e.exam, `EXAM: ${e.name} (${e.examLbl})${est(e.examExp)}`, info, e.url, [["-P2DT15H", `${e.name} exam in 3 days`]]);
+  if (e.exam) add(e.id + "-exam", e.exam, `${(e.examTitle || "Exam").toUpperCase()}: ${e.name} (${e.examLbl})${est(e.examExp)}`, info, e.url, [["-P2DT15H", `${e.name}: ${(e.examTitle || "exam").toLowerCase()} in 3 days`]]);
 }
 const cal = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//SBT//Entrance Exam Planner 2027//EN", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
   "X-WR-CALNAME:Entrance Exams 2027", "X-WR-TIMEZONE:Asia/Kolkata",

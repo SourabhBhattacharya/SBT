@@ -192,7 +192,7 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
     <div class="top">
       <div>
         <h1>Entrance Exam Planner 2027</h1>
-        <p class="lede">Undergraduate entrance exams after Class 12 for science, commerce, arts and humanities, with live countdowns to every form deadline.</p>
+        <p class="lede">Undergraduate entrance exams and university applications after Class 12, in India and abroad, for science, commerce, arts and humanities, with live countdowns to every deadline.</p>
       </div>
       <div class="meta-r">
         <details class="rem" id="rem">
@@ -222,7 +222,7 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
       <button data-v="mine" aria-pressed="false"><svg class="i" viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg>Saved</button>
     </div>
     <label class="search" for="q"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="q" type="search" placeholder="Search: NEET, law, BBA, Hyderabad…"></label>
+      <input id="q" type="search" placeholder="Search: NEET, law, BBA, SAT, UK…"></label>
     <div class="seg" id="views" role="group" aria-label="View">
       <button data-v="list" aria-pressed="true"><svg class="i" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>List</button>
       <button data-v="timeline" aria-pressed="false"><svg class="i" viewBox="0 0 24 24"><path d="M3 12h18M7 8v8M12 5v14M17 9v6"/></svg>Timeline</button>
@@ -253,12 +253,90 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
 // ---- Weekly update log: the Saturday check adds a new entry at the TOP and sets LAST_CHECKED ----
 const LAST_CHECKED = "2026-11-02";
 const UPDATES = [
+ {date:"2026-11-02", items:["New Study abroad tab: SAT, ACT, English tests, and application deadlines for the USA, UK, Canada, Singapore, Hong Kong, Australia and Germany.","SAT: register by 20 Nov for the 5 Dec sitting.","Hong Kong (HKU, HKUST) first-round deadline: 25 Nov 2026."]},
  {date:"2026-11-02", items:["Added 10 exams for commerce, arts and humanities students: AILET, SLAT, NID DAT, CA Foundation, NPAT, Symbiosis SET, NCHM JEE, NCET, TG LAWCET, JIPMAT.","New subject filters for Commerce and Arts & Humanities.","AILET closes 10 Nov; NID DAT closes 30 Nov 2026."]},
  {date:"2026-11-02", items:["Planner launched with 26 exams.","JEE Main Session 1 is open until 22 Nov 2026.","UCEED late-fee window closes 6 Nov 2026."]}
 ];
 // ---- end of update log ----
 
 const EXAMS = [
+ {id:"hk",name:"Hong Kong: HKU & HKUST (Sept 2027)",full:"University of Hong Kong / HKUST international admissions",cat:"Intl",stream:"Any",body:"HKU, HKUST",url:"https://admissions.hku.hk/apply/international-qualifications",
+  open:"2026-09-23",close:"2026-11-25",closeExp:false,exam:"2026-12-15",examLbl:"From Dec 2026",examExp:true,examTitle:"Decisions",
+  elig:"Class 12 (CBSE/ISC/state board) with strong results; English proficiency (IELTS/TOEFL or high Class 12 English, per programme).",
+  pattern:"No entrance exam: application with Class 12 predicted/actual marks, personal statement, references; some programmes interview.",
+  cutoff:"Holistic; no published cutoff.",
+  note:"25 Nov 2026 (noon HK time) is the first-round deadline at HKU and HKUST's priority deadline; both keep accepting later applications (HKU to 25 Aug 2027) but early applicants get offers first. HKU fee HK$780.",
+  kw:"hong kong hku hkust abroad international asia"},
+ {id:"sat",name:"SAT (Dec 2026 sitting)",full:"SAT by College Board",cat:"Intl",stream:"Any",body:"College Board",url:"https://satsuite.collegeboard.org/sat/dates-deadlines",
+  open:"2026-06-01",close:"2026-11-20",closeExp:false,exam:"2026-12-05",examLbl:"5 Dec 2026",examExp:false,examTitle:"Test",
+  elig:"Open to anyone; taken at centres across India including Hyderabad.",
+  pattern:"Digital, about 2 hrs 14 min: Reading & Writing and Math (calculator allowed). Score 400–1600. Many US universities are test-optional, some require it again.",
+  cutoff:"No pass mark; the target score depends on the university.",
+  note:"Late registration until 24 Nov. Later sittings: 6 Mar 2027 (register by 19 Feb), 1 May (16 Apr), 5 Jun 2027 (21 May). December is the last sitting most US regular-decision deadlines accept. Also used by some Indian private universities.",
+  kw:"sat usa us america college board abroad international test"},
+ {id:"act",name:"ACT (Dec 2026 international)",full:"ACT",cat:"Intl",stream:"Any",body:"ACT",url:"https://global.act.org",
+  open:"2026-06-01",close:"2026-11-13",closeExp:false,exam:"2026-12-11",examLbl:"11–12 Dec 2026",examExp:false,examTitle:"Test",
+  elig:"Open to anyone; computer-based at international test centres.",
+  pattern:"English, Math, Reading (Science optional). Score 1–36. Accepted interchangeably with the SAT by US universities.",
+  cutoff:"No pass mark; the target score depends on the university.",
+  note:"Late fee deadline 27 Nov. Next international dates: 12–13 Feb 2027 (register by 15 Jan), 2–3 Apr (5 Mar), 11–12 Jun 2027 (14 May).",
+  kw:"act usa us america abroad international test"},
+ {id:"commonapp",name:"USA: Common App (Fall 2027)",full:"US universities, regular decision",cat:"Intl",stream:"Any",body:"Common App / each university",url:"https://www.commonapp.org",
+  open:"2026-08-01",close:"2027-01-01",closeExp:true,exam:"2027-04-01",examLbl:"Mar – Apr 2027",examExp:true,examTitle:"Decisions",
+  elig:"Class 12 in any stream; SAT/ACT where required; English test (TOEFL/IELTS/Duolingo) for many; proof of funds for the visa.",
+  pattern:"No entrance exam: Common App essay, school transcripts and counsellor/teacher recommendations, activities list, plus each college's supplements.",
+  cutoff:"Holistic; no cutoff.",
+  note:"Most regular-decision deadlines fall between 1 and 15 Jan 2027 (some 1 Feb). Early deadlines (1 and 15 Nov 2026) have mostly passed. University of California uses its own application, due 30 Nov 2026. Enrolment deposit due 1 May 2027.",
+  kw:"usa us america common app abroad international college harvard mit stanford"},
+ {id:"ucas",name:"UK: UCAS (Sept 2027 entry)",full:"UK universities via UCAS",cat:"Intl",stream:"Any",body:"UCAS",url:"https://www.ucas.com",
+  open:"2026-05-12",close:"2027-01-13",closeExp:false,exam:"2027-05-12",examLbl:"By ~12 May 2027",examExp:true,examTitle:"Decisions",
+  elig:"Class 12 (CBSE/ISC and most state boards are accepted, typically with high percentages; requirements vary by university and course); English proficiency (IELTS or Class 12 English marks, per university).",
+  pattern:"No entrance exam for most courses: up to 5 choices, personal statement, reference. Some courses add tests (e.g. TMUA, ESAT) or interviews.",
+  cutoff:"Conditional offers based on your final Class 12 marks.",
+  note:"13 Jan 2027, 6 pm UK time (11:30 pm IST), is the equal-consideration deadline. Oxford, Cambridge, medicine, dentistry and veterinary closed on 15 Oct 2026. Reply to offers by 2 Jun 2027; Clearing opens 2 Jul.",
+  kw:"uk united kingdom britain ucas abroad international london oxford cambridge"},
+ {id:"canada",name:"Canada (Fall 2027)",full:"Canadian universities: Ontario (OUAC), UBC, McGill",cat:"Intl",stream:"Any",body:"OUAC / each university",url:"https://www.ouac.on.ca",
+  open:"2026-10-01",close:"2027-01-15",closeExp:true,exam:"2027-04-15",examLbl:"Feb – May 2027",examExp:true,examTitle:"Decisions",
+  elig:"Class 12 with required subjects (e.g. Maths for engineering/commerce); English test (IELTS/TOEFL/Duolingo) unless waived.",
+  pattern:"No entrance exam: application with Class 11–12 marks; some programmes add a supplementary form, essay or video.",
+  cutoff:"Grade-based; varies by programme.",
+  note:"Around 15 Jan 2027 is the usual deadline at Toronto, UBC, McGill and Ontario universities (OUAC); some programmes (e.g. Waterloo engineering) want earlier documents. Check each university.",
+  kw:"canada toronto ubc mcgill waterloo ouac abroad international"},
+ {id:"ntu",name:"Singapore: NTU (Aug 2027)",full:"Nanyang Technological University",cat:"Intl",stream:"Any",body:"NTU Singapore",url:"https://www.ntu.edu.sg/admissions/undergraduate",
+  open:"2026-10-15",close:"2027-01-20",closeExp:true,exam:"2027-05-15",examLbl:"Apr – Jun 2027",examExp:true,examTitle:"Decisions",
+  elig:"Indian Class 12 (CBSE/ISC; appearing students apply with predicted/Class 10 & 11 results); subject prerequisites per programme.",
+  pattern:"No entrance exam: online application; some programmes test or interview.",
+  cutoff:"Holistic; very competitive for international students.",
+  note:"Window projected from the 2026 cycle (15 Oct – 20 Jan). The Singapore Ministry of Education Tuition Grant lowers fees in return for a 3-year work commitment in Singapore.",
+  kw:"singapore ntu nanyang abroad international asia"},
+ {id:"nus",name:"Singapore: NUS (Aug 2027)",full:"National University of Singapore",cat:"Intl",stream:"Any",body:"NUS",url:"https://www.nus.edu.sg/oam",
+  open:"2026-12-03",close:"2027-02-23",closeExp:true,exam:"2027-07-01",examLbl:"By July 2027",examExp:true,examTitle:"Decisions",
+  elig:"Indian Standard 12 (CBSE/ISC) applicants who sit the exam in 2027 can apply; programme prerequisites apply (e.g. Maths for engineering).",
+  pattern:"No entrance exam: online application; some programmes add tests, interviews or portfolios. Fee S$20.",
+  cutoff:"Holistic; acceptance for international undergraduates is reported at under 10%.",
+  note:"Window projected from the 2026 cycle (3 Dec – 23 Feb). Scholarships close around mid-March. Tuition Grant available with a 3-year work commitment in Singapore.",
+  kw:"singapore nus abroad international asia"},
+ {id:"germany",name:"Germany (Winter semester 2027)",full:"German public universities via uni-assist",cat:"Intl",stream:"Any",body:"uni-assist / each university",url:"https://www.uni-assist.de/en/",
+  open:"2027-04-15",close:"2027-07-15",closeExp:true,exam:"2027-08-31",examLbl:"Aug – Sep 2027",examExp:true,examTitle:"Decisions",
+  elig:"Indian Class 12 alone usually does not give direct entry: you typically need a foundation year (Studienkolleg, via its entrance test) or one year of university study in India; JEE Advanced qualifiers may get direct entry to related subjects. Check the anabin/DAAD rules for your board and course.",
+  pattern:"Application via uni-assist or the university; Studienkolleg entrance test (Maths/English/German) for foundation-year route. Most bachelor's programmes are taught in German (B2/C1 needed).",
+  cutoff:"Grade-based (NC) for restricted programmes.",
+  note:"Public universities charge little or no tuition (except some states). 15 July is the usual winter-semester deadline; Studienkolleg deadlines are earlier. Check DAAD for the exact route.",
+  kw:"germany german daad uni-assist studienkolleg abroad international europe tuition free"},
+ {id:"english",name:"English tests: IELTS, TOEFL, PTE, Duolingo",full:"English proficiency tests",cat:"Intl",stream:"Any",ondemand:true,body:"British Council/IDP, ETS, Pearson, Duolingo",url:"https://ielts.org",
+  open:null,close:null,exam:null,examLbl:"Book any time; results in about 2–13 days",examExp:false,
+  elig:"Open to anyone.",
+  pattern:"IELTS Academic: band 1–9 (Listening, Reading, Writing, Speaking). TOEFL iBT: 0–120. PTE Academic: 10–90. Duolingo English Test: 10–160, taken online at home.",
+  cutoff:"Typical asks: IELTS 6.5–7.0, TOEFL 90–100+, Duolingo 115–125+, depending on the university.",
+  note:"Test dates run every week in Hyderabad. Some UK, Singapore and Hong Kong universities accept high Class 12 English marks instead, so check before booking. Take it at least 6–8 weeks before your earliest deadline.",
+  kw:"ielts toefl pte duolingo english test abroad international"},
+ {id:"aus",name:"Australia (July 2027 or Feb 2028)",full:"Australian universities (Group of Eight and others)",cat:"Intl",stream:"Any",ondemand:true,body:"Each university",url:"https://www.studyaustralia.gov.au",
+  open:null,close:null,exam:null,examLbl:"Rolling applications; main intakes Feb/Mar and July",examExp:false,
+  elig:"Class 12 with the required percentage and subjects (varies by university); English test (IELTS/PTE/TOEFL).",
+  pattern:"No entrance exam: direct application to the university or through an authorised agent.",
+  cutoff:"Minimum Class 12 percentage per course (often published as a CBSE/ISC equivalent).",
+  note:"Apply 4–6 months before the intake. Students finishing Class 12 in March 2027 usually target July 2027 or February 2028.",
+  kw:"australia melbourne sydney unsw anu monash abroad international"},
  {id:"ailet",name:"AILET 2027",full:"All India Law Entrance Test",cat:"Law",stream:"Any",body:"NLU Delhi",url:"https://nationallawuniversitydelhi.in",
   open:"2026-08-07",close:"2026-11-10",closeExp:false,exam:"2026-12-13",examLbl:"13 Dec 2026, 2–4 pm",examExp:false,
   elig:"Class 12 in any stream with 45% (relaxation for reserved categories); appearing students can apply.",
@@ -516,16 +594,18 @@ const EXAMS = [
 const CATS = {
   Engineering:{lbl:"Engineering",c:"#2f5bea",ic:'<path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>'},
   Medical:{lbl:"Medical",c:"#e03131",ic:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/><path d="M12 9v6M9 12h6"/>'},
-  Science:{lbl:"Science & research",c:"#0c8599",ic:'<path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/>'},
+  Science:{lbl:"Science & research",c:"#2b8a3e",ic:'<path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/>'},
   State:{lbl:"Telangana / AP",c:"#e8590c",ic:'<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>'},
   Defence:{lbl:"Defence",c:"#5c7a29",ic:'<path d="M12 3 4 6v6c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6z"/>'},
   Law:{lbl:"Law",c:"#6741d9",ic:'<path d="M12 3v18M5 21h14M5 7h14"/><path d="m5 7-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/>'},
   Mgmt:{lbl:"Management & commerce",c:"#b7791f",ic:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>'},
   Design:{lbl:"Design & architecture",c:"#d6336c",ic:'<path d="M12 21a9 9 0 1 1 9-9c0 2.5-2 3-3.5 3H15a2 2 0 0 0-1.4 3.4A1.5 1.5 0 0 1 12 21z"/><circle cx="7.5" cy="10.5" r="1"/><circle cx="11" cy="7" r="1"/><circle cx="16" cy="8.5" r="1"/>'},
-  Other:{lbl:"Hotel mgmt & teaching",c:"#2b8a3e",ic:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/>'}
+  Intl:{lbl:"Study abroad",c:"#0b7c8c",ic:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>'},
+  Other:{lbl:"Hotel mgmt & teaching",c:"#5c6b7a",ic:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/>'}
 };
-const STREAMS=[["all","All streams"],["m","Science · Maths"],["b","Science · Biology"],["c","Commerce"],["h","Arts & Humanities"]];
+const STREAMS=[["all","All streams"],["m","Science · Maths"],["b","Science · Biology"],["c","Commerce"],["h","Arts & Humanities"],["intl","Study abroad"]];
 const streamLbl={PCM:"Science · Maths",PCB:"Science · Biology",PCMB:"Science · Maths or Bio",Any:"All streams"};
+const inStream=(e,v)=>v==="all"||(v==="intl"?[].concat(e.cat).includes("Intl"):aud(e).includes(v));
 const aud=e=>e.aud||({PCM:["m"],PCB:["b"],PCMB:["m","b"],Any:["m","b","c","h"]})[e.stream];
 const cat0=e=>CATS[[].concat(e.cat)[0]]||CATS.Other;
 
@@ -538,6 +618,7 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",
 const svg=p=>`<svg class="i" viewBox="0 0 24 24">${p}</svg>`;
 
 function status(e){
+  if(e.ondemand) return {k:"na",txt:"Apply / book any time",sort:8500};
   if(!e.open) return {k:"na",txt:"Uses JEE Main score",sort:9000};
   const o=days(e.open),c=days(e.close);
   if(o>0) return {k:"soon",txt:`Opens in ${o} day${o===1?"":"s"}`,sort:c};
@@ -555,7 +636,7 @@ let view=location.hash==="#timeline"?"timeline":"list";
 const opened=new Set(), tabOf={};
 
 function base(e,skip){
-  if(skip!=="stream"&&F.stream!=="all"&&!aud(e).includes(F.stream))return false;
+  if(skip!=="stream"&&!inStream(e,F.stream))return false;
   if(F.cat!=="all"&&![].concat(e.cat).includes(F.cat))return false;
   if(F.q){const h=(e.name+" "+e.full+" "+e.body+" "+e.kw+" "+[].concat(e.cat).map(c=>CATS[c]?CATS[c].lbl:c).join(" ")).toLowerCase();if(!F.q.split(/\s+/).every(w=>h.includes(w)))return false;}
   return true;
@@ -572,19 +653,19 @@ function matches(e){
 /* ---- header: stream tabs + field dropdown ---- */
 function renderStreams(){
   document.getElementById("streams").innerHTML=STREAMS.map(([v,l])=>{
-    const n=EXAMS.filter(e=>v==="all"||aud(e).includes(v)).length;
+    const n=EXAMS.filter(e=>inStream(e,v)).length;
     return `<button class="stab" role="tab" data-stream="${v}" aria-selected="${F.stream===v}">${l}<span class="n">${n}</span></button>`;}).join("");
 }
 function renderField(){
   const sel=document.getElementById("field");
   const opts=[["all","All fields"]].concat(Object.entries(CATS).map(([k,v])=>[k,v.lbl]));
-  sel.innerHTML=opts.map(([k,l])=>{const n=EXAMS.filter(e=>(F.stream==="all"||aud(e).includes(F.stream))&&(k==="all"||[].concat(e.cat).includes(k))).length;
+  sel.innerHTML=opts.map(([k,l])=>{const n=EXAMS.filter(e=>inStream(e,F.stream)&&(k==="all"||[].concat(e.cat).includes(k))).length;
     return `<option value="${k}" ${F.cat===k?"selected":""} ${n===0&&k!=="all"?"disabled":""}>${l} (${n})</option>`;}).join("");
 }
 
 /* ---- summary ---- */
 function renderSummary(){
-  const pool=EXAMS.filter(e=>F.stream==="all"||aud(e).includes(F.stream));
+  const pool=EXAMS.filter(e=>inStream(e,F.stream));
   const openN=pool.filter(e=>["open","urgent"].includes(status(e).k)).length;
   const soon30=pool.filter(e=>e.close&&days(e.open)<=0&&days(e.close)>=0&&days(e.close)<=30).length;
   const later=pool.filter(e=>status(e).k==="soon").length;
@@ -598,6 +679,7 @@ function renderSummary(){
 
 /* ---- list grouped by month ---- */
 function groupOf(e){
+  if(e.ondemand)return {k:"z0",t:"Any time: tests and rolling admissions"};
   if(!e.open)return {k:"z1",t:"Selection through JEE Main score"};
   const c=days(e.close);
   if(c>=0){const dt=d(e.close);const m=dt.toLocaleDateString("en-IN",{month:"long",year:"numeric"});
@@ -606,12 +688,12 @@ function groupOf(e){
   if(e.exam&&days(e.exam)>=0)return {k:"y",t:"Forms closed · exam still ahead"};
   return {k:"z2",t:"Finished"};
 }
-const TABS=[["dates","Key dates"],["elig","Eligibility"],["pattern","Exam pattern"],["cutoff","Last year's cutoff"]];
+const TABS=[["dates","Key dates"],["elig","Eligibility"],["pattern","Exam / application"],["cutoff","Cutoff / selection"]];
 function panel(e,t){
   if(t==="dates") return `<div class="kv">
-     <div><small>Form opens</small>${e.open?fmt(e.open):"No separate form"}</div>
+     <div><small>Opens</small>${e.open?fmt(e.open):(e.ondemand?"Any time":"No separate form")}</div>
      <div><small>Last date to apply</small>${e.close?`<span class="${e.closeExp?"exp":""}">${fmt(e.close)}${e.closeExp?" (expected)":""}</span>`:"—"}</div>
-     <div><small>Exam</small><span class="${e.examExp?"exp":""}">${esc(e.examLbl)}</span></div>
+     <div><small>${e.examTitle||"Exam"}</small><span class="${e.examExp?"exp":""}">${esc(e.examLbl)}</span></div>
      <div><small>Conducted by</small>${esc(e.body)}</div></div><div class="note">${esc(e.note)}</div>`;
   if(t==="elig") return `<p>${esc(e.elig)}</p>`;
   if(t==="pattern") return `<p>${esc(e.pattern)}</p>`;
@@ -624,7 +706,7 @@ function card(e){
      <div class="ic">${svg(C.ic)}</div>
      <div style="min-width:0">
        <div class="nm"><b>${esc(e.name)}</b><span class="chip cat">${C.lbl}</span><span class="chip str">${esc(e.tagLbl||streamLbl[e.stream])}</span></div>
-       <div class="sub">${e.close?`<span>Last date <b class="${e.closeExp?"exp":""}">${fmt(e.close)}</b></span>`:""}<span>Exam <b class="${e.examExp?"exp":""}">${esc(e.examLbl)}</b></span></div>
+       <div class="sub">${e.close?`<span>Last date <b class="${e.closeExp?"exp":""}">${fmt(e.close)}</b></span>`:""}<span>${e.examTitle||"Exam"} <b class="${e.examExp?"exp":""}">${esc(e.examLbl)}</b></span></div>
      </div>
      <div class="right"><span class="pill ${st.k}">${st.txt}</span>
        <button class="star" data-star="${e.id}" aria-pressed="${mine.has(e.id)}" title="Save to my list" aria-label="Save ${esc(e.name)}">${svg('<path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/>')}</button>
@@ -641,7 +723,7 @@ function renderList(list){
   const groups={};
   list.forEach(e=>{const g=groupOf(e);(groups[g.k]=groups[g.k]||{t:g.t,items:[]}).items.push(e);});
   return Object.keys(groups).sort().map(k=>{const g=groups[k];g.items.sort((a,b)=>status(a).sort-status(b).sort);
-    return `<section class="group"><div class="ghead"><h2>${g.t}</h2><span class="c">${g.items.length} exam${g.items.length===1?"":"s"}</span></div>${g.items.map(card).join("")}</section>`;}).join("");
+    return `<section class="group"><div class="ghead"><h2>${g.t}</h2><span class="c">${g.items.length}</span></div>${g.items.map(card).join("")}</section>`;}).join("");
 }
 
 /* ---- timeline ---- */
@@ -668,14 +750,14 @@ function render(){
 }
 function goto(id){
   const e=EXAMS.find(x=>x.id===id);
-  if(e&&!matches(e)){F.cat="all";F.status="all";F.q="";document.getElementById("q").value="";if(F.stream!=="all"&&!aud(e).includes(F.stream))F.stream="all";}
+  if(e&&!matches(e)){F.cat="all";F.status="all";F.q="";document.getElementById("q").value="";if(!inStream(e,F.stream))F.stream="all";}
   opened.add(id);view="list";render();
   const el=document.getElementById("c-"+id);if(el)el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center"});
 }
 
 document.addEventListener("click",ev=>{
   const t=ev.target;
-  const st=t.closest("[data-stream]");if(st){F.stream=st.dataset.stream;store("examPlannerStream",F.stream);if(F.cat!=="all"&&!EXAMS.some(e=>aud(e).includes(F.stream)&&[].concat(e.cat).includes(F.cat)))F.cat="all";render();return;}
+  const st=t.closest("[data-stream]");if(st){F.stream=st.dataset.stream;store("examPlannerStream",F.stream);if(F.cat!=="all"&&!EXAMS.some(e=>inStream(e,F.stream)&&[].concat(e.cat).includes(F.cat)))F.cat="all";render();return;}
   const star=t.closest("[data-star]");if(star){ev.stopPropagation();const id=star.dataset.star;mine.has(id)?mine.delete(id):mine.add(id);saveMine();render();return;}
   const s=t.closest("#status button");if(s){F.status=s.dataset.v;render();return;}
   const v=t.closest("#views button");if(v){view=v.dataset.v;history.replaceState(null,"",view==="timeline"?"#timeline":location.pathname+location.search);render();return;}
@@ -718,7 +800,7 @@ function toast(cls,title,items,actions){
 (function(){
   const key="examPlannerAlert-"+now.toISOString().slice(0,10);
   if(store(key))return;
-  const pool=mine.size?EXAMS.filter(e=>mine.has(e.id)):EXAMS.filter(e=>F.stream==="all"||aud(e).includes(F.stream));
+  const pool=mine.size?EXAMS.filter(e=>mine.has(e.id)):EXAMS.filter(e=>inStream(e,F.stream));
   const soon=pool.filter(e=>e.close&&days(e.open)<=0&&days(e.close)>=0&&days(e.close)<=7).sort((a,b)=>days(a.close)-days(b.close));
   if(!soon.length)return;
   toast("warn",mine.size?"Your saved exams closing this week":"Forms closing this week",
