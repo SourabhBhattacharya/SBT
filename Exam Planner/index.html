@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entrance Exam Planner 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a deadline board. Urgent strip on top, then filterable exam rows, with a year timeline as the second view. */
+:root{
+  --bg:#f4f5f8;
+  --surface:#ffffff;
+  --ink:#16203a;
+  --muted:#5c6680;
+  --line:#dde1ea;
+  --accent:#2742c9;
+  --accent-soft:#e7ebfc;
+  --open:#0f7a55; --open-soft:#e2f4ec;
+  --urgent:#c2410c; --urgent-soft:#fdebe1;
+  --soon:#7a5a00; --soon-soft:#fbf1d3;
+  --closed:#6b7280; --closed-soft:#eef0f3;
+  --pcm:#2742c9; --pcb:#0f7a55; --any:#8a3fb8;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1424; --surface:#171e33; --ink:#e8ecf6; --muted:#9aa4bf; --line:#2a3350;
+    --accent:#8ea2ff; --accent-soft:#232d55;
+    --open:#4fd1a1; --open-soft:#123329; --urgent:#ff9a62; --urgent-soft:#3a2216;
+    --soon:#f2c94c; --soon-soft:#352c10; --closed:#9aa3b5; --closed-soft:#222a3e;
+    --pcm:#8ea2ff; --pcb:#4fd1a1; --any:#d39cf5;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1424; --surface:#171e33; --ink:#e8ecf6; --muted:#9aa4bf; --line:#2a3350;
+  --accent:#8ea2ff; --accent-soft:#232d55;
+  --open:#4fd1a1; --open-soft:#123329; --urgent:#ff9a62; --urgent-soft:#3a2216;
+  --soon:#f2c94c; --soon-soft:#352c10; --closed:#9aa3b5; --closed-soft:#222a3e;
+  --pcm:#8ea2ff; --pcb:#4fd1a1; --any:#d39cf5;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+a{color:var(--accent)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:24px 20px 60px;display:flex;flex-direction:column;gap:22px}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(26px,4vw,38px);line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:6px 0 0;max-width:62ch}
+.today{font-family:var(--mono);font-size:13px;color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:6px 10px;border-radius:8px}
+h2{font-family:var(--display);font-weight:600;font-size:18px;margin:0}
+.urgent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.tile{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--urgent);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;cursor:pointer;text-align:left}
+.tile:hover{border-color:var(--urgent)}
+.tile .days{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;color:var(--urgent);font-variant-numeric:tabular-nums}
+.tile .days small{font-size:14px;font-weight:600;margin-left:4px}
+.tile .nm{font-weight:600}
+.tile .dl{font-size:13px;color:var(--muted)}
+.tile.soon{border-left-color:var(--soon)} .tile.soon .days{color:var(--soon)}
+.controls{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lbl{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);min-width:76px}
+.chip{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:5px 12px;cursor:pointer;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .chip[aria-pressed="true"]{color:#0f1424}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1424}}
+.search{flex:1;min-width:200px;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:7px 10px}
+.tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:4px;width:fit-content}
+.tab{border:0;background:transparent;padding:7px 14px;border-radius:7px;cursor:pointer;font-weight:500}
+.tab[aria-selected="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.count{color:var(--muted);font-size:14px}
+.list{display:flex;flex-direction:column;gap:10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.card-h{display:grid;grid-template-columns:1fr auto;gap:10px 16px;padding:14px 16px;cursor:pointer;align-items:center}
+.card-h:hover{background:color-mix(in srgb,var(--accent-soft) 40%,transparent)}
+.title-line{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.ename{font-weight:600;font-size:16px}
+.tag{font-size:11px;font-weight:600;padding:2px 7px;border-radius:5px;border:1px solid currentColor;letter-spacing:.03em}
+.tag.PCM{color:var(--pcm)} .tag.PCB{color:var(--pcb)} .tag.Any{color:var(--any)} .tag.PCMB{color:var(--accent)}
+.meta{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:4px}
+.meta b{color:var(--ink);font-weight:500;font-family:var(--mono);font-size:12.5px}
+.exp{font-style:italic}
+.right{display:flex;align-items:center;gap:10px}
+.pill{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.pill.open{background:var(--open-soft);color:var(--open)}
+.pill.urgent{background:var(--urgent-soft);color:var(--urgent)}
+.pill.soon{background:var(--soon-soft);color:var(--soon)}
+.pill.closed{background:var(--closed-soft);color:var(--closed)}
+.pill.na{background:var(--accent-soft);color:var(--accent)}
+.star{border:1px solid var(--line);background:var(--surface);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:17px;line-height:1;color:var(--muted)}
+.star[aria-pressed="true"]{color:#d99a00;border-color:#d99a00}
+.card-b{border-top:1px solid var(--line);padding:14px 16px 16px;display:none;gap:14px;flex-direction:column}
+.card.openc .card-b{display:flex}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.fact{background:var(--bg);border-radius:8px;padding:10px 12px}
+.fact h4{margin:0 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.fact p{margin:0;font-size:14px}
+.note{font-size:14px;margin:0;padding:10px 12px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0}
+.go{align-self:flex-start;display:inline-flex;gap:6px;align-items:center;background:var(--accent);color:#fff;text-decoration:none;padding:8px 14px;border-radius:8px;font-weight:600}
+:root[data-theme="dark"] .go{color:#0f1424}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .go{color:#0f1424}}
+.empty{padding:30px;text-align:center;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:12px}
+/* timeline */
+.tl-wrap{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow-x:auto}
+.tl{min-width:860px;position:relative;padding:0 0 10px}
+.tl-head,.tl-row{display:grid;grid-template-columns:190px 1fr}
+.tl-head{position:sticky;top:0;background:var(--surface);border-bottom:1px solid var(--line);z-index:2}
+.months{display:grid;grid-template-columns:repeat(12,1fr)}
+.months div{font-family:var(--mono);font-size:11.5px;color:var(--muted);padding:8px 0 8px 6px;border-left:1px solid var(--line)}
+.tl-row{border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);min-height:34px;align-items:center}
+.tl-row:hover{background:color-mix(in srgb,var(--accent-soft) 35%,transparent)}
+.tl-name{font-size:13.5px;padding:6px 10px 6px 14px;font-weight:500;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track{position:relative;height:34px;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(100%/12 - 1px),var(--line) calc(100%/12 - 1px),var(--line) calc(100%/12))}
+.appbar{position:absolute;top:11px;height:12px;border-radius:6px;background:var(--accent);opacity:.85}
+.appbar.exp{background:repeating-linear-gradient(45deg,var(--accent) 0 5px,color-mix(in srgb,var(--accent) 45%,transparent) 5px 10px)}
+.exdot{position:absolute;top:9px;width:16px;height:16px;margin-left:-8px;transform:rotate(45deg);background:var(--urgent);border:2px solid var(--surface)}
+.todayline{position:absolute;top:0;bottom:0;width:2px;background:var(--urgent);z-index:1;pointer-events:none}
+.todaylbl{position:absolute;top:2px;font-family:var(--mono);font-size:10.5px;color:var(--urgent);background:var(--surface);padding:0 4px;transform:translateX(4px)}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted);padding:10px 14px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{display:inline-block;width:22px;height:10px;border-radius:5px;background:var(--accent)}
+.sw.exp{background:repeating-linear-gradient(45deg,var(--accent) 0 5px,color-mix(in srgb,var(--accent) 45%,transparent) 5px 10px)}
+.dm{display:inline-block;width:11px;height:11px;transform:rotate(45deg);background:var(--urgent)}
+footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+@media (max-width:560px){
+  .card-h{grid-template-columns:1fr}
+  .right{justify-content:space-between}
+  .lbl{min-width:100%}
+}
+@media (prefers-reduced-motion:no-preference){.card-h,.chip,.tile{transition:background .15s,border-color .15s}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Entrance Exam Planner 2027</h1>
+      <p class="sub">Every major undergraduate entrance exam for a Class 12 PCMB student, with live countdowns to each form deadline. Tap an exam for eligibility, pattern, last year's cutoff and the official link.</p>
+    </div>
+    <div class="today" id="today"></div>
+  </header>
+
+  <section aria-labelledby="up-h" style="display:flex;flex-direction:column;gap:10px">
+    <h2 id="up-h">Next deadlines</h2>
+    <div class="urgent-grid" id="urgent"></div>
+  </section>
+
+  <section class="controls" aria-label="Filters">
+    <div class="row">
+      <span class="lbl">Subjects</span>
+      <button class="chip" data-f="stream" data-v="all" aria-pressed="true">All exams</button>
+      <button class="chip" data-f="stream" data-v="PCM" aria-pressed="false">Maths-based</button>
+      <button class="chip" data-f="stream" data-v="PCB" aria-pressed="false">Biology-based</button>
+    </div>
+    <div class="row">
+      <span class="lbl">Field</span>
+      <button class="chip" data-f="cat" data-v="all" aria-pressed="true">All</button>
+      <button class="chip" data-f="cat" data-v="Engineering" aria-pressed="false">Engineering</button>
+      <button class="chip" data-f="cat" data-v="Medical" aria-pressed="false">Medical</button>
+      <button class="chip" data-f="cat" data-v="Science" aria-pressed="false">Science &amp; research</button>
+      <button class="chip" data-f="cat" data-v="State" aria-pressed="false">Telangana / AP</button>
+      <button class="chip" data-f="cat" data-v="Defence" aria-pressed="false">Defence</button>
+      <button class="chip" data-f="cat" data-v="Other" aria-pressed="false">Design, arch, mgmt, law</button>
+    </div>
+    <div class="row">
+      <span class="lbl">Form</span>
+      <button class="chip" data-f="status" data-v="all" aria-pressed="true">Any status</button>
+      <button class="chip" data-f="status" data-v="open" aria-pressed="false">Open now</button>
+      <button class="chip" data-f="status" data-v="soon" aria-pressed="false">Opening later</button>
+      <button class="chip" data-f="status" data-v="mine" aria-pressed="false">★ My list</button>
+      <label for="q" class="lbl" style="position:absolute;left:-9999px">Search exams</label>
+      <input id="q" class="search" type="search" placeholder="Search, e.g. NEET, IIT, Hyderabad">
+    </div>
+  </section>
+
+  <div class="bar">
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-list" aria-selected="true" data-view="list">Deadline list</button>
+      <button class="tab" role="tab" id="tab-timeline" aria-selected="false" data-view="timeline">Year timeline</button>
+    </div>
+    <span class="count" id="count"></span>
+  </div>
+
+  <main id="view"></main>
+
+  <footer>
+    <p><b>Dates in italics are expected</b>, projected from the 2026 cycle because the 2027 notice is not out yet. Confirm on the official site before relying on them. Cutoffs are the latest available (2026 unless noted) and change every year.</p>
+    <p>Other state CETs (MHT CET, KCET, WBJEE) mainly serve students with that state's domicile and are not listed. Information compiled 2 November 2026.</p>
+  </footer>
+</div>
+
+<script>
+const EXAMS = [
+ {id:"uceed",name:"UCEED",full:"Undergraduate Common Entrance Exam for Design",cat:"Other",stream:"Any",body:"IIT Bombay",url:"https://www.uceed.iitb.ac.in",
+  open:"2026-10-01",close:"2026-11-06",closeExp:false,exam:"2027-01-17",examLbl:"17 Jan 2027",examExp:false,
+  elig:"Class 12 in any stream, passed in 2026 or appearing in 2027.",
+  pattern:"3 hours. Part A computer-based (200 marks) + Part B drawing and design (100 marks).",
+  cutoff:"Part A shortlisting marks published in February; result 6 Mar 2027.",
+  note:"Regular deadline was 31 Oct. Late-fee window (₹500 extra) closes 6 Nov 2026, 5 pm.",
+  kw:"design bdes iit bombay"},
+ {id:"jeem1",name:"JEE Main 2027 · Session 1",full:"Joint Entrance Examination (Main)",cat:"Engineering",stream:"PCM",body:"NTA",url:"https://jeemain.nta.nic.in",
+  open:"2026-10-24",close:"2026-11-22",closeExp:false,exam:"2027-01-20",examLbl:"20–24 & 28 Jan 2027",examExp:false,
+  elig:"Class 12 with Physics, Chemistry, Maths (passed 2025/2026 or appearing 2027). No age limit. For NIT/IIIT seats: 75% in Class 12 (65% SC/ST) or top 20 percentile of your board.",
+  pattern:"Computer-based, 3 hours, 75 questions (25 each in P, C, M), 300 marks, +4 / −1.",
+  cutoff:"Qualifying percentile for JEE Advanced (2026): General 93.41, OBC-NCL 80.92, EWS ~81–82, SC ~63–64, ST ~50–52.",
+  note:"Late fee 23–26 Nov; correction window 27–29 Nov; admit card 13 Jan 2027. Scores are used for NITs, IIITs, Navy B.Tech and Army TES.",
+  kw:"nit iiit josaa engineering btech"},
+ {id:"clat",name:"CLAT 2027",full:"Common Law Admission Test",cat:"Other",stream:"Any",body:"Consortium of NLUs",url:"https://consortiumofnlus.ac.in",
+  open:"2026-08-03",close:"2026-10-31",closeExp:false,exam:"2026-12-06",examLbl:"6 Dec 2026",examExp:false,
+  elig:"Class 12 with 45% (40% SC/ST); any stream.",
+  pattern:"2 hours, comprehension-based: English, current affairs, legal reasoning, logical reasoning, quantitative.",
+  cutoff:"Rank-based admission to National Law Universities.",
+  note:"2027 registration has closed. If law interests you, plan for CLAT 2028 (registration Aug–Oct 2027).",
+  kw:"law nlu"},
+ {id:"nda1",name:"NDA & NA (I) 2027",full:"National Defence Academy & Naval Academy Exam",cat:"Defence",stream:"PCM",body:"UPSC",url:"https://upsconline.nic.in",
+  open:"2026-12-02",close:"2026-12-22",closeExp:false,exam:"2027-04-11",examLbl:"11 Apr 2027",examExp:false,
+  elig:"Unmarried men and women, born roughly 2 Jul 2008 – 1 Jul 2011 (confirm in notice). Army wing: any stream. Air Force / Navy / Naval Academy: Class 12 with Physics, Chemistry, Maths.",
+  pattern:"Maths 300 marks (2.5 hrs) + General Ability Test 600 marks (2.5 hrs), then SSB interview 900 marks. Total 1800.",
+  cutoff:"NDA II 2025: written ~305/900 (min 25% per paper). Final merit usually ~670–720/1800.",
+  note:"Dates from the UPSC Annual Calendar 2027. Biology students can apply for the Army wing.",
+  kw:"defence army navy air force upsc officer"},
+ {id:"nift",name:"NIFT 2027",full:"NIFT Entrance Exam",cat:"Other",stream:"Any",body:"NTA for NIFT",url:"https://exams.nta.ac.in/NIFT",
+  open:"2026-11-20",close:"2026-12-31",closeExp:true,exam:"2027-01-10",examLbl:"10 Jan 2027 (tentative)",examExp:true,
+  elig:"Class 12 in any stream; for B.Des, under 24 years.",
+  pattern:"General Ability Test + Creative Ability Test (B.Des), then situation test.",
+  cutoff:"Rank-based; NIFT has a Hyderabad campus.",
+  note:"Exam date is from NTA's tentative calendar; form dates not yet announced.",
+  kw:"fashion design bdes hyderabad"},
+ {id:"jeem2",name:"JEE Main 2027 · Session 2",full:"Joint Entrance Examination (Main)",cat:"Engineering",stream:"PCM",body:"NTA",url:"https://jeemain.nta.nic.in",
+  open:"2027-01-05",close:"2027-02-03",closeExp:false,exam:"2027-04-02",examLbl:"2–7 Apr 2027",examExp:false,
+  elig:"Same as Session 1. Your better score of the two sessions counts.",
+  pattern:"Same as Session 1.",
+  cutoff:"See Session 1.",
+  note:"Late fee 4–7 Feb; correction 8–10 Feb; admit card 25 Mar 2027.",
+  kw:"nit iiit engineering"},
+ {id:"cuet",name:"CUET UG 2027",full:"Common University Entrance Test",cat:"Science",stream:"PCMB",body:"NTA",url:"https://cuet.nta.nic.in",
+  open:"2027-01-05",close:"2027-02-05",closeExp:true,exam:"2027-05-15",examLbl:"mid-May – early Jun 2027",examExp:true,
+  elig:"Class 12 passed or appearing; no age limit. Each university sets its own subject and % rules.",
+  pattern:"Computer-based; up to 5 subjects. Each test 50 compulsory MCQs in 60 minutes, +5 / −1.",
+  cutoff:"Varies by university and course; normalised scores.",
+  note:"Needed for University of Hyderabad, DU, BHU and ~180 central/state universities, and ICAR all-India agriculture seats.",
+  kw:"university hyderabad uoh du bsc agriculture icar central"},
+ {id:"neet",name:"NEET UG 2027",full:"National Eligibility cum Entrance Test",cat:"Medical",stream:"PCB",body:"NTA",url:"https://neet.nta.nic.in",
+  open:"2027-02-10",close:"2027-03-10",closeExp:true,exam:"2027-05-02",examLbl:"~2 May 2027",examExp:true,
+  elig:"Age 17 by 31 Dec 2027, no upper limit. Class 12 with Physics, Chemistry, Biology, English: 50% in PCB (40% SC/ST/OBC, 45% PwD).",
+  pattern:"2026: 180 compulsory MCQs (P 45, C 45, Bio 90), 720 marks, 3 hrs, +4 / −1. From 2027: computer-based test, possibly over 5–6 days.",
+  cutoff:"Re-NEET 2026 qualifying: General/EWS 213 (50th percentile), OBC/SC/ST 177 (40th percentile). Govt MBBS needs far higher.",
+  note:"Only route to MBBS, BDS, BAMS/BHMS and BVSc. Counselling: MCC (All-India) and KNRUHS (Telangana 85% quota).",
+  kw:"mbbs bds medical doctor aiims jipmer ayush bvsc"},
+ {id:"met",name:"MET 2027 (Manipal)",full:"Manipal Entrance Test",cat:"Engineering",stream:"PCM",body:"MAHE",url:"https://manipal.edu",
+  open:"2026-10-10",close:"2027-03-15",closeExp:false,exam:"2027-04-18",examLbl:"Apr & late May 2027",examExp:true,
+  elig:"50% in PCM in Class 12; English compulsory.",
+  pattern:"Computer-based, 2 hours, 60 questions (45 MCQ + 15 numerical), 240 marks.",
+  cutoff:"Rank-based.",
+  note:"Phase 1 deadline revised from 31 Mar to 15 Mar 2027. Fee ₹800 + ₹1,200 test fee.",
+  kw:"manipal mit private btech"},
+ {id:"bitsat",name:"BITSAT 2027",full:"BITS Admission Test",cat:"Engineering",stream:"PCM",body:"BITS Pilani",url:"https://www.bitsadmission.com",
+  open:"2026-12-20",close:"2027-03-15",closeExp:true,exam:"2027-04-20",examLbl:"Session 1 Apr–May; Session 2 Jun 2027",examExp:true,
+  elig:"75% aggregate in PCM (PCB for B.Pharm) and 60% in each subject in Class 12.",
+  pattern:"Computer-based, 3 hours, 130 questions (P 30, C 30, English 10, Logical Reasoning 20, M 40) + 12 bonus, 390 marks, +3 / −1.",
+  cutoff:"2026 CSE: Pilani 308, Goa ~274, Hyderabad ~272 (out of 390).",
+  note:"BITS has a campus in Hyderabad.",
+  kw:"bits pilani hyderabad goa"},
+ {id:"comedk",name:"COMEDK UGET 2027",full:"COMEDK Undergraduate Entrance Test",cat:"Engineering",stream:"PCM",body:"Karnataka private colleges",url:"https://www.comedk.org",
+  open:"2027-02-03",close:"2027-03-16",closeExp:true,exam:"2027-05-09",examLbl:"~9 May 2027",examExp:true,
+  elig:"45% in PCM (40% for SC/ST/OBC of Karnataka).",
+  pattern:"Computer-based, 3 hours, 180 MCQs (60 each P, C, M), no negative marking.",
+  cutoff:"Rank-based.",
+  note:"Private engineering colleges in Karnataka, open to all-India candidates.",
+  kw:"karnataka bangalore private engineering"},
+ {id:"viteee",name:"VITEEE 2027",full:"VIT Engineering Entrance Exam",cat:"Engineering",stream:"PCMB",body:"VIT Vellore",url:"https://viteee.vit.ac.in",
+  open:"2026-10-20",close:"2027-03-31",closeExp:false,exam:"2027-04-27",examLbl:"27 Apr – 2 May 2027",examExp:true,
+  elig:"60% in PCM or PCB (50% SC/ST, J&K, NE states).",
+  pattern:"Computer-based, 2 hours, 100 questions (revised for 2027; check brochure).",
+  cutoff:"Rank-based.",
+  note:"Fee ₹1,450. Biology students can sit the BiPC version for biotech-type B.Tech programmes.",
+  kw:"vit vellore chennai ap bhopal private"},
+ {id:"srm",name:"SRMJEEE 2027",full:"SRM Joint Engineering Entrance Exam",cat:"Engineering",stream:"PCMB",body:"SRM IST",url:"https://www.srmist.edu.in",
+  open:"2026-10-30",close:"2027-04-02",closeExp:false,exam:"2027-04-24",examLbl:"Phase 1 late Apr; Phase 2 Jun 2027",examExp:true,
+  elig:"60% in PCM or PCB in Class 12.",
+  pattern:"Online, 2.5 hours, 125 questions (P 35, C 35, Maths/Bio 40, Aptitude 10, English 5), no negative marking.",
+  cutoff:"Rank-based.",
+  note:"₹1,400 per phase. Phase 2 deadline ~4 Jun 2027.",
+  kw:"srm chennai private"},
+ {id:"tgeap",name:"TG EAPCET 2027",full:"Telangana Engineering, Agriculture & Pharmacy CET",cat:"State",stream:"PCMB",body:"JNTUH for TGCHE",url:"https://eapcet.tgche.ac.in",
+  open:"2027-02-19",close:"2027-04-04",closeExp:true,exam:"2027-05-04",examLbl:"Agri & Pharmacy ~4–5 May; Engg ~9–11 May 2027",examExp:true,
+  elig:"Intermediate/Class 12 with MPC (Engineering) or BiPC (Agri & Pharmacy); 45% in group subjects (40% reserved). Telangana local/non-local rules apply.",
+  pattern:"Computer-based, 3 hours, 160 MCQs, 1 mark each, no negative. Engg: M 80, P 40, C 40. A&P: Bio 80, P 40, C 40.",
+  cutoff:"25% (40/160) to get a rank; no minimum for SC/ST.",
+  note:"As a PCMB student you can register for both streams (₹1,800 together in 2026) and write two papers. Late fee window runs to early May.",
+  kw:"telangana hyderabad eamcet jntuh osmania bpharm agriculture"},
+ {id:"isi",name:"ISI Admission Test 2027",full:"Indian Statistical Institute",cat:"Science",stream:"PCM",body:"ISI",url:"https://admission.isical.ac.in",
+  open:"2027-02-10",close:"2027-03-25",closeExp:true,exam:"2027-05-09",examLbl:"~2nd week of May 2027",examExp:true,
+  elig:"Class 12 with Mathematics and English.",
+  pattern:"Pen and paper: UGA objective + UGB descriptive (problem-solving maths).",
+  cutoff:"Merit list only.",
+  note:"B.Stat, B.Math and BS Data Science.",
+  kw:"statistics maths bstat bmath"},
+ {id:"cmi",name:"CMI Entrance 2027",full:"Chennai Mathematical Institute",cat:"Science",stream:"PCM",body:"CMI",url:"https://www.cmi.ac.in/admissions",
+  open:"2027-03-01",close:"2027-04-05",closeExp:true,exam:"2027-05-02",examLbl:"May 2027",examExp:true,
+  elig:"Class 12 with Maths.",
+  pattern:"Pen and paper: objective + descriptive problem-solving.",
+  cutoff:"Merit list only.",
+  note:"B.Sc (Hons) Maths & CS, Maths & Physics.",
+  kw:"maths physics computer science chennai"},
+ {id:"apeap",name:"AP EAPCET 2027",full:"Andhra Pradesh EAPCET",cat:"State",stream:"PCMB",body:"JNTU for APSCHE",url:"https://cets.apsche.ap.gov.in",
+  open:"2027-02-15",close:"2027-04-15",closeExp:true,exam:"2027-05-15",examLbl:"May 2027",examExp:true,
+  elig:"Class 12 with MPC or BiPC; 45% (40% reserved).",
+  pattern:"Computer-based, 3 hours, 160 MCQs, no negative marking.",
+  cutoff:"25% to get a rank.",
+  note:"Check the non-local quota rules for Telangana students.",
+  kw:"andhra eamcet"},
+ {id:"iat",name:"IISER Aptitude Test (IAT) 2027",full:"IISER Aptitude Test",cat:"Science",stream:"PCMB",body:"IISERs",url:"https://www.iiseradmission.in",
+  open:"2027-03-05",close:"2027-04-13",closeExp:true,exam:"2027-06-06",examLbl:"early Jun 2027",examExp:true,
+  elig:"Science stream in Class 12; 60% aggregate (55% SC/ST/PwD).",
+  pattern:"Computer-based, 3 hours, 60 MCQs (15 each Bio, Chem, Maths, Physics), 240 marks, +4 / −1.",
+  cutoff:"Not officially published; General needed roughly 130/240 for counselling in 2025.",
+  note:"Also admits to IISc BS and IIT Madras BS (Medical Sciences & Engg). Uses all four PCMB subjects.",
+  kw:"iiser bs-ms research iisc science"},
+ {id:"ipmat",name:"IPMAT 2027",full:"Integrated Programme in Management Aptitude Test",cat:"Other",stream:"Any",body:"IIM Indore / Rohtak",url:"https://www.iimidr.ac.in",
+  open:"2027-02-15",close:"2027-03-20",closeExp:true,exam:"2027-05-08",examLbl:"May 2027",examExp:true,
+  elig:"Class 12 with 60% (55% SC/ST/PwD); age limit applies.",
+  pattern:"Quantitative and verbal ability, then interview.",
+  cutoff:"Varies by IIM.",
+  note:"5-year BBA + MBA.",
+  kw:"iim management bba"},
+ {id:"nata",name:"NATA 2027",full:"National Aptitude Test in Architecture",cat:"Other",stream:"PCM",body:"Council of Architecture",url:"https://www.nata.in",
+  open:"2027-03-01",close:"2027-05-31",closeExp:true,exam:"2027-04-18",examLbl:"Several test dates Apr–Jun 2027",examExp:true,
+  elig:"Class 12 with Physics, Chemistry, Maths; 50% in PCM and 50% overall.",
+  pattern:"Aptitude + drawing; score valid for 2 years.",
+  cutoff:"Minimum qualifying score set by CoA.",
+  note:"JEE Main Paper 2 is the other route to B.Arch.",
+  kw:"architecture barch"},
+ {id:"nest",name:"NEST 2027",full:"National Entrance Screening Test",cat:"Science",stream:"PCMB",body:"NISER Bhubaneswar",url:"https://www.nestexam.in",
+  open:"2027-02-05",close:"2027-04-30",closeExp:true,exam:"2027-06-27",examLbl:"Jun–Jul 2027",examExp:true,
+  elig:"Science stream in Class 12; 60% (55% SC/ST/PwD).",
+  pattern:"Computer-based, 4 sections (Bio, Chem, Maths, Physics); best 3 count.",
+  cutoff:"Merit list on nestexam.in.",
+  note:"Integrated M.Sc at NISER and UM-DAE CEBS Mumbai.",
+  kw:"niser cebs integrated msc research"},
+ {id:"aiimsn",name:"AIIMS B.Sc (Hons) Nursing 2027",full:"AIIMS Nursing Entrance",cat:"Medical",stream:"PCB",body:"AIIMS New Delhi",url:"https://www.aiimsexams.ac.in",
+  open:"2027-03-25",close:"2027-05-07",closeExp:true,exam:"2027-06-27",examLbl:"27 Jun 2027 (tentative)",examExp:true,
+  elig:"Class 12 with PCB + English, 55% aggregate (50% SC/ST); age 17 by 31 Dec 2027; female candidates only.",
+  pattern:"Computer-based, objective: Physics, Chemistry, Biology, General Knowledge.",
+  cutoff:"Rank-based.",
+  note:"Exam date from AIIMS's tentative 2027 calendar.",
+  kw:"nursing aiims bsc"},
+ {id:"jeeadv",name:"JEE Advanced 2027",full:"Joint Entrance Examination (Advanced)",cat:"Engineering",stream:"PCM",body:"IIT Delhi (expected)",url:"https://jeeadv.ac.in",
+  open:"2027-04-25",close:"2027-05-05",closeExp:true,exam:"2027-05-16",examLbl:"mid-May 2027",examExp:true,
+  elig:"Top 2,50,000 in JEE Main 2027; max 2 attempts in consecutive years; 75% board rule for IIT admission.",
+  pattern:"Two compulsory 3-hour papers on the same day; 360 marks in 2026; pattern varies each year.",
+  cutoff:"2026 CRL 92/360 (min 8 per subject); OBC-NCL/EWS 82; SC/ST/PwD 46.",
+  note:"Only route to the IITs. Registration opens after JEE Main results.",
+  kw:"iit"},
+ {id:"navy",name:"Indian Navy 10+2 B.Tech Entry",full:"Navy B.Tech Cadet Entry",cat:"Defence",stream:"PCM",body:"Indian Navy",url:"https://www.joinindiannavy.gov.in",
+  open:null,close:null,exam:null,examLbl:"Shortlist by JEE Main rank, then SSB",examExp:false,
+  elig:"Unmarried; 70% in PCM and 50% in English in Class 12; must take JEE Main 2027.",
+  pattern:"No separate written test: JEE Main CRL rank → SSB interview → medical.",
+  cutoff:"Rank-based.",
+  note:"Notified twice a year; watch the site after JEE Main results.",
+  kw:"navy defence btech"},
+ {id:"tes",name:"Army TES (10+2 Technical Entry)",full:"Technical Entry Scheme",cat:"Defence",stream:"PCM",body:"Indian Army",url:"https://www.joinindianarmy.nic.in",
+  open:null,close:null,exam:null,examLbl:"Shortlist by JEE Main score, then SSB",examExp:false,
+  elig:"Unmarried men and women; 60% in PCM; must take JEE Main 2027.",
+  pattern:"JEE Main score → SSB interview → medical.",
+  cutoff:"Score-based.",
+  note:"Notified twice a year.",
+  kw:"army defence btech"},
+ {id:"nda2",name:"NDA & NA (II) 2027",full:"National Defence Academy & Naval Academy Exam",cat:"Defence",stream:"PCM",body:"UPSC",url:"https://upsconline.nic.in",
+  open:"2027-05-12",close:"2027-06-01",closeExp:false,exam:"2027-09-19",examLbl:"19 Sep 2027",examExp:false,
+  elig:"Same as NDA I (age band shifts by six months).",
+  pattern:"Same as NDA I.",
+  cutoff:"See NDA I.",
+  note:"Second chance in the same year; you can apply after Class 12 results.",
+  kw:"defence upsc"}
+];
+
+const DAY = 86400000;
+const now = new Date(); now.setHours(0,0,0,0);
+const d = s => { if(!s) return null; const [y,m,dd]=s.split("-").map(Number); return new Date(y,m-1,dd); };
+const fmt = s => d(s).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"});
+const days = s => Math.round((d(s)-now)/DAY);
+
+function status(e){
+  if(!e.open) return {k:"na",txt:"Uses JEE Main score",sort:9000};
+  const o=days(e.open), c=days(e.close);
+  if(o>0) return {k:"soon",txt:`Form opens in ${o} day${o===1?"":"s"}`,sort:c};
+  if(c>=0){ const k=c<=21?"urgent":"open"; return {k,txt:c===0?"Closes today":`Open · ${c} day${c===1?"":"s"} left`,sort:c}; }
+  if(e.exam && days(e.exam)>=0) return {k:"closed",txt:`Form closed · exam in ${days(e.exam)} days`,sort:5000+days(e.exam)};
+  return {k:"closed",txt:"Finished",sort:8000};
+}
+
+let mine = new Set();
+try{ mine = new Set(JSON.parse(localStorage.getItem("examPlannerMine")||"[]")); }catch(_){}
+const saveMine=()=>{ try{ localStorage.setItem("examPlannerMine",JSON.stringify([...mine])); }catch(_){} };
+
+const F = {stream:"all",cat:"all",status:"all",q:""};
+let view = "list";
+const opened = new Set();
+
+function matches(e){
+  if(F.stream!=="all"){
+    if(F.stream==="PCM" && !["PCM","PCMB","Any"].includes(e.stream)) return false;
+    if(F.stream==="PCB" && !["PCB","PCMB","Any"].includes(e.stream)) return false;
+    if(F.stream==="PCB" && e.cat==="Defence" && e.id!=="nda1" && e.id!=="nda2") return false;
+  }
+  if(F.cat!=="all" && e.cat!==F.cat) return false;
+  const s=status(e).k;
+  if(F.status==="open" && !(s==="open"||s==="urgent")) return false;
+  if(F.status==="soon" && s!=="soon") return false;
+  if(F.status==="mine" && !mine.has(e.id)) return false;
+  if(F.q){ const h=(e.name+" "+e.full+" "+e.body+" "+e.kw+" "+e.cat).toLowerCase(); if(!F.q.split(/\s+/).every(w=>h.includes(w))) return false; }
+  return true;
+}
+const streamLbl = {PCM:"Maths",PCB:"Biology",PCMB:"Maths or Bio",Any:"Any stream"};
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function card(e){
+  const st=status(e);
+  const close = e.close ? `<span>Last date <b class="${e.closeExp?"exp":""}">${fmt(e.close)}</b></span>` : "";
+  const exam = `<span>Exam <b class="${e.examExp?"exp":""}">${esc(e.examLbl)}</b></span>`;
+  return `<article class="card ${opened.has(e.id)?"openc":""}" id="c-${e.id}">
+   <div class="card-h" data-toggle="${e.id}" role="button" tabindex="0" aria-expanded="${opened.has(e.id)}">
+    <div>
+      <div class="title-line"><span class="ename">${esc(e.name)}</span><span class="tag ${e.stream}">${streamLbl[e.stream]}</span></div>
+      <div class="meta"><span>${esc(e.body)}</span>${close}${exam}</div>
+    </div>
+    <div class="right"><span class="pill ${st.k}">${st.txt}</span>
+      <button class="star" data-star="${e.id}" aria-pressed="${mine.has(e.id)}" aria-label="Add ${esc(e.name)} to my list" title="Add to my list">★</button></div>
+   </div>
+   <div class="card-b">
+    <div class="facts">
+      <div class="fact"><h4>Eligibility</h4><p>${esc(e.elig)}</p></div>
+      <div class="fact"><h4>Exam pattern</h4><p>${esc(e.pattern)}</p></div>
+      <div class="fact"><h4>Last year's cutoff</h4><p>${esc(e.cutoff)}</p></div>
+      <div class="fact"><h4>Application window</h4><p>${e.open?`${fmt(e.open)} – ${fmt(e.close)}${e.closeExp?" (expected)":""}`:"No separate form"}</p></div>
+    </div>
+    <p class="note">${esc(e.note)}</p>
+    <a class="go" href="${e.url}" target="_blank" rel="noopener">Open official site ↗</a>
+   </div></article>`;
+}
+
+function renderList(list){
+  if(!list.length) return `<div class="empty">No exams match these filters. ${F.status==="mine"?"Tap ★ on an exam to add it to your list.":"Try clearing a filter."}</div>`;
+  return `<div class="list">${list.map(card).join("")}</div>`;
+}
+
+const T0=new Date(2026,9,1), T1=new Date(2027,9,1);
+const pct = s => Math.max(0,Math.min(100,(d(s)-T0)/(T1-T0)*100));
+function renderTimeline(list){
+  const months=[];for(let i=0;i<12;i++){const m=new Date(2026,9+i,1);months.push(m.toLocaleDateString("en-IN",{month:"short"})+(m.getMonth()===0||i===0?" "+String(m.getFullYear()).slice(2):""));}
+  const tp=((now-T0)/(T1-T0))*100;
+  const rows=list.map(e=>{
+    const bar = e.open?`<div class="appbar ${e.closeExp?"exp":""}" style="left:${pct(e.open)}%;width:${Math.max(.8,pct(e.close)-pct(e.open))}%" title="Apply ${fmt(e.open)} – ${fmt(e.close)}"></div>`:"";
+    const dot = e.exam?`<div class="exdot" style="left:${pct(e.exam)}%" title="Exam: ${esc(e.examLbl)}"></div>`:"";
+    return `<div class="tl-row"><div class="tl-name" data-goto="${e.id}" title="${esc(e.name)}">${esc(e.name.replace(/ 2027/g,"").replace(" Aptitude Test",""))}</div><div class="track">${bar}${dot}</div></div>`;
+  }).join("");
+  return `<div class="tl-wrap"><div class="legend"><span><i class="sw"></i>Application window</span><span><i class="sw exp"></i>Expected window</span><span><i class="dm"></i>Exam</span><span style="color:var(--urgent)">Red line = today</span></div>
+   <div class="tl"><div class="tl-head"><div></div><div class="months">${months.map(m=>`<div>${m}</div>`).join("")}</div></div>
+   <div style="position:relative">${rows}
+    ${tp>=0&&tp<=100?`<div style="position:absolute;top:0;bottom:0;left:190px;right:0;pointer-events:none"><div class="todayline" style="left:${tp}%"></div><div class="todaylbl" style="left:${tp}%">today</div></div>`:""}
+   </div></div></div>`;
+}
+
+function render(){
+  const list=EXAMS.filter(matches).sort((a,b)=>status(a).sort-status(b).sort);
+  document.getElementById("count").textContent=`${list.length} of ${EXAMS.length} exams`;
+  document.getElementById("view").innerHTML = view==="list"?renderList(list):renderTimeline(list);
+}
+
+function renderUrgent(){
+  const up=EXAMS.filter(e=>e.close&&days(e.close)>=0).sort((a,b)=>days(a.close)-days(b.close)).slice(0,4);
+  document.getElementById("urgent").innerHTML=up.map(e=>{
+    const o=days(e.open), c=days(e.close), notOpen=o>0;
+    return `<button class="tile ${notOpen?"soon":""}" data-goto="${e.id}">
+      <span class="days">${c}<small>day${c===1?"":"s"} left</small></span>
+      <span class="nm">${esc(e.name)}</span>
+      <span class="dl">${notOpen?`Opens ${fmt(e.open)} · `:""}Last date ${fmt(e.close)}${e.closeExp?" (expected)":""}</span></button>`;
+  }).join("");
+}
+
+function setView(v){
+  view=v;
+  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.view===v));
+  render();
+}
+function goto(id){
+  opened.add(id); F.cat="all";F.status="all";F.stream="all";F.q="";document.getElementById("q").value="";
+  document.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c.dataset.v==="all"));
+  setView("list");
+  const el=document.getElementById("c-"+id); if(el) el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+}
+
+document.addEventListener("click",ev=>{
+  const star=ev.target.closest("[data-star]");
+  if(star){ ev.stopPropagation(); const id=star.dataset.star; mine.has(id)?mine.delete(id):mine.add(id); saveMine(); render(); return; }
+  const chip=ev.target.closest(".chip");
+  if(chip){ F[chip.dataset.f]=chip.dataset.v; document.querySelectorAll(`.chip[data-f="${chip.dataset.f}"]`).forEach(c=>c.setAttribute("aria-pressed",c===chip)); render(); return; }
+  const tab=ev.target.closest(".tab"); if(tab){ setView(tab.dataset.view); if(tab.dataset.view==="timeline") history.replaceState(null,"","#timeline"); else history.replaceState(null,"",location.pathname+location.search); return; }
+  const g=ev.target.closest("[data-goto]"); if(g){ goto(g.dataset.goto); return; }
+  const t=ev.target.closest("[data-toggle]");
+  if(t){ const id=t.dataset.toggle; opened.has(id)?opened.delete(id):opened.add(id); const c=document.getElementById("c-"+id); c.classList.toggle("openc"); t.setAttribute("aria-expanded",opened.has(id)); }
+});
+document.addEventListener("keydown",ev=>{ if((ev.key==="Enter"||ev.key===" ")&&ev.target.matches("[data-toggle]")){ev.preventDefault();ev.target.click();} });
+document.getElementById("q").addEventListener("input",ev=>{F.q=ev.target.value.trim().toLowerCase();render();});
+window.addEventListener("hashchange",()=>setView(location.hash==="#timeline"?"timeline":"list"));
+
+document.getElementById("today").textContent="Today: "+now.toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short",year:"numeric"});
+renderUrgent();
+setView(location.hash==="#timeline"?"timeline":"list");
+</script>
+</body>
+</html>
