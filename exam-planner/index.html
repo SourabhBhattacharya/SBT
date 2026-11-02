@@ -131,6 +131,13 @@ h2{font-family:var(--display);font-weight:600;font-size:18px;margin:0}
 .sw.exp{background:repeating-linear-gradient(45deg,var(--accent) 0 5px,color-mix(in srgb,var(--accent) 45%,transparent) 5px 10px)}
 .dm{display:inline-block;width:11px;height:11px;transform:rotate(45deg);background:var(--urgent)}
 footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+.remind{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:12px;padding:14px 16px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between}
+.remind p{margin:2px 0 0;font-size:13.5px;color:var(--muted);max-width:60ch}
+.rbtns{display:flex;flex-wrap:wrap;gap:8px}
+.rbtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--accent);color:var(--accent);background:var(--surface);text-decoration:none;font-weight:600;font-size:14px;padding:7px 12px;border-radius:8px}
+.rbtn.pri{background:var(--accent);color:#fff}
+:root[data-theme="dark"] .rbtn.pri{color:#0f1424}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rbtn.pri{color:#0f1424}}
 .checked{font-size:12.5px;color:var(--muted)}
 .toasts{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:10px;max-width:min(380px,calc(100vw - 32px))}
 .toast{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:10px;box-shadow:0 8px 28px rgba(10,20,50,.18);padding:12px 14px;display:flex;flex-direction:column;gap:6px}
@@ -161,6 +168,18 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
   <section aria-labelledby="up-h" style="display:flex;flex-direction:column;gap:10px">
     <h2 id="up-h">Next deadlines</h2>
     <div class="urgent-grid" id="urgent"></div>
+  </section>
+
+  <section class="remind" aria-labelledby="rem-h">
+    <div>
+      <h2 id="rem-h">Get deadline reminders on your phone</h2>
+      <p>Subscribe once and your calendar alerts you 7 days and 1 day before every form closes, and 3 days before each exam. It updates by itself every week, including new and changed dates.</p>
+    </div>
+    <div class="rbtns">
+      <a class="rbtn pri" id="r-google" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
+      <a class="rbtn" id="r-apple" href="#">Add to iPhone / Apple Calendar</a>
+      <a class="rbtn" id="r-file" href="deadlines.ics" download="entrance-exams-2027.ics">Download .ics file</a>
+    </div>
   </section>
 
   <section class="controls" aria-label="Filters">
@@ -533,6 +552,13 @@ window.addEventListener("hashchange",()=>setView(location.hash==="#timeline"?"ti
 
 document.getElementById("today").textContent="Today: "+now.toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short",year:"numeric"});
 renderUrgent();
+(function(){
+  const base=/github\.io$/.test(location.hostname)?new URL("deadlines.ics",location.href).href:"https://sourabhbhattacharya.github.io/SBT/exam-planner/deadlines.ics";
+  const webcal=base.replace(/^https?:/,"webcal:");
+  document.getElementById("r-google").href="https://calendar.google.com/calendar/r?cid="+encodeURIComponent(webcal);
+  document.getElementById("r-apple").href=webcal;
+  document.getElementById("r-file").href=base;
+})();
 document.getElementById("checked").textContent="Dates last checked: "+fmt(LAST_CHECKED);
 
 function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(_){return null;}}
