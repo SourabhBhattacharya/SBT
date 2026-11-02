@@ -275,6 +275,7 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
 // ---- Weekly update log: the Saturday check adds a new entry at the TOP and sets LAST_CHECKED ----
 const LAST_CHECKED = "2026-11-02";
 const UPDATES = [
+ {date:"2026-11-02", items:["Added SEED (Symbiosis design; last date ~25 Dec 2026) and BITSDAT (BITS Design School; apply by 31 Jan 2027, test 29 Mar – 5 Apr).","NATA is listed as NATA 2027 (Architecture) under Design & architecture."]},
  {date:"2026-11-02", items:["New Ivy League tab under Study abroad: deadlines, decision dates and financial-aid policy for all 8 Ivies.","More law exams: LNAT for Jindal Global Law School (early deadline 30 Nov), Christ University CULEE, NMIMS LAT, MH CET Law, AP LAWCET."]},
  {date:"2026-11-02", items:["New Study abroad tab: SAT, ACT, English tests, and application deadlines for the USA, UK, Canada, Singapore, Hong Kong, Australia and Germany.","SAT: register by 20 Nov for the 5 Dec sitting.","Hong Kong (HKU, HKUST) first-round deadline: 25 Nov 2026."]},
  {date:"2026-11-02", items:["Added 10 exams for commerce, arts and humanities students: AILET, SLAT, NID DAT, CA Foundation, NPAT, Symbiosis SET, NCHM JEE, NCET, TG LAWCET, JIPMAT.","New subject filters for Commerce and Arts & Humanities.","AILET closes 10 Nov; NID DAT closes 30 Nov 2026."]},
@@ -283,6 +284,20 @@ const UPDATES = [
 // ---- end of update log ----
 
 const EXAMS = [
+ {id:"seed",name:"SEED 2027 (Symbiosis Design)",full:"Symbiosis Entrance Exam for Design",cat:"Design",stream:"Any",body:"Symbiosis Institute of Design, Pune",url:"https://www.sid.edu.in",
+  open:"2026-08-06",close:"2026-12-25",closeExp:true,exam:"2027-01-10",examLbl:"~2nd week of Jan 2027 (round 2 usually in March)",examExp:true,
+  elig:"Class 12 in any stream (typically 45%; 40% SC/ST), passed or appearing.",
+  pattern:"Online, remote-proctored, about 1 hour: visualisation, observation, problem-solving, general awareness. Shortlisted students then have a Portfolio Review & Personal Interaction (PRPI).",
+  cutoff:"Merit from SEED + PRPI.",
+  note:"B.Des at Symbiosis Institute of Design, Pune. Fee about ₹2,250 for SEED + ₹1,000 for SID. Last date reported as 25 Dec 2026 (2026 cycle closed 28 Dec); confirm on sid.edu.in.",
+  kw:"design bdes symbiosis sid pune seed"},
+ {id:"bitsdat",name:"BITSDAT 2027 (BITS Design School)",full:"BITS Design Aptitude Test",cat:"Design",stream:"Any",body:"BITS Design School, Mumbai",url:"https://www.bitsdesign.edu.in",
+  open:"2026-10-15",close:"2027-01-31",closeExp:false,exam:"2027-03-29",examLbl:"29 Mar – 5 Apr 2027",examExp:false,
+  elig:"Class 12 in any stream (check the minimum marks on the BITS Design site).",
+  pattern:"Computer-based design aptitude test; then portfolio upload (14–22 Apr 2027) and interview for shortlisted students. UCEED or NID DAT Prelims scores can be uploaded instead (6–10 Apr 2027).",
+  cutoff:"Shortlist on 14 Apr 2027; final selection after portfolio and interview.",
+  note:"4-year B.Des (Honours), 210 seats, fully residential in Mumbai. Only one application round this year. 2026 application fee was ₹2,500.",
+  kw:"design bdes bits mumbai bitsdat"},
  {id:"harvard",dest:"ivy",name:"Harvard University",full:"Harvard University — Ivy League, Regular Decision for Fall 2027",cat:"Intl",stream:"Any",body:"Harvard University (via Common App)",url:"https://college.harvard.edu/admissions",
   open:"2026-08-01",close:"2027-01-01",closeExp:false,exam:"2027-03-31",examLbl:"By end of March 2027",examExp:true,examTitle:"Decisions",
   elig:"Class 12 in any stream with a top academic record; SAT/ACT per the university's current testing policy; English test (TOEFL/IELTS/Duolingo) if required.",
@@ -521,7 +536,7 @@ const EXAMS = [
   cutoff:"Rank-based.",
   note:"5-year Integrated Programme in Management (BBA+MBA).",
   kw:"iim bba management"},
- {id:"uceed",name:"UCEED",full:"Undergraduate Common Entrance Exam for Design",cat:"Design",stream:"Any",body:"IIT Bombay",url:"https://www.uceed.iitb.ac.in",
+ {id:"uceed",name:"UCEED (IIT design)",full:"Undergraduate Common Entrance Exam for Design",cat:"Design",stream:"Any",body:"IIT Bombay",url:"https://www.uceed.iitb.ac.in",
   open:"2026-10-01",close:"2026-11-06",closeExp:false,exam:"2027-01-17",examLbl:"17 Jan 2027",examExp:false,
   elig:"Class 12 in any stream, passed in 2026 or appearing in 2027.",
   pattern:"3 hours. Part A computer-based (200 marks) + Part B drawing and design (100 marks).",
@@ -654,13 +669,13 @@ const EXAMS = [
   cutoff:"Varies by IIM.",
   note:"5-year BBA + MBA.",
   kw:"iim management bba"},
- {id:"nata",name:"NATA 2027",full:"National Aptitude Test in Architecture",cat:"Design",stream:"PCM",body:"Council of Architecture",url:"https://www.nata.in",
+ {id:"nata",name:"NATA 2027 (Architecture)",full:"National Aptitude Test in Architecture",cat:"Design",stream:"PCM",body:"Council of Architecture",url:"https://www.nata.in",
   open:"2027-03-01",close:"2027-05-31",closeExp:true,exam:"2027-04-18",examLbl:"Several test dates Apr–Jun 2027",examExp:true,
   elig:"Class 12 with Physics, Chemistry, Maths; 50% in PCM and 50% overall.",
   pattern:"Aptitude + drawing; score valid for 2 years.",
   cutoff:"Minimum qualifying score set by CoA.",
   note:"JEE Main Paper 2 is the other route to B.Arch.",
-  kw:"architecture barch"},
+  kw:"architecture barch nata national aptitude test in architecture design"},
  {id:"nest",name:"NEST 2027",full:"National Entrance Screening Test",cat:"Science",stream:"PCMB",body:"NISER Bhubaneswar",url:"https://www.nestexam.in",
   open:"2027-02-05",close:"2027-04-30",closeExp:true,exam:"2027-06-27",examLbl:"Jun–Jul 2027",examExp:true,
   elig:"Science stream in Class 12; 60% (55% SC/ST/PwD).",
