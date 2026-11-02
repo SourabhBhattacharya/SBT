@@ -277,6 +277,7 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
 const ADMISSION_YEAR = 2027;
 const LAST_CHECKED = "2026-11-02";
 const UPDATES = [
+ {date:"2026-11-02", items:["New Colleges & universities tab: Ashoka (Round 1 closes 23 Nov), Christ (25 Nov), FLAME (29 Nov), Azim Premji (20 Nov), Krea, IIIT Hyderabad UGEE, Shiv Nadar, St. Stephen's, top DU colleges, St. Xavier's Mumbai and Kolkata, University of Hyderabad."]},
  {date:"2026-11-02", items:["Added SEED (Symbiosis design; last date ~25 Dec 2026) and BITSDAT (BITS Design School; apply by 31 Jan 2027, test 29 Mar – 5 Apr).","NATA is listed as NATA 2027 (Architecture) under Design & architecture."]},
  {date:"2026-11-02", items:["New Ivy League tab under Study abroad: deadlines, decision dates and financial-aid policy for all 8 Ivies.","More law exams: LNAT for Jindal Global Law School (early deadline 30 Nov), Christ University CULEE, NMIMS LAT, MH CET Law, AP LAWCET."]},
  {date:"2026-11-02", items:["New Study abroad tab: SAT, ACT, English tests, and application deadlines for the USA, UK, Canada, Singapore, Hong Kong, Australia and Germany.","SAT: register by 20 Nov for the 5 Dec sitting.","Hong Kong (HKU, HKUST) first-round deadline: 25 Nov 2026."]},
@@ -286,6 +287,90 @@ const UPDATES = [
 // ---- end of update log ----
 
 const EXAMS = [
+ {id:"ashoka",name:"Ashoka University (Sonipat)",full:"Ashoka University UG admissions",cat:"College",stream:"Any",body:"Ashoka University",url:"https://www.ashoka.edu.in/admissions/undergraduate-students/",
+  open:"2026-10-07",close:"2026-11-23",closeExp:false,exam:"2026-12-06",examLbl:"Round 1 assessments ~early Dec 2026",examExp:true,examTitle:"Assessment",
+  elig:"Class 12 in any stream (passed or appearing).",
+  pattern:"Application with essays, then Ashoka Aptitude Assessment and an on-the-spot essay; shortlisted students are interviewed.",
+  cutoff:"Holistic; no published cutoff. Need-based financial aid and scholarships available.",
+  note:"Four rounds; apply in any one: 23 Nov 2026, 20 Jan, 14 Apr, 23 May 2027. The round does not affect your chances. First-year cost for 2027-28 is about ₹13.55 lakh (tuition + residence).",
+  kw:"ashoka liberal arts sonipat economics computer science humanities private university"},
+ {id:"christ",name:"Christ University (Bengaluru, Pune, Delhi NCR)",full:"Christ University Entrance Test (ET-CU)",cat:"College",stream:"Any",body:"Christ (Deemed to be University)",url:"https://christuniversity.in",
+  open:"2026-10-15",close:"2026-11-25",closeExp:false,exam:"2026-12-06",examLbl:"Session 1 test ~early Dec 2026; Sessions 2–3 Apr–May 2027",examExp:true,examTitle:"Test",
+  elig:"Class 12 in the relevant stream; most programmes need 50% (45% SC/ST).",
+  pattern:"Online entrance test (about 120 questions, +1 / −0.25 for BBA/B.Com), then skill assessment, micro-presentation and interview.",
+  cutoff:"Merit across test + selection rounds.",
+  note:"Session 1 deadline for entrance-test programmes (BBA, B.Com, BA, B.Sc, BCA, BHM) is 25 Nov 2026, 5 pm; programmes without a test close 6 Dec 2026. Law uses CULEE (see Law). Fee about ₹1,800.",
+  kw:"christ bangalore bengaluru bba bcom bca private university"},
+ {id:"flame",name:"FLAME University (Pune)",full:"FLAME Entrance Aptitude Test (FEAT)",cat:"College",stream:"Any",body:"FLAME University",url:"https://www.flame.edu.in/admissions/ug/admission-schedule",
+  open:"2026-10-20",close:"2026-11-29",closeExp:false,exam:"2026-12-04",examLbl:"FEAT 4–6 Dec 2026 (Early Decision); result 12 Jan 2027",examExp:false,examTitle:"Test",
+  elig:"Class 12 in any stream (around 60%; 50% SC/ST).",
+  pattern:"FEAT (online, about 90 min) + essay, then personal interview, all done from home. SAT/ACT or JEE Main scores can replace FEAT.",
+  cutoff:"Holistic.",
+  note:"Early Decision is the first of five cycles; later cycles run to June 2027. Liberal education, business, communication and design programmes.",
+  kw:"flame pune liberal arts bba design private university"},
+ {id:"azimpremji",name:"Azim Premji University (Bengaluru, Bhopal)",full:"Azim Premji University UG admissions",cat:"College",stream:"Any",body:"Azim Premji University",url:"https://azimpremjiuniversity.edu.in",
+  open:"2026-09-15",close:"2026-11-20",closeExp:false,exam:null,examLbl:"Entrance test and interview after the round deadline",examExp:true,examTitle:"Selection",
+  elig:"Class 12 in any stream (passed or appearing in 2027).",
+  pattern:"University entrance assessment and interview; CUET UG, SAT or JEE Main scores also accepted for some programmes.",
+  cutoff:"Holistic; strong need-based scholarships.",
+  note:"20 Nov 2026 is the Round 1 deadline; later rounds follow in 2027. 4-year BA/B.Sc (Hons).",
+  kw:"azim premji bengaluru bhopal liberal arts private university"},
+ {id:"krea",name:"Krea University (Sri City, near Chennai)",full:"Krea University SIAS undergraduate admissions",cat:"College",stream:"Any",body:"Krea University",url:"https://krea.edu.in",
+  open:"2026-09-15",close:"2026-12-06",closeExp:true,exam:"2026-12-14",examLbl:"Round 2 test ~14–15 Dec 2026",examExp:true,examTitle:"Test",
+  elig:"Class 12 in any stream (passed or appearing).",
+  pattern:"Krea Aptitude Test, interview and the Krea Immersive Case (an online group activity).",
+  cutoff:"Holistic.",
+  note:"Rounds: 25 Oct (closed), 6 Dec 2026, 17 Jan, 18 Apr, 30 May 2027 (from secondary sources; check krea.edu.in). BA/B.Sc with interwoven arts and sciences; tuition about ₹8.75 lakh a year. Also BBA/Integrated MBA at IFMR GSB.",
+  kw:"krea sri city chennai andhra liberal arts private university"},
+ {id:"iiith",name:"IIIT Hyderabad: UGEE (B.Tech + MS by Research)",full:"IIIT Hyderabad Undergraduate Entrance Examination",cat:"College",stream:"PCM",body:"IIIT Hyderabad",url:"https://ugadmissions.iiit.ac.in/ugee/",
+  open:"2027-02-10",close:"2027-03-31",closeExp:true,exam:"2027-05-01",examLbl:"~early May 2027; interviews in June",examExp:true,
+  elig:"Class 12 with Physics, Chemistry and Maths.",
+  pattern:"Computer-based, 3 hours, with negative marking; shortlisted students attend an on-campus interview.",
+  cutoff:"Rank from test + interview; about 120–130 seats.",
+  note:"5-year dual degrees (CSE, ECE and more) with a research thesis. 2026 cycle: apply 11 Feb – 5 Apr, exam 2 May. Fee ₹3,100 (₹1,550 for women). IIIT Hyderabad's regular B.Tech admits through JEE Main, not UGEE.",
+  kw:"iiit hyderabad iiith ugee research btech computer science private"},
+ {id:"snu",name:"Shiv Nadar University (Delhi NCR)",full:"SNUSAT and other accepted scores",cat:"College",stream:"Any",body:"Shiv Nadar University",url:"https://snu.edu.in",
+  open:"2026-10-15",close:"2027-06-30",closeExp:true,exam:"2027-01-20",examLbl:"SNUSAT cycles Jan – Jul 2027",examExp:true,examTitle:"Test",
+  elig:"Class 12; programme-specific subjects and marks (e.g. 65% in PCM for B.Tech).",
+  pattern:"SNUSAT: online, 40 questions in 90 minutes (+ an Academic Proficiency Test for B.Tech). JEE Main, CUET, SAT, ACT or UCEED scores also accepted.",
+  cutoff:"No public cutoff.",
+  note:"Several test cycles; apply early for scholarships. Fee ₹2,500.",
+  kw:"shiv nadar snu noida delhi btech private university"},
+ {id:"ststephens",name:"St. Stephen's College (Delhi)",full:"St. Stephen's College, University of Delhi",cat:"College",stream:"Any",body:"St. Stephen's College (via CUET UG)",url:"https://www.ststephens.edu",
+  open:"2027-01-05",close:"2027-02-05",closeExp:true,exam:"2027-07-01",examLbl:"Interviews after CUET results (~Jun–Jul 2027)",examExp:true,examTitle:"Interview",
+  elig:"Class 12 with subjects required for the course + a CUET UG score in those subjects.",
+  pattern:"Take CUET UG (May 2027), then fill St. Stephen's own UG application and DU's CSAS portal; shortlisted students are interviewed.",
+  cutoff:"Shortlist on CUET score; the college gives 85% weight to CUET and 15% to the interview (this has been contested in court; check the current prospectus).",
+  note:"The deadline shown is the CUET registration deadline (expected), because you cannot apply to St. Stephen's without CUET. The college's own form opens around CUET results.",
+  kw:"st stephens stephen's delhi university du cuet humanities economics"},
+ {id:"du",name:"Top Delhi University colleges (SRCC, Hindu, Miranda, LSR, Hansraj…)",full:"University of Delhi colleges via CUET UG + CSAS",cat:"College",stream:"Any",body:"University of Delhi (CSAS)",url:"https://admission.uod.ac.in",
+  open:"2027-01-05",close:"2027-02-05",closeExp:true,exam:"2027-07-15",examLbl:"DU CSAS allocation rounds ~Jul 2027",examExp:true,examTitle:"Allotment",
+  elig:"Class 12 with the subjects each course requires + CUET UG in those subjects.",
+  pattern:"CUET UG score only (no college interviews), then course and college preferences on DU's CSAS portal; seats are allotted in rounds.",
+  cutoff:"Rank by CUET normalised score per course and category.",
+  note:"The deadline shown is the CUET registration deadline (expected). B.Com (Hons) at SRCC and Economics (Hons) at top colleges need very high CUET scores. University of Hyderabad, JNU and BHU also admit through CUET.",
+  kw:"du delhi university srcc hindu miranda lsr hansraj kirori mal cuet"},
+ {id:"xaviersmumbai",name:"St. Xavier's College Mumbai: XET",full:"Xavier's Entrance Test (self-financed courses)",cat:"College",stream:"Any",body:"St. Xavier's College, Mumbai",url:"https://xaviers.edu",
+  open:"2027-03-01",close:"2027-04-20",closeExp:true,exam:"2027-05-02",examLbl:"~early May 2027 (all-India centres incl. Hyderabad)",examExp:true,
+  elig:"Class 12 in any stream (Arts, Science or Commerce).",
+  pattern:"Online XET for B.Com (Management Studies), BA (Mass Communication & Journalism), B.Sc IT and similar courses: English, reasoning, data interpretation/maths, general awareness.",
+  cutoff:"Merit from XET.",
+  note:"2026 XET was on 2–3 May at centres across India (including Hyderabad) and 6–8 May in Mumbai. Regular BA, B.Sc and B.Com seats are on Class 12 marks with no test.",
+  kw:"st xavier's xaviers mumbai bms bmm bammc mass media"},
+ {id:"xavierskolkata",name:"St. Xavier's College Kolkata",full:"St. Xavier's College (Autonomous), Kolkata",cat:"College",stream:"Any",body:"St. Xavier's College, Kolkata",url:"https://www.sxccal.edu",
+  open:"2027-05-01",close:"2027-06-10",closeExp:true,exam:"2027-06-15",examLbl:"After Class 12 results (~Jun 2027)",examExp:true,examTitle:"Test",
+  elig:"Class 12 with course-specific marks.",
+  pattern:"Most courses on Class 12 marks; BMS and a few others hold a 1-hour, 50-mark offline test at the Kolkata campus.",
+  cutoff:"Merit lists per course.",
+  note:"Applications open after board results. Watch sxccal.edu from May.",
+  kw:"st xavier's xaviers kolkata calcutta bms bcom"},
+ {id:"uoh",name:"University of Hyderabad (5-year integrated)",full:"University of Hyderabad integrated M.Sc / MA via CUET",cat:"College",stream:"Any",body:"University of Hyderabad (via CUET UG)",url:"https://uohyd.ac.in",
+  open:"2027-01-05",close:"2027-02-05",closeExp:true,exam:"2027-06-30",examLbl:"Admissions after CUET results (~Jun–Jul 2027)",examExp:true,examTitle:"Admission",
+  elig:"Class 12 with the subjects each programme requires + CUET UG.",
+  pattern:"CUET UG score, then the university's own admission portal.",
+  cutoff:"Merit by CUET score.",
+  note:"Integrated M.Sc (Maths, Physics, Chemistry, Biology) and Integrated MA (Economics, Languages, Social Sciences) in Hyderabad. The deadline shown is CUET registration (expected).",
+  kw:"university of hyderabad uoh central university hyderabad integrated msc ma cuet"},
  {id:"seed",name:"SEED 2027 (Symbiosis Design)",full:"Symbiosis Entrance Exam for Design",cat:"Design",stream:"Any",body:"Symbiosis Institute of Design, Pune",url:"https://www.sid.edu.in",
   open:"2026-08-06",close:"2026-12-25",closeExp:true,exam:"2027-01-10",examLbl:"~2nd week of Jan 2027 (round 2 usually in March)",examExp:true,
   elig:"Class 12 in any stream (typically 45%; 40% SC/ST), passed or appearing.",
@@ -732,15 +817,16 @@ const CATS = {
   Mgmt:{lbl:"Management & commerce",c:"#b7791f",ic:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>'},
   Design:{lbl:"Design & architecture",c:"#d6336c",ic:'<path d="M12 21a9 9 0 1 1 9-9c0 2.5-2 3-3.5 3H15a2 2 0 0 0-1.4 3.4A1.5 1.5 0 0 1 12 21z"/><circle cx="7.5" cy="10.5" r="1"/><circle cx="11" cy="7" r="1"/><circle cx="16" cy="8.5" r="1"/>'},
   Intl:{lbl:"Study abroad",c:"#0b7c8c",ic:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>'},
+  College:{lbl:"Colleges & universities",c:"#862e9c",ic:'<path d="M3 21h18M5 21V10M19 21V10M9 21v-6h6v6M2 10l10-6 10 6"/>'},
   Other:{lbl:"Hotel mgmt & teaching",c:"#5c6b7a",ic:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/>'}
 };
-const STREAMS=[["all","All streams"],["m","Science · Maths"],["b","Science · Biology"],["c","Commerce"],["h","Arts & Humanities"]];
+const STREAMS=[["all","All streams"],["m","Science · Maths"],["b","Science · Biology"],["c","Commerce"],["h","Arts & Humanities"],["col","Colleges & universities"]];
 const DESTS=[["all","All abroad"],["tests","Tests (SAT, ACT, English)"],["usa","USA"],["ivy","Ivy League"],["uk","UK"],["canada","Canada"],["asia","Singapore & Hong Kong"],["more","Australia & Germany"]];
 const DESTLBL=Object.fromEntries(DESTS);
 const streamLbl={PCM:"Science · Maths",PCB:"Science · Biology",PCMB:"Science · Maths or Bio",Any:"All streams"};
 const isAbroad=e=>[].concat(e.cat).includes("Intl");
 const inRegion=(e,r)=>(r||F.region)==="abroad"?isAbroad(e):!isAbroad(e);
-const inStream=(e,v)=>inRegion(e)&&(v==="all"||(F.region==="abroad"?e.dest===v:aud(e).includes(v)));
+const inStream=(e,v)=>inRegion(e)&&(v==="all"||(F.region==="abroad"?e.dest===v:(v==="col"?[].concat(e.cat).includes("College"):aud(e).includes(v))));
 const aud=e=>e.aud||({PCM:["m"],PCB:["b"],PCMB:["m","b"],Any:["m","b","c","h"]})[e.stream];
 const cat0=e=>CATS[[].concat(e.cat)[0]]||CATS.Other;
 
