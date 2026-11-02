@@ -131,6 +131,15 @@ h2{font-family:var(--display);font-weight:600;font-size:18px;margin:0}
 .sw.exp{background:repeating-linear-gradient(45deg,var(--accent) 0 5px,color-mix(in srgb,var(--accent) 45%,transparent) 5px 10px)}
 .dm{display:inline-block;width:11px;height:11px;transform:rotate(45deg);background:var(--urgent)}
 footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
+.checked{font-size:12.5px;color:var(--muted)}
+.toasts{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:10px;max-width:min(380px,calc(100vw - 32px))}
+.toast{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:10px;box-shadow:0 8px 28px rgba(10,20,50,.18);padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.toast.warn{border-left-color:var(--urgent)}
+.toast h3{margin:0;font-family:var(--display);font-size:15px;font-weight:600}
+.toast ul{margin:0;padding-left:18px;font-size:13.5px}
+.toast .acts{display:flex;gap:8px;justify-content:flex-end}
+.toast button{border:1px solid var(--line);background:var(--bg);border-radius:7px;padding:4px 10px;cursor:pointer;font-size:13px}
+.toast button.pri{background:var(--accent);border-color:var(--accent);color:#fff}
 @media (max-width:560px){
   .card-h{grid-template-columns:1fr}
   .right{justify-content:space-between}
@@ -146,7 +155,7 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
       <h1>Entrance Exam Planner 2027</h1>
       <p class="sub">Every major undergraduate entrance exam for a Class 12 PCMB student, with live countdowns to each form deadline. Tap an exam for eligibility, pattern, last year's cutoff and the official link.</p>
     </div>
-    <div class="today" id="today"></div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><div class="today" id="today"></div><span class="checked" id="checked"></span></div>
   </header>
 
   <section aria-labelledby="up-h" style="display:flex;flex-direction:column;gap:10px">
@@ -197,8 +206,16 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
     <p>Other state CETs (MHT CET, KCET, WBJEE) mainly serve students with that state's domicile and are not listed. Information compiled 2 November 2026.</p>
   </footer>
 </div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
 
 <script>
+// ---- Weekly update log: the Saturday check adds a new entry at the TOP and sets LAST_CHECKED ----
+const LAST_CHECKED = "2026-11-02";
+const UPDATES = [
+ {date:"2026-11-02", items:["Planner launched with 26 exams.","JEE Main Session 1 is open until 22 Nov 2026.","UCEED late-fee window closes 6 Nov 2026."]}
+];
+// ---- end of update log ----
+
 const EXAMS = [
  {id:"uceed",name:"UCEED",full:"Undergraduate Common Entrance Exam for Design",cat:"Other",stream:"Any",body:"IIT Bombay",url:"https://www.uceed.iitb.ac.in",
   open:"2026-10-01",close:"2026-11-06",closeExp:false,exam:"2027-01-17",examLbl:"17 Jan 2027",examExp:false,
@@ -516,6 +533,34 @@ window.addEventListener("hashchange",()=>setView(location.hash==="#timeline"?"ti
 
 document.getElementById("today").textContent="Today: "+now.toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short",year:"numeric"});
 renderUrgent();
+document.getElementById("checked").textContent="Dates last checked: "+fmt(LAST_CHECKED);
+
+function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(_){return null;}}
+function toast(cls,title,items,actions){
+  const el=document.createElement("div");el.className="toast "+cls;el.setAttribute("role","status");
+  el.innerHTML=`<h3>${esc(title)}</h3><ul>${items.map(i=>`<li>${i}</li>`).join("")}</ul><div class="acts"></div>`;
+  const acts=el.querySelector(".acts");
+  actions.forEach(a=>{const b=document.createElement("button");b.textContent=a.label;if(a.pri)b.className="pri";b.onclick=()=>{a.fn&&a.fn();el.remove();};acts.appendChild(b);});
+  document.getElementById("toasts").appendChild(el);
+}
+// 1) What's new since this visitor last looked
+(function(){
+  const latest=UPDATES[0]; if(!latest) return;
+  const seen=store("examPlannerSeenUpdate");
+  if(seen===latest.date) return;
+  toast("","What's new · "+fmt(latest.date),latest.items.map(esc),[{label:"Got it",pri:true,fn:()=>store("examPlannerSeenUpdate",latest.date)}]);
+})();
+// 2) Deadline alert: forms closing within 7 days (your starred exams if you have any, otherwise all)
+(function(){
+  const key="examPlannerAlert-"+now.toISOString().slice(0,10);
+  if(store(key)) return;
+  const pool=mine.size?EXAMS.filter(e=>mine.has(e.id)):EXAMS;
+  const soon=pool.filter(e=>e.close&&days(e.open)<=0&&days(e.close)>=0&&days(e.close)<=7).sort((a,b)=>days(a.close)-days(b.close));
+  if(!soon.length) return;
+  toast("warn",mine.size?"Your exams closing this week":"Forms closing this week",
+    soon.map(e=>{const c=days(e.close);return `<b>${esc(e.name)}</b>: ${c===0?"closes today":c+" day"+(c===1?"":"s")+" left"} (${fmt(e.close)})`;}),
+    [{label:"Remind me tomorrow",fn:()=>store(key,"1")},{label:"Show",pri:true,fn:()=>{store(key,"1");goto(soon[0].id);}}]);
+})();
 setView(location.hash==="#timeline"?"timeline":"list");
 </script>
 </body>
