@@ -160,7 +160,7 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
   <header>
     <div>
       <h1>Entrance Exam Planner 2027</h1>
-      <p class="sub">Every major undergraduate entrance exam for a Class 12 PCMB student, with live countdowns to each form deadline. Tap an exam for eligibility, pattern, last year's cutoff and the official link.</p>
+      <p class="sub">Every major undergraduate entrance exam after Class 12, for science, commerce, arts and humanities students, with live countdowns to each form deadline. Tap an exam for eligibility, pattern, last year's cutoff and the official link.</p>
     </div>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><div class="today" id="today"></div><span class="checked" id="checked"></span></div>
   </header>
@@ -186,8 +186,10 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
     <div class="row">
       <span class="lbl">Subjects</span>
       <button class="chip" data-f="stream" data-v="all" aria-pressed="true">All exams</button>
-      <button class="chip" data-f="stream" data-v="PCM" aria-pressed="false">Maths-based</button>
-      <button class="chip" data-f="stream" data-v="PCB" aria-pressed="false">Biology-based</button>
+      <button class="chip" data-f="stream" data-v="m" aria-pressed="false">Science (Maths)</button>
+      <button class="chip" data-f="stream" data-v="b" aria-pressed="false">Science (Biology)</button>
+      <button class="chip" data-f="stream" data-v="c" aria-pressed="false">Commerce</button>
+      <button class="chip" data-f="stream" data-v="h" aria-pressed="false">Arts &amp; Humanities</button>
     </div>
     <div class="row">
       <span class="lbl">Field</span>
@@ -197,7 +199,10 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
       <button class="chip" data-f="cat" data-v="Science" aria-pressed="false">Science &amp; research</button>
       <button class="chip" data-f="cat" data-v="State" aria-pressed="false">Telangana / AP</button>
       <button class="chip" data-f="cat" data-v="Defence" aria-pressed="false">Defence</button>
-      <button class="chip" data-f="cat" data-v="Other" aria-pressed="false">Design, arch, mgmt, law</button>
+      <button class="chip" data-f="cat" data-v="Law" aria-pressed="false">Law</button>
+      <button class="chip" data-f="cat" data-v="Mgmt" aria-pressed="false">Management &amp; commerce</button>
+      <button class="chip" data-f="cat" data-v="Design" aria-pressed="false">Design &amp; architecture</button>
+      <button class="chip" data-f="cat" data-v="Other" aria-pressed="false">Hotel mgmt &amp; teaching</button>
     </div>
     <div class="row">
       <span class="lbl">Form</span>
@@ -206,7 +211,7 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
       <button class="chip" data-f="status" data-v="soon" aria-pressed="false">Opening later</button>
       <button class="chip" data-f="status" data-v="mine" aria-pressed="false">★ My list</button>
       <label for="q" class="lbl" style="position:absolute;left:-9999px">Search exams</label>
-      <input id="q" class="search" type="search" placeholder="Search, e.g. NEET, IIT, Hyderabad">
+      <input id="q" class="search" type="search" placeholder="Search, e.g. NEET, law, BBA, Hyderabad">
     </div>
   </section>
 
@@ -222,7 +227,7 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
 
   <footer>
     <p><b>Dates in italics are expected</b>, projected from the 2026 cycle because the 2027 notice is not out yet. Confirm on the official site before relying on them. Cutoffs are the latest available (2026 unless noted) and change every year.</p>
-    <p>Other state CETs (MHT CET, KCET, WBJEE) mainly serve students with that state's domicile and are not listed. Information compiled 2 November 2026.</p>
+    <p>Many BA, B.Com and BBA seats at central universities (DU, JNU, BHU, University of Hyderabad, TISS) are filled through CUET UG. Telangana state degree colleges admit through DOST, which uses Class 12 marks and has no exam. Other state CETs (MHT CET, KCET, WBJEE) mainly serve students with that state's domicile and are not listed. Information compiled 2 November 2026.</p>
   </footer>
 </div>
 <div class="toasts" id="toasts" aria-live="polite"></div>
@@ -231,12 +236,83 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
 // ---- Weekly update log: the Saturday check adds a new entry at the TOP and sets LAST_CHECKED ----
 const LAST_CHECKED = "2026-11-02";
 const UPDATES = [
+ {date:"2026-11-02", items:["Added 10 exams for commerce, arts and humanities students: AILET, SLAT, NID DAT, CA Foundation, NPAT, Symbiosis SET, NCHM JEE, NCET, TG LAWCET, JIPMAT.","New subject filters for Commerce and Arts & Humanities.","AILET closes 10 Nov; NID DAT closes 30 Nov 2026."]},
  {date:"2026-11-02", items:["Planner launched with 26 exams.","JEE Main Session 1 is open until 22 Nov 2026.","UCEED late-fee window closes 6 Nov 2026."]}
 ];
 // ---- end of update log ----
 
 const EXAMS = [
- {id:"uceed",name:"UCEED",full:"Undergraduate Common Entrance Exam for Design",cat:"Other",stream:"Any",body:"IIT Bombay",url:"https://www.uceed.iitb.ac.in",
+ {id:"ailet",name:"AILET 2027",full:"All India Law Entrance Test",cat:"Law",stream:"Any",body:"NLU Delhi",url:"https://nationallawuniversitydelhi.in",
+  open:"2026-08-07",close:"2026-11-10",closeExp:false,exam:"2026-12-13",examLbl:"13 Dec 2026, 2–4 pm",examExp:false,
+  elig:"Class 12 in any stream with 45% (relaxation for reserved categories); appearing students can apply.",
+  pattern:"Pen and paper, 2 hours, 150 MCQs (1 mark each): English, current affairs & GK, logical reasoning.",
+  cutoff:"Rank-based; only for NLU Delhi's BA LLB (Hons), which CLAT does not cover.",
+  note:"Fee ₹3,000 (₹1,000 SC/ST). Registration closes 10 Nov 2026.",
+  kw:"law llb nlu delhi"},
+ {id:"nid",name:"NID DAT 2027 (B.Des)",full:"NID Design Aptitude Test",cat:"Design",stream:"Any",body:"National Institute of Design",url:"https://admissions.nid.edu",
+  open:"2026-09-10",close:"2026-11-30",closeExp:false,exam:"2026-12-20",examLbl:"Prelims 20 Dec 2026; Mains Apr–May 2027",examExp:false,
+  elig:"Class 12 in any stream (passed or appearing); upper age limit applies, check the admissions handbook.",
+  pattern:"Prelims: 3 hours, 100 marks, objective + drawing/subjective (qualifying only since 2026). Mains: studio test and interview.",
+  cutoff:"Prelims shortlist; final merit from Mains. B.Des Prelims result 16 Mar 2027.",
+  note:"NID campuses include Ahmedabad and NID Andhra Pradesh (Vijayawada). Correction window 1–3 Dec 2026.",
+  kw:"design bdes art creative nid humanities"},
+ {id:"slat",name:"SLAT 2027 (Symbiosis Law)",full:"Symbiosis Law Admission Test",cat:"Law",stream:"Any",body:"Symbiosis International University",url:"https://www.set-test.org",
+  open:"2026-08-21",close:"2026-12-04",closeExp:false,exam:"2026-12-19",examLbl:"Test 1: 19 Dec · Test 2: 26 Dec 2026",examExp:false,
+  elig:"Class 12 in any stream with 45% (40% SC/ST).",
+  pattern:"Online, 60 questions, 60 marks: reading comprehension, general knowledge, logical and analytical reasoning, legal reasoning. You may take both tests; the better score counts.",
+  cutoff:"Merit list per Symbiosis Law School campus.",
+  note:"₹2,250 per test. Symbiosis Law School has a Hyderabad campus (BA LLB, BBA LLB).",
+  kw:"law llb symbiosis hyderabad pune"},
+ {id:"cafound",name:"CA Foundation (May 2027 attempt)",full:"Chartered Accountancy Foundation",cat:"Mgmt",stream:"Any",aud:["m","c","h"],tagLbl:"Commerce, any stream",body:"ICAI",url:"https://www.icai.org",
+  open:"2026-09-02",close:"2027-01-01",closeExp:true,exam:"2027-05-15",examLbl:"mid-May 2027 (expected)",examExp:true,
+  elig:"Class 12 in any stream; appearing students can register provisionally. You must register with ICAI's Board of Studies at least 4 months before the exam month.",
+  pattern:"4 papers (Accounting; Business Laws; Quantitative Aptitude; Business Economics), 400 marks. Pass: 40% in each paper and 50% overall.",
+  cutoff:"Absolute pass marks, not a rank.",
+  note:"Held three times a year (Jan, May/June, Sep). Missed 1 Jan? Register by ~May for the September 2027 attempt. Commerce students also consider CMA Foundation (ICMAI) and CSEET (ICSI).",
+  kw:"chartered accountant ca commerce icai accounts cma cs"},
+ {id:"nchm",name:"NCHM JEE 2027",full:"Hotel Management Joint Entrance Exam",cat:"Other",stream:"Any",body:"NTA for NCHMCT",url:"https://nchm.gov.in",
+  open:"2026-12-20",close:"2027-03-25",closeExp:true,exam:"2027-04-25",examLbl:"April 2027",examExp:true,
+  elig:"Class 12 in any stream with English as a subject; upper age limit 25 (28 for SC/ST/PwD).",
+  pattern:"Computer-based, 3 hours: numerical ability, reasoning, general knowledge, English, aptitude for service sector.",
+  cutoff:"Rank-based; ~12,000 seats at IHMs (including IHM Hyderabad).",
+  note:"B.Sc Hospitality & Hotel Administration at Institutes of Hotel Management.",
+  kw:"hotel management ihm hospitality tourism hyderabad"},
+ {id:"npat",name:"NMIMS NPAT 2027",full:"NMIMS Programs After Twelfth",cat:"Mgmt",stream:"Any",body:"SVKM's NMIMS",url:"https://npat.nmims.edu",
+  open:"2027-01-25",close:"2027-05-20",closeExp:true,exam:"2027-02-15",examLbl:"Test window Feb – Jun 2027",examExp:true,
+  elig:"Class 12 in any stream; most programmes need 50% or more (check per programme).",
+  pattern:"Computer-based, 120 questions: quantitative, logical and verbal reasoning (40 each), no sectional time limit.",
+  cutoff:"Merit list per campus and programme.",
+  note:"BBA, B.Com, B.Sc Finance, Economics, Liberal Arts at NMIMS campuses including Hyderabad. You book your own test slot.",
+  kw:"bba bcom economics liberal arts nmims hyderabad mumbai"},
+ {id:"ncet",name:"NCET 2027 (ITEP)",full:"National Common Entrance Test for 4-year B.Ed",cat:"Other",stream:"Any",body:"NTA",url:"https://exams.nta.ac.in/NCET",
+  open:"2027-02-10",close:"2027-03-12",closeExp:true,exam:"2027-04-20",examLbl:"April 2027",examExp:true,
+  elig:"Class 12 in any stream (passed or appearing).",
+  pattern:"Computer-based: two languages, three domain subjects, general test, teaching aptitude.",
+  cutoff:"Rank-based by institute.",
+  note:"4-year integrated B.A.B.Ed / B.Com.B.Ed / B.Sc.B.Ed at IITs, NITs, RIEs and central universities. Leads to a teaching career.",
+  kw:"teaching teacher bed itep education"},
+ {id:"set",name:"Symbiosis SET 2027",full:"Symbiosis Entrance Test (BBA and other UG)",cat:"Mgmt",stream:"Any",body:"Symbiosis International University",url:"https://www.set-test.org",
+  open:"2026-12-15",close:"2027-04-15",closeExp:true,exam:"2027-05-08",examLbl:"May 2027 (two test dates)",examExp:true,
+  elig:"Class 12 in any stream with 50% (45% SC/ST).",
+  pattern:"Online, 60 questions in 1 hour: general English, quantitative, general awareness, analytical and logical reasoning.",
+  cutoff:"Merit list per institute.",
+  note:"BBA, BBA (IT), B.Sc Economics, Mass Communication and more at Symbiosis Pune, Noida, Hyderabad, Nagpur and Bengaluru.",
+  kw:"bba mass communication media symbiosis hyderabad"},
+ {id:"tglaw",name:"TG LAWCET 2027 (5-year LLB)",full:"Telangana Law Common Entrance Test",cat:["State","Law"],stream:"Any",body:"Osmania University for TGCHE",url:"https://lawcet.tgche.ac.in",
+  open:"2027-02-15",close:"2027-04-01",closeExp:true,exam:"2027-05-18",examLbl:"May 2027",examExp:true,
+  elig:"Class 12 in any stream with 45% (42% OBC, 40% SC/ST).",
+  pattern:"Computer-based, 90 minutes, 120 MCQs, 1 mark each, no negative marking: GK & mental ability, current affairs, aptitude for law.",
+  cutoff:"Rank-based admission to Telangana law colleges (~2,000+ 5-year LLB seats).",
+  note:"2026 fee ₹900 (₹600 SC/ST/PH); 2026 exam was on 18 May.",
+  kw:"law llb telangana hyderabad osmania"},
+ {id:"jipmat",name:"JIPMAT 2027",full:"Joint Integrated Programme in Management Admission Test",cat:"Mgmt",stream:"Any",body:"NTA for IIM Bodh Gaya & IIM Jammu",url:"https://exams.nta.ac.in/JIPMAT",
+  open:"2027-03-25",close:"2027-04-20",closeExp:true,exam:"2027-06-05",examLbl:"early June 2027",examExp:true,
+  elig:"Class 12 in any stream with 60% (55% SC/ST/PwD) and passed Class 10 with 60%.",
+  pattern:"Computer-based, 150 minutes, 100 MCQs: quantitative aptitude, data interpretation & logical reasoning, verbal ability.",
+  cutoff:"Rank-based.",
+  note:"5-year Integrated Programme in Management (BBA+MBA).",
+  kw:"iim bba management"},
+ {id:"uceed",name:"UCEED",full:"Undergraduate Common Entrance Exam for Design",cat:"Design",stream:"Any",body:"IIT Bombay",url:"https://www.uceed.iitb.ac.in",
   open:"2026-10-01",close:"2026-11-06",closeExp:false,exam:"2027-01-17",examLbl:"17 Jan 2027",examExp:false,
   elig:"Class 12 in any stream, passed in 2026 or appearing in 2027.",
   pattern:"3 hours. Part A computer-based (200 marks) + Part B drawing and design (100 marks).",
@@ -250,21 +326,21 @@ const EXAMS = [
   cutoff:"Qualifying percentile for JEE Advanced (2026): General 93.41, OBC-NCL 80.92, EWS ~81–82, SC ~63–64, ST ~50–52.",
   note:"Late fee 23–26 Nov; correction window 27–29 Nov; admit card 13 Jan 2027. Scores are used for NITs, IIITs, Navy B.Tech and Army TES.",
   kw:"nit iiit josaa engineering btech"},
- {id:"clat",name:"CLAT 2027",full:"Common Law Admission Test",cat:"Other",stream:"Any",body:"Consortium of NLUs",url:"https://consortiumofnlus.ac.in",
+ {id:"clat",name:"CLAT 2027",full:"Common Law Admission Test",cat:"Law",stream:"Any",body:"Consortium of NLUs",url:"https://consortiumofnlus.ac.in",
   open:"2026-08-03",close:"2026-10-31",closeExp:false,exam:"2026-12-06",examLbl:"6 Dec 2026",examExp:false,
   elig:"Class 12 with 45% (40% SC/ST); any stream.",
   pattern:"2 hours, comprehension-based: English, current affairs, legal reasoning, logical reasoning, quantitative.",
   cutoff:"Rank-based admission to National Law Universities.",
   note:"2027 registration has closed. If law interests you, plan for CLAT 2028 (registration Aug–Oct 2027).",
   kw:"law nlu"},
- {id:"nda1",name:"NDA & NA (I) 2027",full:"National Defence Academy & Naval Academy Exam",cat:"Defence",stream:"PCM",body:"UPSC",url:"https://upsconline.nic.in",
+ {id:"nda1",name:"NDA & NA (I) 2027",full:"National Defence Academy & Naval Academy Exam",cat:"Defence",stream:"PCM",aud:["m","b","c","h"],tagLbl:"Any stream for Army",body:"UPSC",url:"https://upsconline.nic.in",
   open:"2026-12-02",close:"2026-12-22",closeExp:false,exam:"2027-04-11",examLbl:"11 Apr 2027",examExp:false,
   elig:"Unmarried men and women, born roughly 2 Jul 2008 – 1 Jul 2011 (confirm in notice). Army wing: any stream. Air Force / Navy / Naval Academy: Class 12 with Physics, Chemistry, Maths.",
   pattern:"Maths 300 marks (2.5 hrs) + General Ability Test 600 marks (2.5 hrs), then SSB interview 900 marks. Total 1800.",
   cutoff:"NDA II 2025: written ~305/900 (min 25% per paper). Final merit usually ~670–720/1800.",
-  note:"Dates from the UPSC Annual Calendar 2027. Biology students can apply for the Army wing.",
+  note:"Dates from the UPSC Annual Calendar 2027. Commerce, arts and biology students can apply for the Army wing.",
   kw:"defence army navy air force upsc officer"},
- {id:"nift",name:"NIFT 2027",full:"NIFT Entrance Exam",cat:"Other",stream:"Any",body:"NTA for NIFT",url:"https://exams.nta.ac.in/NIFT",
+ {id:"nift",name:"NIFT 2027",full:"NIFT Entrance Exam",cat:"Design",stream:"Any",body:"NTA for NIFT",url:"https://exams.nta.ac.in/NIFT",
   open:"2026-11-20",close:"2026-12-31",closeExp:true,exam:"2027-01-10",examLbl:"10 Jan 2027 (tentative)",examExp:true,
   elig:"Class 12 in any stream; for B.Des, under 24 years.",
   pattern:"General Ability Test + Creative Ability Test (B.Des), then situation test.",
@@ -278,13 +354,13 @@ const EXAMS = [
   cutoff:"See Session 1.",
   note:"Late fee 4–7 Feb; correction 8–10 Feb; admit card 25 Mar 2027.",
   kw:"nit iiit engineering"},
- {id:"cuet",name:"CUET UG 2027",full:"Common University Entrance Test",cat:"Science",stream:"PCMB",body:"NTA",url:"https://cuet.nta.nic.in",
+ {id:"cuet",name:"CUET UG 2027",full:"Common University Entrance Test",cat:["Science","Mgmt"],stream:"Any",body:"NTA",url:"https://cuet.nta.nic.in",
   open:"2027-01-05",close:"2027-02-05",closeExp:true,exam:"2027-05-15",examLbl:"mid-May – early Jun 2027",examExp:true,
   elig:"Class 12 passed or appearing; no age limit. Each university sets its own subject and % rules.",
-  pattern:"Computer-based; up to 5 subjects. Each test 50 compulsory MCQs in 60 minutes, +5 / −1.",
+  pattern:"Computer-based; up to 5 tests chosen from languages, domain subjects (e.g. Accountancy, Economics, History, Political Science, Physics, Biology) and the General Test. Each test 50 compulsory MCQs in 60 minutes, +5 / −1.",
   cutoff:"Varies by university and course; normalised scores.",
-  note:"Needed for University of Hyderabad, DU, BHU and ~180 central/state universities, and ICAR all-India agriculture seats.",
-  kw:"university hyderabad uoh du bsc agriculture icar central"},
+  note:"The main exam for BA, B.Com, BBA and B.Sc at central universities: University of Hyderabad, DU, JNU, BHU, Jamia, TISS and ~180 more. Also ICAR all-India agriculture seats and IIM Bangalore's online BBA.",
+  kw:"university hyderabad uoh du jnu bhu tiss ba bcom bba bsc agriculture icar central arts humanities commerce economics"},
  {id:"neet",name:"NEET UG 2027",full:"National Eligibility cum Entrance Test",cat:"Medical",stream:"PCB",body:"NTA",url:"https://neet.nta.nic.in",
   open:"2027-02-10",close:"2027-03-10",closeExp:true,exam:"2027-05-02",examLbl:"~2 May 2027",examExp:true,
   elig:"Age 17 by 31 Dec 2027, no upper limit. Class 12 with Physics, Chemistry, Biology, English: 50% in PCB (40% SC/ST/OBC, 45% PwD).",
@@ -362,14 +438,14 @@ const EXAMS = [
   cutoff:"Not officially published; General needed roughly 130/240 for counselling in 2025.",
   note:"Also admits to IISc BS and IIT Madras BS (Medical Sciences & Engg). Uses all four PCMB subjects.",
   kw:"iiser bs-ms research iisc science"},
- {id:"ipmat",name:"IPMAT 2027",full:"Integrated Programme in Management Aptitude Test",cat:"Other",stream:"Any",body:"IIM Indore / Rohtak",url:"https://www.iimidr.ac.in",
+ {id:"ipmat",name:"IPMAT 2027",full:"Integrated Programme in Management Aptitude Test",cat:"Mgmt",stream:"Any",body:"IIM Indore / Rohtak",url:"https://www.iimidr.ac.in",
   open:"2027-02-15",close:"2027-03-20",closeExp:true,exam:"2027-05-08",examLbl:"May 2027",examExp:true,
   elig:"Class 12 with 60% (55% SC/ST/PwD); age limit applies.",
   pattern:"Quantitative and verbal ability, then interview.",
   cutoff:"Varies by IIM.",
   note:"5-year BBA + MBA.",
   kw:"iim management bba"},
- {id:"nata",name:"NATA 2027",full:"National Aptitude Test in Architecture",cat:"Other",stream:"PCM",body:"Council of Architecture",url:"https://www.nata.in",
+ {id:"nata",name:"NATA 2027",full:"National Aptitude Test in Architecture",cat:"Design",stream:"PCM",body:"Council of Architecture",url:"https://www.nata.in",
   open:"2027-03-01",close:"2027-05-31",closeExp:true,exam:"2027-04-18",examLbl:"Several test dates Apr–Jun 2027",examExp:true,
   elig:"Class 12 with Physics, Chemistry, Maths; 50% in PCM and 50% overall.",
   pattern:"Aptitude + drawing; score valid for 2 years.",
@@ -411,7 +487,7 @@ const EXAMS = [
   cutoff:"Score-based.",
   note:"Notified twice a year.",
   kw:"army defence btech"},
- {id:"nda2",name:"NDA & NA (II) 2027",full:"National Defence Academy & Naval Academy Exam",cat:"Defence",stream:"PCM",body:"UPSC",url:"https://upsconline.nic.in",
+ {id:"nda2",name:"NDA & NA (II) 2027",full:"National Defence Academy & Naval Academy Exam",cat:"Defence",stream:"PCM",aud:["m","b","c","h"],tagLbl:"Any stream for Army",body:"UPSC",url:"https://upsconline.nic.in",
   open:"2027-05-12",close:"2027-06-01",closeExp:false,exam:"2027-09-19",examLbl:"19 Sep 2027",examExp:false,
   elig:"Same as NDA I (age band shifts by six months).",
   pattern:"Same as NDA I.",
@@ -444,20 +520,17 @@ let view = "list";
 const opened = new Set();
 
 function matches(e){
-  if(F.stream!=="all"){
-    if(F.stream==="PCM" && !["PCM","PCMB","Any"].includes(e.stream)) return false;
-    if(F.stream==="PCB" && !["PCB","PCMB","Any"].includes(e.stream)) return false;
-    if(F.stream==="PCB" && e.cat==="Defence" && e.id!=="nda1" && e.id!=="nda2") return false;
-  }
-  if(F.cat!=="all" && e.cat!==F.cat) return false;
+  if(F.stream!=="all" && !aud(e).includes(F.stream)) return false;
+  if(F.cat!=="all" && ![].concat(e.cat).includes(F.cat)) return false;
   const s=status(e).k;
   if(F.status==="open" && !(s==="open"||s==="urgent")) return false;
   if(F.status==="soon" && s!=="soon") return false;
   if(F.status==="mine" && !mine.has(e.id)) return false;
-  if(F.q){ const h=(e.name+" "+e.full+" "+e.body+" "+e.kw+" "+e.cat).toLowerCase(); if(!F.q.split(/\s+/).every(w=>h.includes(w))) return false; }
+  if(F.q){ const h=(e.name+" "+e.full+" "+e.body+" "+e.kw+" "+[].concat(e.cat).join(" ")).toLowerCase(); if(!F.q.split(/\s+/).every(w=>h.includes(w))) return false; }
   return true;
 }
-const streamLbl = {PCM:"Maths",PCB:"Biology",PCMB:"Maths or Bio",Any:"Any stream"};
+const streamLbl = {PCM:"Science · Maths",PCB:"Science · Biology",PCMB:"Science · Maths or Bio",Any:"All streams"};
+const aud = e => e.aud || ({PCM:["m"],PCB:["b"],PCMB:["m","b"],Any:["m","b","c","h"]})[e.stream];
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 function card(e){
@@ -467,7 +540,7 @@ function card(e){
   return `<article class="card ${opened.has(e.id)?"openc":""}" id="c-${e.id}">
    <div class="card-h" data-toggle="${e.id}" role="button" tabindex="0" aria-expanded="${opened.has(e.id)}">
     <div>
-      <div class="title-line"><span class="ename">${esc(e.name)}</span><span class="tag ${e.stream}">${streamLbl[e.stream]}</span></div>
+      <div class="title-line"><span class="ename">${esc(e.name)}</span><span class="tag ${e.stream}">${esc(e.tagLbl||streamLbl[e.stream])}</span></div>
       <div class="meta"><span>${esc(e.body)}</span>${close}${exam}</div>
     </div>
     <div class="right"><span class="pill ${st.k}">${st.txt}</span>
@@ -572,9 +645,9 @@ function toast(cls,title,items,actions){
 // 1) What's new since this visitor last looked
 (function(){
   const latest=UPDATES[0]; if(!latest) return;
-  const seen=store("examPlannerSeenUpdate");
-  if(seen===latest.date) return;
-  toast("","What's new · "+fmt(latest.date),latest.items.map(esc),[{label:"Got it",pri:true,fn:()=>store("examPlannerSeenUpdate",latest.date)}]);
+  const tag=latest.date+":"+latest.items.length;
+  if(store("examPlannerSeenUpdate")===tag) return;
+  toast("","What's new · "+fmt(latest.date),latest.items.map(esc),[{label:"Got it",pri:true,fn:()=>store("examPlannerSeenUpdate",tag)}]);
 })();
 // 2) Deadline alert: forms closing within 7 days (your starred exams if you have any, otherwise all)
 (function(){
