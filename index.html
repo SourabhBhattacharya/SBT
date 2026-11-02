@@ -1,522 +1,1157 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Entrance Exam Planner 2027</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Stochastic Business Toolkit (SBT): fit distributions to data, build a model in steps and run Monte Carlo simulations in the browser.">
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>SBT – Stochastic Business Toolkit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
-/* Layout idea: a deadline board. Urgent strip on top, then filterable exam rows, with a year timeline as the second view. */
+/* Layout: tabbed analyst workbench. Controls on the left, instrument-style charts on the right; one column under 900px. */
 :root{
-  --bg:#f4f5f8;
-  --surface:#ffffff;
-  --ink:#16203a;
-  --muted:#5c6680;
-  --line:#dde1ea;
-  --accent:#2742c9;
-  --accent-soft:#e7ebfc;
-  --open:#0f7a55; --open-soft:#e2f4ec;
-  --urgent:#c2410c; --urgent-soft:#fdebe1;
-  --soon:#7a5a00; --soon-soft:#fbf1d3;
-  --closed:#6b7280; --closed-soft:#eef0f3;
-  --pcm:#2742c9; --pcb:#0f7a55; --any:#8a3fb8;
-  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
-  color-scheme: light;
+  --bg:#f2f4f8; --surface:#ffffff; --sunk:#eceff5; --ink:#141824; --muted:#586176; --line:#d8dde7; --grid:#e7eaf0;
+  --accent:#2b3fbf; --accent-ink:#ffffff; --accent-soft:#dfe4fb; --fit:#c4570f; --bad:#b4302a; --bad-soft:#f7e0de; --good:#1d7a4c;
+  --f-display:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --r:10px;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#0f1424; --surface:#171e33; --ink:#e8ecf6; --muted:#9aa4bf; --line:#2a3350;
-    --accent:#8ea2ff; --accent-soft:#232d55;
-    --open:#4fd1a1; --open-soft:#123329; --urgent:#ff9a62; --urgent-soft:#3a2216;
-    --soon:#f2c94c; --soon-soft:#352c10; --closed:#9aa3b5; --closed-soft:#222a3e;
-    --pcm:#8ea2ff; --pcb:#4fd1a1; --any:#d39cf5;
-    color-scheme: dark;
-  }
-}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0d1016; --surface:#161a22; --sunk:#1c212b; --ink:#e6e9f0; --muted:#9aa3b6; --line:#2b313d; --grid:#222833;
+  --accent:#8d9dff; --accent-ink:#0d1016; --accent-soft:#252c4d; --fit:#f2913f; --bad:#ff7b70; --bad-soft:#3b201f; --good:#5cc994; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0f1424; --surface:#171e33; --ink:#e8ecf6; --muted:#9aa4bf; --line:#2a3350;
-  --accent:#8ea2ff; --accent-soft:#232d55;
-  --open:#4fd1a1; --open-soft:#123329; --urgent:#ff9a62; --urgent-soft:#3a2216;
-  --soon:#f2c94c; --soon-soft:#352c10; --closed:#9aa3b5; --closed-soft:#222a3e;
-  --pcm:#8ea2ff; --pcb:#4fd1a1; --any:#d39cf5;
-  color-scheme: dark;
-}
+  --bg:#0d1016; --surface:#161a22; --sunk:#1c212b; --ink:#e6e9f0; --muted:#9aa3b6; --line:#2b313d; --grid:#222833;
+  --accent:#8d9dff; --accent-ink:#0d1016; --accent-soft:#252c4d; --fit:#f2913f; --bad:#ff7b70; --bad-soft:#3b201f; --good:#5cc994; color-scheme:dark}
+
 *{box-sizing:border-box}
-html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
-a{color:var(--accent)}
-button,input,select{font:inherit;color:inherit}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.5}
+.app{max-width:1260px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{margin:0;text-wrap:balance}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(26px,4vw,34px);letter-spacing:-.02em;line-height:1.1}
+h2{font-size:15px;font-weight:600}
+p{margin:0}
+.muted{color:var(--muted)} .small{font-size:12.5px}
+.mono,.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+.top{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:flex-end;justify-content:space-between}
+.brand p{color:var(--muted);margin-top:6px;max-width:58ch}
+.brand .kicker{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+.tabs{display:flex;gap:2px;background:var(--sunk);border:1px solid var(--line);border-radius:999px;padding:3px}
+.tabs button{border:0;background:transparent;color:var(--muted);font:500 13.5px var(--f-body);padding:7px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgb(0 0 0 / .12)}
+.tabs button:hover{color:var(--ink)}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.chart-head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between}
+canvas.chart{width:100%;height:280px;display:block}
+canvas.chart.short{height:220px}
+
+label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted);font-weight:500}
+label.inline{flex-direction:row;align-items:center;gap:8px}
+input,select,textarea{font:inherit;font-size:13.5px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:7px 9px;min-width:0;width:100%}
+label.inline input,label.inline select{width:auto}
+textarea{font-family:var(--f-mono);font-size:12.5px;resize:vertical}
+input[type=number]{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.wrap{max-width:1120px;margin:0 auto;padding:24px 20px 60px;display:flex;flex-direction:column;gap:22px}
-header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px}
-h1{font-family:var(--display);font-weight:800;font-size:clamp(26px,4vw,38px);line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
-.sub{color:var(--muted);margin:6px 0 0;max-width:62ch}
-.today{font-family:var(--mono);font-size:13px;color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:6px 10px;border-radius:8px}
-h2{font-family:var(--display);font-weight:600;font-size:18px;margin:0}
-.urgent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.tile{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--urgent);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;cursor:pointer;text-align:left}
-.tile:hover{border-color:var(--urgent)}
-.tile .days{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;color:var(--urgent);font-variant-numeric:tabular-nums}
-.tile .days small{font-size:14px;font-weight:600;margin-left:4px}
-.tile .nm{font-weight:600}
-.tile .dl{font-size:13px;color:var(--muted)}
-.tile.soon{border-left-color:var(--soon)} .tile.soon .days{color:var(--soon)}
-.controls{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:12px}
-.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.lbl{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);min-width:76px}
-.chip{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:5px 12px;cursor:pointer;font-size:14px}
-.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
-:root[data-theme="dark"] .chip[aria-pressed="true"]{color:#0f1424}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1424}}
-.search{flex:1;min-width:200px;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:7px 10px}
-.tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:4px;width:fit-content}
-.tab{border:0;background:transparent;padding:7px 14px;border-radius:7px;cursor:pointer;font-weight:500}
-.tab[aria-selected="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
-.bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
-.count{color:var(--muted);font-size:14px}
-.list{display:flex;flex-direction:column;gap:10px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.card-h{display:grid;grid-template-columns:1fr auto;gap:10px 16px;padding:14px 16px;cursor:pointer;align-items:center}
-.card-h:hover{background:color-mix(in srgb,var(--accent-soft) 40%,transparent)}
-.title-line{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-.ename{font-weight:600;font-size:16px}
-.tag{font-size:11px;font-weight:600;padding:2px 7px;border-radius:5px;border:1px solid currentColor;letter-spacing:.03em}
-.tag.PCM{color:var(--pcm)} .tag.PCB{color:var(--pcb)} .tag.Any{color:var(--any)} .tag.PCMB{color:var(--accent)}
-.meta{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:4px}
-.meta b{color:var(--ink);font-weight:500;font-family:var(--mono);font-size:12.5px}
-.exp{font-style:italic}
-.right{display:flex;align-items:center;gap:10px}
-.pill{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;white-space:nowrap}
-.pill.open{background:var(--open-soft);color:var(--open)}
-.pill.urgent{background:var(--urgent-soft);color:var(--urgent)}
-.pill.soon{background:var(--soon-soft);color:var(--soon)}
-.pill.closed{background:var(--closed-soft);color:var(--closed)}
-.pill.na{background:var(--accent-soft);color:var(--accent)}
-.star{border:1px solid var(--line);background:var(--surface);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:17px;line-height:1;color:var(--muted)}
-.star[aria-pressed="true"]{color:#d99a00;border-color:#d99a00}
-.card-b{border-top:1px solid var(--line);padding:14px 16px 16px;display:none;gap:14px;flex-direction:column}
-.card.openc .card-b{display:flex}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-.fact{background:var(--bg);border-radius:8px;padding:10px 12px}
-.fact h4{margin:0 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
-.fact p{margin:0;font-size:14px}
-.note{font-size:14px;margin:0;padding:10px 12px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0}
-.go{align-self:flex-start;display:inline-flex;gap:6px;align-items:center;background:var(--accent);color:#fff;text-decoration:none;padding:8px 14px;border-radius:8px;font-weight:600}
-:root[data-theme="dark"] .go{color:#0f1424}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .go{color:#0f1424}}
-.empty{padding:30px;text-align:center;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:12px}
-/* timeline */
-.tl-wrap{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow-x:auto}
-.tl{min-width:860px;position:relative;padding:0 0 10px}
-.tl-head,.tl-row{display:grid;grid-template-columns:190px 1fr}
-.tl-head{position:sticky;top:0;background:var(--surface);border-bottom:1px solid var(--line);z-index:2}
-.months{display:grid;grid-template-columns:repeat(12,1fr)}
-.months div{font-family:var(--mono);font-size:11.5px;color:var(--muted);padding:8px 0 8px 6px;border-left:1px solid var(--line)}
-.tl-row{border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);min-height:34px;align-items:center}
-.tl-row:hover{background:color-mix(in srgb,var(--accent-soft) 35%,transparent)}
-.tl-name{font-size:13.5px;padding:6px 10px 6px 14px;font-weight:500;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.track{position:relative;height:34px;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(100%/12 - 1px),var(--line) calc(100%/12 - 1px),var(--line) calc(100%/12))}
-.appbar{position:absolute;top:11px;height:12px;border-radius:6px;background:var(--accent);opacity:.85}
-.appbar.exp{background:repeating-linear-gradient(45deg,var(--accent) 0 5px,color-mix(in srgb,var(--accent) 45%,transparent) 5px 10px)}
-.exdot{position:absolute;top:9px;width:16px;height:16px;margin-left:-8px;transform:rotate(45deg);background:var(--urgent);border:2px solid var(--surface)}
-.todayline{position:absolute;top:0;bottom:0;width:2px;background:var(--urgent);z-index:1;pointer-events:none}
-.todaylbl{position:absolute;top:2px;font-family:var(--mono);font-size:10.5px;color:var(--urgent);background:var(--surface);padding:0 4px;transform:translateX(4px)}
-.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted);padding:10px 14px}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px var(--accent-soft)}
+
+.btn{font:500 13.5px var(--f-body);border-radius:8px;padding:8px 14px;cursor:pointer;border:1px solid transparent;display:inline-flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn.ghost:hover{background:var(--sunk)}
+.btn.link{background:none;border:0;color:var(--muted);padding:4px 0;text-decoration:underline;text-underline-offset:3px}
+.btn.sm{padding:5px 10px;font-size:12.5px}
+.btn:disabled{opacity:.5;cursor:default}
+
+.err{color:var(--bad);font-size:12.5px}
+.ok{color:var(--good);font-size:13px}
+.chip{font:500 11.5px var(--f-mono);padding:3px 9px;border-radius:999px;background:var(--sunk);color:var(--muted);border:1px solid var(--line);white-space:nowrap}
+.chip.warn{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+.chip.best{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+
+/* Model tab */
+.model-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:18px;align-items:start}
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin-bottom:12px}
+.sec-head .hint{color:var(--muted);font-size:12.5px;flex:1}
+.input-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.icard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.icard.has-err{border-color:var(--bad)}
+.icard-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) auto;gap:8px;align-items:center}
+.iname{font-family:var(--f-mono);font-weight:500}
+.icon{border:0;background:none;color:var(--muted);font-size:18px;line-height:1;cursor:pointer;padding:4px 6px;border-radius:6px}
+.icon:hover{background:var(--sunk);color:var(--bad)}
+.iparams{display:grid;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));gap:8px}
+.ifoot{display:flex;gap:10px;align-items:center;border-top:1px dashed var(--line);padding-top:10px}
+.ifoot canvas{width:96px;height:34px;flex:none}
+.isum{font:12px var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums;min-width:0}
+.isrc{font-size:11.5px;color:var(--fit);font-family:var(--f-mono)}
+.empnote{font-size:12.5px;color:var(--muted);background:var(--sunk);border-radius:7px;padding:8px 10px}
+.col-model{position:static}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{font:12px var(--f-mono);background:var(--accent-soft);color:var(--accent);border:0;border-radius:6px;padding:3px 8px;cursor:pointer}
+.help{font-size:12px;color:var(--muted)}
+.help code{font-family:var(--f-mono);font-size:11.5px;background:var(--sunk);padding:1px 4px;border-radius:4px}
+.calc-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.calc-head .lbl{font-size:12px;color:var(--muted);font-weight:500}
+.calc-list{display:flex;flex-direction:column;gap:8px}
+.calc-list:empty{display:none}
+.calc{border:1px solid var(--line);border-radius:8px;padding:8px;display:flex;flex-direction:column;gap:6px;background:var(--sunk)}
+.calc.has-err{border-color:var(--bad)}
+.calc-top{display:flex;align-items:center;gap:4px}
+.calc-n{font:500 11px var(--f-mono);color:var(--muted);width:18px;flex:none;text-align:center}
+.calc-top .cname{font-family:var(--f-mono);font-weight:500;flex:1;padding:5px 8px}
+.calc-top .eq{font-family:var(--f-mono);color:var(--muted);padding:0 2px}
+.calc-top .icon{font-size:14px;padding:4px 5px}
+.calc-top .icon:disabled{opacity:.3;cursor:default;background:none}
+.calc-top .icon.del{font-size:18px}
+.calc .cformula{background:var(--surface)}
+.divider{border:0;border-top:1px solid var(--line);margin:2px 0}
+.chips button.calc-chip{background:transparent;color:var(--fit);box-shadow:inset 0 0 0 1px var(--fit)}
+#pctTable td.cats{white-space:normal;font-family:var(--f-body)}
+.cat{display:inline-flex;gap:6px;align-items:baseline;margin:2px 14px 2px 0;font-family:var(--f-mono);font-size:12.5px}
+.cat b{font-family:var(--f-body);font-weight:600}
+#pctTable tr.grp td{font:600 11px var(--f-body);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-top:12px;text-align:left}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.run-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+
+/* Case card */
+.case-card{margin-bottom:18px}
+.case-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:start}
+.case-fields{display:flex;flex-direction:column;gap:10px;min-width:0}
+#caseNotes,#caseTitle{font-family:var(--f-body);font-size:13.5px}
+.case-actions{display:flex;flex-direction:column;gap:10px;padding-left:16px;border-left:1px solid var(--line);min-width:0}
+.case-actions .btn-row .btn{flex:1}
+.panel{display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--line);padding-top:12px}
+.panel textarea{min-height:110px}
+.kick{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 4px}
+.notes-view{font-size:13.5px;background:var(--accent-soft);color:var(--ink);border-radius:8px;padding:10px 12px;white-space:pre-line;max-width:95ch}
+@media (max-width:760px){.case-grid{grid-template-columns:minmax(0,1fr)}.case-actions{padding-left:0;border-left:0;border-top:1px solid var(--line);padding-top:12px}}
+
+.undo-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;background:var(--accent-soft);border-radius:8px;padding:8px 12px;font-size:13px}
+.undo-bar span{flex:1;min-width:200px}
+.hist{display:flex;flex-direction:column}
+.top-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.lib{gap:14px}
+.lib-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.lib-head h2{font-family:var(--f-display);font-size:20px;font-weight:700}
+.lib-save{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end}
+.lib-save label{flex:1 1 240px}
+.lib-h{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;margin:6px 0 0}
+.lib-h span{text-transform:none;letter-spacing:0;font-weight:400}
+.hist-row .btn-row{justify-content:flex-end}
+.chip.now{background:var(--accent-soft);color:var(--accent);border-color:transparent;margin-left:6px}
+@media (max-width:560px){.hist-row{grid-template-columns:minmax(0,1fr)!important}.hist-row .btn-row{justify-content:flex-start}}
+.hist-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--grid)}
+.hist-row:last-child{border-bottom:0}
+.hist-t{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hist-m{font-size:12px;color:var(--muted);font-family:var(--f-mono)}
+
+/* Fit tab */
+.fit-grid{display:grid;grid-template-columns:320px minmax(0,1fr);gap:18px;align-items:start}
+.fit-main{display:flex;flex-direction:column;gap:18px;min-width:0}
+.file-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.file-row select{flex:1}
+.desc{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0;font-size:13px}
+.desc dt{color:var(--muted)} .desc dd{margin:0;text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.note{font-size:12px;color:var(--muted);border-left:2px solid var(--fit);padding-left:10px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
 .legend span{display:inline-flex;align-items:center;gap:6px}
-.sw{display:inline-block;width:22px;height:10px;border-radius:5px;background:var(--accent)}
-.sw.exp{background:repeating-linear-gradient(45deg,var(--accent) 0 5px,color-mix(in srgb,var(--accent) 45%,transparent) 5px 10px)}
-.dm{display:inline-block;width:11px;height:11px;transform:rotate(45deg);background:var(--urgent)}
-footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
-@media (max-width:560px){
-  .card-h{grid-template-columns:1fr}
-  .right{justify-content:space-between}
-  .lbl{min-width:100%}
+.legend i{display:inline-block;width:16px;height:0;border-top:2px solid}
+.legend i.bar{height:9px;border:0;width:12px;border-radius:2px}
+.table-wrap{overflow-x:auto;margin:0 -4px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{font-weight:500;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);text-align:right;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,#fitTable th:nth-child(2),#fitTable th:nth-child(3){text-align:left}
+td{padding:7px 8px;border-bottom:1px solid var(--grid);text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.l{text-align:left;font-family:var(--f-body)}
+td.params{text-align:left;font-size:12px;color:var(--muted)}
+#fitTable tbody tr{cursor:pointer}
+#fitTable tbody tr:hover{background:var(--sunk)}
+#fitTable tbody tr.sel{background:var(--accent-soft)}
+#fitTable tbody tr.na{cursor:default;color:var(--muted)}
+#fitTable tbody tr.na:hover{background:none}
+.footnote{font-size:12px;color:var(--muted)}
+.apply{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-top:12px;border-top:1px solid var(--line)}
+.apply select,.apply input{width:auto;flex:1 1 140px}
+
+/* Results tab */
+.res-head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:flex-start;justify-content:space-between}
+.res-head h2{font-family:var(--f-display);font-size:24px;font-weight:700;letter-spacing:-.01em}
+.res-meta{color:var(--muted);font-size:12.5px;margin-top:4px;overflow-wrap:anywhere}
+.res-meta code{font-family:var(--f-mono);font-size:12px;color:var(--ink)}
+.example{font-size:13px;background:var(--accent-soft);color:var(--ink);border-radius:8px;padding:9px 12px}
+.example button{color:var(--accent);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;min-width:0}
+.stat .k{font-size:11.5px;color:var(--muted);letter-spacing:.03em;overflow-wrap:anywhere}
+.stat .v{font:500 21px var(--f-mono);font-variant-numeric:tabular-nums;margin-top:4px;overflow-wrap:anywhere}
+.stat .s{font-size:11.5px;color:var(--muted);font-family:var(--f-mono)}
+.stat.risk{background:var(--bad-soft);border-color:transparent}
+.stat.risk .v{color:var(--bad)}
+.res-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:18px}
+.res-grid .wide{grid-column:1 / -1}
+.caption{font-size:12px;color:var(--muted)}
+.trow{display:grid;grid-template-columns:minmax(70px,auto) minmax(0,1fr) 54px 46px;gap:10px;align-items:center;font-size:13px;padding:5px 0}
+.tname{font-family:var(--f-mono);overflow:hidden;text-overflow:ellipsis}
+.tbar{display:grid;grid-template-columns:1fr 1fr;height:16px;background:linear-gradient(var(--line),var(--line)) center/1px 100% no-repeat}
+.tbar div{display:flex}
+.tbar .neg{justify-content:flex-end}
+.tbar i{display:block;height:100%;border-radius:3px}
+.tbar .neg i{background:var(--fit)} .tbar .pos i{background:var(--accent)}
+.tval{font-family:var(--f-mono);text-align:right;font-variant-numeric:tabular-nums}
+.tpct{font-family:var(--f-mono);text-align:right;color:var(--muted);font-size:12px}
+.thead{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+#pctTable td:first-child{text-align:left;color:var(--muted);font-family:var(--f-body)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.copy-fallback{width:100%;height:90px}
+.empty{padding:40px 16px;text-align:center;color:var(--muted)}
+
+.sweep-form{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.sweep-form label{flex:1 1 120px;min-width:0}
+.sweep-form label.wide{flex:2 1 240px}
+.sweep-form .btn{flex:none}
+#swTable tbody tr.best{background:var(--accent-soft)}
+#swTable td:first-child{text-align:left}
+#swTable th:first-child{text-align:left}
+.legend i.band{height:10px;border:0;width:16px;border-radius:2px}
+@media (max-width:1100px){.stats{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:900px){
+  .model-grid,.fit-grid,.res-grid{grid-template-columns:minmax(0,1fr)}
+  .col-model{position:static}
 }
-@media (prefers-reduced-motion:no-preference){.card-h,.chip,.tile{transition:background .15s,border-color .15s}}
+@media (max-width:520px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tabs{width:100%} .tabs button{flex:1;padding:7px 8px}
+  .stat .v{font-size:18px}
+  .input-list{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
+
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div>
-      <h1>Entrance Exam Planner 2027</h1>
-      <p class="sub">Every major undergraduate entrance exam for a Class 12 PCMB student, with live countdowns to each form deadline. Tap an exam for eligibility, pattern, last year's cutoff and the official link.</p>
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <p class="kicker">SBT · Monte Carlo simulation for business decisions</p>
+      <h1>Stochastic Business Toolkit</h1>
+      <p>Fit probability distributions to your data, describe how inputs combine into an outcome, and simulate thousands of scenarios.</p>
     </div>
-    <div class="today" id="today"></div>
+    <div class="top-actions">
+    <button id="libBtn" class="btn ghost" aria-expanded="false" aria-controls="libPanel">My models <span id="libCount" class="chip" style="padding:0 7px">0</span></button>
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button role="tab" id="t-model" data-tab="model" aria-controls="tab-model">Model</button>
+      <button role="tab" id="t-fit" data-tab="fit" aria-controls="tab-fit">Fit data</button>
+      <button role="tab" id="t-results" data-tab="results" aria-controls="tab-results">Results</button>
+    </nav>
+    </div>
   </header>
 
-  <section aria-labelledby="up-h" style="display:flex;flex-direction:column;gap:10px">
-    <h2 id="up-h">Next deadlines</h2>
-    <div class="urgent-grid" id="urgent"></div>
+  <section id="libPanel" class="card lib" hidden aria-label="My models">
+    <div class="lib-head"><h2>My models</h2><button id="libClose" class="btn ghost sm">Close</button></div>
+    <div class="lib-save">
+      <label for="libName">Save the current model as<input id="libName" autocomplete="off" placeholder="Model name, e.g. Konys – Contract A"></label>
+      <button id="libSave" class="btn primary">Save</button>
+      <button id="libSaveNew" class="btn ghost" hidden>Save as new copy</button>
+    </div>
+    <p id="libStatus" class="small muted"></p>
+    <h3 class="lib-h">Saved models</h3>
+    <div id="libList" class="hist"></div>
+    <h3 class="lib-h">Recently replaced <span>· kept automatically when you load another case without saving</span></h3>
+    <div id="histList" class="hist"></div>
+    <p class="small muted">Models are stored in this browser on this device (Ctrl+S or ⌘S saves). For a copy that works anywhere, use Download here or Export case on the Model tab.</p>
   </section>
 
-  <section class="controls" aria-label="Filters">
-    <div class="row">
-      <span class="lbl">Subjects</span>
-      <button class="chip" data-f="stream" data-v="all" aria-pressed="true">All exams</button>
-      <button class="chip" data-f="stream" data-v="PCM" aria-pressed="false">Maths-based</button>
-      <button class="chip" data-f="stream" data-v="PCB" aria-pressed="false">Biology-based</button>
-    </div>
-    <div class="row">
-      <span class="lbl">Field</span>
-      <button class="chip" data-f="cat" data-v="all" aria-pressed="true">All</button>
-      <button class="chip" data-f="cat" data-v="Engineering" aria-pressed="false">Engineering</button>
-      <button class="chip" data-f="cat" data-v="Medical" aria-pressed="false">Medical</button>
-      <button class="chip" data-f="cat" data-v="Science" aria-pressed="false">Science &amp; research</button>
-      <button class="chip" data-f="cat" data-v="State" aria-pressed="false">Telangana / AP</button>
-      <button class="chip" data-f="cat" data-v="Defence" aria-pressed="false">Defence</button>
-      <button class="chip" data-f="cat" data-v="Other" aria-pressed="false">Design, arch, mgmt, law</button>
-    </div>
-    <div class="row">
-      <span class="lbl">Form</span>
-      <button class="chip" data-f="status" data-v="all" aria-pressed="true">Any status</button>
-      <button class="chip" data-f="status" data-v="open" aria-pressed="false">Open now</button>
-      <button class="chip" data-f="status" data-v="soon" aria-pressed="false">Opening later</button>
-      <button class="chip" data-f="status" data-v="mine" aria-pressed="false">★ My list</button>
-      <label for="q" class="lbl" style="position:absolute;left:-9999px">Search exams</label>
-      <input id="q" class="search" type="search" placeholder="Search, e.g. NEET, IIT, Hyderabad">
-    </div>
-  </section>
+  <main>
+    <!-- MODEL -->
+    <section id="tab-model" role="tabpanel" aria-labelledby="t-model" hidden>
+      <div class="card case-card">
+        <div class="case-grid">
+          <div class="case-fields">
+            <label for="caseTitle">Case title<input id="caseTitle" autocomplete="off" placeholder="e.g. Seasonal inventory decision"></label>
+            <label for="caseNotes">Case brief for students<textarea id="caseNotes" rows="4" placeholder="Describe the situation, the question to answer and what the data is."></textarea></label>
+          </div>
+          <div class="case-actions">
+            <label for="tplSel">Case library<select id="tplSel"></select></label>
+            <button id="tplLoad" class="btn ghost sm">Load this case</button>
+            <div class="btn-row"><button id="exportBtn" class="btn ghost sm">Export case</button><button id="importBtn" class="btn ghost sm">Import case</button></div>
+          </div>
+        </div>
+        <div id="undoBar" class="undo-bar" hidden><span id="undoText"></span><button id="undoBtn" class="btn primary sm">Undo</button><button id="undoClose" class="btn link" aria-label="Dismiss">Dismiss</button></div>
+        <div id="tplConfirm" class="empnote" hidden>
+          <span id="tplConfirmText"></span>
+          <div class="btn-row" style="margin-top:8px"><button id="tplYes" class="btn primary sm">Load case</button><button id="tplNo" class="btn ghost sm">Cancel</button></div>
+        </div>
+        <div id="exportPanel" class="panel" hidden>
+          <p class="small muted">This file holds the whole case: brief, inputs, calculation steps, formula and settings. Give it to students, who load it with Import case or open the share link.</p>
+          <label class="inline" for="exportData" style="color:var(--ink);font-size:13px"><input type="checkbox" id="exportData" checked style="width:auto"> Include the data on the Fit data tab <span id="exportDataN" class="muted"></span></label>
+          <p class="small muted" style="margin-top:-4px">Untick this for licensed case data, so students enter the data from their own copy. Fitted parameters and any “Resample data” inputs stay in the case.</p>
+          <div class="btn-row">
+            <button id="dlBtn" class="btn primary sm">Download case file (.json)</button>
+            <button id="linkBtn" class="btn ghost sm">Copy share link</button>
+            <button id="copyExport" class="btn ghost sm">Copy case text</button>
+          </div>
+          <p id="framedNote" class="small muted" hidden>File downloads and share links work when the tool runs from your own site (such as GitHub Pages) or as a file on your computer. Here, copy the case text instead and save it in a .json file.</p>
+          <textarea id="exportText" readonly spellcheck="false" aria-label="Case file contents"></textarea>
+          <p id="exportMsg" class="ok" hidden></p>
+        </div>
+        <div id="importPanel" class="panel" hidden>
+          <div class="file-row">
+            <label class="btn ghost sm" for="importFile" style="flex-direction:row;color:var(--ink)">Choose case file</label>
+            <input type="file" id="importFile" accept=".json,application/json,.txt" hidden>
+            <span class="small muted">or paste the case text below</span>
+          </div>
+          <textarea id="importText" spellcheck="false" aria-label="Case text to import"></textarea>
+          <div class="btn-row"><button id="importGo" class="btn primary sm">Load case</button><button id="importCancel" class="btn ghost sm">Cancel</button></div>
+          <p id="importMsg" class="err" hidden></p>
+        </div>
+      </div>
+      <div class="model-grid">
+        <div>
+          <div class="sec-head">
+            <h2>Inputs</h2>
+            <span class="hint">Each uncertain quantity gets a distribution. Its name is what you use in the formula.</span>
+            <button id="addInput" class="btn ghost sm">+ Add input</button>
+          </div>
+          <div id="inputList" class="input-list"></div>
+        </div>
+        <aside class="card col-model">
+          <h2>Calculations and output</h2>
+          <div class="calc-head"><span class="lbl">Calculation steps (optional)</span><button id="addCalc" class="btn ghost sm">+ Add step</button></div>
+          <p class="help">Work the model out in named steps, like rows in a spreadsheet. Steps run from top to bottom, and each can use the inputs and the steps above it.</p>
+          <div id="calcList" class="calc-list"></div>
+          <hr class="divider">
+          <label for="outName">Output name<input id="outName" autocomplete="off"></label>
+          <label for="formula">Output formula<textarea id="formula" rows="3" spellcheck="false"></textarea></label>
+          <div id="chips" class="chips" aria-label="Insert a name into the formula you are editing"></div>
+          <p class="help">Click a name to insert it into the formula you're editing (outlined names are calculation steps). Use names with <code>+ - * /</code>, <code>^</code> for powers, comparisons, and <code>min max abs sqrt exp ln log10 round floor ceil</code>. For conditions use <code>IF(cond, a, b)</code>, e.g. <code>IF(Units &gt; 20000, 0.9, 1)</code>, with <code>=</code>, <code>&lt;&gt;</code>, <code>AND()</code>, <code>OR()</code>, <code>NOT()</code>, nested <code>IF</code>s and <code>IFS()</code> as in Excel (capitals or lowercase). Steps can give text in quotes, e.g. <code>IF(Spot &gt; 16.75, "Options", "Spot")</code>; the results show how often each occurs. Constants such as a price or an order quantity are inputs set to <em>Fixed value</em>.</p>
+          <p id="formulaErr" class="err" hidden></p>
+          <div class="row2">
+            <label for="iters">Iterations
+              <select id="iters"><option>1000</option><option>5000</option><option>10000</option><option>25000</option><option>50000</option><option>100000</option></select>
+            </label>
+            <label for="seed">Random seed<input id="seed" type="number" step="1"></label>
+          </div>
+          <label for="sampling">Sampling method
+            <select id="sampling"><option value="lhs">Latin Hypercube (@RISK default)</option><option value="mc">Monte Carlo (simple random)</option></select>
+          </label>
+          <p id="modelErr" class="err" hidden></p>
+          <div class="run-row">
+            <button id="runBtn" class="btn primary">Run simulation</button>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-  <div class="bar">
-    <div class="tabs" role="tablist">
-      <button class="tab" role="tab" id="tab-list" aria-selected="true" data-view="list">Deadline list</button>
-      <button class="tab" role="tab" id="tab-timeline" aria-selected="false" data-view="timeline">Year timeline</button>
-    </div>
-    <span class="count" id="count"></span>
-  </div>
+    <!-- FIT -->
+    <section id="tab-fit" role="tabpanel" aria-labelledby="t-fit" hidden>
+      <div class="fit-grid">
+        <div class="card">
+          <h2>Data</h2>
+          <label for="fitData">Paste values, one per line or separated by spaces
+            <textarea id="fitData" rows="9" spellcheck="false"></textarea>
+          </label>
+          <div class="file-row">
+            <label class="btn ghost sm" for="fitFile" style="flex-direction:row;color:var(--ink)">Upload CSV</label>
+            <input type="file" id="fitFile" accept=".csv,.txt,.tsv" hidden>
+            <select id="fitCol" aria-label="Column to fit" hidden></select>
+          </div>
+          <p id="parseMsg" class="small muted" hidden></p>
+          <dl id="descStats" class="desc"></dl>
+          <p class="note" id="sampleNote" hidden></p>
+        </div>
+        <div class="fit-main">
+          <div class="card">
+            <div class="chart-head"><h2>Histogram and fitted density</h2><div id="fitLegend" class="legend"></div></div>
+            <canvas id="fitPdf" class="chart" role="img" aria-label="Histogram of the data with fitted density curves"></canvas>
+          </div>
+          <div class="card">
+            <div class="chart-head"><h2>Cumulative: data against fit</h2><div class="legend"><span><i style="border-color:var(--muted)"></i>Data (empirical)</span><span><i style="border-color:var(--fit)"></i>Selected fit</span></div></div>
+            <canvas id="fitCdf" class="chart short" role="img" aria-label="Empirical cumulative distribution against fitted distribution"></canvas>
+          </div>
+          <div class="card">
+            <div class="chart-head">
+              <h2>Candidate distributions</h2>
+              <label class="inline" for="rankBy">Rank by
+                <select id="rankBy"><option value="aic">AIC</option><option value="bic">BIC</option><option value="ks">KS statistic</option></select>
+              </label>
+            </div>
+            <div class="table-wrap"><table id="fitTable"></table></div>
+            <p class="footnote">Mean, variance and std dev are those of the fitted distribution (the data's own sample values are on the left). Lower AIC, BIC and KS D indicate a closer fit; click a row to inspect it. Parameters are maximum-likelihood estimates, except: Normal uses the sample standard deviation (n − 1, as Excel’s STDEV.S and @RISK do), and scaled beta and triangular use the method of moments. KS p-values are approximate and optimistic, because the parameters were estimated from the same data.</p>
+            <div class="apply">
+              <span>Use <strong id="selName">—</strong> for</span>
+              <select id="applyTarget" aria-label="Input to update"></select>
+              <input id="applyName" placeholder="New input name" aria-label="New input name" autocomplete="off">
+              <button id="applyBtn" class="btn primary sm">Apply to model</button>
+              <button id="applyEmp" class="btn ghost sm">Resample the data instead</button>
+            </div>
+            <p id="applyMsg" class="ok" hidden></p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <main id="view"></main>
-
-  <footer>
-    <p><b>Dates in italics are expected</b>, projected from the 2026 cycle because the 2027 notice is not out yet. Confirm on the official site before relying on them. Cutoffs are the latest available (2026 unless noted) and change every year.</p>
-    <p>Other state CETs (MHT CET, KCET, WBJEE) mainly serve students with that state's domicile and are not listed. Information compiled 2 November 2026.</p>
-  </footer>
+    <!-- RESULTS -->
+    <section id="tab-results" role="tabpanel" aria-labelledby="t-results" hidden>
+      <div id="resEmpty" class="card empty" hidden>No results yet. Set up your inputs and formula on the Model tab, then run the simulation.</div>
+      <div id="resBody" style="display:flex;flex-direction:column;gap:18px">
+        <div class="res-head">
+          <div style="min-width:0">
+            <p id="caseKick" class="kick" hidden></p>
+            <h2 id="resTitle">Profit</h2>
+            <p id="resMeta" class="res-meta"></p>
+          </div>
+          <span id="staleChip" class="chip warn" hidden>Model changed since this run</span>
+        </div>
+        <p id="notesView" class="notes-view" hidden></p>
+        <div class="stats" id="statRow"></div>
+        <div class="res-grid">
+          <div class="card wide">
+            <div class="chart-head">
+              <h2>Distribution of outcomes</h2>
+              <label class="inline" for="thresh">Threshold <input id="thresh" type="number" step="any" style="width:130px"></label>
+            </div>
+            <canvas id="resHist" class="chart" role="img" aria-label="Histogram of simulated outcomes"></canvas>
+            <p class="caption" id="histCap"></p>
+          </div>
+          <div class="card">
+            <h2>Cumulative probability</h2>
+            <canvas id="resCdf" class="chart short" role="img" aria-label="Cumulative distribution of simulated outcomes"></canvas>
+            <p class="caption">Read across from any probability to find the outcome it corresponds to.</p>
+          </div>
+          <div class="card">
+            <h2>What drives the result</h2>
+            <p class="small muted">Spearman rank correlation of each input with the output, and its approximate share of the explained variation.</p>
+            <div id="tornado"></div>
+          </div>
+          <div class="card wide" id="sweepCard">
+            <div class="chart-head"><h2>Scenario sweep</h2><span class="small muted">Rerun the whole simulation for a range of values of one setting, such as an order quantity or the standard deviation of demand.</span></div>
+            <div class="sweep-form">
+              <label for="swParam" class="wide">Vary<select id="swParam"></select></label>
+              <label for="swFrom">From<input id="swFrom" type="number" step="any"></label>
+              <label for="swTo">To<input id="swTo" type="number" step="any"></label>
+              <label for="swSteps">Values<select id="swSteps"><option>3</option><option>5</option><option>6</option><option selected>11</option><option>21</option></select></label>
+              <button id="swRun" class="btn primary">Run sweep</button>
+            </div>
+            <p id="swMsg" class="small muted" hidden></p>
+            <div id="swOut" hidden style="display:flex;flex-direction:column;gap:12px">
+              <div class="chart-head"><span class="small" id="swTitle"></span>
+                <div class="legend"><span><i class="band" style="background:var(--accent-soft)"></i>P5–P95</span><span><i class="band" style="background:var(--accent);opacity:.35"></i>P25–P75</span><span><i style="border-color:var(--accent)"></i>Mean</span><span><i style="border-color:var(--bad);border-top-style:dashed"></i>Threshold</span></div></div>
+              <canvas id="swChart" class="chart" role="img" aria-label="Output distribution across the swept values"></canvas>
+              <div class="table-wrap"><table id="swTable"></table></div>
+              <div class="btn-row"><button id="swCopy" class="btn ghost sm">Copy sweep table</button><span id="swCopyMsg" class="small muted" hidden></span></div>
+              <p class="caption">Every value uses the same iterations, seed and random draws, so differences between rows come from the setting you changed, not from sampling noise.</p>
+            </div>
+          </div>
+          <div class="card wide">
+            <div class="chart-head">
+              <h2>Percentiles</h2>
+              <div class="btn-row"><button id="copyBtn" class="btn ghost sm">Copy table</button><button id="copyRaw" class="btn ghost sm">Copy simulated values (CSV)</button></div>
+            </div>
+            <div class="table-wrap"><table id="pctTable"></table></div>
+            <p id="copyMsg" class="small muted" hidden></p>
+            <textarea id="copyFallback" class="copy-fallback" readonly hidden aria-label="Text to copy"></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </div>
 
 <script>
-const EXAMS = [
- {id:"uceed",name:"UCEED",full:"Undergraduate Common Entrance Exam for Design",cat:"Other",stream:"Any",body:"IIT Bombay",url:"https://www.uceed.iitb.ac.in",
-  open:"2026-10-01",close:"2026-11-06",closeExp:false,exam:"2027-01-17",examLbl:"17 Jan 2027",examExp:false,
-  elig:"Class 12 in any stream, passed in 2026 or appearing in 2027.",
-  pattern:"3 hours. Part A computer-based (200 marks) + Part B drawing and design (100 marks).",
-  cutoff:"Part A shortlisting marks published in February; result 6 Mar 2027.",
-  note:"Regular deadline was 31 Oct. Late-fee window (₹500 extra) closes 6 Nov 2026, 5 pm.",
-  kw:"design bdes iit bombay"},
- {id:"jeem1",name:"JEE Main 2027 · Session 1",full:"Joint Entrance Examination (Main)",cat:"Engineering",stream:"PCM",body:"NTA",url:"https://jeemain.nta.nic.in",
-  open:"2026-10-24",close:"2026-11-22",closeExp:false,exam:"2027-01-20",examLbl:"20–24 & 28 Jan 2027",examExp:false,
-  elig:"Class 12 with Physics, Chemistry, Maths (passed 2025/2026 or appearing 2027). No age limit. For NIT/IIIT seats: 75% in Class 12 (65% SC/ST) or top 20 percentile of your board.",
-  pattern:"Computer-based, 3 hours, 75 questions (25 each in P, C, M), 300 marks, +4 / −1.",
-  cutoff:"Qualifying percentile for JEE Advanced (2026): General 93.41, OBC-NCL 80.92, EWS ~81–82, SC ~63–64, ST ~50–52.",
-  note:"Late fee 23–26 Nov; correction window 27–29 Nov; admit card 13 Jan 2027. Scores are used for NITs, IIITs, Navy B.Tech and Army TES.",
-  kw:"nit iiit josaa engineering btech"},
- {id:"clat",name:"CLAT 2027",full:"Common Law Admission Test",cat:"Other",stream:"Any",body:"Consortium of NLUs",url:"https://consortiumofnlus.ac.in",
-  open:"2026-08-03",close:"2026-10-31",closeExp:false,exam:"2026-12-06",examLbl:"6 Dec 2026",examExp:false,
-  elig:"Class 12 with 45% (40% SC/ST); any stream.",
-  pattern:"2 hours, comprehension-based: English, current affairs, legal reasoning, logical reasoning, quantitative.",
-  cutoff:"Rank-based admission to National Law Universities.",
-  note:"2027 registration has closed. If law interests you, plan for CLAT 2028 (registration Aug–Oct 2027).",
-  kw:"law nlu"},
- {id:"nda1",name:"NDA & NA (I) 2027",full:"National Defence Academy & Naval Academy Exam",cat:"Defence",stream:"PCM",body:"UPSC",url:"https://upsconline.nic.in",
-  open:"2026-12-02",close:"2026-12-22",closeExp:false,exam:"2027-04-11",examLbl:"11 Apr 2027",examExp:false,
-  elig:"Unmarried men and women, born roughly 2 Jul 2008 – 1 Jul 2011 (confirm in notice). Army wing: any stream. Air Force / Navy / Naval Academy: Class 12 with Physics, Chemistry, Maths.",
-  pattern:"Maths 300 marks (2.5 hrs) + General Ability Test 600 marks (2.5 hrs), then SSB interview 900 marks. Total 1800.",
-  cutoff:"NDA II 2025: written ~305/900 (min 25% per paper). Final merit usually ~670–720/1800.",
-  note:"Dates from the UPSC Annual Calendar 2027. Biology students can apply for the Army wing.",
-  kw:"defence army navy air force upsc officer"},
- {id:"nift",name:"NIFT 2027",full:"NIFT Entrance Exam",cat:"Other",stream:"Any",body:"NTA for NIFT",url:"https://exams.nta.ac.in/NIFT",
-  open:"2026-11-20",close:"2026-12-31",closeExp:true,exam:"2027-01-10",examLbl:"10 Jan 2027 (tentative)",examExp:true,
-  elig:"Class 12 in any stream; for B.Des, under 24 years.",
-  pattern:"General Ability Test + Creative Ability Test (B.Des), then situation test.",
-  cutoff:"Rank-based; NIFT has a Hyderabad campus.",
-  note:"Exam date is from NTA's tentative calendar; form dates not yet announced.",
-  kw:"fashion design bdes hyderabad"},
- {id:"jeem2",name:"JEE Main 2027 · Session 2",full:"Joint Entrance Examination (Main)",cat:"Engineering",stream:"PCM",body:"NTA",url:"https://jeemain.nta.nic.in",
-  open:"2027-01-05",close:"2027-02-03",closeExp:false,exam:"2027-04-02",examLbl:"2–7 Apr 2027",examExp:false,
-  elig:"Same as Session 1. Your better score of the two sessions counts.",
-  pattern:"Same as Session 1.",
-  cutoff:"See Session 1.",
-  note:"Late fee 4–7 Feb; correction 8–10 Feb; admit card 25 Mar 2027.",
-  kw:"nit iiit engineering"},
- {id:"cuet",name:"CUET UG 2027",full:"Common University Entrance Test",cat:"Science",stream:"PCMB",body:"NTA",url:"https://cuet.nta.nic.in",
-  open:"2027-01-05",close:"2027-02-05",closeExp:true,exam:"2027-05-15",examLbl:"mid-May – early Jun 2027",examExp:true,
-  elig:"Class 12 passed or appearing; no age limit. Each university sets its own subject and % rules.",
-  pattern:"Computer-based; up to 5 subjects. Each test 50 compulsory MCQs in 60 minutes, +5 / −1.",
-  cutoff:"Varies by university and course; normalised scores.",
-  note:"Needed for University of Hyderabad, DU, BHU and ~180 central/state universities, and ICAR all-India agriculture seats.",
-  kw:"university hyderabad uoh du bsc agriculture icar central"},
- {id:"neet",name:"NEET UG 2027",full:"National Eligibility cum Entrance Test",cat:"Medical",stream:"PCB",body:"NTA",url:"https://neet.nta.nic.in",
-  open:"2027-02-10",close:"2027-03-10",closeExp:true,exam:"2027-05-02",examLbl:"~2 May 2027",examExp:true,
-  elig:"Age 17 by 31 Dec 2027, no upper limit. Class 12 with Physics, Chemistry, Biology, English: 50% in PCB (40% SC/ST/OBC, 45% PwD).",
-  pattern:"2026: 180 compulsory MCQs (P 45, C 45, Bio 90), 720 marks, 3 hrs, +4 / −1. From 2027: computer-based test, possibly over 5–6 days.",
-  cutoff:"Re-NEET 2026 qualifying: General/EWS 213 (50th percentile), OBC/SC/ST 177 (40th percentile). Govt MBBS needs far higher.",
-  note:"Only route to MBBS, BDS, BAMS/BHMS and BVSc. Counselling: MCC (All-India) and KNRUHS (Telangana 85% quota).",
-  kw:"mbbs bds medical doctor aiims jipmer ayush bvsc"},
- {id:"met",name:"MET 2027 (Manipal)",full:"Manipal Entrance Test",cat:"Engineering",stream:"PCM",body:"MAHE",url:"https://manipal.edu",
-  open:"2026-10-10",close:"2027-03-15",closeExp:false,exam:"2027-04-18",examLbl:"Apr & late May 2027",examExp:true,
-  elig:"50% in PCM in Class 12; English compulsory.",
-  pattern:"Computer-based, 2 hours, 60 questions (45 MCQ + 15 numerical), 240 marks.",
-  cutoff:"Rank-based.",
-  note:"Phase 1 deadline revised from 31 Mar to 15 Mar 2027. Fee ₹800 + ₹1,200 test fee.",
-  kw:"manipal mit private btech"},
- {id:"bitsat",name:"BITSAT 2027",full:"BITS Admission Test",cat:"Engineering",stream:"PCM",body:"BITS Pilani",url:"https://www.bitsadmission.com",
-  open:"2026-12-20",close:"2027-03-15",closeExp:true,exam:"2027-04-20",examLbl:"Session 1 Apr–May; Session 2 Jun 2027",examExp:true,
-  elig:"75% aggregate in PCM (PCB for B.Pharm) and 60% in each subject in Class 12.",
-  pattern:"Computer-based, 3 hours, 130 questions (P 30, C 30, English 10, Logical Reasoning 20, M 40) + 12 bonus, 390 marks, +3 / −1.",
-  cutoff:"2026 CSE: Pilani 308, Goa ~274, Hyderabad ~272 (out of 390).",
-  note:"BITS has a campus in Hyderabad.",
-  kw:"bits pilani hyderabad goa"},
- {id:"comedk",name:"COMEDK UGET 2027",full:"COMEDK Undergraduate Entrance Test",cat:"Engineering",stream:"PCM",body:"Karnataka private colleges",url:"https://www.comedk.org",
-  open:"2027-02-03",close:"2027-03-16",closeExp:true,exam:"2027-05-09",examLbl:"~9 May 2027",examExp:true,
-  elig:"45% in PCM (40% for SC/ST/OBC of Karnataka).",
-  pattern:"Computer-based, 3 hours, 180 MCQs (60 each P, C, M), no negative marking.",
-  cutoff:"Rank-based.",
-  note:"Private engineering colleges in Karnataka, open to all-India candidates.",
-  kw:"karnataka bangalore private engineering"},
- {id:"viteee",name:"VITEEE 2027",full:"VIT Engineering Entrance Exam",cat:"Engineering",stream:"PCMB",body:"VIT Vellore",url:"https://viteee.vit.ac.in",
-  open:"2026-10-20",close:"2027-03-31",closeExp:false,exam:"2027-04-27",examLbl:"27 Apr – 2 May 2027",examExp:true,
-  elig:"60% in PCM or PCB (50% SC/ST, J&K, NE states).",
-  pattern:"Computer-based, 2 hours, 100 questions (revised for 2027; check brochure).",
-  cutoff:"Rank-based.",
-  note:"Fee ₹1,450. Biology students can sit the BiPC version for biotech-type B.Tech programmes.",
-  kw:"vit vellore chennai ap bhopal private"},
- {id:"srm",name:"SRMJEEE 2027",full:"SRM Joint Engineering Entrance Exam",cat:"Engineering",stream:"PCMB",body:"SRM IST",url:"https://www.srmist.edu.in",
-  open:"2026-10-30",close:"2027-04-02",closeExp:false,exam:"2027-04-24",examLbl:"Phase 1 late Apr; Phase 2 Jun 2027",examExp:true,
-  elig:"60% in PCM or PCB in Class 12.",
-  pattern:"Online, 2.5 hours, 125 questions (P 35, C 35, Maths/Bio 40, Aptitude 10, English 5), no negative marking.",
-  cutoff:"Rank-based.",
-  note:"₹1,400 per phase. Phase 2 deadline ~4 Jun 2027.",
-  kw:"srm chennai private"},
- {id:"tgeap",name:"TG EAPCET 2027",full:"Telangana Engineering, Agriculture & Pharmacy CET",cat:"State",stream:"PCMB",body:"JNTUH for TGCHE",url:"https://eapcet.tgche.ac.in",
-  open:"2027-02-19",close:"2027-04-04",closeExp:true,exam:"2027-05-04",examLbl:"Agri & Pharmacy ~4–5 May; Engg ~9–11 May 2027",examExp:true,
-  elig:"Intermediate/Class 12 with MPC (Engineering) or BiPC (Agri & Pharmacy); 45% in group subjects (40% reserved). Telangana local/non-local rules apply.",
-  pattern:"Computer-based, 3 hours, 160 MCQs, 1 mark each, no negative. Engg: M 80, P 40, C 40. A&P: Bio 80, P 40, C 40.",
-  cutoff:"25% (40/160) to get a rank; no minimum for SC/ST.",
-  note:"As a PCMB student you can register for both streams (₹1,800 together in 2026) and write two papers. Late fee window runs to early May.",
-  kw:"telangana hyderabad eamcet jntuh osmania bpharm agriculture"},
- {id:"isi",name:"ISI Admission Test 2027",full:"Indian Statistical Institute",cat:"Science",stream:"PCM",body:"ISI",url:"https://admission.isical.ac.in",
-  open:"2027-02-10",close:"2027-03-25",closeExp:true,exam:"2027-05-09",examLbl:"~2nd week of May 2027",examExp:true,
-  elig:"Class 12 with Mathematics and English.",
-  pattern:"Pen and paper: UGA objective + UGB descriptive (problem-solving maths).",
-  cutoff:"Merit list only.",
-  note:"B.Stat, B.Math and BS Data Science.",
-  kw:"statistics maths bstat bmath"},
- {id:"cmi",name:"CMI Entrance 2027",full:"Chennai Mathematical Institute",cat:"Science",stream:"PCM",body:"CMI",url:"https://www.cmi.ac.in/admissions",
-  open:"2027-03-01",close:"2027-04-05",closeExp:true,exam:"2027-05-02",examLbl:"May 2027",examExp:true,
-  elig:"Class 12 with Maths.",
-  pattern:"Pen and paper: objective + descriptive problem-solving.",
-  cutoff:"Merit list only.",
-  note:"B.Sc (Hons) Maths & CS, Maths & Physics.",
-  kw:"maths physics computer science chennai"},
- {id:"apeap",name:"AP EAPCET 2027",full:"Andhra Pradesh EAPCET",cat:"State",stream:"PCMB",body:"JNTU for APSCHE",url:"https://cets.apsche.ap.gov.in",
-  open:"2027-02-15",close:"2027-04-15",closeExp:true,exam:"2027-05-15",examLbl:"May 2027",examExp:true,
-  elig:"Class 12 with MPC or BiPC; 45% (40% reserved).",
-  pattern:"Computer-based, 3 hours, 160 MCQs, no negative marking.",
-  cutoff:"25% to get a rank.",
-  note:"Check the non-local quota rules for Telangana students.",
-  kw:"andhra eamcet"},
- {id:"iat",name:"IISER Aptitude Test (IAT) 2027",full:"IISER Aptitude Test",cat:"Science",stream:"PCMB",body:"IISERs",url:"https://www.iiseradmission.in",
-  open:"2027-03-05",close:"2027-04-13",closeExp:true,exam:"2027-06-06",examLbl:"early Jun 2027",examExp:true,
-  elig:"Science stream in Class 12; 60% aggregate (55% SC/ST/PwD).",
-  pattern:"Computer-based, 3 hours, 60 MCQs (15 each Bio, Chem, Maths, Physics), 240 marks, +4 / −1.",
-  cutoff:"Not officially published; General needed roughly 130/240 for counselling in 2025.",
-  note:"Also admits to IISc BS and IIT Madras BS (Medical Sciences & Engg). Uses all four PCMB subjects.",
-  kw:"iiser bs-ms research iisc science"},
- {id:"ipmat",name:"IPMAT 2027",full:"Integrated Programme in Management Aptitude Test",cat:"Other",stream:"Any",body:"IIM Indore / Rohtak",url:"https://www.iimidr.ac.in",
-  open:"2027-02-15",close:"2027-03-20",closeExp:true,exam:"2027-05-08",examLbl:"May 2027",examExp:true,
-  elig:"Class 12 with 60% (55% SC/ST/PwD); age limit applies.",
-  pattern:"Quantitative and verbal ability, then interview.",
-  cutoff:"Varies by IIM.",
-  note:"5-year BBA + MBA.",
-  kw:"iim management bba"},
- {id:"nata",name:"NATA 2027",full:"National Aptitude Test in Architecture",cat:"Other",stream:"PCM",body:"Council of Architecture",url:"https://www.nata.in",
-  open:"2027-03-01",close:"2027-05-31",closeExp:true,exam:"2027-04-18",examLbl:"Several test dates Apr–Jun 2027",examExp:true,
-  elig:"Class 12 with Physics, Chemistry, Maths; 50% in PCM and 50% overall.",
-  pattern:"Aptitude + drawing; score valid for 2 years.",
-  cutoff:"Minimum qualifying score set by CoA.",
-  note:"JEE Main Paper 2 is the other route to B.Arch.",
-  kw:"architecture barch"},
- {id:"nest",name:"NEST 2027",full:"National Entrance Screening Test",cat:"Science",stream:"PCMB",body:"NISER Bhubaneswar",url:"https://www.nestexam.in",
-  open:"2027-02-05",close:"2027-04-30",closeExp:true,exam:"2027-06-27",examLbl:"Jun–Jul 2027",examExp:true,
-  elig:"Science stream in Class 12; 60% (55% SC/ST/PwD).",
-  pattern:"Computer-based, 4 sections (Bio, Chem, Maths, Physics); best 3 count.",
-  cutoff:"Merit list on nestexam.in.",
-  note:"Integrated M.Sc at NISER and UM-DAE CEBS Mumbai.",
-  kw:"niser cebs integrated msc research"},
- {id:"aiimsn",name:"AIIMS B.Sc (Hons) Nursing 2027",full:"AIIMS Nursing Entrance",cat:"Medical",stream:"PCB",body:"AIIMS New Delhi",url:"https://www.aiimsexams.ac.in",
-  open:"2027-03-25",close:"2027-05-07",closeExp:true,exam:"2027-06-27",examLbl:"27 Jun 2027 (tentative)",examExp:true,
-  elig:"Class 12 with PCB + English, 55% aggregate (50% SC/ST); age 17 by 31 Dec 2027; female candidates only.",
-  pattern:"Computer-based, objective: Physics, Chemistry, Biology, General Knowledge.",
-  cutoff:"Rank-based.",
-  note:"Exam date from AIIMS's tentative 2027 calendar.",
-  kw:"nursing aiims bsc"},
- {id:"jeeadv",name:"JEE Advanced 2027",full:"Joint Entrance Examination (Advanced)",cat:"Engineering",stream:"PCM",body:"IIT Delhi (expected)",url:"https://jeeadv.ac.in",
-  open:"2027-04-25",close:"2027-05-05",closeExp:true,exam:"2027-05-16",examLbl:"mid-May 2027",examExp:true,
-  elig:"Top 2,50,000 in JEE Main 2027; max 2 attempts in consecutive years; 75% board rule for IIT admission.",
-  pattern:"Two compulsory 3-hour papers on the same day; 360 marks in 2026; pattern varies each year.",
-  cutoff:"2026 CRL 92/360 (min 8 per subject); OBC-NCL/EWS 82; SC/ST/PwD 46.",
-  note:"Only route to the IITs. Registration opens after JEE Main results.",
-  kw:"iit"},
- {id:"navy",name:"Indian Navy 10+2 B.Tech Entry",full:"Navy B.Tech Cadet Entry",cat:"Defence",stream:"PCM",body:"Indian Navy",url:"https://www.joinindiannavy.gov.in",
-  open:null,close:null,exam:null,examLbl:"Shortlist by JEE Main rank, then SSB",examExp:false,
-  elig:"Unmarried; 70% in PCM and 50% in English in Class 12; must take JEE Main 2027.",
-  pattern:"No separate written test: JEE Main CRL rank → SSB interview → medical.",
-  cutoff:"Rank-based.",
-  note:"Notified twice a year; watch the site after JEE Main results.",
-  kw:"navy defence btech"},
- {id:"tes",name:"Army TES (10+2 Technical Entry)",full:"Technical Entry Scheme",cat:"Defence",stream:"PCM",body:"Indian Army",url:"https://www.joinindianarmy.nic.in",
-  open:null,close:null,exam:null,examLbl:"Shortlist by JEE Main score, then SSB",examExp:false,
-  elig:"Unmarried men and women; 60% in PCM; must take JEE Main 2027.",
-  pattern:"JEE Main score → SSB interview → medical.",
-  cutoff:"Score-based.",
-  note:"Notified twice a year.",
-  kw:"army defence btech"},
- {id:"nda2",name:"NDA & NA (II) 2027",full:"National Defence Academy & Naval Academy Exam",cat:"Defence",stream:"PCM",body:"UPSC",url:"https://upsconline.nic.in",
-  open:"2027-05-12",close:"2027-06-01",closeExp:false,exam:"2027-09-19",examLbl:"19 Sep 2027",examExp:false,
-  elig:"Same as NDA I (age band shifts by six months).",
-  pattern:"Same as NDA I.",
-  cutoff:"See NDA I.",
-  note:"Second chance in the same year; you can apply after Class 12 results.",
-  kw:"defence upsc"}
-];
+"use strict";
+/* ---------- math ---------- */
+const SQ2PI = Math.sqrt(2*Math.PI);
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function rngObj(seed){const r=mulberry32(seed>>>0);let spare=null;return{
+  u(){let x;do x=r();while(x===0);return x;},
+  n(){if(spare!==null){const s=spare;spare=null;return s;}let u,v,s;do{u=2*r()-1;v=2*r()-1;s=u*u+v*v;}while(s>=1||s===0);const m=Math.sqrt(-2*Math.log(s)/s);spare=v*m;return u*m;}};}
+function lgamma(x){const c=[0.99999999999980993,676.5203681218851,-1259.1392167224028,771.32342877765313,-176.61502916214059,12.507343278686905,-0.13857109526572012,9.9843695780195716e-6,1.5056327351493116e-7];
+  if(x<0.5)return Math.log(Math.PI/Math.abs(Math.sin(Math.PI*x)))-lgamma(1-x);
+  x-=1;let a=c[0];const t=x+7.5;for(let i=1;i<9;i++)a+=c[i]/(x+i);return 0.5*Math.log(2*Math.PI)+(x+0.5)*Math.log(t)-t+Math.log(a);}
+function erf(x){const s=Math.sign(x);x=Math.abs(x);const t=1/(1+0.3275911*x);const y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x);return s*y;}
+const normCdf=z=>0.5*(1+erf(z/Math.SQRT2));
+function gammaP(a,x){if(x<=0)return 0;const lg=-x+a*Math.log(x)-lgamma(a);
+  if(x<a+1){let ap=a,sum=1/a,del=sum;for(let n=0;n<1000;n++){ap++;del*=x/ap;sum+=del;if(Math.abs(del)<Math.abs(sum)*1e-14)break;}return Math.min(1,sum*Math.exp(lg));}
+  const F=1e-300;let b=x+1-a,c=1/F,d=1/b,h=d;for(let i=1;i<1000;i++){const an=-i*(i-a);b+=2;d=an*d+b;if(Math.abs(d)<F)d=F;c=b+an/c;if(Math.abs(c)<F)c=F;d=1/d;const del=d*c;h*=del;if(Math.abs(del-1)<1e-14)break;}
+  return Math.max(0,1-Math.exp(lg)*h);}
+function betacf(a,b,x){const F=1e-300;const qab=a+b,qap=a+1,qam=a-1;let c=1,d=1-qab*x/qap;if(Math.abs(d)<F)d=F;d=1/d;let h=d;
+  for(let m=1;m<=500;m++){const m2=2*m;let aa=m*(b-m)*x/((qam+m2)*(a+m2));d=1+aa*d;if(Math.abs(d)<F)d=F;c=1+aa/c;if(Math.abs(c)<F)c=F;d=1/d;h*=d*c;
+    aa=-(a+m)*(qab+m)*x/((a+m2)*(qap+m2));d=1+aa*d;if(Math.abs(d)<F)d=F;c=1+aa/c;if(Math.abs(c)<F)c=F;d=1/d;const del=d*c;h*=del;if(Math.abs(del-1)<1e-14)break;}return h;}
+function betaI(a,b,x){if(x<=0)return 0;if(x>=1)return 1;const bt=Math.exp(lgamma(a+b)-lgamma(a)-lgamma(b)+a*Math.log(x)+b*Math.log(1-x));
+  return x<(a+1)/(a+b+2)?bt*betacf(a,b,x)/a:1-bt*betacf(b,a,1-x)/b;}
+function digamma(x){let r=0;while(x<6){r-=1/x;x+=1;}const f=1/(x*x);return r+Math.log(x)-0.5/x-f*(1/12-f*(1/120-f*(1/252-f*(1/240-f/132))));}
+function trigamma(x){let r=0;while(x<6){r+=1/(x*x);x+=1;}const f=1/(x*x);return r+1/x+f/2+(1/x)*f*(1/6-f*(1/30-f*(1/42-f/30)));}
+function rgamma(a,R){if(a<1)return rgamma(a+1,R)*Math.pow(R.u(),1/a);const d=a-1/3,c=1/Math.sqrt(9*d);
+  for(;;){let x,v;do{x=R.n();v=1+c*x;}while(v<=0);v=v*v*v;const u=R.u();if(u<1-0.0331*x*x*x*x)return d*v;if(Math.log(u)<0.5*x*x+d*(1-v+Math.log(v)))return d*v;}}
+const mean=a=>{let s=0;for(const x of a)s+=x;return s/a.length;};
+const variance=(a,m=mean(a))=>{let s=0;for(const x of a)s+=(x-m)**2;return s/a.length;};
+const amin=a=>{let m=Infinity;for(const x of a)if(x<m)m=x;return m;};
+const amax=a=>{let m=-Infinity;for(const x of a)if(x>m)m=x;return m;};
+function pct(s,q){const n=s.length;if(!n)return NaN;const h=(n-1)*q;const i=Math.floor(h);return i>=n-1?s[n-1]:s[i]+(h-i)*(s[i+1]-s[i]);}
+function ksP(D,n){const sn=Math.sqrt(n);const lam=(sn+0.12+0.11/sn)*D;if(lam<0.2)return 1;let p=0;for(let k=1;k<=100;k++){const t=2*(k%2?1:-1)*Math.exp(-2*k*k*lam*lam);p+=t;if(Math.abs(t)<1e-12)break;}return Math.max(0,Math.min(1,p));}
+function ranks(a){const n=a.length;const idx=new Uint32Array(n);for(let i=0;i<n;i++)idx[i]=i;idx.sort((x,y)=>a[x]-a[y]);const r=new Float64Array(n);let i=0;
+  while(i<n){let j=i;while(j+1<n&&a[idx[j+1]]===a[idx[i]])j++;const avg=(i+j)/2+1;for(let k=i;k<=j;k++)r[idx[k]]=avg;i=j+1;}return r;}
+function pearson(x,y){const n=x.length;let mx=0,my=0;for(let i=0;i<n;i++){mx+=x[i];my+=y[i];}mx/=n;my/=n;let sxy=0,sxx=0,syy=0;
+  for(let i=0;i<n;i++){const dx=x[i]-mx,dy=y[i]-my;sxy+=dx*dy;sxx+=dx*dx;syy+=dy*dy;}return sxx>0&&syy>0?sxy/Math.sqrt(sxx*syy):NaN;}
+const sig=(v,d=4)=>+(+v).toPrecision(d);
 
-const DAY = 86400000;
-const now = new Date(); now.setHours(0,0,0,0);
-const d = s => { if(!s) return null; const [y,m,dd]=s.split("-").map(Number); return new Date(y,m-1,dd); };
-const fmt = s => d(s).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"});
-const days = s => Math.round((d(s)-now)/DAY);
+/* ---------- distributions ---------- */
+const DIST={
+  normal:{label:'Normal',params:[['mean','Mean'],['sd','Std dev']],k:2,
+    check:p=>p.sd>0?null:'Std dev must be above 0.',
+    sample:(p,R)=>p.mean+p.sd*R.n(),
+    pdf:(x,p)=>Math.exp(-0.5*((x-p.mean)/p.sd)**2)/(p.sd*SQ2PI),
+    cdf:(x,p)=>normCdf((x-p.mean)/p.sd),
+    fit:d=>{const m=mean(d);return{mean:m,sd:Math.sqrt(variance(d,m)*d.length/(d.length-1))};},
+    show:p=>`mean ${fmt(p.mean)}, sd ${fmt(p.sd)}`},
+  lognormal:{label:'Lognormal',params:[['mu','μ (mean of ln)'],['sigma','σ (sd of ln)']],k:2,needs:'pos',
+    check:p=>p.sigma>0?null:'σ must be above 0.',
+    sample:(p,R)=>Math.exp(p.mu+p.sigma*R.n()),
+    pdf:(x,p)=>x<=0?0:Math.exp(-0.5*((Math.log(x)-p.mu)/p.sigma)**2)/(x*p.sigma*SQ2PI),
+    cdf:(x,p)=>x<=0?0:normCdf((Math.log(x)-p.mu)/p.sigma),
+    fit:d=>{const l=d.map(Math.log);const m=mean(l);return{mu:m,sigma:Math.sqrt(variance(l,m))};},
+    show:p=>`μ ${fmt(p.mu)}, σ ${fmt(p.sigma)}`},
+  gamma:{label:'Gamma',params:[['shape','Shape k'],['scale','Scale θ']],k:2,needs:'pos',
+    check:p=>p.shape>0&&p.scale>0?null:'Shape and scale must be above 0.',
+    sample:(p,R)=>rgamma(p.shape,R)*p.scale,
+    pdf:(x,p)=>x<=0?0:Math.exp((p.shape-1)*Math.log(x)-x/p.scale-lgamma(p.shape)-p.shape*Math.log(p.scale)),
+    cdf:(x,p)=>gammaP(p.shape,x/p.scale),
+    fit:d=>{const m=mean(d);const s=Math.log(m)-mean(d.map(Math.log));let a=(3-s+Math.sqrt((s-3)**2+24*s))/(12*s);
+      for(let i=0;i<60;i++){const da=(Math.log(a)-digamma(a)-s)/(1/a-trigamma(a));a-=da;if(a<=0)a=1e-3;if(Math.abs(da)<1e-10)break;}return{shape:a,scale:m/a};},
+    show:p=>`k ${fmt(p.shape)}, θ ${fmt(p.scale)}`},
+  weibull:{label:'Weibull',params:[['shape','Shape k'],['scale','Scale λ']],k:2,needs:'pos',
+    check:p=>p.shape>0&&p.scale>0?null:'Shape and scale must be above 0.',
+    sample:(p,R)=>p.scale*Math.pow(-Math.log(R.u()),1/p.shape),
+    pdf:(x,p)=>x<0?0:(p.shape/p.scale)*Math.pow(x/p.scale,p.shape-1)*Math.exp(-Math.pow(x/p.scale,p.shape)),
+    cdf:(x,p)=>x<=0?0:1-Math.exp(-Math.pow(x/p.scale,p.shape)),
+    fit:d=>{const mx=amax(d);const y=d.map(x=>x/mx);const ly=y.map(Math.log);const mly=mean(ly);let k=1.28/(Math.sqrt(variance(ly))||1);
+      for(let i=0;i<200;i++){let A=0,B=0,C=0;for(let j=0;j<y.length;j++){const yk=Math.pow(y[j],k);A+=yk;B+=yk*ly[j];C+=yk*ly[j]*ly[j];}
+        const g=B/A-1/k-mly;const dg=(C*A-B*B)/(A*A)+1/(k*k);let step=g/dg;if(step>k*0.5)step=k*0.5;k-=step;if(k<=0)k=0.01;if(Math.abs(step)<1e-11)break;}
+      return{shape:k,scale:mx*Math.pow(mean(y.map(v=>Math.pow(v,k))),1/k)};},
+    show:p=>`k ${fmt(p.shape)}, λ ${fmt(p.scale)}`},
+  exponential:{label:'Exponential',params:[['mean','Mean']],k:1,needs:'nonneg',
+    check:p=>p.mean>0?null:'Mean must be above 0.',
+    sample:(p,R)=>-p.mean*Math.log(R.u()),
+    pdf:(x,p)=>x<0?0:Math.exp(-x/p.mean)/p.mean,
+    cdf:(x,p)=>x<=0?0:1-Math.exp(-x/p.mean),
+    fit:d=>({mean:mean(d)}),
+    show:p=>`mean ${fmt(p.mean)}`},
+  uniform:{label:'Uniform',params:[['min','Min'],['max','Max']],k:2,
+    check:p=>p.min<p.max?null:'Min must be below max.',
+    sample:(p,R)=>p.min+(p.max-p.min)*R.u(),
+    pdf:(x,p)=>x<p.min||x>p.max?0:1/(p.max-p.min),
+    cdf:(x,p)=>x<=p.min?0:x>=p.max?1:(x-p.min)/(p.max-p.min),
+    fit:d=>{const a=amin(d),b=amax(d),pad=(b-a)/(d.length-1);return{min:a-pad,max:b+pad};},
+    show:p=>`${fmt(p.min)} to ${fmt(p.max)}`},
+  triangular:{label:'Triangular',params:[['min','Min'],['mode','Most likely'],['max','Max']],k:3,
+    check:p=>p.min<p.max&&p.mode>=p.min&&p.mode<=p.max?null:'Needs min ≤ most likely ≤ max, with min below max.',
+    sample:(p,R)=>{const{min:a,mode:c,max:b}=p;const u=R.u();return u<(c-a)/(b-a)?a+Math.sqrt(u*(b-a)*(c-a)):b-Math.sqrt((1-u)*(b-a)*(b-c));},
+    pdf:(x,p)=>{const{min:a,mode:c,max:b}=p;if(x<a||x>b)return 0;return x<c?2*(x-a)/((b-a)*(c-a)):(b===c?2/(b-a):2*(b-x)/((b-a)*(b-c)));},
+    cdf:(x,p)=>{const{min:a,mode:c,max:b}=p;if(x<=a)return 0;if(x>=b)return 1;return x<=c?(x-a)**2/((b-a)*(c-a)):1-(b-x)**2/((b-a)*(b-c));},
+    fit:d=>{const lo=amin(d),hi=amax(d),pad=(hi-lo)/d.length,a=lo-pad,b=hi+pad;let c=3*mean(d)-a-b;c=Math.min(b,Math.max(a,c));return{min:a,mode:c,max:b};},
+    show:p=>`${fmt(p.min)} / ${fmt(p.mode)} / ${fmt(p.max)}`},
+  beta:{label:'Beta (scaled)',params:[['alpha','α'],['beta','β'],['min','Min'],['max','Max']],k:4,
+    check:p=>p.alpha>0&&p.beta>0&&p.min<p.max?null:'α and β must be above 0, and min below max.',
+    sample:(p,R)=>{const g1=rgamma(p.alpha,R),g2=rgamma(p.beta,R);return p.min+(p.max-p.min)*g1/(g1+g2);},
+    pdf:(x,p)=>{const w=p.max-p.min,y=(x-p.min)/w;if(y<=0||y>=1)return 0;return Math.exp((p.alpha-1)*Math.log(y)+(p.beta-1)*Math.log(1-y)+lgamma(p.alpha+p.beta)-lgamma(p.alpha)-lgamma(p.beta))/w;},
+    cdf:(x,p)=>betaI(p.alpha,p.beta,(x-p.min)/(p.max-p.min)),
+    fit:d=>{const lo=amin(d),hi=amax(d),pad=(hi-lo)/d.length,a=lo-pad,b=hi+pad;const y=d.map(x=>(x-a)/(b-a));const m=mean(y),v=variance(y,m);const c=m*(1-m)/v-1;return{alpha:m*c,beta:(1-m)*c,min:a,max:b};},
+    show:p=>`α ${fmt(p.alpha)}, β ${fmt(p.beta)} on ${fmt(p.min)}–${fmt(p.max)}`},
+  pert:{label:'PERT',params:[['min','Min'],['mode','Most likely'],['max','Max']],k:3,
+    check:p=>p.min<p.max&&p.mode>=p.min&&p.mode<=p.max?null:'Needs min ≤ most likely ≤ max, with min below max.',
+    sample:(p,R)=>{const w=p.max-p.min,a=1+4*(p.mode-p.min)/w,b=1+4*(p.max-p.mode)/w;const g1=rgamma(a,R),g2=rgamma(b,R);return p.min+w*g1/(g1+g2);}},
+  constant:{label:'Fixed value',params:[['value','Value']],k:0,check:()=>null,sample:p=>p.value},
+  empirical:{label:'Resample data',params:[],k:0,check:p=>p.data&&p.data.length?null:'No data to resample.',sample:(p,R)=>p.data[Math.floor(R.u()*p.data.length)]}
+};
+const G=x=>Math.exp(lgamma(x));
+const MOM={
+  normal:p=>[p.mean,p.sd**2],
+  lognormal:p=>[Math.exp(p.mu+p.sigma**2/2),(Math.exp(p.sigma**2)-1)*Math.exp(2*p.mu+p.sigma**2)],
+  gamma:p=>[p.shape*p.scale,p.shape*p.scale**2],
+  weibull:p=>{const g1=G(1+1/p.shape),g2=G(1+2/p.shape);return[p.scale*g1,p.scale**2*(g2-g1*g1)];},
+  exponential:p=>[p.mean,p.mean**2],
+  uniform:p=>[(p.min+p.max)/2,(p.max-p.min)**2/12],
+  triangular:p=>{const{min:a,mode:c,max:b}=p;return[(a+b+c)/3,(a*a+b*b+c*c-a*b-a*c-b*c)/18];},
+  beta:p=>{const w=p.max-p.min,s=p.alpha+p.beta;return[p.min+w*p.alpha/s,w*w*p.alpha*p.beta/(s*s*(s+1))];},
+  pert:p=>{const w=p.max-p.min,a=1+4*(p.mode-p.min)/w,b=1+4*(p.max-p.mode)/w,s=a+b;return[p.min+w*a/s,w*w*a*b/(s*s*(s+1))];},
+  constant:p=>[p.value,0]};
+/* inverse CDFs for Latin Hypercube sampling */
+function normInv(p){const a=[-3.969683028665376e1,2.209460984245205e2,-2.759285104469687e2,1.383577518672690e2,-3.066479806614716e1,2.506628277459239],
+  b=[-5.447609879822406e1,1.615858368580409e2,-1.556989798598866e2,6.680131188771972e1,-1.328068155288572e1],c=[-7.784894002430293e-3,-3.223964580411365e-1,-2.400758277161838,-2.549732539343734,4.374664141464968,2.938163982698783],
+  d=[7.784695709041462e-3,3.224671290700398e-1,2.445134137142996,3.754408661907416];let q,r,x;
+  if(p<0.02425){q=Math.sqrt(-2*Math.log(p));x=(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+  else if(p>1-0.02425){q=Math.sqrt(-2*Math.log(1-p));x=-(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+  else{q=p-0.5;r=q*q;x=(((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);}
+  const e=normCdf(x)-p,u=e*SQ2PI*Math.exp(x*x/2);return x-u/(1+x*u/2);}
+function tableInv(cdf,lo,hi){const M=8000,xs=new Float64Array(M+1),F=new Float64Array(M+1);for(let i=0;i<=M;i++){xs[i]=lo+(hi-lo)*i/M;F[i]=cdf(xs[i]);}
+  return u=>{let l=0,h=M;while(h-l>1){const m=(l+h)>>1;if(F[m]<u)l=m;else h=m;}const d=F[h]-F[l];return d>0?xs[l]+(xs[h]-xs[l])*(u-F[l])/d:xs[l];};}
+function quantileFn(inp){const p=inp.p;switch(inp.dist){
+  case 'normal':return u=>p.mean+p.sd*normInv(u);
+  case 'lognormal':return u=>Math.exp(p.mu+p.sigma*normInv(u));
+  case 'uniform':return u=>p.min+(p.max-p.min)*u;
+  case 'triangular':{const{min:a,mode:c,max:b}=p;return u=>u<(c-a)/(b-a)?a+Math.sqrt(u*(b-a)*(c-a)):b-Math.sqrt((1-u)*(b-a)*(b-c));}
+  case 'exponential':return u=>-p.mean*Math.log(1-u);
+  case 'weibull':return u=>p.scale*Math.pow(-Math.log(1-u),1/p.shape);
+  case 'gamma':{const m=p.shape*p.scale,sd=Math.sqrt(p.shape)*p.scale;return tableInv(x=>gammaP(p.shape,x/p.scale),0,m+14*sd);}
+  case 'beta':return tableInv(x=>betaI(p.alpha,p.beta,(x-p.min)/(p.max-p.min)),p.min,p.max);
+  case 'pert':{const w=p.max-p.min,a=1+4*(p.mode-p.min)/w,b=1+4*(p.max-p.mode)/w;return tableInv(x=>betaI(a,b,(x-p.min)/w),p.min,p.max);}
+  case 'constant':return()=>p.value;
+  case 'empirical':{const d=[...p.data].sort((x,y)=>x-y);return u=>d[Math.min(d.length-1,Math.floor(u*d.length))];}}
+  return null;}
+function lhsColumn(inp,N,R){const q=quantileFn(inp),out=new Float64Array(N);if(inp.dist==='constant'){out.fill(inp.p.value);return out;}
+  const perm=new Uint32Array(N);for(let i=0;i<N;i++)perm[i]=i;for(let i=N-1;i>0;i--){const j=Math.floor(R.u()*(i+1));const t=perm[i];perm[i]=perm[j];perm[j]=t;}
+  for(let i=0;i<N;i++){let u=(perm[i]+R.u())/N;if(u<=0)u=1e-12;if(u>=1)u=1-1e-12;out[i]=q(u);}return out;}
+const FIT_KEYS=['normal','lognormal','gamma','weibull','exponential','uniform','triangular','beta'];
+const MANUAL_KEYS=['normal','lognormal','triangular','pert','uniform','gamma','weibull','exponential','beta','constant'];
+const MATHN=['abs','min','max','sqrt','exp','log','ln','log10','pow','round','floor','ceil','PI','E','IF','IFS','AND','OR','NOT','TRUE','FALSE'];
+const RESERVED=new Set([...MATHN,'if','else','return','var','let','const','new','this','true','false','null','function','typeof','void','delete','in','of','do','for','while','class','with','Math','NaN','Infinity','undefined']);
 
-function status(e){
-  if(!e.open) return {k:"na",txt:"Uses JEE Main score",sort:9000};
-  const o=days(e.open), c=days(e.close);
-  if(o>0) return {k:"soon",txt:`Form opens in ${o} day${o===1?"":"s"}`,sort:c};
-  if(c>=0){ const k=c<=21?"urgent":"open"; return {k,txt:c===0?"Closes today":`Open · ${c} day${c===1?"":"s"} left`,sort:c}; }
-  if(e.exam && days(e.exam)>=0) return {k:"closed",txt:`Form closed · exam in ${days(e.exam)} days`,sort:5000+days(e.exam)};
-  return {k:"closed",txt:"Finished",sort:8000};
-}
+/* ---------- formatting ---------- */
+function fmt(x){if(x==null||!isFinite(x))return '—';const a=Math.abs(x);
+  if(a>=1e6)return new Intl.NumberFormat('en',{notation:'compact',maximumSignificantDigits:4}).format(x);
+  if(a>=1000)return Math.round(x).toLocaleString('en');if(a===0)return '0';
+  return (+x.toPrecision(4)).toLocaleString('en',{maximumFractionDigits:8});}
+function fmtAxis(x){const a=Math.abs(x);if(a>=1e4)return new Intl.NumberFormat('en',{notation:'compact',maximumSignificantDigits:3}).format(x);return fmt(x);}
+const fmtPct=p=>!isFinite(p)?'—':p<0.001&&p>0?'<0.1%':(p>0.999&&p<1)?'>99.9%':(p*100).toFixed(1)+'%';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
-let mine = new Set();
-try{ mine = new Set(JSON.parse(localStorage.getItem("examPlannerMine")||"[]")); }catch(_){}
-const saveMine=()=>{ try{ localStorage.setItem("examPlannerMine",JSON.stringify([...mine])); }catch(_){} };
+/* ---------- state ---------- */
+const $=s=>document.querySelector(s);
+const KEY='mcstudio.v1';
+let S,nextId=1,lastRun=null,stale=false,fits=[],fitData=[],selFit=null;
 
-const F = {stream:"all",cat:"all",status:"all",q:""};
-let view = "list";
-const opened = new Set();
+function synth(seed,n,f){const R=rngObj(seed);return Array.from({length:n},()=>f(R));}
+const r6=p=>Object.fromEntries(Object.entries(p).map(([k,v])=>[k,sig(v,6)]));
+const fixed=(name,value)=>({name,dist:'constant',p:{value}});
+const TEMPLATES={
+  blank:{label:'New blank model',build(){return{title:'',notes:'',inputs:[],calcs:[],outName:'Output',formula:'',thresh:0,fitText:'',fitNote:'',fitTarget:null};}},
+  launch:{label:'Strategy · Product launch profit',build(){const data=synth(7,40,R=>Math.round(Math.exp(Math.log(17000)+0.32*R.n())));
+    return{title:'Product launch profit',notes:'A company is launching a new product. First-year unit sales are uncertain; sales of 40 comparable launches are on the Fit data tab. Price, unit cost and fixed cost are also uncertain.\nWhat is the chance the launch loses money, and which input drives that risk most?',
+      inputs:[{name:'Units',dist:'lognormal',p:r6(DIST.lognormal.fit(data)),src:'Fitted: Lognormal, 40 observations'},{name:'Price',dist:'triangular',p:{min:44,mode:50,max:54}},
+        {name:'UnitCost',dist:'pert',p:{min:22,mode:26,max:34}},{name:'FixedCost',dist:'normal',p:{mean:350000,sd:40000}}],
+      outName:'Profit',calcs:[{name:'UnitMargin',formula:'Price - UnitCost'}],formula:'Units * UnitMargin - FixedCost',thresh:0,fitText:data.join('\n'),fitNote:'Sample data: first-year unit sales of 40 comparable product launches.',fitTarget:'Units'};}},
+  newsvendor:{label:'Operations · Seasonal order quantity',build(){const data=synth(11,30,R=>Math.max(0,Math.round(5000+1200*R.n())));
+    return{title:'Seasonal order quantity',notes:'A retailer places one order Q before the season. Each unit costs 18 and sells for 40; unsold units are cleared at 6, and unmet demand is lost. Demand for the last 30 seasons is on the Fit data tab.\nFit demand, then try different values of Q. Which order quantity gives the highest expected profit, and how does the risk change? Compare with the critical ratio (Price − Cost) / (Price − Salvage).',
+      inputs:[{name:'Demand',dist:'normal',p:r6(DIST.normal.fit(data)),src:'Fitted: Normal, 30 observations'},fixed('Q',5500),fixed('Price',40),fixed('Cost',18),fixed('Salvage',6)],
+      outName:'Profit',calcs:[{name:'Sold',formula:'min(max(Demand, 0), Q)'},{name:'Leftover',formula:'max(Q - Demand, 0)'},{name:'Revenue',formula:'Price*Sold + Salvage*Leftover'}],formula:'Revenue - Cost*Q',thresh:0,fitText:data.join('\n'),fitNote:'Sample data: units demanded in each of the last 30 seasons.',fitTarget:'Demand'};}},
+  npv:{label:'Finance · Capital project NPV',build(){const data=synth(21,25,R=>+(0.04+0.03*R.n()).toFixed(4));
+    return{title:'Capital project NPV',notes:'A project costs 1,000,000 today and runs for five years with a residual value of 150,000. The first-year cash flow is uncertain, cash flows then grow each year, and the discount rate is uncertain. Annual growth rates of 25 similar projects are on the Fit data tab.\nWhat is the expected NPV, and how likely is the project to destroy value (NPV < 0)?',
+      inputs:[fixed('Invest',1000000),{name:'CF1',dist:'normal',p:{mean:250000,sd:35000}},{name:'Growth',dist:'normal',p:r6(DIST.normal.fit(data)),src:'Fitted: Normal, 25 observations'},
+        {name:'Rate',dist:'triangular',p:{min:0.08,mode:0.10,max:0.13}},fixed('Residual',150000)],
+      outName:'NPV',calcs:[{name:'CF2',formula:'CF1*(1+Growth)'},{name:'CF3',formula:'CF2*(1+Growth)'},{name:'CF4',formula:'CF3*(1+Growth)'},{name:'CF5',formula:'CF4*(1+Growth)'},{name:'PVFlows',formula:'CF1/(1+Rate) + CF2/(1+Rate)^2 + CF3/(1+Rate)^3 + CF4/(1+Rate)^4 + (CF5 + Residual)/(1+Rate)^5'}],formula:'PVFlows - Invest',
+      thresh:0,fitText:data.join('\n'),fitNote:'Sample data: annual cash-flow growth rates of 25 comparable projects (0.04 = 4%).',fitTarget:'Growth'};}},
+  campaign:{label:'Marketing · Digital campaign ROI',build(){const data=synth(31,30,R=>+Math.exp(Math.log(0.02)+0.3*R.n()).toFixed(5));
+    return{title:'Digital campaign ROI',notes:'A brand plans a 15,000 digital campaign. Impressions, click-through rate (CTR), conversion rate and order value are all uncertain; the gross margin is 35%. CTRs of 30 past campaigns are on the Fit data tab.\nFit CTR, then find the probability that the campaign loses money. Which lever matters most: reach, CTR, conversion or order value?',
+      inputs:[{name:'Impressions',dist:'triangular',p:{min:400000,mode:600000,max:900000}},{name:'CTR',dist:'lognormal',p:r6(DIST.lognormal.fit(data)),src:'Fitted: Lognormal, 30 observations'},
+        {name:'ConvRate',dist:'beta',p:{alpha:30,beta:970,min:0,max:1}},{name:'OrderValue',dist:'triangular',p:{min:90,mode:120,max:170}},fixed('Margin',0.35),fixed('Budget',15000)],
+      outName:'CampaignProfit',calcs:[{name:'Clicks',formula:'Impressions * CTR'},{name:'Orders',formula:'Clicks * ConvRate'},{name:'Revenue',formula:'Orders * OrderValue'}],formula:'Revenue * Margin - Budget',thresh:0,fitText:data.join('\n'),fitNote:'Sample data: click-through rates of 30 past campaigns (0.02 = 2%).',fitTarget:'CTR'};}},
+  clv:{label:'Marketing · Customer lifetime value',build(){const data=synth(41,24,R=>+(0.04+0.008*R.n()).toFixed(4));
+    return{title:'Customer lifetime value',notes:'A subscription business earns a monthly margin per customer, loses a share of customers each month (churn) and discounts at 1% a month. Acquiring a customer costs 80 to 180. Monthly churn for the last 24 months is on the Fit data tab.\nNet CLV = Margin × (1 − Churn) / (Discount + Churn) − AcqCost. What is the expected net CLV, and how often does a customer fail to pay back the acquisition cost?',
+      inputs:[{name:'Margin',dist:'normal',p:{mean:25,sd:4}},{name:'Churn',dist:'normal',p:r6(DIST.normal.fit(data)),src:'Fitted: Normal, 24 observations'},fixed('Discount',0.01),{name:'AcqCost',dist:'triangular',p:{min:80,mode:120,max:180}}],
+      outName:'NetCLV',calcs:[{name:'Retention',formula:'1 - Churn'},{name:'LifetimeMargin',formula:'Margin * Retention / (Discount + Churn)'}],formula:'LifetimeMargin - AcqCost',thresh:0,fitText:data.join('\n'),fitNote:'Sample data: monthly churn rate for the last 24 months (0.04 = 4%).',fitTarget:'Churn'};}},
+  option:{label:'Finance · Option pricing',build(){const data=synth(51,250,R=>+(0.0004+0.018*R.n()).toFixed(5));const sd=Math.sqrt(variance(data)*data.length/(data.length-1));const sg=+(sd*Math.sqrt(252)).toFixed(4);
+    return{title:'European call option pricing',notes:`Price a 6-month European call on a stock at 100 with strike 105 and a 6% risk-free rate. Daily log returns for the last 250 trading days are on the Fit data tab.\nFit a Normal to the returns; its standard deviation × √252 is the annual volatility Sigma (here ${sg}). Z is a standard normal draw. The mean simulated CallValue estimates the option price; compare it with Black–Scholes.`,
+      inputs:[{name:'Z',dist:'normal',p:{mean:0,sd:1}},fixed('S0',100),fixed('K',105),fixed('r',0.06),fixed('T',0.5),fixed('Sigma',sg)],
+      outName:'CallValue',calcs:[{name:'ST',formula:'S0*exp((r - 0.5*Sigma^2)*T + Sigma*sqrt(T)*Z)'},{name:'Payoff',formula:'max(ST - K, 0)'}],formula:'exp(-r*T) * Payoff',thresh:0.01,iters:50000,fitText:data.join('\n'),fitNote:'Sample data: 250 daily log returns of the stock.',fitTarget:null};}}
+};
+function buildTemplate(key){const t=TEMPLATES[key].build();return{iters:10000,seed:42,sampling:'lhs',rankBy:'aic',calcs:[],...t,inputs:t.inputs.map((x,i)=>({id:i+1,src:null,...x})),fitIsSample:true,origin:'tpl:'+key};}
+function sanitize(m){if(!m||typeof m!=='object'||!Array.isArray(m.inputs))throw new Error('This isn’t an SBT case file.');
+  const inputs=m.inputs.map((i,k)=>{if(!i||!DIST[i.dist])throw new Error(`Input ${k+1} uses an unknown distribution.`);const src=i.src?String(i.src):null,name=String(i.name||'Input'+(k+1));
+    if(i.dist==='empirical'){const d=((i.p&&i.p.data)||i.data||[]).map(Number).filter(isFinite);return{id:k+1,name,dist:'empirical',p:{data:d},data:d,src};}
+    const p={};for(const[key]of DIST[i.dist].params)p[key]=Number(i.p&&i.p[key]);return{id:k+1,name,dist:i.dist,p,src};});
+  const num=(v,d)=>Number.isFinite(+v)&&v!==null&&v!==''?+v:d;
+  const calcs=Array.isArray(m.calcs)?m.calcs.filter(c=>c&&typeof c==='object').map(c=>({name:String(c.name||''),formula:String(c.formula||'')})):[];
+  return{title:String(m.title||''),notes:String(m.notes||''),inputs,calcs,outName:String(m.outName||'Output'),formula:String(m.formula||''),
+    iters:[1000,5000,10000,25000,50000,100000].includes(+m.iters)?+m.iters:10000,seed:Math.round(num(m.seed,42)),sampling:m.sampling==='mc'?'mc':'lhs',thresh:num(m.thresh,0),
+    fitText:String(m.fitText||''),fitNote:String(m.fitNote||''),fitIsSample:!!(m.fitText&&m.fitNote),fitTarget:m.fitTarget?String(m.fitTarget):null,rankBy:['aic','bic','ks'].includes(m.rankBy)?m.rankBy:'aic',
+    sweep:m.sweep&&typeof m.sweep==='object'?{key:String(m.sweep.key||''),from:num(m.sweep.from,NaN),to:num(m.sweep.to,NaN),steps:[3,5,6,11,21].includes(+m.sweep.steps)?+m.sweep.steps:11}:null};}
+function exportObj(withData=true){return{app:'Stochastic Business Toolkit (SBT)',version:1,title:S.title||'',notes:S.notes||'',
+  inputs:S.inputs.map(i=>i.dist==='empirical'?{name:i.name,dist:i.dist,p:{data:i.p.data},src:i.src||null}:{name:i.name,dist:i.dist,p:Object.fromEntries(DIST[i.dist].params.map(([k])=>[k,i.p[k]])),src:i.src||null}),
+  calcs:S.calcs.map(c=>({name:c.name,formula:c.formula})),outName:S.outName,formula:S.formula,iters:S.iters,seed:S.seed,sampling:S.sampling==='mc'?'mc':'lhs',thresh:S.thresh,fitText:withData?S.fitText:'',fitNote:withData&&S.fitIsSample?(S.fitNote||''):'',fitTarget:S.fitTarget||null,rankBy:S.rankBy,sweep:S.sweep||null};}
+function b64enc(str){const b=new TextEncoder().encode(str);let s='';for(let i=0;i<b.length;i+=0x8000)s+=String.fromCharCode.apply(null,b.subarray(i,i+0x8000));return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');}
+function b64dec(t){t=t.replace(/-/g,'+').replace(/_/g,'/');while(t.length%4)t+='=';const s=atob(t);const b=new Uint8Array(s.length);for(let i=0;i<s.length;i++)b[i]=s.charCodeAt(i);return new TextDecoder().decode(b);}
+function strHash(s){let h=5381;for(let i=0;i<s.length;i++)h=(h*33^s.charCodeAt(i))>>>0;return h.toString(36);}
+const HKEY='mcstudio.saved';
+function histGet(){try{const a=JSON.parse(localStorage.getItem(HKEY)||'[]');return Array.isArray(a)?a:[];}catch(e){return[];}}
+function histSet(a){for(let k=0;k<6;k++){try{localStorage.setItem(HKEY,JSON.stringify(a));return true;}catch(e){if(a.length<=1)return false;a=a.slice(0,a.length-1);}}return false;}
+function snapshot(st){const prev=S;S=st;try{return exportObj();}finally{S=prev;}}
+const LKEY='mcstudio.library';
+function libGet(){try{const a=JSON.parse(localStorage.getItem(LKEY)||'[]');return Array.isArray(a)?a:[];}catch(e){return[];}}
+function libSet(a){try{localStorage.setItem(LKEY,JSON.stringify(a));return true;}catch(e){return false;}}
+function isWorth(st){if(!(st&&Array.isArray(st.inputs)&&st.edited))return false;if(st.libId&&st.dirty===false&&libGet().some(e=>e.id===st.libId))return false;return true;}
+function stash(st){if(!isWorth(st))return null;const snap=snapshot(st);const txt=JSON.stringify(snap);const a=histGet().filter(e=>JSON.stringify(e.model)!==txt);
+  const entry={at:Date.now(),model:snap};a.unshift(entry);histSet(a.slice(0,15));return entry;}
+let linkError=null;
+function load(){let h='';try{h=decodeURIComponent(location.hash.slice(1));}catch(e){}let saved=null;
+  try{const raw=localStorage.getItem(KEY);if(raw){const s=JSON.parse(raw);if(s&&Array.isArray(s.inputs))saved=s;}}catch(e){}
+  if(h.startsWith('case=')){const tag='link:'+strHash(h);if(saved&&saved.origin===tag)return saved;stash(saved);
+    try{const m=sanitize(JSON.parse(b64dec(h.slice(5))));m.origin=tag;return m;}catch(e){linkError='The case in this link couldn’t be read. Ask for the link again, or import the case file.';}}
+  const tk=h.replace(/^case-/,'');if(TEMPLATES[tk]){if(saved&&saved.origin==='tpl:'+tk)return saved;stash(saved);return buildTemplate(tk);}
+  if(saved){if(saved.title===undefined&&saved.isExample!==false&&!saved.origin)return buildTemplate('launch');return saved;}
+  return buildTemplate('launch');}
+let saveT;function save(){clearTimeout(saveT);saveT=setTimeout(()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}},300);}
+function touched(){S.edited=true;S.dirty=true;if(!$('#libPanel').hidden)renderLib();sweepRes=null;if(document.getElementById('swOut'))$('#swOut').hidden=true;if(lastRun){stale=true;$('#staleChip').hidden=false;}save();}
 
-function matches(e){
-  if(F.stream!=="all"){
-    if(F.stream==="PCM" && !["PCM","PCMB","Any"].includes(e.stream)) return false;
-    if(F.stream==="PCB" && !["PCB","PCMB","Any"].includes(e.stream)) return false;
-    if(F.stream==="PCB" && e.cat==="Defence" && e.id!=="nda1" && e.id!=="nda2") return false;
-  }
-  if(F.cat!=="all" && e.cat!==F.cat) return false;
-  const s=status(e).k;
-  if(F.status==="open" && !(s==="open"||s==="urgent")) return false;
-  if(F.status==="soon" && s!=="soon") return false;
-  if(F.status==="mine" && !mine.has(e.id)) return false;
-  if(F.q){ const h=(e.name+" "+e.full+" "+e.body+" "+e.kw+" "+e.cat).toLowerCase(); if(!F.q.split(/\s+/).every(w=>h.includes(w))) return false; }
-  return true;
-}
-const streamLbl = {PCM:"Maths",PCB:"Biology",PCMB:"Maths or Bio",Any:"Any stream"};
-const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+/* ---------- canvas helpers ---------- */
+function colors(){const cs=getComputedStyle(document.documentElement);const g=n=>cs.getPropertyValue(n).trim();
+  return{ink:g('--ink'),muted:g('--muted'),line:g('--line'),grid:g('--grid'),accent:g('--accent'),accentSoft:g('--accent-soft'),fit:g('--fit'),bad:g('--bad'),badSoft:g('--bad-soft'),surface:g('--surface')};}
+function prep(c){const r=c.getBoundingClientRect();const dpr=window.devicePixelRatio||1;const w=Math.max(1,r.width),h=Math.max(1,r.height);
+  c.width=Math.round(w*dpr);c.height=Math.round(h*dpr);const ctx=c.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);return{ctx,w,h};}
+function ticks(a,b,n){const span=b-a;if(!(span>0))return[a];const s0=span/n,mag=10**Math.floor(Math.log10(s0)),e=s0/mag;const st=(e>=7.5?10:e>=3.5?5:e>=1.5?2:1)*mag;
+  const t=[];for(let v=Math.ceil(a/st)*st;v<=b+st*1e-9;v+=st)t.push(+v.toPrecision(12));return t;}
+function frame(canvas,xr,yr,o={}){const{ctx,w,h}=prep(canvas);const C=colors();
+  const m={l:o.yLabels?46:14,r:16,t:22,b:26};const pw=w-m.l-m.r,ph=h-m.t-m.b;
+  const X=v=>m.l+(v-xr[0])/(xr[1]-xr[0])*pw,Y=v=>m.t+ph-(v-yr[0])/(yr[1]-yr[0])*ph;
+  ctx.font='11px "IBM Plex Mono", ui-monospace, monospace';ctx.lineWidth=1;
+  ctx.strokeStyle=C.grid;ctx.fillStyle=C.muted;ctx.textBaseline='top';ctx.textAlign='center';
+  for(const t of ticks(xr[0],xr[1],Math.max(3,Math.floor(pw/95)))){const x=Math.round(X(t))+.5;if(x<m.l-1||x>m.l+pw+1)continue;
+    ctx.beginPath();ctx.moveTo(x,m.t);ctx.lineTo(x,m.t+ph);ctx.stroke();const lab=fmtAxis(t),tw=ctx.measureText(lab).width;
+    ctx.fillText(lab,Math.min(w-tw/2-1,Math.max(tw/2+1,x)),m.t+ph+7);}
+  if(o.yLabels){ctx.textAlign='right';ctx.textBaseline='middle';for(const t of ticks(yr[0],yr[1],4)){const y=Math.round(Y(t))+.5;
+    ctx.beginPath();ctx.moveTo(m.l,y);ctx.lineTo(m.l+pw,y);ctx.stroke();ctx.fillText(o.yLabels(t),m.l-6,y);}}
+  ctx.strokeStyle=C.line;ctx.beginPath();ctx.moveTo(m.l,m.t+ph+.5);ctx.lineTo(m.l+pw,m.t+ph+.5);ctx.stroke();
+  return{ctx,X,Y,C,m,pw,ph,w,h};}
+function vline(f,x,color,label,dash,row=0){const{ctx,X,m,ph}=f;const px=Math.round(X(x))+.5;if(px<m.l||px>m.l+f.pw)return;
+  ctx.save();ctx.strokeStyle=color;ctx.lineWidth=1.25;if(dash)ctx.setLineDash(dash);ctx.beginPath();ctx.moveTo(px,m.t-4);ctx.lineTo(px,m.t+ph);ctx.stroke();ctx.restore();
+  if(label){ctx.save();ctx.font='500 11px "IBM Plex Mono", ui-monospace, monospace';ctx.fillStyle=color;ctx.textBaseline='bottom';const tw=ctx.measureText(label).width;
+    const left=px+tw+6>m.l+f.pw;ctx.textAlign=left?'right':'left';ctx.fillText(label,left?px-4:px+4,m.t-4-row*13+(row?0:0));ctx.restore();}}
 
-function card(e){
-  const st=status(e);
-  const close = e.close ? `<span>Last date <b class="${e.closeExp?"exp":""}">${fmt(e.close)}</b></span>` : "";
-  const exam = `<span>Exam <b class="${e.examExp?"exp":""}">${esc(e.examLbl)}</b></span>`;
-  return `<article class="card ${opened.has(e.id)?"openc":""}" id="c-${e.id}">
-   <div class="card-h" data-toggle="${e.id}" role="button" tabindex="0" aria-expanded="${opened.has(e.id)}">
-    <div>
-      <div class="title-line"><span class="ename">${esc(e.name)}</span><span class="tag ${e.stream}">${streamLbl[e.stream]}</span></div>
-      <div class="meta"><span>${esc(e.body)}</span>${close}${exam}</div>
-    </div>
-    <div class="right"><span class="pill ${st.k}">${st.txt}</span>
-      <button class="star" data-star="${e.id}" aria-pressed="${mine.has(e.id)}" aria-label="Add ${esc(e.name)} to my list" title="Add to my list">★</button></div>
-   </div>
-   <div class="card-b">
-    <div class="facts">
-      <div class="fact"><h4>Eligibility</h4><p>${esc(e.elig)}</p></div>
-      <div class="fact"><h4>Exam pattern</h4><p>${esc(e.pattern)}</p></div>
-      <div class="fact"><h4>Last year's cutoff</h4><p>${esc(e.cutoff)}</p></div>
-      <div class="fact"><h4>Application window</h4><p>${e.open?`${fmt(e.open)} – ${fmt(e.close)}${e.closeExp?" (expected)":""}`:"No separate form"}</p></div>
-    </div>
-    <p class="note">${esc(e.note)}</p>
-    <a class="go" href="${e.url}" target="_blank" rel="noopener">Open official site ↗</a>
-   </div></article>`;
-}
+/* ---------- input cards ---------- */
+function previewStats(inp){const d=DIST[inp.dist];if(d.check(inp.p))return null;const R=rngObj(1);const n=2000;const a=new Float64Array(n);
+  try{for(let i=0;i<n;i++)a[i]=d.sample(inp.p,R);}catch(e){return null;}a.sort();return{a,m:mean(a),sd:Math.sqrt(variance(a)),p5:pct(a,.05),p95:pct(a,.95)};}
+function drawSpark(c,st){const{ctx,w,h}=prep(c);const C=colors();if(!st)return;const a=st.a,lo=pct(a,.005),hi=pct(a,.995);
+  if(!(hi>lo)){ctx.fillStyle=C.accent;ctx.fillRect(w/2-1.5,2,3,h-4);return;}
+  const nb=24,bw=(hi-lo)/nb,cnt=new Array(nb).fill(0);for(const v of a){if(v<lo||v>hi)continue;cnt[Math.min(nb-1,Math.floor((v-lo)/bw))]++;}
+  const mx=Math.max(...cnt);const cw=w/nb;ctx.fillStyle=C.accent;for(let i=0;i<nb;i++){const bh=(cnt[i]/mx)*(h-2);ctx.fillRect(i*cw+0.5,h-bh,Math.max(1,cw-1),bh);}}
+function defaultsFor(dist,st){const m=st?st.m:100,s=st&&st.sd>0?st.sd:Math.abs(m)*0.1||1;const pm=m>0?m:1;
+  switch(dist){case 'normal':return{mean:sig(m),sd:sig(s)};
+    case 'lognormal':{const s2=Math.log(1+(s*s)/(pm*pm));return{mu:sig(Math.log(pm)-s2/2,5),sigma:sig(Math.sqrt(s2),4)};}
+    case 'uniform':return{min:sig(m-1.732*s),max:sig(m+1.732*s)};
+    case 'triangular':case 'pert':return{min:sig(m-2*s),mode:sig(m),max:sig(m+2*s)};
+    case 'exponential':return{mean:sig(Math.abs(m)||1)};
+    case 'gamma':return{shape:sig((pm/s)**2),scale:sig(s*s/pm)};
+    case 'weibull':return{shape:2,scale:sig(pm/0.8862)};
+    case 'beta':return{alpha:2,beta:2,min:sig(m-2.236*s),max:sig(m+2.236*s)};
+    case 'constant':return{value:sig(m)};}return{};}
+function inputError(inp){if(!/^[A-Za-z_][A-Za-z0-9_]*$/.test(inp.name))return 'Names use letters, digits and _ and start with a letter.';
+  if(RESERVED.has(inp.name))return `“${inp.name}” is reserved for a function. Pick another name.`;
+  if(S.inputs.filter(o=>o.name===inp.name).length>1||(S.calcs||[]).some(c=>c.name===inp.name))return 'Another input or calculation already uses this name.';
+  const d=DIST[inp.dist];for(const[k]of d.params)if(!isFinite(inp.p[k]))return 'Fill in every parameter.';return d.check(inp.p);}
+function renderInputs(){const list=$('#inputList');list.innerHTML='';
+  for(const inp of S.inputs){const el=document.createElement('article');el.className='icard';el.dataset.id=inp.id;
+    const keys=[...MANUAL_KEYS];if(inp.data||inp.dist==='empirical')keys.push('empirical');
+    el.innerHTML=`<div class="icard-top">
+      <input class="iname" id="nm-${inp.id}" value="${esc(inp.name)}" aria-label="Input name" autocomplete="off" spellcheck="false">
+      <select class="idist" id="ds-${inp.id}" aria-label="Distribution">${keys.map(k=>`<option value="${k}"${k===inp.dist?' selected':''}>${DIST[k].label}</option>`).join('')}</select>
+      <button class="icon del" aria-label="Remove ${esc(inp.name)}" title="Remove input">×</button></div>
+      ${inp.dist==='empirical'?`<p class="empnote">Draws at random, with replacement, from ${inp.p.data.length} observed values.</p>`:
+        `<div class="iparams">${DIST[inp.dist].params.map(([k,l])=>`<label for="p-${inp.id}-${k}">${l}<input type="number" step="any" id="p-${inp.id}-${k}" data-k="${k}" value="${inp.p[k]??''}"></label>`).join('')}</div>`}
+      <div class="ifoot"><canvas aria-hidden="true"></canvas><span class="isum"></span></div>
+      ${inp.src?`<p class="isrc">${esc(inp.src)}</p>`:''}
+      <p class="err" hidden></p>`;
+    list.appendChild(el);wireCard(el,inp);refreshCard(el,inp);}
+  renderChips();}
+function refreshCard(el,inp){const e=inputError(inp);const ep=el.querySelector('.err');ep.hidden=!e;ep.textContent=e||'';el.classList.toggle('has-err',!!e);
+  const st=e?null:previewStats(inp);inp._st=st;drawSpark(el.querySelector('canvas'),st);
+  const mo=!e&&MOM[inp.dist]?MOM[inp.dist](inp.p):null;
+  el.querySelector('.isum').textContent=st?(st.sd>0?(mo?`mean ${fmt(mo[0])} · var ${fmt(mo[1])} · 90% in ${fmt(st.p5)}–${fmt(st.p95)}`:`mean ${fmt(st.m)} · var ${fmt(st.sd**2)} · 90% in ${fmt(st.p5)}–${fmt(st.p95)}`):`always ${fmt(st.m)}`):'';}
+function wireCard(el,inp){
+  const nm=el.querySelector('.iname');
+  nm.addEventListener('input',()=>{inp.name=nm.value.trim();refreshAllCards();renderChips();checkFormula();touched();});
+  let before=inp.name;nm.addEventListener('focus',()=>{before=inp.name;});
+  nm.addEventListener('change',()=>{const now=inp.name;if(before&&now!==before&&!inputError(inp))renameRef(before,now);before=now;});
+  el.querySelector('.idist').addEventListener('change',ev=>{const nd=ev.target.value;if(inp.dist==='empirical')inp.data=inp.p.data;
+    inp.p=nd==='empirical'?{data:inp.data}:defaultsFor(nd,inp._st);inp.dist=nd;inp.src=null;touched();renderInputs();});
+  el.querySelector('.del').addEventListener('click',()=>{S.inputs=S.inputs.filter(o=>o!==inp);touched();renderInputs();checkFormula();renderApplyTargets();});
+  el.querySelectorAll('.iparams input').forEach(f=>f.addEventListener('input',()=>{inp.p[f.dataset.k]=f.value===''?NaN:+f.value;inp.src=null;
+    const s=el.querySelector('.isrc');if(s)s.remove();refreshCard(el,inp);touched();}));}
+function refreshAllCards(){document.querySelectorAll('.icard').forEach(el=>{const inp=S.inputs.find(o=>o.id==el.dataset.id);if(inp)refreshCard(el,inp);});}
+let lastF=null;
+document.addEventListener('focusin',e=>{if(e.target.matches&&e.target.matches('#formula,.cformula'))lastF=e.target;});
+function renderChips(){const c=$('#chips');c.innerHTML='';const items=[...S.inputs.map(i=>[i.name,false]),...(S.calcs||[]).map(x=>[x.name,true])];
+  for(const[name,isCalc]of items){if(!name)continue;const b=document.createElement('button');b.type='button';b.textContent=name;if(isCalc)b.className='calc-chip';
+    b.title=`Insert ${name} into the formula you're editing`;
+    b.addEventListener('mousedown',e=>e.preventDefault());
+    b.addEventListener('click',()=>{const t=lastF&&document.body.contains(lastF)?lastF:$('#formula');const s=t.selectionStart??t.value.length,e=t.selectionEnd??s;
+      t.value=t.value.slice(0,s)+name+t.value.slice(e);t.focus();t.selectionStart=t.selectionEnd=s+name.length;t.dispatchEvent(new Event('input',{bubbles:true}));});c.appendChild(b);}}
+function renameRef(before,now){if(!before||before===now||!/^[A-Za-z_]\w*$/.test(before))return;const mk=()=>new RegExp('\\b'+before+'\\b','g');let ch=false;
+  if(mk().test(codeOnly(S.formula))){S.formula=mapCode(S.formula,x=>x.replace(mk(),now));$('#formula').value=S.formula;ch=true;}
+  for(const c of S.calcs||[]){if(mk().test(codeOnly(c.formula))){c.formula=mapCode(c.formula,x=>x.replace(mk(),now));const t=document.getElementById('cf-'+c.id);if(t)t.value=c.formula;ch=true;}}
+  if(ch)checkFormula();}
+let calcSeq=1;
+function renderCalcs(){const L=$('#calcList');L.innerHTML='';const n=S.calcs.length;
+  S.calcs.forEach((c,ix)=>{if(!c.id)c.id=calcSeq++;const el=document.createElement('div');el.className='calc';el.dataset.id=c.id;
+    el.innerHTML=`<div class="calc-top"><span class="calc-n">${ix+1}</span><input class="cname" id="cn-${c.id}" value="${esc(c.name)}" aria-label="Step ${ix+1} name" autocomplete="off" spellcheck="false"><span class="eq">=</span>
+      <button class="icon up" type="button" title="Move up" aria-label="Move step ${ix+1} up" ${ix===0?'disabled':''}>↑</button><button class="icon down" type="button" title="Move down" aria-label="Move step ${ix+1} down" ${ix===n-1?'disabled':''}>↓</button><button class="icon del" type="button" title="Remove step" aria-label="Remove step ${ix+1}">×</button></div>
+      <textarea class="cformula" id="cf-${c.id}" rows="2" spellcheck="false" aria-label="Formula for step ${ix+1}">${esc(c.formula)}</textarea><p class="err" hidden></p>`;
+    const nm=el.querySelector('.cname'),tf=el.querySelector('.cformula');let before=c.name;
+    nm.addEventListener('focus',()=>{before=c.name;});
+    nm.addEventListener('input',()=>{c.name=nm.value.trim();renderChips();refreshAllCards();checkFormula();touched();});
+    nm.addEventListener('change',()=>{const r=compileModel();if(!r.errs[c.id]||!/name|reserved|already/.test(r.errs[c.id]))renameRef(before,c.name);before=c.name;});
+    tf.addEventListener('input',()=>{c.formula=tf.value;checkFormula();touched();});
+    const move=d=>{const j=ix+d;[S.calcs[ix],S.calcs[j]]=[S.calcs[j],S.calcs[ix]];touched();renderCalcs();const b=document.querySelector(`.calc[data-id="${c.id}"] .${d<0?'up':'down'}`);if(b&&!b.disabled)b.focus();};
+    el.querySelector('.up').addEventListener('click',()=>move(-1));el.querySelector('.down').addEventListener('click',()=>move(1));
+    el.querySelector('.del').addEventListener('click',()=>{S.calcs=S.calcs.filter(x=>x!==c);touched();renderCalcs();refreshAllCards();});
+    L.appendChild(el);});
+  renderChips();checkFormula();}
 
-function renderList(list){
-  if(!list.length) return `<div class="empty">No exams match these filters. ${F.status==="mine"?"Tap ★ on an exam to add it to your list.":"Try clearing a filter."}</div>`;
-  return `<div class="list">${list.map(card).join("")}</div>`;
-}
+/* ---------- formula ---------- */
+const STR_RE=/("[^"]*"|'[^']*')/;
+function mapCode(e,f){return e.split(STR_RE).map((seg,i)=>i%2?seg:f(seg)).join('');}
+const FN_CANON={};for(const n of ['IF','IFS','AND','OR','NOT','abs','min','max','sqrt','exp','log','ln','log10','pow','round','floor','ceil'])FN_CANON[n.toLowerCase()]=n;
+const normFn=c=>c.replace(/\b(true|false)\b/gi,m=>m.toUpperCase()).replace(/\b([A-Za-z_]\w*)(\s*\()/g,(m,n,p)=>FN_CANON[n.toLowerCase()]?FN_CANON[n.toLowerCase()]+p:m);
+function codeOnly(e){return e.split(STR_RE).map((seg,i)=>i%2?'0':seg).join('');}
+const conv=e=>mapCode(e,c=>normFn(c).replace(/<>/g,'!=').replace(/(^|[^<>=!])=(?!=)/g,'$1==').replace(/\^/g,'**'));
+function nameProblem(name){if(!/^[A-Za-z_][A-Za-z0-9_]*$/.test(name))return 'Names use letters, digits and _ and start with a letter.';
+  if(RESERVED.has(name))return `“${name}” is reserved for a function. Pick another name.`;
+  if(S.inputs.some(i=>i.name===name)||S.calcs.filter(c=>c.name===name).length>1)return 'An input or another step already uses this name.';return null;}
+function checkExpr(expr,allowed,later,what,self,isOutput){if(!expr.trim())return `Enter a formula for ${what}.`;
+  const q=normFn(codeOnly(expr));if(/["']/.test(q))return 'A text value is missing its closing quote mark.';
+  if(isOutput&&STR_RE.test(expr)&&!/[=<>!]/.test(codeOnly(expr)))return 'The output must be a number. Put text values like "Spot" in a calculation step instead.';
+  const bad=q.match(/[^\w\s.+\-*/%()<>=!&|?:,^]/);if(bad)return `The formula can’t use “${bad[0]}”.`;
+  const toks=q.match(/\d*\.?\d+(?:e[+-]?\d+)?|[A-Za-z_]\w*/gi)||[];
+  for(const t of toks){if(!/^[A-Za-z_]/.test(t)||allowed.has(t)||MATHN.includes(t))continue;
+    if(t===self)return 'A step can’t use its own name in its formula.';
+    return later.has(t)?`“${t}” is worked out further down. Move this step below it.`:`“${t}” isn’t an input, a step or a known function.`;}
+  try{new Function(`return (${conv(expr)});`);}catch(e){return 'This formula has a syntax problem. Check brackets and operators.';}return null;}
+function compileModel(){const calcs=S.calcs||[];const inNames=S.inputs.map(i=>i.name);const allowed=new Set(inNames);const errs={};
+  calcs.forEach((c,ix)=>{const later=new Set(calcs.slice(ix+1).map(x=>x.name));const e=nameProblem(c.name)||checkExpr(c.formula,allowed,later,`step ${ix+1}`,c.name);if(e)errs[c.id]=e;allowed.add(c.name);});
+  const outErr=checkExpr(S.formula,allowed,new Set(),'the output',null,true);
+  if(Object.keys(errs).length)return{errs,outErr:outErr||'Fix the calculation steps marked above.',fn:null};
+  if(outErr)return{errs,outErr,fn:null};
+  const body='const {abs,min,max,sqrt,exp,log,log10,pow,floor,ceil,PI,E}=Math;const ln=Math.log;const round=(x,d=0)=>{const f=10**d;return Math.round(x*f)/f;};const TRUE=true,FALSE=false;const IF=(c,a,b=false)=>c?a:b;const IFS=(...a)=>{for(let i=0;i+1<a.length;i+=2)if(a[i])return a[i+1];return NaN;};const AND=(...a)=>a.every(Boolean)?1:0;const OR=(...a)=>a.some(Boolean)?1:0;const NOT=x=>x?0:1;'+
+    calcs.map(c=>`const ${c.name}=(${conv(c.formula)});`).join('')+`return [(${conv(S.formula)})${calcs.map(c=>','+c.name).join('')}];`;
+  try{return{errs,outErr:null,fn:new Function(...inNames,body)};}catch(e){return{errs,outErr:'The model has a syntax problem. Check the input names, brackets and operators.',fn:null};}}
+function checkFormula(){const r=compileModel();
+  document.querySelectorAll('.calc').forEach(el=>{const e=r.errs[el.dataset.id];const p=el.querySelector('.err');p.hidden=!e;p.textContent=e||'';el.classList.toggle('has-err',!!e);});
+  let msg=r.outErr;
+  if(!msg&&r.fn){try{const v=r.fn(...S.inputs.map(i=>i._st?i._st.m:1));if(typeof v[0]==='string')msg='The output must be a number. Text values like "Spot" can only be used in calculation steps.';else if(typeof v[0]!=='number'&&typeof v[0]!=='boolean')msg='The output formula must produce a number.';}catch(e){msg='The model couldn’t be worked out: '+e.message;}}
+  const p=$('#formulaErr');p.hidden=!msg;p.textContent=msg||'';return msg?null:r.fn;}
 
-const T0=new Date(2026,9,1), T1=new Date(2027,9,1);
-const pct = s => Math.max(0,Math.min(100,(d(s)-T0)/(T1-T0)*100));
-function renderTimeline(list){
-  const months=[];for(let i=0;i<12;i++){const m=new Date(2026,9+i,1);months.push(m.toLocaleDateString("en-IN",{month:"short"})+(m.getMonth()===0||i===0?" "+String(m.getFullYear()).slice(2):""));}
-  const tp=((now-T0)/(T1-T0))*100;
-  const rows=list.map(e=>{
-    const bar = e.open?`<div class="appbar ${e.closeExp?"exp":""}" style="left:${pct(e.open)}%;width:${Math.max(.8,pct(e.close)-pct(e.open))}%" title="Apply ${fmt(e.open)} – ${fmt(e.close)}"></div>`:"";
-    const dot = e.exam?`<div class="exdot" style="left:${pct(e.exam)}%" title="Exam: ${esc(e.examLbl)}"></div>`:"";
-    return `<div class="tl-row"><div class="tl-name" data-goto="${e.id}" title="${esc(e.name)}">${esc(e.name.replace(/ 2027/g,"").replace(" Aptitude Test",""))}</div><div class="track">${bar}${dot}</div></div>`;
-  }).join("");
-  return `<div class="tl-wrap"><div class="legend"><span><i class="sw"></i>Application window</span><span><i class="sw exp"></i>Expected window</span><span><i class="dm"></i>Exam</span><span style="color:var(--urgent)">Red line = today</span></div>
-   <div class="tl"><div class="tl-head"><div></div><div class="months">${months.map(m=>`<div>${m}</div>`).join("")}</div></div>
-   <div style="position:relative">${rows}
-    ${tp>=0&&tp<=100?`<div style="position:absolute;top:0;bottom:0;left:190px;right:0;pointer-events:none"><div class="todayline" style="left:${tp}%"></div><div class="todaylbl" style="left:${tp}%">today</div></div>`:""}
-   </div></div></div>`;
-}
+/* ---------- simulation ---------- */
+function simulate(){const errs=S.inputs.map(inputError).filter(Boolean);const me=$('#modelErr');
+  if(!S.inputs.length){me.hidden=false;me.textContent='Add at least one input.';return false;}
+  if(errs.length){me.hidden=false;me.textContent='Fix the highlighted inputs before running.';return false;}
+  const fn=checkFormula();if(!fn){me.hidden=false;me.textContent='Fix the formula before running.';return false;}
+  me.hidden=true;const t0=performance.now();const N=S.iters,R=rngObj(S.seed),k=S.inputs.length;
+  let cols=S.inputs.map(()=>new Float64Array(N));const out=new Float64Array(N),vals=new Array(k),nc=S.calcs.length,ccols=S.calcs.map(()=>new Array(N));let textOut=false;
+  const lhs=S.sampling!=='mc';if(lhs)S.inputs.forEach((inp,j)=>{cols[j]=lhsColumn(inp,N,R);});
+  for(let i=0;i<N;i++){if(lhs){for(let j=0;j<k;j++)vals[j]=cols[j][i];}else{for(let j=0;j<k;j++){const inp=S.inputs[j];vals[j]=cols[j][i]=DIST[inp.dist].sample(inp.p,R);}}const rv=fn.apply(null,vals);if(typeof rv[0]==='string')textOut=true;out[i]=+rv[0];for(let c=0;c<nc;c++)ccols[c][i]=rv[c+1];}
+  let keep=[];for(let i=0;i<N;i++)if(isFinite(out[i]))keep.push(i);const bad=N-keep.length;
+  const o2=Float64Array.from(keep,i=>out[i]),c2=cols.map(c=>Float64Array.from(keep,i=>c[i])),c3=ccols.map(c=>{const isText=keep.some(i=>typeof c[i]==='string');return isText?keep.map(i=>{const v=c[i];return typeof v==='string'?v:(typeof v==='boolean'?(v?'TRUE':'FALSE'):String(+v));}):Float64Array.from(keep,i=>+c[i]);});
+  if(!o2.length){me.hidden=false;me.textContent=textOut?'The output produced text. The output must be a number; use text values only in calculation steps.':'Every iteration produced an invalid number (for example a division by zero). Check the formula.';return false;}
+  const sorted=Float64Array.from(o2).sort();const n=o2.length,m=mean(o2),sd=Math.sqrt(variance(o2,m)*n/Math.max(1,n-1));
+  let sk=0;for(const v of o2)sk+=((v-m)/(sd||1))**3;sk/=n;
+  const ro=ranks(o2);const rho=S.inputs.map((inp,j)=>({name:inp.name,r:pearson(ranks(c2[j]),ro)})).filter(x=>isFinite(x.r));
+  lastRun={sampling:S.sampling!=='mc'?'Latin Hypercube':'Monte Carlo',n,N,bad,out:o2,cols:c2,names:S.inputs.map(i=>i.name),calcNames:S.calcs.map(c=>c.name),calcCols:c3,sorted,m,sd,sk,rho,outName:S.outName||'Output',formula:S.formula,seed:S.seed,ms:performance.now()-t0};
+  stale=false;$('#staleChip').hidden=true;return true;}
+function renderResults(){const R=lastRun;$('#resEmpty').hidden=!!R;$('#resBody').hidden=!R;if(!R)return;renderSweepForm();
+  $('#resTitle').textContent=R.outName;
+  $('#resMeta').innerHTML=`${R.N.toLocaleString('en')} iterations · ${R.sampling} · seed ${R.seed} · <code>${esc(R.outName)} = ${esc(R.formula)}</code>${R.calcNames.length?` · ${R.calcNames.length} calculation step${R.calcNames.length>1?'s':''}`:''}${R.bad?` · ${R.bad.toLocaleString('en')} invalid results left out`:''}`;
+  renderCaseView();
+  const s=R.sorted,t=S.thresh;let below=0;for(const v of s){if(v<t)below++;else break;}const pb=below/R.n;const ci=1.96*R.sd/Math.sqrt(R.n);
+  const tiles=[['Mean',fmt(R.m),`± ${fmt(ci)} (95% CI)`],['Std deviation',fmt(R.sd),`var ${fmt(R.sd*R.sd)} · skew ${R.sk.toFixed(2)}`],['P5',fmt(pct(s,.05)),'5% fall below'],
+    ['Median',fmt(pct(s,.5)),'P50'],['P95',fmt(pct(s,.95)),'95% fall below'],[`P(${R.outName} < ${fmt(t)})`,fmtPct(pb),`${below.toLocaleString('en')} of ${R.n.toLocaleString('en')}`,'risk']];
+  $('#statRow').innerHTML=tiles.map(([k,v,sub,c])=>`<div class="stat ${c||''}"><div class="k">${esc(k)}</div><div class="v">${v}</div><div class="s">${esc(sub)}</div></div>`).join('');
+  const qs=[.01,.05,.10,.25,.50,.75,.90,.95,.99];
+  $('#pctTable').innerHTML=`<thead><tr><th>Percentile</th>${qs.map(q=>`<th>P${Math.round(q*100)}</th>`).join('')}</tr></thead><tbody><tr><td>${esc(R.outName)}</td>${qs.map(q=>`<td>${fmt(pct(s,q))}</td>`).join('')}</tr>
+    ${R.calcNames.length?`<tr class="grp"><td colspan="${qs.length+1}">Calculation steps</td></tr>`+R.calcNames.map((nm,j)=>{const col=R.calcCols[j];if(Array.isArray(col)){const cnt=new Map();for(const v of col)cnt.set(v,(cnt.get(v)||0)+1);
+      const parts=[...cnt.entries()].sort((a,b)=>b[1]-a[1]).map(([k,c])=>`<span class="cat"><b>${esc(k)}</b> ${fmtPct(c/col.length)}</span>`).join('');
+      return `<tr><td>${esc(nm)}</td><td class="l cats" colspan="${qs.length}">${parts}</td></tr>`;}
+      const cs=Float64Array.from(col).sort();return `<tr><td>${esc(nm)}</td>${qs.map(q=>`<td>${fmt(pct(cs,q))}</td>`).join('')}</tr>`;}).join('')+`<tr class="grp"><td colspan="${qs.length+1}">Inputs</td></tr>`:''}
+    ${R.names.map((nm,j)=>{const cs=Float64Array.from(R.cols[j]).sort();return `<tr><td>${esc(nm)}</td>${qs.map(q=>`<td>${fmt(pct(cs,q))}</td>`).join('')}</tr>`;}).join('')}</tbody>`;
+  const rows=[...R.rho].sort((a,b)=>Math.abs(b.r)-Math.abs(a.r));const tot=rows.reduce((a,x)=>a+x.r*x.r,0)||1;
+  $('#tornado').innerHTML=rows.length?`<div class="trow thead"><span>Input</span><span style="display:flex;justify-content:space-between"><span>− lowers</span><span>raises +</span></span><span style="text-align:right">ρ</span><span style="text-align:right">Share</span></div>`+
+    rows.map(x=>`<div class="trow"><span class="tname" title="${esc(x.name)}">${esc(x.name)}</span><div class="tbar"><div class="neg">${x.r<0?`<i style="width:${Math.abs(x.r)*100}%"></i>`:''}</div><div class="pos">${x.r>0?`<i style="width:${x.r*100}%"></i>`:''}</div></div><span class="tval">${x.r>=0?'+':'−'}${Math.abs(x.r).toFixed(2)}</span><span class="tpct">${Math.round(x.r*x.r/tot*100)}%</span></div>`).join('')
+    :'<p class="small muted">No varying inputs to compare.</p>';
+  drawResults();}
+function drawResults(){const R=lastRun;if(!R||$('#tab-results').hidden)return;const s=R.sorted,t=S.thresh;
+  let lo=pct(s,.002),hi=pct(s,.998);if(!(hi>lo)){lo-=1;hi+=1;}
+  const nb=Math.min(70,Math.max(24,Math.round(Math.sqrt(R.n)/2))),bw=(hi-lo)/nb,cnt=new Array(nb).fill(0);
+  for(const v of s){if(v<lo||v>hi)continue;cnt[Math.min(nb-1,Math.floor((v-lo)/bw))]++;}
+  const f=frame($('#resHist'),[lo,hi],[0,Math.max(...cnt)*1.08]);const{ctx,X,Y,C}=f;
+  for(let i=0;i<nb;i++){if(!cnt[i])continue;const a=lo+i*bw,x0=X(a)+0.5,x1=X(a+bw)-0.5;ctx.fillStyle=(a+bw/2)<t?C.bad:C.accent;ctx.fillRect(x0,Y(cnt[i]),Math.max(1,x1-x0),Y(0)-Y(cnt[i]));}
+  vline(f,pct(s,.05),C.muted,'P5',[4,3]);vline(f,pct(s,.95),C.muted,'P95',[4,3]);vline(f,R.m,C.ink,'Mean');
+  if(t>lo&&t<hi)vline(f,t,C.bad,`${fmt(t)}`,[2,2]);
+  const out=(pct(s,.002)>s[0]||pct(s,.998)<s[s.length-1]);
+  $('#histCap').textContent=`Red bars fall below the threshold of ${fmt(t)}. Dashed lines mark P5 and P95.${out?` The extreme 0.2% tails on each side (down to ${fmt(s[0])}, up to ${fmt(s[s.length-1])}) are off the chart.`:''}`;
+  const g=frame($('#resCdf'),[lo,hi],[0,1],{yLabels:v=>Math.round(v*100)+'%'});
+  g.ctx.strokeStyle=g.C.accent;g.ctx.lineWidth=2;g.ctx.beginPath();let started=false;
+  for(let k=0;k<=400;k++){const q=k/400,x=pct(s,q);if(x<lo||x>hi)continue;const px=g.X(x),py=g.Y(q);started?g.ctx.lineTo(px,py):(g.ctx.moveTo(px,py),started=true);}g.ctx.stroke();
+  if(t>lo&&t<hi){let b=0;for(const v of s){if(v<t)b++;else break;}const q=b/R.n;vline(g,t,g.C.bad,null,[2,2]);
+    const px=g.X(t),py=g.Y(q);g.ctx.save();g.ctx.setLineDash([2,2]);g.ctx.strokeStyle=g.C.bad;g.ctx.beginPath();g.ctx.moveTo(g.m.l,py);g.ctx.lineTo(px,py);g.ctx.stroke();g.ctx.restore();
+    g.ctx.fillStyle=g.C.bad;g.ctx.beginPath();g.ctx.arc(px,py,3.5,0,7);g.ctx.fill();g.ctx.font='500 11px "IBM Plex Mono", monospace';g.ctx.textBaseline='bottom';
+    const lab=`${fmtPct(q)} below ${fmt(t)}`;const tw=g.ctx.measureText(lab).width;const right=px+8+tw<g.m.l+g.pw;g.ctx.textAlign=right?'left':'right';g.ctx.fillText(lab,right?px+8:px-8,py-5);}}
 
-function render(){
-  const list=EXAMS.filter(matches).sort((a,b)=>status(a).sort-status(b).sort);
-  document.getElementById("count").textContent=`${list.length} of ${EXAMS.length} exams`;
-  document.getElementById("view").innerHTML = view==="list"?renderList(list):renderTimeline(list);
-}
+/* ---------- scenario sweep ---------- */
+let sweepRes=null;
+function sweepOptions(){const o=[];S.inputs.forEach(inp=>{if(inp.dist==='empirical'||!inp.name)return;const d=DIST[inp.dist];
+  for(const[k,l]of d.params)o.push({key:inp.name+'|'+k,label:inp.dist==='constant'?inp.name:`${inp.name} · ${l}`,inp,k});});return o;}
+const curVal=(inp,k)=>k==='var'?inp.p.sd**2:inp.p[k];
+function sweepDefaults(o){const v=curVal(o.inp,o.k);if(!isFinite(v)||v===0)return[0,1];return[sig(v*0.5,4),sig(v*1.5,4)];}
+function renderSweepForm(){const sel=$('#swParam');const opts=sweepOptions();const want=(S.sweep&&S.sweep.key)||sel.value;
+  sel.innerHTML=opts.map(o=>`<option value="${esc(o.key)}">${esc(o.label)} (now ${fmt(curVal(o.inp,o.k))})</option>`).join('');
+  let pick=opts.find(o=>o.key===want);if(!pick)pick=opts.find(o=>o.inp.dist==='constant'&&o.inp.p.value!==0)||opts[0];
+  if(!pick){$('#swRun').disabled=true;return;}$('#swRun').disabled=false;sel.value=pick.key;
+  if(S.sweep&&S.sweep.key===pick.key&&isFinite(S.sweep.from)&&isFinite(S.sweep.to)){$('#swFrom').value=S.sweep.from;$('#swTo').value=S.sweep.to;$('#swSteps').value=String(S.sweep.steps||11);}
+  else if(document.activeElement!==$('#swFrom')&&document.activeElement!==$('#swTo')){const[a,b]=sweepDefaults(pick);$('#swFrom').value=a;$('#swTo').value=b;}}
+function storeSweep(){S.sweep={key:$('#swParam').value,from:parseFloat($('#swFrom').value),to:parseFloat($('#swTo').value),steps:+$('#swSteps').value};save();}
+$('#swParam').addEventListener('change',()=>{const o=sweepOptions().find(x=>x.key===$('#swParam').value);if(o){const[a,b]=sweepDefaults(o);$('#swFrom').value=a;$('#swTo').value=b;}storeSweep();});
+['#swFrom','#swTo','#swSteps'].forEach(id=>$(id).addEventListener('change',storeSweep));
+function sampleOutputs(inputs,fn,N,seed,sampling){const R=rngObj(seed),k=inputs.length,vals=new Array(k),out=[];let cols=null;
+  if(sampling!=='mc')cols=inputs.map(inp=>lhsColumn(inp,N,R));
+  for(let i=0;i<N;i++){if(cols){for(let j=0;j<k;j++)vals[j]=cols[j][i];}else{for(let j=0;j<k;j++)vals[j]=DIST[inputs[j].dist].sample(inputs[j].p,R);}
+    const v=+fn.apply(null,vals)[0];if(isFinite(v))out.push(v);}
+  return Float64Array.from(out).sort();}
+async function runSweep(){const msg=$('#swMsg');const say=t=>{msg.hidden=!t;msg.textContent=t||'';msg.className=/^(Fix|Enter|Choose)/.test(t||'')?'err':'small muted';};
+  const fn=checkFormula();if(!fn||S.inputs.some(i=>inputError(i))){say('Fix the model on the Model tab first; it has to run before it can be swept.');return;}
+  const o=sweepOptions().find(x=>x.key===$('#swParam').value);if(!o){say('Choose a setting to vary.');return;}
+  const a=parseFloat($('#swFrom').value),b=parseFloat($('#swTo').value),n=+$('#swSteps').value;
+  if(!isFinite(a)||!isFinite(b)||a===b){say('Enter two different numbers for From and To.');return;}
+  storeSweep();const idx=S.inputs.indexOf(o.inp);const vals=Array.from({length:n},(_,i)=>a+(b-a)*i/(n-1));const rows=[];const btn=$('#swRun');btn.disabled=true;
+  const t=S.thresh;
+  for(let i=0;i<n;i++){say(`Running ${i+1} of ${n}…`);btn.textContent=`Running ${i+1}/${n}`;await new Promise(r=>setTimeout(r,0));
+    const v=vals[i];const p={...o.inp.p};if(o.k==='var')p.sd=v>=0?Math.sqrt(v):NaN;else p[o.k]=v;
+    const err=!isFinite(o.k==='var'?p.sd:v)?'Not a valid value':DIST[o.inp.dist].check(p);if(err){rows.push({v,err});continue;}
+    const inputs=S.inputs.map((x,j)=>j===idx?{...x,p}:x);let s;try{s=sampleOutputs(inputs,fn,S.iters,S.seed,S.sampling);}catch(e){rows.push({v,err:'The model failed for this value'});continue;}
+    if(!s.length){rows.push({v,err:'No valid results'});continue;}
+    const m=mean(s),sd=Math.sqrt(variance(s,m)*s.length/Math.max(1,s.length-1));let below=0;for(const x of s){if(x<t)below++;else break;}
+    rows.push({v,m,sd,p5:pct(s,.05),p25:pct(s,.25),p50:pct(s,.5),p75:pct(s,.75),p95:pct(s,.95),pb:below/s.length});}
+  btn.disabled=false;btn.textContent='Run sweep';say('');
+  sweepRes={label:o.label,rows,thr:t,outName:S.outName||'Output',N:S.iters,sampling:S.sampling!=='mc'?'Latin Hypercube':'Monte Carlo'};renderSweep();}
+$('#swRun').addEventListener('click',runSweep);
+function renderSweep(){const R=sweepRes;$('#swOut').hidden=!R;if(!R)return;const ok=R.rows.filter(r=>!r.err);
+  const best=ok.length?ok.reduce((x,y)=>y.m>x.m?y:x):null;
+  $('#swTitle').innerHTML=`<strong>${esc(R.outName)}</strong> as <strong>${esc(R.label)}</strong> changes · ${R.N.toLocaleString('en')} iterations per value · ${R.sampling}`;
+  $('#swTable').innerHTML=`<thead><tr><th>${esc(R.label)}</th><th>Mean</th><th>Std dev</th><th>P5</th><th>Median</th><th>P95</th><th>P(${esc(R.outName)} &lt; ${fmt(R.thr)})</th></tr></thead><tbody>`+
+    R.rows.map(r=>r.err?`<tr><td>${fmt(r.v)}</td><td class="l muted" colspan="6">${esc(r.err)}</td></tr>`:
+    `<tr class="${r===best?'best':''}"><td>${fmt(r.v)} ${r===best?'<span class="chip best">Highest mean</span>':''}</td><td>${fmt(r.m)}</td><td>${fmt(r.sd)}</td><td>${fmt(r.p5)}</td><td>${fmt(r.p50)}</td><td>${fmt(r.p95)}</td><td>${fmtPct(r.pb)}</td></tr>`).join('')+'</tbody>';
+  drawSweep();}
+function drawSweep(){const R=sweepRes;if(!R||$('#tab-results').hidden||$('#swOut').hidden)return;const ok=R.rows.filter(r=>!r.err);const c=$('#swChart');if(ok.length<2){prep(c);return;}
+  let lo=Math.min(...ok.map(r=>r.p5)),hi=Math.max(...ok.map(r=>r.p95));if(R.thr>lo-(hi-lo)*0.15&&R.thr<hi+(hi-lo)*0.15){lo=Math.min(lo,R.thr);hi=Math.max(hi,R.thr);}
+  const pad=(hi-lo||1)*0.06;const xs=ok.map(r=>r.v);const f=frame(c,[Math.min(...xs),Math.max(...xs)],[lo-pad,hi+pad],{yLabels:fmtAxis});const{ctx,X,Y,C}=f;
+  const band=(k1,k2,style,alpha)=>{ctx.save();ctx.globalAlpha=alpha;ctx.fillStyle=style;ctx.beginPath();ok.forEach((r,i)=>i?ctx.lineTo(X(r.v),Y(r[k2])):ctx.moveTo(X(r.v),Y(r[k2])));
+    for(let i=ok.length-1;i>=0;i--)ctx.lineTo(X(ok[i].v),Y(ok[i][k1]));ctx.closePath();ctx.fill();ctx.restore();};
+  band('p5','p95',C.accentSoft,1);band('p25','p75',C.accent,0.3);
+  if(R.thr>lo-pad&&R.thr<hi+pad){const y=Math.round(Y(R.thr))+.5;ctx.save();ctx.strokeStyle=C.bad;ctx.setLineDash([4,3]);ctx.beginPath();ctx.moveTo(f.m.l,y);ctx.lineTo(f.m.l+f.pw,y);ctx.stroke();ctx.restore();}
+  ctx.strokeStyle=C.accent;ctx.lineWidth=2;ctx.beginPath();ok.forEach((r,i)=>i?ctx.lineTo(X(r.v),Y(r.m)):ctx.moveTo(X(r.v),Y(r.m)));ctx.stroke();
+  const best=ok.reduce((x,y)=>y.m>x.m?y:x);
+  for(const r of ok){ctx.fillStyle=r===best?C.fit:C.accent;ctx.beginPath();ctx.arc(X(r.v),Y(r.m),r===best?5:3,0,7);ctx.fill();}
+  ctx.font='500 11px "IBM Plex Mono", ui-monospace, monospace';ctx.fillStyle=C.fit;ctx.textBaseline='bottom';const lab=`Highest mean ${fmt(best.m)}`;const tw=ctx.measureText(lab).width;
+  const bx=X(best.v);ctx.textAlign=bx+tw/2>f.m.l+f.pw?'right':bx-tw/2<f.m.l?'left':'center';ctx.fillText(lab,bx,Y(best.m)-8);}
+$('#swCopy').addEventListener('click',()=>{const t=$('#swTable');const text=[...t.rows].map(r=>[...r.cells].map(c=>c.textContent.replace('Highest mean','').trim()).join('\t')).join('\n');const m=$('#swCopyMsg');
+  const done=ok=>{m.hidden=false;m.textContent=ok?'Sweep table copied. It pastes into a spreadsheet as columns.':'Copying isn’t allowed here. Select the table and copy it by hand.';};
+  try{navigator.clipboard.writeText(text).then(()=>done(true),()=>done(false));}catch(e){done(false);}});
 
-function renderUrgent(){
-  const up=EXAMS.filter(e=>e.close&&days(e.close)>=0).sort((a,b)=>days(a.close)-days(b.close)).slice(0,4);
-  document.getElementById("urgent").innerHTML=up.map(e=>{
-    const o=days(e.open), c=days(e.close), notOpen=o>0;
-    return `<button class="tile ${notOpen?"soon":""}" data-goto="${e.id}">
-      <span class="days">${c}<small>day${c===1?"":"s"} left</small></span>
-      <span class="nm">${esc(e.name)}</span>
-      <span class="dl">${notOpen?`Opens ${fmt(e.open)} · `:""}Last date ${fmt(e.close)}${e.closeExp?" (expected)":""}</span></button>`;
-  }).join("");
-}
+/* ---------- fitting ---------- */
+function parseValues(text){const toks=text.split(/[\s,;]+/).filter(Boolean);const v=[];let skipped=0;for(const t of toks){const x=Number(t);if(isFinite(x))v.push(x);else skipped++;}return{v,skipped};}
+function runFits(){const{v,skipped}=parseValues(S.fitText);fitData=v;const pm=$('#parseMsg');pm.hidden=!skipped;pm.textContent=skipped?`${skipped} non-numeric ${skipped===1?'entry was':'entries were'} skipped.`:'';
+  $('#sampleNote').hidden=!(S.fitIsSample&&S.fitNote);$('#sampleNote').textContent=(S.fitNote||'')+' Replace it with your own.';fits=[];const n=v.length;renderDesc();
+  if(n<5){selFit=null;renderFitTable();drawFit();return;}
+  const s=[...v].sort((a,b)=>a-b),pos=s[0]>0,nonneg=s[0]>=0,distinct=s[0]!==s[n-1];
+  for(const key of FIT_KEYS){const d=DIST[key];
+    if(!distinct){fits.push({key,na:'All values are equal'});continue;}
+    if(d.needs==='pos'&&!pos){fits.push({key,na:'Needs all values above 0'});continue;}
+    if(d.needs==='nonneg'&&!nonneg){fits.push({key,na:'Needs values of 0 or more'});continue;}
+    let p=null;try{p=d.fit(s);}catch(e){}
+    if(!p||Object.values(p).some(x=>!isFinite(x))||d.check(p)){fits.push({key,na:'Could not fit'});continue;}
+    let ll=0;for(const x of s){const q=d.pdf(x,p);ll+=q>0?Math.log(q):-Infinity;}
+    let D=0;for(let i=0;i<n;i++){const F=d.cdf(s[i],p);D=Math.max(D,F-i/n,(i+1)/n-F);}
+    fits.push({key,p,ll,mom:MOM[key](p),aic:2*d.k-2*ll,bic:d.k*Math.log(n)-2*ll,ks:D,ksp:ksP(D,n)});}
+  sortFits();selFit=fits[0]&&!fits[0].na?fits[0].key:null;renderFitTable();drawFit();}
+function sortFits(){const k=S.rankBy;fits.sort((a,b)=>(a.na?1:0)-(b.na?1:0)||((isFinite(a[k])?a[k]:1e300)-(isFinite(b[k])?b[k]:1e300)));}
+function renderDesc(){const v=fitData,n=v.length;if(!n){$('#descStats').innerHTML='<dt>Values</dt><dd>0</dd>';return;}
+  const s=[...v].sort((a,b)=>a-b),m=mean(v),sd=Math.sqrt(variance(v,m)*n/Math.max(1,n-1));let sk=0;for(const x of v)sk+=((x-m)/(sd||1))**3;sk/=n;
+  $('#descStats').innerHTML=[['Values',n.toLocaleString('en')],['Mean',fmt(m)],['Variance',fmt(sd*sd)],['Std dev',fmt(sd)],['Min',fmt(s[0])],['Median',fmt(pct(s,.5))],['Max',fmt(s[n-1])],['Skewness',sk.toFixed(2)]]
+    .map(([k,x])=>`<dt>${k}</dt><dd>${x}</dd>`).join('')+(n<5?'<dt class="err" style="grid-column:1/-1">Enter at least 5 values to fit.</dt>':'');}
+function renderFitTable(){const t=$('#fitTable');
+  if(!fits.length){t.innerHTML='<tbody><tr><td class="l muted">Enter at least 5 values to compare distributions.</td></tr></tbody>';$('#selName').textContent='—';$('#applyBtn').disabled=true;$('#applyEmp').disabled=fitData.length<1;return;}
+  const best=fits[0].key;
+  t.innerHTML=`<thead><tr><th>#</th><th>Distribution</th><th>Parameters</th><th>Mean</th><th>Variance</th><th>Std dev</th><th>AIC</th><th>BIC</th><th>KS D</th><th>KS p</th></tr></thead><tbody>`+
+    fits.map((f,i)=>f.na?`<tr class="na"><td class="l">–</td><td class="l">${DIST[f.key].label}</td><td class="params" colspan="8">${f.na}</td></tr>`:
+    `<tr data-key="${f.key}" tabindex="0" class="${f.key===selFit?'sel':''}" aria-selected="${f.key===selFit}"><td class="l">${i+1}</td><td class="l">${DIST[f.key].label} ${f.key===best?'<span class="chip best">Best</span>':''}</td><td class="params">${DIST[f.key].show(f.p)}</td>
+      <td>${fmt(f.mom[0])}</td><td>${fmt(f.mom[1])}</td><td>${fmt(Math.sqrt(f.mom[1]))}</td><td>${isFinite(f.aic)?f.aic.toFixed(1):'—'}</td><td>${isFinite(f.bic)?f.bic.toFixed(1):'—'}</td><td>${f.ks.toFixed(3)}</td><td>${f.ksp<0.001?'<0.001':f.ksp.toFixed(3)}</td></tr>`).join('')+'</tbody>';
+  t.querySelectorAll('tbody tr[data-key]').forEach(r=>{const pick=()=>{selFit=r.dataset.key;renderFitTable();drawFit();};r.addEventListener('click',pick);r.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick();}});});
+  $('#selName').textContent=selFit?DIST[selFit].label:'—';$('#applyBtn').disabled=!selFit;$('#applyEmp').disabled=!fitData.length;}
+function drawFit(){if($('#tab-fit').hidden)return;const v=fitData,n=v.length;const C=colors();
+  const lg=$('#fitLegend');const sel=fits.find(f=>f.key===selFit),best=fits[0]&&!fits[0].na?fits[0]:null;
+  lg.innerHTML=n?`<span><i class="bar" style="background:var(--accent-soft);border:1px solid var(--accent)"></i>Data</span>`+(sel?`<span><i style="border-color:var(--fit)"></i>${DIST[sel.key].label}</span>`:'')+(best&&sel&&best.key!==sel.key?`<span><i style="border-color:var(--accent);border-top-style:dashed"></i>${DIST[best.key].label} (best)</span>`:''):'';
+  if(n<2){prep($('#fitPdf'));prep($('#fitCdf'));return;}
+  const s=[...v].sort((a,b)=>a-b),r=s[n-1]-s[0]||Math.abs(s[0])||1,lo=s[0]-r*0.08,hi=s[n-1]+r*0.08;
+  const nb=Math.min(40,Math.max(6,Math.round(Math.sqrt(n)*1.2))),bw=(s[n-1]-s[0]||1)/nb,cnt=new Array(nb).fill(0);
+  for(const x of s)cnt[Math.min(nb-1,Math.floor((x-s[0])/bw))]++;const dens=cnt.map(c=>c/(n*bw));const hmax=Math.max(...dens);
+  const curves=[];for(const f of [sel,best&&sel&&best.key!==sel.key?best:null]){if(!f)continue;const pts=[];for(let i=0;i<=240;i++){const x=lo+(hi-lo)*i/240;pts.push([x,DIST[f.key].pdf(x,f.p)]);}curves.push({f,pts});}
+  let ymax=hmax;for(const c of curves)for(const[,y]of c.pts)if(isFinite(y))ymax=Math.max(ymax,Math.min(y,hmax*1.6));
+  const g=frame($('#fitPdf'),[lo,hi],[0,ymax*1.08]);
+  for(let i=0;i<nb;i++){const a=s[0]+i*bw,x0=g.X(a)+0.5,x1=g.X(a+bw)-0.5;g.ctx.fillStyle=C.accentSoft;g.ctx.fillRect(x0,g.Y(dens[i]),Math.max(1,x1-x0),g.Y(0)-g.Y(dens[i]));
+    g.ctx.strokeStyle=C.accent;g.ctx.globalAlpha=.55;g.ctx.strokeRect(x0+.5,g.Y(dens[i])+.5,Math.max(1,x1-x0)-1,g.Y(0)-g.Y(dens[i])-1);g.ctx.globalAlpha=1;}
+  g.ctx.save();g.ctx.beginPath();g.ctx.rect(g.m.l,g.m.t-2,g.pw,g.ph+2);g.ctx.clip();
+  curves.slice().reverse().forEach(c=>{const isSel=c.f===sel;g.ctx.strokeStyle=isSel?C.fit:C.accent;g.ctx.lineWidth=isSel?2.25:1.5;g.ctx.setLineDash(isSel?[]:[5,4]);g.ctx.beginPath();
+    let st=false;for(const[x,y]of c.pts){if(!isFinite(y))continue;const py=g.Y(Math.min(y,ymax*1.2));st?g.ctx.lineTo(g.X(x),py):(g.ctx.moveTo(g.X(x),py),st=true);}g.ctx.stroke();});g.ctx.restore();
+  const h=frame($('#fitCdf'),[lo,hi],[0,1],{yLabels:x=>Math.round(x*100)+'%'});h.ctx.strokeStyle=C.muted;h.ctx.lineWidth=1.5;h.ctx.beginPath();h.ctx.moveTo(h.X(lo),h.Y(0));
+  for(let i=0;i<n;i++){h.ctx.lineTo(h.X(s[i]),h.Y(i/n));h.ctx.lineTo(h.X(s[i]),h.Y((i+1)/n));}h.ctx.lineTo(h.X(hi),h.Y(1));h.ctx.stroke();
+  if(sel){h.ctx.strokeStyle=C.fit;h.ctx.lineWidth=2.25;h.ctx.beginPath();for(let i=0;i<=240;i++){const x=lo+(hi-lo)*i/240,y=DIST[sel.key].cdf(x,sel.p);i?h.ctx.lineTo(h.X(x),h.Y(y)):h.ctx.moveTo(h.X(x),h.Y(y));}h.ctx.stroke();}}
+function renderApplyTargets(){const sel=$('#applyTarget');const cur=sel.value;sel.innerHTML=S.inputs.map(i=>`<option value="${i.id}">${esc(i.name)}</option>`).join('')+'<option value="new">a new input</option>';
+  if([...sel.options].some(o=>o.value===cur))sel.value=cur;
+  else{const t=S.inputs.find(i=>i.name===S.fitTarget);sel.value=t?String(t.id):(S.inputs[0]?String(S.inputs[0].id):'new');}
+  $('#applyName').hidden=sel.value!=='new';}
+function applyFit(empirical){const msg=$('#applyMsg');const tgt=$('#applyTarget').value;let inp;
+  if(tgt==='new'){const name=$('#applyName').value.trim();if(!/^[A-Za-z_][A-Za-z0-9_]*$/.test(name)||RESERVED.has(name)||S.inputs.some(i=>i.name===name)){msg.hidden=false;msg.className='err';msg.textContent='Give the new input a unique name using letters, digits and _, starting with a letter.';return;}
+    inp={id:nextId++,name,dist:'normal',p:{}};S.inputs.push(inp);}else inp=S.inputs.find(i=>String(i.id)===tgt);
+  if(!inp)return;
+  if(empirical){inp.dist='empirical';inp.data=[...fitData];inp.p={data:inp.data};inp.src=`Resampling ${fitData.length} observations`;}
+  else{const f=fits.find(x=>x.key===selFit);inp.dist=f.key;inp.p=Object.fromEntries(Object.entries(f.p).map(([k,v])=>[k,sig(v,6)]));inp.src=`Fitted: ${DIST[f.key].label}, ${fitData.length} observations`;}
+  S.fitTarget=inp.name;touched();renderInputs();renderApplyTargets();$('#applyTarget').value=String(inp.id);$('#applyName').hidden=true;$('#applyName').value='';
+  msg.hidden=false;msg.className='ok';msg.innerHTML=`${esc(inp.name)} now uses ${empirical?'the data directly':DIST[inp.dist].label}. <button class="btn link" data-go="model">Go to Model</button> and run the simulation to see the effect.`;}
+function parseCSV(text){const lines=text.split(/\r?\n/).filter(l=>l.trim());if(!lines.length)return[];
+  const delim=[',',';','\t'].map(d=>[d,lines[0].split(d).length]).sort((a,b)=>b[1]-a[1])[0][0];
+  const rows=lines.map(l=>l.split(delim).map(c=>c.trim().replace(/^"|"$/g,'')));const header=rows[0].some(c=>c!==''&&!isFinite(Number(c)));
+  const body=header?rows.slice(1):rows;const w=Math.max(...rows.map(r=>r.length));const cols=[];
+  for(let i=0;i<w;i++){const vals=body.map(r=>r[i]).filter(c=>c!==undefined&&c!==''&&isFinite(Number(c))).map(Number);if(vals.length>=2)cols.push({name:(header&&rows[0][i])||`Column ${i+1}`,vals});}return cols;}
 
-function setView(v){
-  view=v;
-  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.view===v));
-  render();
-}
-function goto(id){
-  opened.add(id); F.cat="all";F.status="all";F.stream="all";F.q="";document.getElementById("q").value="";
-  document.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c.dataset.v==="all"));
-  setView("list");
-  const el=document.getElementById("c-"+id); if(el) el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
-}
+/* ---------- tabs & wiring ---------- */
+function showTab(name){for(const t of ['model','fit','results']){$('#tab-'+t).hidden=t!==name;$('#t-'+t).setAttribute('aria-selected',t===name);$('#t-'+t).tabIndex=t===name?0:-1;}
+  try{localStorage.setItem(KEY+'.tab',name);}catch(e){}
+  requestAnimationFrame(()=>{if(name==='results'){drawResults();drawSweep();}if(name==='fit')drawFit();if(name==='model')refreshAllCards();});}
+document.querySelectorAll('.tabs button').forEach(b=>{b.addEventListener('click',()=>showTab(b.dataset.tab));
+  b.addEventListener('keydown',e=>{const order=['model','fit','results'];let i=order.indexOf(b.dataset.tab);if(e.key==='ArrowRight')i=(i+1)%3;else if(e.key==='ArrowLeft')i=(i+2)%3;else return;showTab(order[i]);$('#t-'+order[i]).focus();});});
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g)showTab(g.dataset.go);});
 
-document.addEventListener("click",ev=>{
-  const star=ev.target.closest("[data-star]");
-  if(star){ ev.stopPropagation(); const id=star.dataset.star; mine.has(id)?mine.delete(id):mine.add(id); saveMine(); render(); return; }
-  const chip=ev.target.closest(".chip");
-  if(chip){ F[chip.dataset.f]=chip.dataset.v; document.querySelectorAll(`.chip[data-f="${chip.dataset.f}"]`).forEach(c=>c.setAttribute("aria-pressed",c===chip)); render(); return; }
-  const tab=ev.target.closest(".tab"); if(tab){ setView(tab.dataset.view); if(tab.dataset.view==="timeline") history.replaceState(null,"","#timeline"); else history.replaceState(null,"",location.pathname+location.search); return; }
-  const g=ev.target.closest("[data-goto]"); if(g){ goto(g.dataset.goto); return; }
-  const t=ev.target.closest("[data-toggle]");
-  if(t){ const id=t.dataset.toggle; opened.has(id)?opened.delete(id):opened.add(id); const c=document.getElementById("c-"+id); c.classList.toggle("openc"); t.setAttribute("aria-expanded",opened.has(id)); }
-});
-document.addEventListener("keydown",ev=>{ if((ev.key==="Enter"||ev.key===" ")&&ev.target.matches("[data-toggle]")){ev.preventDefault();ev.target.click();} });
-document.getElementById("q").addEventListener("input",ev=>{F.q=ev.target.value.trim().toLowerCase();render();});
-window.addEventListener("hashchange",()=>setView(location.hash==="#timeline"?"timeline":"list"));
+function renderCaseView(){const k=$('#caseKick'),n=$('#notesView');k.hidden=!S.title;k.textContent=S.title||'';n.hidden=!S.notes;n.textContent=S.notes||'';}
+function applyState(){sweepRes=null;$('#swOut').hidden=true;$('#swMsg').hidden=true;if(!Array.isArray(S.calcs))S.calcs=[];S.calcs.forEach(c=>{c.id=calcSeq++;});nextId=Math.max(0,...S.inputs.map(i=>i.id||0))+1;S.inputs.forEach(i=>{if(!i.id)i.id=nextId++;});lastRun=null;stale=false;$('#staleChip').hidden=true;
+  $('#applyTarget').value='';bindTop();renderInputs();renderCalcs();renderApplyTargets();runFits();checkFormula();simulate();renderResults();renderCaseView();save();}
+function bindTop(){$('#caseTitle').value=S.title||'';$('#caseNotes').value=S.notes||'';$('#outName').value=S.outName;$('#formula').value=S.formula;$('#iters').value=String(S.iters);$('#seed').value=S.seed;$('#sampling').value=S.sampling==='mc'?'mc':'lhs';$('#thresh').value=S.thresh;
+  $('#fitData').value=S.fitText;$('#rankBy').value=S.rankBy;}
+$('#outName').addEventListener('input',e=>{S.outName=e.target.value.trim()||'Output';touched();});
+$('#formula').addEventListener('input',e=>{S.formula=e.target.value;checkFormula();touched();});
+$('#iters').addEventListener('change',e=>{S.iters=+e.target.value;touched();});
+$('#seed').addEventListener('input',e=>{S.seed=Math.round(+e.target.value)||0;touched();});
+$('#sampling').addEventListener('change',e=>{S.sampling=e.target.value;touched();});
+$('#thresh').addEventListener('input',e=>{const v=parseFloat(e.target.value);if(isFinite(v)){S.thresh=v;save();renderResults();}});
+$('#addCalc').addEventListener('click',()=>{let k=S.calcs.length+1;const used=n=>S.inputs.some(i=>i.name===n)||S.calcs.some(c=>c.name===n);while(used('Step'+k))k++;
+  const c={id:calcSeq++,name:'Step'+k,formula:''};S.calcs.push(c);touched();renderCalcs();const el=document.getElementById('cn-'+c.id);if(el){el.focus();el.select();}});
+$('#addInput').addEventListener('click',()=>{let k=S.inputs.length+1;while(S.inputs.some(i=>i.name==='Input'+k))k++;
+  S.inputs.push({id:nextId++,name:'Input'+k,dist:'normal',p:{mean:100,sd:10}});touched();renderInputs();renderApplyTargets();
+  const el=document.querySelector(`#nm-${nextId-1}`);if(el){el.focus();el.select();}});
+$('#runBtn').addEventListener('click',()=>{const b=$('#runBtn');b.disabled=true;b.textContent='Running…';
+  setTimeout(()=>{const ok=simulate();b.disabled=false;b.textContent='Run simulation';if(ok){renderResults();showTab('results');}},20);});
+$('#caseTitle').addEventListener('input',e=>{S.title=e.target.value;if(document.activeElement!==$('#libName'))$('#libName').value=S.title;S.edited=true;S.dirty=true;renderCaseView();save();});
+$('#caseNotes').addEventListener('input',e=>{S.notes=e.target.value;S.edited=true;S.dirty=true;renderCaseView();save();});
+$('#tplSel').innerHTML=Object.entries(TEMPLATES).map(([k,t])=>`<option value="${k}">${esc(t.label)}</option>`).join('');
+const withData=()=>$('#exportData').checked;
+const closePanels=()=>{$('#tplConfirm').hidden=true;$('#exportPanel').hidden=true;$('#importPanel').hidden=true;};
+const label=m=>(m.title||m.outName||'Untitled model');
+let undoEntry=null;
+function replaceModel(next,what){const entry=stash(S);S=next;applyState();renderHist();renderLib();
+  undoEntry=entry;const ub=$('#undoBar');if(entry){$('#undoText').textContent=`Loaded ${what}. Your previous model, “${label(entry.model)}”, is kept in My models under Recently replaced.`;$('#undoBtn').hidden=false;ub.hidden=false;}else ub.hidden=true;}
+function restoreEntry(entry){let m;try{m=sanitize(entry.model);}catch(e){return;}m.edited=true;m.origin='restored:'+entry.at;replaceModel(m,`“${label(entry.model)}”`);}
+$('#undoBtn').addEventListener('click',()=>{if(!undoEntry)return;const e=undoEntry;const a=histGet().filter(x=>x.at!==e.at);restoreEntry(e);histSet([...histGet().filter(x=>x.at!==e.at)]);renderHist();$('#undoBar').hidden=true;undoEntry=null;});
+$('#undoClose').addEventListener('click',()=>{$('#undoBar').hidden=true;});
+function renderHist(){const a=histGet();const L=$('#histList');
+  if(!a.length){L.innerHTML='<p class="small muted">Nothing here yet.</p>';return;}
+  L.innerHTML=a.map((e,i)=>{const m=e.model||{};const d=new Date(e.at);return `<div class="hist-row"><div style="min-width:0"><div class="hist-t">${esc(label(m))}</div><div class="hist-m">${esc(d.toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'}))} · ${(m.inputs||[]).length} inputs${(m.calcs||[]).length?` · ${m.calcs.length} step${m.calcs.length>1?'s':''}`:''}</div></div>
+    <div class="btn-row"><button class="btn primary sm" data-restore="${i}">Restore</button><button class="btn ghost sm" data-hdel="${i}" aria-label="Delete ${esc(label(m))}">Delete</button></div></div>`;}).join('');
+  L.querySelectorAll('[data-restore]').forEach(b=>b.addEventListener('click',()=>{const e=histGet()[+b.dataset.restore];if(!e)return;closePanels();closeLib();histSet(histGet().filter(x=>x.at!==e.at));restoreEntry(e);showTab('model');}));
+  L.querySelectorAll('[data-hdel]').forEach(b=>b.addEventListener('click',()=>{const a2=histGet();a2.splice(+b.dataset.hdel,1);histSet(a2);renderHist();}));}
+const when=t=>new Date(t).toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'});
+let pendingDel=null;
+function renderLib(){const a=libGet();$('#libCount').textContent=a.length;const name=$('#libName');if(document.activeElement!==name)name.value=S.title||'';
+  const cur=a.find(e=>e.id===S.libId);
+  $('#libStatus').textContent=cur?(S.dirty?`“${cur.name}” has changes that aren’t saved yet.`:`“${cur.name}” is saved (${when(cur.at)}).`):'The model you have open isn’t saved in My models yet.';
+  $('#libSave').textContent=cur?'Save changes':'Save';$('#libSaveNew').hidden=!cur;
+  const L=$('#libList');if(!a.length){L.innerHTML='<p class="small muted">No saved models yet. Name the model you have open and click Save.</p>';return;}
+  const list=[...a].sort((x,y)=>y.at-x.at);
+  L.innerHTML=list.map(e=>{const m=e.model||{};const isCur=e.id===S.libId;
+    const btns=pendingDel===e.id?`<span class="small">Delete “${esc(e.name)}”?</span><button class="btn primary sm" data-ldelyes="${e.id}">Delete</button><button class="btn ghost sm" data-ldelno="1">Cancel</button>`:
+      `<button class="btn ${isCur?'ghost':'primary'} sm" data-lopen="${e.id}">${isCur?'Reopen saved version':'Open'}</button>${framed?'':`<button class="btn ghost sm" data-ldl="${e.id}">Download</button>`}<button class="btn ghost sm" data-ldel="${e.id}" aria-label="Delete ${esc(e.name)}">Delete</button>`;
+    return `<div class="hist-row"><div style="min-width:0"><div class="hist-t">${esc(e.name)}${isCur?'<span class="chip now">Open now</span>':''}</div><div class="hist-m">Saved ${esc(when(e.at))} · ${(m.inputs||[]).length} inputs${(m.calcs||[]).length?` · ${m.calcs.length} step${m.calcs.length>1?'s':''}`:''}</div></div><div class="btn-row">${btns}</div></div>`;}).join('');
+  L.querySelectorAll('[data-lopen]').forEach(b=>b.addEventListener('click',()=>libOpen(b.dataset.lopen)));
+  L.querySelectorAll('[data-ldel]').forEach(b=>b.addEventListener('click',()=>{pendingDel=b.dataset.ldel;renderLib();}));
+  L.querySelectorAll('[data-ldelno]').forEach(b=>b.addEventListener('click',()=>{pendingDel=null;renderLib();}));
+  L.querySelectorAll('[data-ldelyes]').forEach(b=>b.addEventListener('click',()=>{const id=b.dataset.ldelyes;libSet(libGet().filter(x=>x.id!==id));if(S.libId===id){S.libId=null;save();}pendingDel=null;renderLib();}));
+  L.querySelectorAll('[data-ldl]').forEach(b=>b.addEventListener('click',()=>{const e=libGet().find(x=>x.id===b.dataset.ldl);if(!e)return;
+    const blob=new Blob([JSON.stringify(e.model,null,1)],{type:'application/json'});const a2=document.createElement('a');a2.href=URL.createObjectURL(blob);
+    a2.download=(e.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'model')+'.json';document.body.appendChild(a2);a2.click();setTimeout(()=>{URL.revokeObjectURL(a2.href);a2.remove();},500);}));}
+function libSaveCurrent(asNew,fromKey){const nm=(fromKey?(S.title||$('#libName').value):$('#libName').value).trim();
+  if(!nm){openLib();$('#libStatus').textContent='Enter a name for the model, then click Save.';$('#libName').focus();return;}
+  S.title=nm;$('#caseTitle').value=nm;renderCaseView();
+  const a=libGet();let e=!asNew&&a.find(x=>x.id===S.libId);
+  if(!e){e={id:'m'+Date.now().toString(36)+Math.random().toString(36).slice(2,6)};a.unshift(e);}
+  e.name=nm;e.at=Date.now();e.model=exportObj(true);
+  if(!libSet(a)){$('#libStatus').textContent='This browser’s storage is full. Delete some saved models, or use Export case to keep this one as a file.';return;}
+  S.libId=e.id;S.dirty=false;S.edited=true;save();pendingDel=null;renderLib();}
+function libOpen(id){const e=libGet().find(x=>x.id===id);if(!e)return;let m;try{m=sanitize(e.model);}catch(x){return;}
+  m.libId=id;m.dirty=false;m.edited=true;m.origin='lib:'+id;closeLib();replaceModel(m,`“${e.name}”`);showTab('results');}
+function openLib(){$('#libPanel').hidden=false;$('#libBtn').setAttribute('aria-expanded','true');renderLib();renderHist();}
+function closeLib(){$('#libPanel').hidden=true;$('#libBtn').setAttribute('aria-expanded','false');pendingDel=null;}
+$('#libBtn').addEventListener('click',()=>{if($('#libPanel').hidden){openLib();$('#libName').focus();}else closeLib();});
+$('#libClose').addEventListener('click',closeLib);
+$('#libSave').addEventListener('click',()=>libSaveCurrent(false));
+$('#libSaveNew').addEventListener('click',()=>libSaveCurrent(true));
+$('#libName').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();libSaveCurrent(false);}});
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'){e.preventDefault();if(!S.libId&&!$('#libName').value.trim()&&!S.title){openLib();$('#libName').focus();return;}libSaveCurrent(false,true);if($('#libPanel').hidden){openLib();}}});
+$('#tplLoad').addEventListener('click',()=>{const t=TEMPLATES[$('#tplSel').value];closePanels();$('#tplConfirmText').textContent=`Load “${t.label.split(' · ').pop()}”? If your current model isn’t saved, it’s kept in My models under Recently replaced.`;$('#tplConfirm').hidden=false;});
+$('#tplNo').addEventListener('click',closePanels);
+$('#tplYes').addEventListener('click',()=>{closePanels();const k=$('#tplSel').value;replaceModel(buildTemplate(k),`“${TEMPLATES[k].label.split(' · ').pop()}”`);showTab('model');});
+const framed=(()=>{try{return window.self!==window.top;}catch(e){return true;}})();
+function slug(){return((S.title||S.outName||'case').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'case');}
+$('#exportBtn').addEventListener('click',()=>{const open=$('#exportPanel').hidden;closePanels();if(!open)return;$('#exportPanel').hidden=false;$('#exportMsg').hidden=true;
+  $('#exportDataN').textContent=fitData.length?`(${fitData.length} values)`:'(none)';$('#exportText').value=JSON.stringify(exportObj(withData()),null,1);$('#dlBtn').hidden=framed;$('#linkBtn').hidden=framed;$('#framedNote').hidden=!framed;});
+function exportCopy(text,ok){const m=$('#exportMsg');const fb=()=>{const t=$('#exportText');t.value=text;t.focus();t.select();m.hidden=false;m.className='small muted';m.textContent='Copying isn’t allowed here. The text is selected; press Ctrl+C or ⌘C.';};
+  try{navigator.clipboard.writeText(text).then(()=>{m.hidden=false;m.className='ok';m.textContent=ok;},fb);}catch(e){fb();}}
+$('#exportData').addEventListener('change',()=>{$('#exportText').value=JSON.stringify(exportObj(withData()),null,1);$('#exportMsg').hidden=true;});
+$('#copyExport').addEventListener('click',()=>exportCopy(JSON.stringify(exportObj(withData()),null,1),'Case text copied. Paste it into a text file saved as .json, or straight into Import case.'));
+$('#dlBtn').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(exportObj(withData()),null,1)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=slug()+'.json';
+  document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);const m=$('#exportMsg');m.hidden=false;m.className='ok';m.textContent=`Downloaded ${slug()}.json.`;});
+$('#linkBtn').addEventListener('click',()=>{const url=location.href.split('#')[0]+'#case='+b64enc(JSON.stringify(exportObj(withData())));
+  exportCopy(url,url.length>8000?`Link copied (${Math.round(url.length/1000)}k characters). Long links can break in some apps; the case file is safer for large data.`:'Share link copied. Anyone who opens it gets this case loaded.');});
+$('#importBtn').addEventListener('click',()=>{const open=$('#importPanel').hidden;closePanels();if(!open)return;$('#importPanel').hidden=false;$('#importMsg').hidden=true;$('#importText').focus();});
+$('#importCancel').addEventListener('click',closePanels);
+$('#importFile').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{$('#importText').value=String(rd.result);e.target.value='';importNow();};rd.readAsText(f);});
+function importNow(){const m=$('#importMsg');let obj;try{obj=sanitize(JSON.parse($('#importText').value));}catch(e){m.hidden=false;m.textContent=e instanceof SyntaxError?'This text isn’t a valid case file. Paste the whole file, from the first { to the last }.':e.message;return;}
+  obj.origin='import:'+strHash($('#importText').value);closePanels();$('#importText').value='';replaceModel(obj,`“${label(obj)}”`);showTab('model');}
+$('#importGo').addEventListener('click',importNow);
+let fitT;$('#fitData').addEventListener('input',e=>{S.fitText=e.target.value;S.fitIsSample=false;S.edited=true;S.dirty=true;$('#fitCol').hidden=true;save();clearTimeout(fitT);fitT=setTimeout(runFits,300);});
+$('#rankBy').addEventListener('change',e=>{S.rankBy=e.target.value;save();if(fits.length){sortFits();renderFitTable();drawFit();}});
+let csvCols=[];
+$('#fitFile').addEventListener('change',e=>{const file=e.target.files[0];if(!file)return;const rd=new FileReader();rd.onload=()=>{csvCols=parseCSV(String(rd.result));const pm=$('#parseMsg');
+  if(!csvCols.length){pm.hidden=false;pm.textContent=`No numeric column found in ${file.name}.`;return;}
+  const sel=$('#fitCol');sel.innerHTML=csvCols.map((c,i)=>`<option value="${i}">${esc(c.name)} (${c.vals.length})</option>`).join('');sel.hidden=csvCols.length<2;sel.value='0';useCol(0);
+  pm.hidden=false;pm.textContent=`Loaded ${file.name}${csvCols.length>1?' — choose the column to fit':''}.`;e.target.value='';};rd.readAsText(file);});
+$('#fitCol').addEventListener('change',e=>useCol(+e.target.value));
+function useCol(i){const c=csvCols[i];if(!c)return;S.fitText=c.vals.join('\n');S.fitIsSample=false;S.edited=true;S.dirty=true;$('#fitData').value=S.fitText;save();const keep=$('#parseMsg').textContent;runFits();$('#parseMsg').hidden=false;$('#parseMsg').textContent=keep;}
+$('#applyTarget').addEventListener('change',e=>{$('#applyName').hidden=e.target.value!=='new';if(e.target.value==='new')$('#applyName').focus();});
+$('#applyBtn').addEventListener('click',()=>applyFit(false));
+$('#applyEmp').addEventListener('click',()=>applyFit(true));
 
-document.getElementById("today").textContent="Today: "+now.toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short",year:"numeric"});
-renderUrgent();
-setView(location.hash==="#timeline"?"timeline":"list");
+function copyText(text,okMsg){const m=$('#copyMsg'),fb=$('#copyFallback');const fallback=()=>{fb.hidden=false;fb.value=text;fb.focus();fb.select();m.hidden=false;m.textContent='Copying isn’t allowed here. The text is selected below; press Ctrl+C or ⌘C.';};
+  try{navigator.clipboard.writeText(text).then(()=>{fb.hidden=true;m.hidden=false;m.textContent=okMsg;},fallback);}catch(e){fallback();}}
+$('#copyBtn').addEventListener('click',()=>{const t=$('#pctTable');copyText([...t.rows].map(r=>[...r.cells].map(c=>c.textContent).join('\t')).join('\n'),'Percentile table copied. It pastes into a spreadsheet as columns.');});
+$('#copyRaw').addEventListener('click',()=>{const R=lastRun;if(!R)return;const lim=Math.min(R.n,20000);const L=[[...R.names,...R.calcNames,R.outName].join(',')];
+  const cq=v=>typeof v==='string'?(/[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v):v;for(let i=0;i<lim;i++)L.push([...R.cols.map(c=>c[i]),...R.calcCols.map(c=>cq(c[i])),R.out[i]].join(','));copyText(L.join('\n'),lim<R.n?`First ${lim.toLocaleString('en')} of ${R.n.toLocaleString('en')} iterations copied as CSV.`:`${lim.toLocaleString('en')} iterations copied as CSV.`);});
+
+let rz;const redraw=()=>{cancelAnimationFrame(rz);rz=requestAnimationFrame(()=>{drawResults();drawSweep();drawFit();if(!$('#tab-model').hidden)refreshAllCards();});};
+new ResizeObserver(redraw).observe(document.querySelector('main'));
+try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',redraw);}catch(e){}
+new MutationObserver(redraw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme','class']});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(redraw);
+
+/* ---------- boot ---------- */
+const bootHash=location.hash;
+const isCaseHash=h=>/^#(case=|case-)/.test(h||'');
+window.addEventListener('hashchange',()=>{if(isCaseHash(location.hash)&&location.hash!==bootHash)location.reload();});
+window.addEventListener('pageshow',e=>{if(e.persisted&&isCaseHash(location.hash)&&location.hash!==bootHash)location.reload();});
+S=load();applyState();renderHist();renderLib();
+{const k=(S.origin||'').startsWith('tpl:')?S.origin.slice(4):null;if(k&&TEMPLATES[k])$('#tplSel').value=k;}
+if(linkError){closePanels();$('#importPanel').hidden=false;const m=$('#importMsg');m.hidden=false;m.textContent=linkError;}
+let startTab='results';try{const h=location.hash.replace('#','');const st=localStorage.getItem(KEY+'.tab');startTab=['model','fit','results'].includes(h)?h:(['model','fit','results'].includes(st)?st:'results');}catch(e){}
+showTab(linkError?'model':(lastRun?startTab:'model'));
 </script>
+
 </body>
 </html>
