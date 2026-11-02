@@ -8,3 +8,7 @@ Live pages (GitHub Pages):
 | Entrance Exam Planner 2027 | https://sourabhbhattacharya.github.io/SBT/exam-planner/ | [`exam-planner/index.html`](exam-planner/index.html) |
 
 To add another page, put it in its own folder as `folder-name/index.html`. Uploading a file named `index.html` at the top level replaces the toolkit.
+
+## Copyright
+
+© 2026 Sourabh Bhattacharya. All rights reserved. No part of this repository may be copied, modified or republished without written permission. See [LICENSE](LICENSE).
