@@ -32,8 +32,8 @@ for (const e of EXAMS) {
     [["-P6DT15H", `${e.name}: application closes in 7 days`], ["-PT15H", `${e.name}: application closes TOMORROW`]]);
   if (e.exam) add(e.id + "-exam", e.exam, `${(e.examTitle || "Exam").toUpperCase()}: ${e.name} (${e.examLbl})${est(e.examExp)}`, info, e.url, [["-P2DT15H", `${e.name}: ${(e.examTitle || "exam").toLowerCase()} in 3 days`]]);
 }
-const cal = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//SBT//Entrance Exam Planner//EN", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
-  "X-WR-CALNAME:Entrance Exam Planner", "X-WR-TIMEZONE:Asia/Kolkata",
+const cal = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//SBT//Undergraduate Entrance Exam Planner//EN", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
+  "X-WR-CALNAME:Undergraduate Entrance Exam Planner", "X-WR-TIMEZONE:Asia/Kolkata",
   "X-WR-CALDESC:" + esc(`Application deadlines and exam dates for Class 12 PCMB students. Dates last checked ${lc}. ${PAGE}`),
   "REFRESH-INTERVAL;VALUE=DURATION:PT12H", "X-PUBLISHED-TTL:PT12H", ...ev, "END:VCALENDAR"];
 fs.writeFileSync(path.join(dir, "deadlines.ics"), cal.map(fold).join("\r\n") + "\r\n");

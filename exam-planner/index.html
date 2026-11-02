@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Entrance Exam Planner</title>
+<title>Undergraduate Entrance Exam Planner</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -208,7 +208,7 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
   <div class="in">
     <div class="top">
       <div>
-        <h1>Entrance Exam Planner <span id="cyc"></span></h1>
+        <h1>Undergraduate Entrance Exam Planner <span id="cyc"></span></h1>
         <p class="lede">Undergraduate entrance exams and university applications after Class 12, in India and abroad, for science, commerce, arts and humanities, with live countdowns to every deadline.</p>
       </div>
       <div class="meta-r">
@@ -1107,7 +1107,7 @@ window.addEventListener("hashchange",()=>{view=/timeline/.test(location.hash)?"t
 })();
 document.getElementById("today").textContent=now.toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
 document.getElementById("cyc").textContent=ADMISSION_YEAR;
-document.title="Entrance Exam Planner "+ADMISSION_YEAR;
+document.title="Undergraduate Entrance Exam Planner "+ADMISSION_YEAR;
 (function(){const age=Math.round((now-d(LAST_CHECKED))/DAY);if(age>21){const b=document.createElement("div");b.className="scope";b.style.cssText="background:var(--urgent-soft);color:var(--urgent)";b.textContent="These dates were last checked "+age+" days ago and may be out of date. Confirm on the official sites.";document.querySelector("main").prepend(b);}})();
 document.getElementById("checked").textContent="Dates last checked: "+fmt(LAST_CHECKED)+". The list is re-checked every Saturday.";
 render();
