@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Entrance Exam Planner 2027</title>
+<title>Entrance Exam Planner</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -208,7 +208,7 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
   <div class="in">
     <div class="top">
       <div>
-        <h1>Entrance Exam Planner 2027</h1>
+        <h1>Entrance Exam Planner <span id="cyc"></span></h1>
         <p class="lede">Undergraduate entrance exams and university applications after Class 12, in India and abroad, for science, commerce, arts and humanities, with live countdowns to every deadline.</p>
       </div>
       <div class="meta-r">
@@ -265,7 +265,7 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
 </main>
 <footer>
   <p id="checked"></p>
-  <p><b>Dates in italics are expected</b>, projected from the 2026 cycle until the 2027 notice is out. Confirm on the official site before relying on them. Cutoffs are the latest available and change every year.</p>
+  <p><b>Dates in italics are expected</b>, projected from the previous year until the new notice is out. Confirm on the official site before relying on them. Cutoffs are the latest available and change every year.</p>
   <p>Many BA, B.Com and BBA seats at central universities (DU, JNU, BHU, University of Hyderabad, TISS) are filled through CUET UG. Telangana state degree colleges admit through DOST on Class 12 marks, with no exam. State CETs of other states are not listed.</p>
 </footer>
 </div>
@@ -273,6 +273,8 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
 
 <script>
 // ---- Weekly update log: the Saturday check adds a new entry at the TOP and sets LAST_CHECKED ----
+// ADMISSION_YEAR = the year students in this list will start college. The weekly update moves it forward each year.
+const ADMISSION_YEAR = 2027;
 const LAST_CHECKED = "2026-11-02";
 const UPDATES = [
  {date:"2026-11-02", items:["Added SEED (Symbiosis design; last date ~25 Dec 2026) and BITSDAT (BITS Design School; apply by 31 Jan 2027, test 29 Mar – 5 Apr).","NATA is listed as NATA 2027 (Architecture) under Design & architecture."]},
@@ -874,10 +876,10 @@ function renderList(list){
 }
 
 /* ---- timeline ---- */
-const T0=new Date(2026,9,1),T1=new Date(2027,9,1);
+const T0=new Date(now.getFullYear(),now.getMonth()-1,1),T1=new Date(T0.getFullYear()+1,T0.getMonth(),1);
 const pct=s=>Math.max(0,Math.min(100,(d(s)-T0)/(T1-T0)*100));
 function renderTimeline(list){
-  const months=[];for(let i=0;i<12;i++){const m=new Date(2026,9+i,1);months.push(m.toLocaleDateString("en-IN",{month:"short"})+(i===0||m.getMonth()===0?" "+String(m.getFullYear()).slice(2):""));}
+  const months=[];for(let i=0;i<12;i++){const m=new Date(T0.getFullYear(),T0.getMonth()+i,1);months.push(m.toLocaleDateString("en-IN",{month:"short"})+(i===0||m.getMonth()===0?" "+String(m.getFullYear()).slice(2):""));}
   const tp=(now-T0)/(T1-T0)*100;
   const rows=list.slice().sort((a,b)=>status(a).sort-status(b).sort).map(e=>{const C=cat0(e);
     const bar=e.open?`<div class="appbar ${e.closeExp?"ex":""}" style="left:${pct(e.open)}%;width:${Math.max(.8,pct(e.close)-pct(e.open))}%" title="Apply ${fmt(e.open)} – ${fmt(e.close)}"></div>`:"";
@@ -929,6 +931,9 @@ window.addEventListener("hashchange",()=>{view=/timeline/.test(location.hash)?"t
   document.getElementById("r-file").href=base;
 })();
 document.getElementById("today").textContent=now.toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+document.getElementById("cyc").textContent=ADMISSION_YEAR;
+document.title="Entrance Exam Planner "+ADMISSION_YEAR;
+(function(){const age=Math.round((now-d(LAST_CHECKED))/DAY);if(age>21){const b=document.createElement("div");b.className="scope";b.style.cssText="background:var(--urgent-soft);color:var(--urgent)";b.textContent="These dates were last checked "+age+" days ago and may be out of date. Confirm on the official sites.";document.querySelector("main").prepend(b);}})();
 document.getElementById("checked").textContent="Dates last checked: "+fmt(LAST_CHECKED)+". The list is re-checked every Saturday.";
 render();
 
