@@ -8,227 +8,244 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-/* Layout idea: a deadline board. Urgent strip on top, then filterable exam rows, with a year timeline as the second view. */
+/* Layout idea: a dark header band with stream tabs; one sticky toolbar; exams grouped by the month their form closes, colour-coded by field. */
 :root{
-  --bg:#f4f5f8;
-  --surface:#ffffff;
-  --ink:#16203a;
-  --muted:#5c6680;
-  --line:#dde1ea;
-  --accent:#2742c9;
-  --accent-soft:#e7ebfc;
-  --open:#0f7a55; --open-soft:#e2f4ec;
-  --urgent:#c2410c; --urgent-soft:#fdebe1;
-  --soon:#7a5a00; --soon-soft:#fbf1d3;
-  --closed:#6b7280; --closed-soft:#eef0f3;
-  --pcm:#2742c9; --pcb:#0f7a55; --any:#8a3fb8;
-  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
-  color-scheme: light;
+  --bg:#f3f4f8; --surface:#ffffff; --surface-2:#f7f8fb; --ink:#141b2d; --muted:#5d667c; --line:#e1e4ec;
+  --band:#141c33; --band-ink:#eef1fa; --band-muted:#a9b2cc;
+  --accent:#3355ff; --accent-soft:#e8ecff;
+  --open:#0f7a55; --open-soft:#dff3ea; --urgent:#c2410c; --urgent-soft:#fde8dc;
+  --soon:#7a5a00; --soon-soft:#fbf0cf; --closed:#6b7280; --closed-soft:#eceef2;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --shadow:0 1px 2px rgba(20,27,45,.06),0 4px 14px rgba(20,27,45,.06);
+  color-scheme:light;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#0f1424; --surface:#171e33; --ink:#e8ecf6; --muted:#9aa4bf; --line:#2a3350;
-    --accent:#8ea2ff; --accent-soft:#232d55;
-    --open:#4fd1a1; --open-soft:#123329; --urgent:#ff9a62; --urgent-soft:#3a2216;
-    --soon:#f2c94c; --soon-soft:#352c10; --closed:#9aa3b5; --closed-soft:#222a3e;
-    --pcm:#8ea2ff; --pcb:#4fd1a1; --any:#d39cf5;
-    color-scheme: dark;
-  }
-}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0d1220; --surface:#161d30; --surface-2:#1b2338; --ink:#e9edf7; --muted:#9aa4bf; --line:#283152;
+  --band:#0a0f1c; --band-ink:#eef1fa; --band-muted:#9aa4bf;
+  --accent:#8fa2ff; --accent-soft:#222c55;
+  --open:#4fd1a1; --open-soft:#12342a; --urgent:#ff9a62; --urgent-soft:#3a2216;
+  --soon:#f2c94c; --soon-soft:#352c10; --closed:#9aa3b5; --closed-soft:#232b40;
+  --shadow:0 1px 2px rgba(0,0,0,.3); color-scheme:dark;}}
 :root[data-theme="dark"]{
-  --bg:#0f1424; --surface:#171e33; --ink:#e8ecf6; --muted:#9aa4bf; --line:#2a3350;
-  --accent:#8ea2ff; --accent-soft:#232d55;
-  --open:#4fd1a1; --open-soft:#123329; --urgent:#ff9a62; --urgent-soft:#3a2216;
-  --soon:#f2c94c; --soon-soft:#352c10; --closed:#9aa3b5; --closed-soft:#222a3e;
-  --pcm:#8ea2ff; --pcb:#4fd1a1; --any:#d39cf5;
-  color-scheme: dark;
-}
+  --bg:#0d1220; --surface:#161d30; --surface-2:#1b2338; --ink:#e9edf7; --muted:#9aa4bf; --line:#283152;
+  --band:#0a0f1c; --band-ink:#eef1fa; --band-muted:#9aa4bf;
+  --accent:#8fa2ff; --accent-soft:#222c55;
+  --open:#4fd1a1; --open-soft:#12342a; --urgent:#ff9a62; --urgent-soft:#3a2216;
+  --soon:#f2c94c; --soon-soft:#352c10; --closed:#9aa3b5; --closed-soft:#232b40;
+  --shadow:0 1px 2px rgba(0,0,0,.3); color-scheme:dark;}
 *{box-sizing:border-box}
 html,body{margin:0}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
 a{color:var(--accent)}
 button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.wrap{max-width:1120px;margin:0 auto;padding:24px 20px 60px;display:flex;flex-direction:column;gap:22px}
-header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px}
-h1{font-family:var(--display);font-weight:800;font-size:clamp(26px,4vw,38px);line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
-.sub{color:var(--muted);margin:6px 0 0;max-width:62ch}
-.today{font-family:var(--mono);font-size:13px;color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:6px 10px;border-radius:8px}
-h2{font-family:var(--display);font-weight:600;font-size:18px;margin:0}
-.urgent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.tile{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--urgent);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;cursor:pointer;text-align:left}
+.in{max-width:1140px;margin:0 auto;padding:0 20px}
+svg.i{width:16px;height:16px;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* header band */
+.band{background:var(--band);color:var(--band-ink);padding:22px 0 0}
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:14px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(24px,3.6vw,34px);line-height:1.1;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.lede{color:var(--band-muted);margin:6px 0 0;font-size:14.5px;max-width:58ch}
+.meta-r{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.datechip{font-family:var(--mono);font-size:12.5px;color:var(--band-muted)}
+.rem{position:relative}
+.rem summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-weight:600;font-size:14px;padding:8px 14px;border-radius:9px}
+:root[data-theme="dark"] .rem summary{color:#0d1220}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rem summary{color:#0d1220}}
+.rem summary::-webkit-details-marker{display:none}
+.rem-panel{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:min(340px,calc(100vw - 40px));background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.22);padding:14px;display:flex;flex-direction:column;gap:10px}
+.rem-panel p{margin:0;font-size:13.5px;color:var(--muted)}
+.rem-panel a{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:14px;padding:9px 12px;border-radius:8px;border:1px solid var(--line);color:var(--ink);background:var(--surface-2)}
+.rem-panel a:hover{border-color:var(--accent);color:var(--accent)}
+.streams{display:flex;gap:4px;margin-top:18px;overflow-x:auto;scrollbar-width:none}
+.streams::-webkit-scrollbar{display:none}
+.stab{flex:none;border:0;background:transparent;color:var(--band-muted);padding:11px 16px 12px;border-radius:10px 10px 0 0;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;gap:8px;font-size:14.5px}
+.stab:hover{color:var(--band-ink)}
+.stab .n{font-family:var(--mono);font-size:11.5px;padding:1px 7px;border-radius:999px;background:rgba(255,255,255,.1)}
+.stab[aria-selected="true"]{background:var(--bg);color:var(--ink)}
+.stab[aria-selected="true"] .n{background:var(--accent-soft);color:var(--accent)}
+
+/* toolbar */
+.bar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .in{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding-top:10px;padding-bottom:10px}
+.sel{position:relative}
+.sel select{appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:8px 34px 8px 12px;font-weight:500;cursor:pointer;min-width:200px}
+.sel::after{content:"";position:absolute;right:13px;top:50%;width:7px;height:7px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.seg{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:3px}
+.seg button{border:0;background:transparent;padding:5px 11px;border-radius:7px;cursor:pointer;font-size:14px;font-weight:500;color:var(--muted);display:inline-flex;gap:6px;align-items:center}
+.seg button[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.search{flex:1;min-width:180px;display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:0 10px;color:var(--muted)}
+.search input{border:0;background:transparent;outline:0;padding:8px 0;width:100%;color:var(--ink)}
+
+main{display:flex;flex-direction:column;gap:22px;padding:20px 0 60px}
+h2{font-family:var(--display);font-weight:600;font-size:17px;margin:0}
+/* summary */
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;gap:14px;align-items:center;cursor:pointer;text-align:left;box-shadow:var(--shadow)}
 .tile:hover{border-color:var(--urgent)}
-.tile .days{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;color:var(--urgent);font-variant-numeric:tabular-nums}
-.tile .days small{font-size:14px;font-weight:600;margin-left:4px}
-.tile .nm{font-weight:600}
-.tile .dl{font-size:13px;color:var(--muted)}
-.tile.soon{border-left-color:var(--soon)} .tile.soon .days{color:var(--soon)}
-.controls{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:12px}
-.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.lbl{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);min-width:76px}
-.chip{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:5px 12px;cursor:pointer;font-size:14px}
-.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
-:root[data-theme="dark"] .chip[aria-pressed="true"]{color:#0f1424}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1424}}
-.search{flex:1;min-width:200px;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:7px 10px}
-.tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:4px;width:fit-content}
-.tab{border:0;background:transparent;padding:7px 14px;border-radius:7px;cursor:pointer;font-weight:500}
-.tab[aria-selected="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
-.bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
-.count{color:var(--muted);font-size:14px}
-.list{display:flex;flex-direction:column;gap:10px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.card-h{display:grid;grid-template-columns:1fr auto;gap:10px 16px;padding:14px 16px;cursor:pointer;align-items:center}
-.card-h:hover{background:color-mix(in srgb,var(--accent-soft) 40%,transparent)}
-.title-line{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-.ename{font-weight:600;font-size:16px}
-.tag{font-size:11px;font-weight:600;padding:2px 7px;border-radius:5px;border:1px solid currentColor;letter-spacing:.03em}
-.tag.PCM{color:var(--pcm)} .tag.PCB{color:var(--pcb)} .tag.Any{color:var(--any)} .tag.PCMB{color:var(--accent)}
-.meta{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:4px}
-.meta b{color:var(--ink);font-weight:500;font-family:var(--mono);font-size:12.5px}
+.tile .d{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;color:var(--urgent);min-width:52px;text-align:center;font-variant-numeric:tabular-nums}
+.tile .d small{display:block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-top:3px}
+.tile.later .d{color:var(--soon)}
+.tile .t{display:flex;flex-direction:column;gap:1px;min-width:0}
+.tile .t b{font-weight:600}
+.tile .t span{font-size:13px;color:var(--muted)}
+.stats{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:var(--muted)}
+.stats b{color:var(--ink);font-variant-numeric:tabular-nums}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+
+/* groups and cards */
+.group{display:flex;flex-direction:column;gap:10px}
+.ghead{display:flex;align-items:baseline;gap:10px;padding:2px 2px 0}
+.ghead .c{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;position:relative}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--cc)}
+.ch{display:grid;grid-template-columns:auto 1fr auto;gap:12px 14px;align-items:center;padding:13px 14px 13px 18px;cursor:pointer}
+.ch:hover{background:var(--surface-2)}
+.ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--cc) 14%,transparent);color:var(--cc)}
+.ic svg{width:20px;height:20px}
+.nm{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
+.nm b{font-size:16px;font-weight:600}
+.chip{font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.chip.cat{background:color-mix(in srgb,var(--cc) 13%,transparent);color:var(--cc)}
+.chip.str{background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+.sub{display:flex;flex-wrap:wrap;gap:3px 16px;font-size:13px;color:var(--muted);margin-top:3px}
+.sub span{display:inline-flex;align-items:center;gap:5px}
+.sub b{color:var(--ink);font-weight:500}
 .exp{font-style:italic}
-.right{display:flex;align-items:center;gap:10px}
+.right{display:flex;align-items:center;gap:8px}
 .pill{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;white-space:nowrap}
-.pill.open{background:var(--open-soft);color:var(--open)}
-.pill.urgent{background:var(--urgent-soft);color:var(--urgent)}
-.pill.soon{background:var(--soon-soft);color:var(--soon)}
-.pill.closed{background:var(--closed-soft);color:var(--closed)}
+.pill.open{background:var(--open-soft);color:var(--open)} .pill.urgent{background:var(--urgent-soft);color:var(--urgent)}
+.pill.soon{background:var(--soon-soft);color:var(--soon)} .pill.closed{background:var(--closed-soft);color:var(--closed)}
 .pill.na{background:var(--accent-soft);color:var(--accent)}
-.star{border:1px solid var(--line);background:var(--surface);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:17px;line-height:1;color:var(--muted)}
+.star{border:1px solid var(--line);background:var(--surface);border-radius:8px;width:34px;height:34px;cursor:pointer;display:grid;place-items:center;color:var(--muted)}
+.star svg{width:17px;height:17px}
 .star[aria-pressed="true"]{color:#d99a00;border-color:#d99a00}
-.card-b{border-top:1px solid var(--line);padding:14px 16px 16px;display:none;gap:14px;flex-direction:column}
-.card.openc .card-b{display:flex}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-.fact{background:var(--bg);border-radius:8px;padding:10px 12px}
-.fact h4{margin:0 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
-.fact p{margin:0;font-size:14px}
-.note{font-size:14px;margin:0;padding:10px 12px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0}
-.go{align-self:flex-start;display:inline-flex;gap:6px;align-items:center;background:var(--accent);color:#fff;text-decoration:none;padding:8px 14px;border-radius:8px;font-weight:600}
-:root[data-theme="dark"] .go{color:#0f1424}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .go{color:#0f1424}}
-.empty{padding:30px;text-align:center;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:12px}
+.star[aria-pressed="true"] svg{fill:#f5b800}
+.chev{color:var(--muted);transition:transform .15s}
+.card.open .chev{transform:rotate(180deg)}
+.cb{display:none;border-top:1px solid var(--line);padding:0 16px 16px 18px}
+.card.open .cb{display:block}
+.itabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:12px;overflow-x:auto}
+.itab{border:0;background:transparent;padding:11px 12px 9px;cursor:pointer;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap}
+.itab[aria-selected="true"]{color:var(--cc);border-bottom-color:var(--cc);font-weight:600}
+.ipanel{font-size:14.5px;max-width:78ch}
+.ipanel p{margin:0 0 8px}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.kv div{background:var(--surface-2);border-radius:8px;padding:9px 12px}
+.kv small{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+.note{margin-top:10px;font-size:14px;padding:9px 12px;border-left:3px solid var(--cc);background:color-mix(in srgb,var(--cc) 8%,transparent);border-radius:0 8px 8px 0}
+.go{display:inline-flex;gap:7px;align-items:center;margin-top:12px;background:var(--cc);color:#fff;text-decoration:none;padding:8px 14px;border-radius:8px;font-weight:600;font-size:14px}
+#view{display:flex;flex-direction:column;gap:28px}
+.empty{padding:34px;text-align:center;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:12px}
+
 /* timeline */
-.tl-wrap{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow-x:auto}
-.tl{min-width:860px;position:relative;padding:0 0 10px}
-.tl-head,.tl-row{display:grid;grid-template-columns:190px 1fr}
-.tl-head{position:sticky;top:0;background:var(--surface);border-bottom:1px solid var(--line);z-index:2}
+.tl-wrap{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow-x:auto;box-shadow:var(--shadow)}
+.tl{min-width:880px;padding-bottom:8px}
+.tl-head,.tl-row{display:grid;grid-template-columns:200px 1fr}
+.tl-head{border-bottom:1px solid var(--line)}
 .months{display:grid;grid-template-columns:repeat(12,1fr)}
 .months div{font-family:var(--mono);font-size:11.5px;color:var(--muted);padding:8px 0 8px 6px;border-left:1px solid var(--line)}
-.tl-row{border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);min-height:34px;align-items:center}
-.tl-row:hover{background:color-mix(in srgb,var(--accent-soft) 35%,transparent)}
-.tl-name{font-size:13.5px;padding:6px 10px 6px 14px;font-weight:500;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl-row{border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);align-items:center}
+.tl-row:hover{background:var(--surface-2)}
+.tl-name{font-size:13.5px;padding:7px 10px 7px 14px;font-weight:500;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:8px}
+.tl-name i{width:8px;height:8px;border-radius:50%;background:var(--cc);flex:none}
 .track{position:relative;height:34px;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(100%/12 - 1px),var(--line) calc(100%/12 - 1px),var(--line) calc(100%/12))}
-.appbar{position:absolute;top:11px;height:12px;border-radius:6px;background:var(--accent);opacity:.85}
-.appbar.exp{background:repeating-linear-gradient(45deg,var(--accent) 0 5px,color-mix(in srgb,var(--accent) 45%,transparent) 5px 10px)}
-.exdot{position:absolute;top:9px;width:16px;height:16px;margin-left:-8px;transform:rotate(45deg);background:var(--urgent);border:2px solid var(--surface)}
-.todayline{position:absolute;top:0;bottom:0;width:2px;background:var(--urgent);z-index:1;pointer-events:none}
-.todaylbl{position:absolute;top:2px;font-family:var(--mono);font-size:10.5px;color:var(--urgent);background:var(--surface);padding:0 4px;transform:translateX(4px)}
+.appbar{position:absolute;top:11px;height:12px;border-radius:6px;background:var(--cc)}
+.appbar.ex{background:repeating-linear-gradient(45deg,var(--cc) 0 5px,color-mix(in srgb,var(--cc) 40%,transparent) 5px 10px)}
+.exdot{position:absolute;top:9px;width:16px;height:16px;margin-left:-8px;transform:rotate(45deg);background:var(--ink);border:2px solid var(--surface)}
+.todayline{position:absolute;top:0;bottom:0;width:2px;background:var(--urgent);pointer-events:none}
 .legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted);padding:10px 14px}
 .legend span{display:inline-flex;align-items:center;gap:6px}
-.sw{display:inline-block;width:22px;height:10px;border-radius:5px;background:var(--accent)}
-.sw.exp{background:repeating-linear-gradient(45deg,var(--accent) 0 5px,color-mix(in srgb,var(--accent) 45%,transparent) 5px 10px)}
-.dm{display:inline-block;width:11px;height:11px;transform:rotate(45deg);background:var(--urgent)}
-footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:80ch}
-.remind{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:12px;padding:14px 16px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between}
-.remind p{margin:2px 0 0;font-size:13.5px;color:var(--muted);max-width:60ch}
-.rbtns{display:flex;flex-wrap:wrap;gap:8px}
-.rbtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--accent);color:var(--accent);background:var(--surface);text-decoration:none;font-weight:600;font-size:14px;padding:7px 12px;border-radius:8px}
-.rbtn.pri{background:var(--accent);color:#fff}
-:root[data-theme="dark"] .rbtn.pri{color:#0f1424}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rbtn.pri{color:#0f1424}}
-.checked{font-size:12.5px;color:var(--muted)}
-.toasts{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:10px;max-width:min(380px,calc(100vw - 32px))}
-.toast{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:10px;box-shadow:0 8px 28px rgba(10,20,50,.18);padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.sw{display:inline-block;width:22px;height:10px;border-radius:5px;background:var(--muted)}
+.sw.ex{background:repeating-linear-gradient(45deg,var(--muted) 0 5px,transparent 5px 10px)}
+.dm{display:inline-block;width:11px;height:11px;transform:rotate(45deg);background:var(--ink)}
+
+footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px;max-width:82ch;padding-bottom:40px}
+/* toasts */
+.toasts{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:10px;max-width:min(370px,calc(100vw - 32px))}
+.toast{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:12px;box-shadow:0 10px 30px rgba(10,20,50,.2);padding:12px 14px;display:flex;flex-direction:column;gap:6px}
 .toast.warn{border-left-color:var(--urgent)}
 .toast h3{margin:0;font-family:var(--display);font-size:15px;font-weight:600}
 .toast ul{margin:0;padding-left:18px;font-size:13.5px}
 .toast .acts{display:flex;gap:8px;justify-content:flex-end}
-.toast button{border:1px solid var(--line);background:var(--bg);border-radius:7px;padding:4px 10px;cursor:pointer;font-size:13px}
+.toast button{border:1px solid var(--line);background:var(--surface-2);border-radius:7px;padding:4px 10px;cursor:pointer;font-size:13px}
 .toast button.pri{background:var(--accent);border-color:var(--accent);color:#fff}
-@media (max-width:560px){
-  .card-h{grid-template-columns:1fr}
-  .right{justify-content:space-between}
-  .lbl{min-width:100%}
+@media (max-width:640px){
+  .ch{grid-template-columns:auto 1fr;padding-right:12px}
+  .right{grid-column:1 / -1}
+  .right .star{margin-left:auto}
+  .bar{position:static}
+  .sum{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px}
+  .sum .tile{flex:0 0 78%;scroll-snap-align:start}
+  .sel select{min-width:0;width:100%} .sel{flex:1}
+  .meta-r{align-items:flex-start}
 }
-@media (prefers-reduced-motion:no-preference){.card-h,.chip,.tile{transition:background .15s,border-color .15s}}
+@media (prefers-reduced-motion:no-preference){.ch,.tile,.stab,.seg button{transition:background .15s,border-color .15s,color .15s}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div>
-      <h1>Entrance Exam Planner 2027</h1>
-      <p class="sub">Every major undergraduate entrance exam after Class 12, for science, commerce, arts and humanities students, with live countdowns to each form deadline. Tap an exam for eligibility, pattern, last year's cutoff and the official link.</p>
+<div class="band">
+  <div class="in">
+    <div class="top">
+      <div>
+        <h1>Entrance Exam Planner 2027</h1>
+        <p class="lede">Undergraduate entrance exams after Class 12 for science, commerce, arts and humanities, with live countdowns to every form deadline.</p>
+      </div>
+      <div class="meta-r">
+        <details class="rem" id="rem">
+          <summary><svg class="i" viewBox="0 0 24 24"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg>Get reminders</summary>
+          <div class="rem-panel">
+            <p>Subscribe once: your calendar alerts you 7 days and 1 day before each form closes, and 3 days before each exam. It updates itself every week.</p>
+            <a id="r-google" href="#" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Add to Google Calendar</a>
+            <a id="r-apple" href="#"><svg class="i" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/></svg>Add to iPhone / Apple Calendar</a>
+            <a id="r-file" href="deadlines.ics" download="entrance-exams-2027.ics"><svg class="i" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download .ics file</a>
+          </div>
+        </details>
+        <span class="datechip" id="today"></span>
+      </div>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><div class="today" id="today"></div><span class="checked" id="checked"></span></div>
-  </header>
-
-  <section aria-labelledby="up-h" style="display:flex;flex-direction:column;gap:10px">
-    <h2 id="up-h">Next deadlines</h2>
-    <div class="urgent-grid" id="urgent"></div>
-  </section>
-
-  <section class="remind" aria-labelledby="rem-h">
-    <div>
-      <h2 id="rem-h">Get deadline reminders on your phone</h2>
-      <p>Subscribe once and your calendar alerts you 7 days and 1 day before every form closes, and 3 days before each exam. It updates by itself every week, including new and changed dates.</p>
-    </div>
-    <div class="rbtns">
-      <a class="rbtn pri" id="r-google" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
-      <a class="rbtn" id="r-apple" href="#">Add to iPhone / Apple Calendar</a>
-      <a class="rbtn" id="r-file" href="deadlines.ics" download="entrance-exams-2027.ics">Download .ics file</a>
-    </div>
-  </section>
-
-  <section class="controls" aria-label="Filters">
-    <div class="row">
-      <span class="lbl">Subjects</span>
-      <button class="chip" data-f="stream" data-v="all" aria-pressed="true">All exams</button>
-      <button class="chip" data-f="stream" data-v="m" aria-pressed="false">Science (Maths)</button>
-      <button class="chip" data-f="stream" data-v="b" aria-pressed="false">Science (Biology)</button>
-      <button class="chip" data-f="stream" data-v="c" aria-pressed="false">Commerce</button>
-      <button class="chip" data-f="stream" data-v="h" aria-pressed="false">Arts &amp; Humanities</button>
-    </div>
-    <div class="row">
-      <span class="lbl">Field</span>
-      <button class="chip" data-f="cat" data-v="all" aria-pressed="true">All</button>
-      <button class="chip" data-f="cat" data-v="Engineering" aria-pressed="false">Engineering</button>
-      <button class="chip" data-f="cat" data-v="Medical" aria-pressed="false">Medical</button>
-      <button class="chip" data-f="cat" data-v="Science" aria-pressed="false">Science &amp; research</button>
-      <button class="chip" data-f="cat" data-v="State" aria-pressed="false">Telangana / AP</button>
-      <button class="chip" data-f="cat" data-v="Defence" aria-pressed="false">Defence</button>
-      <button class="chip" data-f="cat" data-v="Law" aria-pressed="false">Law</button>
-      <button class="chip" data-f="cat" data-v="Mgmt" aria-pressed="false">Management &amp; commerce</button>
-      <button class="chip" data-f="cat" data-v="Design" aria-pressed="false">Design &amp; architecture</button>
-      <button class="chip" data-f="cat" data-v="Other" aria-pressed="false">Hotel mgmt &amp; teaching</button>
-    </div>
-    <div class="row">
-      <span class="lbl">Form</span>
-      <button class="chip" data-f="status" data-v="all" aria-pressed="true">Any status</button>
-      <button class="chip" data-f="status" data-v="open" aria-pressed="false">Open now</button>
-      <button class="chip" data-f="status" data-v="soon" aria-pressed="false">Opening later</button>
-      <button class="chip" data-f="status" data-v="mine" aria-pressed="false">★ My list</button>
-      <label for="q" class="lbl" style="position:absolute;left:-9999px">Search exams</label>
-      <input id="q" class="search" type="search" placeholder="Search, e.g. NEET, law, BBA, Hyderabad">
-    </div>
-  </section>
-
-  <div class="bar">
-    <div class="tabs" role="tablist">
-      <button class="tab" role="tab" id="tab-list" aria-selected="true" data-view="list">Deadline list</button>
-      <button class="tab" role="tab" id="tab-timeline" aria-selected="false" data-view="timeline">Year timeline</button>
-    </div>
-    <span class="count" id="count"></span>
+    <div class="streams" role="tablist" aria-label="Your stream" id="streams"></div>
   </div>
+</div>
 
-  <main id="view"></main>
+<div class="bar">
+  <div class="in">
+    <label class="sel" for="field"><span style="position:absolute;left:-9999px">Field</span>
+      <select id="field"></select></label>
+    <div class="seg" id="status" role="group" aria-label="Form status">
+      <button data-v="all" aria-pressed="true">All</button>
+      <button data-v="open" aria-pressed="false">Open now</button>
+      <button data-v="soon" aria-pressed="false">Opening later</button>
+      <button data-v="mine" aria-pressed="false"><svg class="i" viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg>Saved</button>
+    </div>
+    <label class="search" for="q"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search: NEET, law, BBA, Hyderabad…"></label>
+    <div class="seg" id="views" role="group" aria-label="View">
+      <button data-v="list" aria-pressed="true"><svg class="i" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>List</button>
+      <button data-v="timeline" aria-pressed="false"><svg class="i" viewBox="0 0 24 24"><path d="M3 12h18M7 8v8M12 5v14M17 9v6"/></svg>Timeline</button>
+    </div>
+  </div>
+</div>
 
-  <footer>
-    <p><b>Dates in italics are expected</b>, projected from the 2026 cycle because the 2027 notice is not out yet. Confirm on the official site before relying on them. Cutoffs are the latest available (2026 unless noted) and change every year.</p>
-    <p>Many BA, B.Com and BBA seats at central universities (DU, JNU, BHU, University of Hyderabad, TISS) are filled through CUET UG. Telangana state degree colleges admit through DOST, which uses Class 12 marks and has no exam. Other state CETs (MHT CET, KCET, WBJEE) mainly serve students with that state's domicile and are not listed. Information compiled 2 November 2026.</p>
-  </footer>
+<div class="in">
+<main>
+  <section style="display:flex;flex-direction:column;gap:12px" aria-labelledby="nx">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px">
+      <h2 id="nx">Next deadlines for you</h2>
+      <div class="stats" id="stats"></div>
+    </div>
+    <div class="sum" id="tiles"></div>
+  </section>
+  <div id="view"></div>
+</main>
+<footer>
+  <p id="checked"></p>
+  <p><b>Dates in italics are expected</b>, projected from the 2026 cycle until the 2027 notice is out. Confirm on the official site before relying on them. Cutoffs are the latest available and change every year.</p>
+  <p>Many BA, B.Com and BBA seats at central universities (DU, JNU, BHU, University of Hyderabad, TISS) are filled through CUET UG. Telangana state degree colleges admit through DOST on Class 12 marks, with no exam. State CETs of other states are not listed.</p>
+</footer>
 </div>
 <div class="toasts" id="toasts" aria-live="polite"></div>
 
@@ -496,135 +513,183 @@ const EXAMS = [
   kw:"defence upsc"}
 ];
 
-const DAY = 86400000;
-const now = new Date(); now.setHours(0,0,0,0);
-const d = s => { if(!s) return null; const [y,m,dd]=s.split("-").map(Number); return new Date(y,m-1,dd); };
-const fmt = s => d(s).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"});
-const days = s => Math.round((d(s)-now)/DAY);
+const CATS = {
+  Engineering:{lbl:"Engineering",c:"#2f5bea",ic:'<path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>'},
+  Medical:{lbl:"Medical",c:"#e03131",ic:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/><path d="M12 9v6M9 12h6"/>'},
+  Science:{lbl:"Science & research",c:"#0c8599",ic:'<path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/>'},
+  State:{lbl:"Telangana / AP",c:"#e8590c",ic:'<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>'},
+  Defence:{lbl:"Defence",c:"#5c7a29",ic:'<path d="M12 3 4 6v6c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6z"/>'},
+  Law:{lbl:"Law",c:"#6741d9",ic:'<path d="M12 3v18M5 21h14M5 7h14"/><path d="m5 7-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/>'},
+  Mgmt:{lbl:"Management & commerce",c:"#b7791f",ic:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>'},
+  Design:{lbl:"Design & architecture",c:"#d6336c",ic:'<path d="M12 21a9 9 0 1 1 9-9c0 2.5-2 3-3.5 3H15a2 2 0 0 0-1.4 3.4A1.5 1.5 0 0 1 12 21z"/><circle cx="7.5" cy="10.5" r="1"/><circle cx="11" cy="7" r="1"/><circle cx="16" cy="8.5" r="1"/>'},
+  Other:{lbl:"Hotel mgmt & teaching",c:"#2b8a3e",ic:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/>'}
+};
+const STREAMS=[["all","All streams"],["m","Science · Maths"],["b","Science · Biology"],["c","Commerce"],["h","Arts & Humanities"]];
+const streamLbl={PCM:"Science · Maths",PCB:"Science · Biology",PCMB:"Science · Maths or Bio",Any:"All streams"};
+const aud=e=>e.aud||({PCM:["m"],PCB:["b"],PCMB:["m","b"],Any:["m","b","c","h"]})[e.stream];
+const cat0=e=>CATS[[].concat(e.cat)[0]]||CATS.Other;
+
+const DAY=86400000;
+const now=new Date();now.setHours(0,0,0,0);
+const d=s=>{if(!s)return null;const[y,m,dd]=s.split("-").map(Number);return new Date(y,m-1,dd);};
+const fmt=s=>d(s).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"});
+const days=s=>Math.round((d(s)-now)/DAY);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const svg=p=>`<svg class="i" viewBox="0 0 24 24">${p}</svg>`;
 
 function status(e){
   if(!e.open) return {k:"na",txt:"Uses JEE Main score",sort:9000};
-  const o=days(e.open), c=days(e.close);
-  if(o>0) return {k:"soon",txt:`Form opens in ${o} day${o===1?"":"s"}`,sort:c};
-  if(c>=0){ const k=c<=21?"urgent":"open"; return {k,txt:c===0?"Closes today":`Open · ${c} day${c===1?"":"s"} left`,sort:c}; }
-  if(e.exam && days(e.exam)>=0) return {k:"closed",txt:`Form closed · exam in ${days(e.exam)} days`,sort:5000+days(e.exam)};
+  const o=days(e.open),c=days(e.close);
+  if(o>0) return {k:"soon",txt:`Opens in ${o} day${o===1?"":"s"}`,sort:c};
+  if(c>=0) return {k:c<=21?"urgent":"open",txt:c===0?"Closes today":`Open · ${c} day${c===1?"":"s"} left`,sort:c};
+  if(e.exam&&days(e.exam)>=0) return {k:"closed",txt:`Form closed · exam in ${days(e.exam)} days`,sort:5000+days(e.exam)};
   return {k:"closed",txt:"Finished",sort:8000};
 }
+function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(_){return null;}}
+let mine=new Set();try{mine=new Set(JSON.parse(store("examPlannerMine")||"[]"));}catch(_){}
+const saveMine=()=>store("examPlannerMine",JSON.stringify([...mine]));
 
-let mine = new Set();
-try{ mine = new Set(JSON.parse(localStorage.getItem("examPlannerMine")||"[]")); }catch(_){}
-const saveMine=()=>{ try{ localStorage.setItem("examPlannerMine",JSON.stringify([...mine])); }catch(_){} };
+const F={stream:store("examPlannerStream")||"all",cat:"all",status:"all",q:""};
+if(!STREAMS.some(s=>s[0]===F.stream))F.stream="all";
+let view=location.hash==="#timeline"?"timeline":"list";
+const opened=new Set(), tabOf={};
 
-const F = {stream:"all",cat:"all",status:"all",q:""};
-let view = "list";
-const opened = new Set();
-
-function matches(e){
-  if(F.stream!=="all" && !aud(e).includes(F.stream)) return false;
-  if(F.cat!=="all" && ![].concat(e.cat).includes(F.cat)) return false;
-  const s=status(e).k;
-  if(F.status==="open" && !(s==="open"||s==="urgent")) return false;
-  if(F.status==="soon" && s!=="soon") return false;
-  if(F.status==="mine" && !mine.has(e.id)) return false;
-  if(F.q){ const h=(e.name+" "+e.full+" "+e.body+" "+e.kw+" "+[].concat(e.cat).join(" ")).toLowerCase(); if(!F.q.split(/\s+/).every(w=>h.includes(w))) return false; }
+function base(e,skip){
+  if(skip!=="stream"&&F.stream!=="all"&&!aud(e).includes(F.stream))return false;
+  if(F.cat!=="all"&&![].concat(e.cat).includes(F.cat))return false;
+  if(F.q){const h=(e.name+" "+e.full+" "+e.body+" "+e.kw+" "+[].concat(e.cat).map(c=>CATS[c]?CATS[c].lbl:c).join(" ")).toLowerCase();if(!F.q.split(/\s+/).every(w=>h.includes(w)))return false;}
   return true;
 }
-const streamLbl = {PCM:"Science · Maths",PCB:"Science · Biology",PCMB:"Science · Maths or Bio",Any:"All streams"};
-const aud = e => e.aud || ({PCM:["m"],PCB:["b"],PCMB:["m","b"],Any:["m","b","c","h"]})[e.stream];
-const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function matches(e){
+  if(!base(e))return false;
+  const s=status(e).k;
+  if(F.status==="open"&&!(s==="open"||s==="urgent"))return false;
+  if(F.status==="soon"&&s!=="soon")return false;
+  if(F.status==="mine"&&!mine.has(e.id))return false;
+  return true;
+}
 
+/* ---- header: stream tabs + field dropdown ---- */
+function renderStreams(){
+  document.getElementById("streams").innerHTML=STREAMS.map(([v,l])=>{
+    const n=EXAMS.filter(e=>v==="all"||aud(e).includes(v)).length;
+    return `<button class="stab" role="tab" data-stream="${v}" aria-selected="${F.stream===v}">${l}<span class="n">${n}</span></button>`;}).join("");
+}
+function renderField(){
+  const sel=document.getElementById("field");
+  const opts=[["all","All fields"]].concat(Object.entries(CATS).map(([k,v])=>[k,v.lbl]));
+  sel.innerHTML=opts.map(([k,l])=>{const n=EXAMS.filter(e=>(F.stream==="all"||aud(e).includes(F.stream))&&(k==="all"||[].concat(e.cat).includes(k))).length;
+    return `<option value="${k}" ${F.cat===k?"selected":""} ${n===0&&k!=="all"?"disabled":""}>${l} (${n})</option>`;}).join("");
+}
+
+/* ---- summary ---- */
+function renderSummary(){
+  const pool=EXAMS.filter(e=>F.stream==="all"||aud(e).includes(F.stream));
+  const openN=pool.filter(e=>["open","urgent"].includes(status(e).k)).length;
+  const soon30=pool.filter(e=>e.close&&days(e.open)<=0&&days(e.close)>=0&&days(e.close)<=30).length;
+  const later=pool.filter(e=>status(e).k==="soon").length;
+  document.getElementById("stats").innerHTML=
+   `<span><i class="dot" style="background:var(--open)"></i><b>${openN}</b> forms open</span><span><i class="dot" style="background:var(--urgent)"></i><b>${soon30}</b> closing within 30 days</span><span><i class="dot" style="background:var(--soon)"></i><b>${later}</b> opening later</span>`;
+  const up=pool.filter(e=>e.close&&days(e.close)>=0).sort((a,b)=>days(a.close)-days(b.close)).slice(0,3);
+  document.getElementById("tiles").innerHTML=up.map(e=>{const c=days(e.close),later=days(e.open)>0;
+    return `<button class="tile ${later?"later":""}" data-goto="${e.id}"><span class="d">${c}<small>day${c===1?"":"s"}</small></span>
+      <span class="t"><b>${esc(e.name)}</b><span>${later?"Opens "+fmt(e.open)+" · ":""}Last date ${fmt(e.close)}${e.closeExp?" (expected)":""}</span></span></button>`;}).join("")||`<div class="empty">No upcoming deadlines for this stream.</div>`;
+}
+
+/* ---- list grouped by month ---- */
+function groupOf(e){
+  if(!e.open)return {k:"z1",t:"Selection through JEE Main score"};
+  const c=days(e.close);
+  if(c>=0){const dt=d(e.close);const m=dt.toLocaleDateString("en-IN",{month:"long",year:"numeric"});
+    const same=dt.getMonth()===now.getMonth()&&dt.getFullYear()===now.getFullYear();
+    return {k:"a"+e.close.slice(0,7),t:(same?"Closing this month · ":"Closing in ")+m};}
+  if(e.exam&&days(e.exam)>=0)return {k:"y",t:"Forms closed · exam still ahead"};
+  return {k:"z2",t:"Finished"};
+}
+const TABS=[["dates","Key dates"],["elig","Eligibility"],["pattern","Exam pattern"],["cutoff","Last year's cutoff"]];
+function panel(e,t){
+  if(t==="dates") return `<div class="kv">
+     <div><small>Form opens</small>${e.open?fmt(e.open):"No separate form"}</div>
+     <div><small>Last date to apply</small>${e.close?`<span class="${e.closeExp?"exp":""}">${fmt(e.close)}${e.closeExp?" (expected)":""}</span>`:"—"}</div>
+     <div><small>Exam</small><span class="${e.examExp?"exp":""}">${esc(e.examLbl)}</span></div>
+     <div><small>Conducted by</small>${esc(e.body)}</div></div><div class="note">${esc(e.note)}</div>`;
+  if(t==="elig") return `<p>${esc(e.elig)}</p>`;
+  if(t==="pattern") return `<p>${esc(e.pattern)}</p>`;
+  return `<p>${esc(e.cutoff)}</p>`;
+}
 function card(e){
-  const st=status(e);
-  const close = e.close ? `<span>Last date <b class="${e.closeExp?"exp":""}">${fmt(e.close)}</b></span>` : "";
-  const exam = `<span>Exam <b class="${e.examExp?"exp":""}">${esc(e.examLbl)}</b></span>`;
-  return `<article class="card ${opened.has(e.id)?"openc":""}" id="c-${e.id}">
-   <div class="card-h" data-toggle="${e.id}" role="button" tabindex="0" aria-expanded="${opened.has(e.id)}">
-    <div>
-      <div class="title-line"><span class="ename">${esc(e.name)}</span><span class="tag ${e.stream}">${esc(e.tagLbl||streamLbl[e.stream])}</span></div>
-      <div class="meta"><span>${esc(e.body)}</span>${close}${exam}</div>
-    </div>
-    <div class="right"><span class="pill ${st.k}">${st.txt}</span>
-      <button class="star" data-star="${e.id}" aria-pressed="${mine.has(e.id)}" aria-label="Add ${esc(e.name)} to my list" title="Add to my list">★</button></div>
+  const C=cat0(e),st=status(e),t=tabOf[e.id]||"dates",op=opened.has(e.id);
+  return `<article class="card ${op?"open":""}" id="c-${e.id}" style="--cc:${C.c}">
+   <div class="ch" data-toggle="${e.id}" role="button" tabindex="0" aria-expanded="${op}">
+     <div class="ic">${svg(C.ic)}</div>
+     <div style="min-width:0">
+       <div class="nm"><b>${esc(e.name)}</b><span class="chip cat">${C.lbl}</span><span class="chip str">${esc(e.tagLbl||streamLbl[e.stream])}</span></div>
+       <div class="sub">${e.close?`<span>Last date <b class="${e.closeExp?"exp":""}">${fmt(e.close)}</b></span>`:""}<span>Exam <b class="${e.examExp?"exp":""}">${esc(e.examLbl)}</b></span></div>
+     </div>
+     <div class="right"><span class="pill ${st.k}">${st.txt}</span>
+       <button class="star" data-star="${e.id}" aria-pressed="${mine.has(e.id)}" title="Save to my list" aria-label="Save ${esc(e.name)}">${svg('<path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/>')}</button>
+       <span class="chev">${svg('<path d="m6 9 6 6 6-6"/>')}</span></div>
    </div>
-   <div class="card-b">
-    <div class="facts">
-      <div class="fact"><h4>Eligibility</h4><p>${esc(e.elig)}</p></div>
-      <div class="fact"><h4>Exam pattern</h4><p>${esc(e.pattern)}</p></div>
-      <div class="fact"><h4>Last year's cutoff</h4><p>${esc(e.cutoff)}</p></div>
-      <div class="fact"><h4>Application window</h4><p>${e.open?`${fmt(e.open)} – ${fmt(e.close)}${e.closeExp?" (expected)":""}`:"No separate form"}</p></div>
-    </div>
-    <p class="note">${esc(e.note)}</p>
-    <a class="go" href="${e.url}" target="_blank" rel="noopener">Open official site ↗</a>
+   <div class="cb">
+     <div class="itabs" role="tablist">${TABS.map(([k,l])=>`<button class="itab" role="tab" data-card="${e.id}" data-tab="${k}" aria-selected="${t===k}">${l}</button>`).join("")}</div>
+     <div class="ipanel" role="tabpanel">${panel(e,t)}</div>
+     <a class="go" href="${e.url}" target="_blank" rel="noopener">Apply / official site ${svg('<path d="M7 17 17 7M8 7h9v9"/>')}</a>
    </div></article>`;
 }
-
 function renderList(list){
-  if(!list.length) return `<div class="empty">No exams match these filters. ${F.status==="mine"?"Tap ★ on an exam to add it to your list.":"Try clearing a filter."}</div>`;
-  return `<div class="list">${list.map(card).join("")}</div>`;
+  if(!list.length)return `<div class="empty">No exams match. ${F.status==="mine"?"Tap the star on an exam to save it here.":"Try another stream, field or search."}</div>`;
+  const groups={};
+  list.forEach(e=>{const g=groupOf(e);(groups[g.k]=groups[g.k]||{t:g.t,items:[]}).items.push(e);});
+  return Object.keys(groups).sort().map(k=>{const g=groups[k];g.items.sort((a,b)=>status(a).sort-status(b).sort);
+    return `<section class="group"><div class="ghead"><h2>${g.t}</h2><span class="c">${g.items.length} exam${g.items.length===1?"":"s"}</span></div>${g.items.map(card).join("")}</section>`;}).join("");
 }
 
-const T0=new Date(2026,9,1), T1=new Date(2027,9,1);
-const pct = s => Math.max(0,Math.min(100,(d(s)-T0)/(T1-T0)*100));
+/* ---- timeline ---- */
+const T0=new Date(2026,9,1),T1=new Date(2027,9,1);
+const pct=s=>Math.max(0,Math.min(100,(d(s)-T0)/(T1-T0)*100));
 function renderTimeline(list){
-  const months=[];for(let i=0;i<12;i++){const m=new Date(2026,9+i,1);months.push(m.toLocaleDateString("en-IN",{month:"short"})+(m.getMonth()===0||i===0?" "+String(m.getFullYear()).slice(2):""));}
-  const tp=((now-T0)/(T1-T0))*100;
-  const rows=list.map(e=>{
-    const bar = e.open?`<div class="appbar ${e.closeExp?"exp":""}" style="left:${pct(e.open)}%;width:${Math.max(.8,pct(e.close)-pct(e.open))}%" title="Apply ${fmt(e.open)} – ${fmt(e.close)}"></div>`:"";
-    const dot = e.exam?`<div class="exdot" style="left:${pct(e.exam)}%" title="Exam: ${esc(e.examLbl)}"></div>`:"";
-    return `<div class="tl-row"><div class="tl-name" data-goto="${e.id}" title="${esc(e.name)}">${esc(e.name.replace(/ 2027/g,"").replace(" Aptitude Test",""))}</div><div class="track">${bar}${dot}</div></div>`;
-  }).join("");
-  return `<div class="tl-wrap"><div class="legend"><span><i class="sw"></i>Application window</span><span><i class="sw exp"></i>Expected window</span><span><i class="dm"></i>Exam</span><span style="color:var(--urgent)">Red line = today</span></div>
+  const months=[];for(let i=0;i<12;i++){const m=new Date(2026,9+i,1);months.push(m.toLocaleDateString("en-IN",{month:"short"})+(i===0||m.getMonth()===0?" "+String(m.getFullYear()).slice(2):""));}
+  const tp=(now-T0)/(T1-T0)*100;
+  const rows=list.slice().sort((a,b)=>status(a).sort-status(b).sort).map(e=>{const C=cat0(e);
+    const bar=e.open?`<div class="appbar ${e.closeExp?"ex":""}" style="left:${pct(e.open)}%;width:${Math.max(.8,pct(e.close)-pct(e.open))}%" title="Apply ${fmt(e.open)} – ${fmt(e.close)}"></div>`:"";
+    const dot=e.exam?`<div class="exdot" style="left:${pct(e.exam)}%" title="Exam: ${esc(e.examLbl)}"></div>`:"";
+    return `<div class="tl-row" style="--cc:${C.c}"><div class="tl-name" data-goto="${e.id}" title="${esc(e.name)}"><i></i>${esc(e.name.replace(/ 2027/g,""))}</div><div class="track">${bar}${dot}</div></div>`;}).join("");
+  return `<div class="tl-wrap"><div class="legend"><span><i class="sw"></i>Application window (colour = field)</span><span><i class="sw ex"></i>Expected</span><span><i class="dm"></i>Exam</span><span style="color:var(--urgent)">Red line = today</span></div>
    <div class="tl"><div class="tl-head"><div></div><div class="months">${months.map(m=>`<div>${m}</div>`).join("")}</div></div>
-   <div style="position:relative">${rows}
-    ${tp>=0&&tp<=100?`<div style="position:absolute;top:0;bottom:0;left:190px;right:0;pointer-events:none"><div class="todayline" style="left:${tp}%"></div><div class="todaylbl" style="left:${tp}%">today</div></div>`:""}
-   </div></div></div>`;
+   <div style="position:relative">${rows}${tp>=0&&tp<=100?`<div style="position:absolute;top:0;bottom:0;left:200px;right:0;pointer-events:none"><div class="todayline" style="left:${tp}%"></div></div>`:""}</div></div></div>`;
 }
 
 function render(){
-  const list=EXAMS.filter(matches).sort((a,b)=>status(a).sort-status(b).sort);
-  document.getElementById("count").textContent=`${list.length} of ${EXAMS.length} exams`;
-  document.getElementById("view").innerHTML = view==="list"?renderList(list):renderTimeline(list);
-}
-
-function renderUrgent(){
-  const up=EXAMS.filter(e=>e.close&&days(e.close)>=0).sort((a,b)=>days(a.close)-days(b.close)).slice(0,4);
-  document.getElementById("urgent").innerHTML=up.map(e=>{
-    const o=days(e.open), c=days(e.close), notOpen=o>0;
-    return `<button class="tile ${notOpen?"soon":""}" data-goto="${e.id}">
-      <span class="days">${c}<small>day${c===1?"":"s"} left</small></span>
-      <span class="nm">${esc(e.name)}</span>
-      <span class="dl">${notOpen?`Opens ${fmt(e.open)} · `:""}Last date ${fmt(e.close)}${e.closeExp?" (expected)":""}</span></button>`;
-  }).join("");
-}
-
-function setView(v){
-  view=v;
-  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.view===v));
-  render();
+  renderStreams();renderField();renderSummary();
+  const list=EXAMS.filter(matches);
+  document.getElementById("view").innerHTML=view==="list"?renderList(list):renderTimeline(list);
+  document.querySelectorAll("#status button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===F.status));
+  document.querySelectorAll("#views button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===view));
 }
 function goto(id){
-  opened.add(id); F.cat="all";F.status="all";F.stream="all";F.q="";document.getElementById("q").value="";
-  document.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c.dataset.v==="all"));
-  setView("list");
-  const el=document.getElementById("c-"+id); if(el) el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+  const e=EXAMS.find(x=>x.id===id);
+  if(e&&!matches(e)){F.cat="all";F.status="all";F.q="";document.getElementById("q").value="";if(F.stream!=="all"&&!aud(e).includes(F.stream))F.stream="all";}
+  opened.add(id);view="list";render();
+  const el=document.getElementById("c-"+id);if(el)el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center"});
 }
 
 document.addEventListener("click",ev=>{
-  const star=ev.target.closest("[data-star]");
-  if(star){ ev.stopPropagation(); const id=star.dataset.star; mine.has(id)?mine.delete(id):mine.add(id); saveMine(); render(); return; }
-  const chip=ev.target.closest(".chip");
-  if(chip){ F[chip.dataset.f]=chip.dataset.v; document.querySelectorAll(`.chip[data-f="${chip.dataset.f}"]`).forEach(c=>c.setAttribute("aria-pressed",c===chip)); render(); return; }
-  const tab=ev.target.closest(".tab"); if(tab){ setView(tab.dataset.view); if(tab.dataset.view==="timeline") history.replaceState(null,"","#timeline"); else history.replaceState(null,"",location.pathname+location.search); return; }
-  const g=ev.target.closest("[data-goto]"); if(g){ goto(g.dataset.goto); return; }
-  const t=ev.target.closest("[data-toggle]");
-  if(t){ const id=t.dataset.toggle; opened.has(id)?opened.delete(id):opened.add(id); const c=document.getElementById("c-"+id); c.classList.toggle("openc"); t.setAttribute("aria-expanded",opened.has(id)); }
+  const t=ev.target;
+  const st=t.closest("[data-stream]");if(st){F.stream=st.dataset.stream;store("examPlannerStream",F.stream);if(F.cat!=="all"&&!EXAMS.some(e=>aud(e).includes(F.stream)&&[].concat(e.cat).includes(F.cat)))F.cat="all";render();return;}
+  const star=t.closest("[data-star]");if(star){ev.stopPropagation();const id=star.dataset.star;mine.has(id)?mine.delete(id):mine.add(id);saveMine();render();return;}
+  const s=t.closest("#status button");if(s){F.status=s.dataset.v;render();return;}
+  const v=t.closest("#views button");if(v){view=v.dataset.v;history.replaceState(null,"",view==="timeline"?"#timeline":location.pathname+location.search);render();return;}
+  const it=t.closest("[data-tab]");if(it){tabOf[it.dataset.card]=it.dataset.tab;const c=document.getElementById("c-"+it.dataset.card);const e=EXAMS.find(x=>x.id===it.dataset.card);
+    c.querySelectorAll(".itab").forEach(b=>b.setAttribute("aria-selected",b===it));c.querySelector(".ipanel").innerHTML=panel(e,it.dataset.tab);return;}
+  const g=t.closest("[data-goto]");if(g){goto(g.dataset.goto);return;}
+  const tg=t.closest("[data-toggle]");if(tg){const id=tg.dataset.toggle;opened.has(id)?opened.delete(id):opened.add(id);document.getElementById("c-"+id).classList.toggle("open");tg.setAttribute("aria-expanded",opened.has(id));return;}
+  const rem=document.getElementById("rem");if(rem.open&&!t.closest("#rem"))rem.open=false;
 });
-document.addEventListener("keydown",ev=>{ if((ev.key==="Enter"||ev.key===" ")&&ev.target.matches("[data-toggle]")){ev.preventDefault();ev.target.click();} });
+document.addEventListener("keydown",ev=>{if((ev.key==="Enter"||ev.key===" ")&&ev.target.matches("[data-toggle]")){ev.preventDefault();ev.target.click();}});
+document.getElementById("field").addEventListener("change",ev=>{F.cat=ev.target.value;render();});
 document.getElementById("q").addEventListener("input",ev=>{F.q=ev.target.value.trim().toLowerCase();render();});
-window.addEventListener("hashchange",()=>setView(location.hash==="#timeline"?"timeline":"list"));
+window.addEventListener("hashchange",()=>{view=location.hash==="#timeline"?"timeline":"list";render();});
 
-document.getElementById("today").textContent="Today: "+now.toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short",year:"numeric"});
-renderUrgent();
 (function(){
   const base=/github\.io$/.test(location.hostname)?new URL("deadlines.ics",location.href).href:"https://sourabhbhattacharya.github.io/SBT/exam-planner/deadlines.ics";
   const webcal=base.replace(/^https?:/,"webcal:");
@@ -632,9 +697,11 @@ renderUrgent();
   document.getElementById("r-apple").href=webcal;
   document.getElementById("r-file").href=base;
 })();
-document.getElementById("checked").textContent="Dates last checked: "+fmt(LAST_CHECKED);
+document.getElementById("today").textContent=now.toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+document.getElementById("checked").textContent="Dates last checked: "+fmt(LAST_CHECKED)+". The list is re-checked every Saturday.";
+render();
 
-function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(_){return null;}}
+/* ---- pop-ups ---- */
 function toast(cls,title,items,actions){
   const el=document.createElement("div");el.className="toast "+cls;el.setAttribute("role","status");
   el.innerHTML=`<h3>${esc(title)}</h3><ul>${items.map(i=>`<li>${i}</li>`).join("")}</ul><div class="acts"></div>`;
@@ -642,25 +709,22 @@ function toast(cls,title,items,actions){
   actions.forEach(a=>{const b=document.createElement("button");b.textContent=a.label;if(a.pri)b.className="pri";b.onclick=()=>{a.fn&&a.fn();el.remove();};acts.appendChild(b);});
   document.getElementById("toasts").appendChild(el);
 }
-// 1) What's new since this visitor last looked
 (function(){
-  const latest=UPDATES[0]; if(!latest) return;
+  const latest=UPDATES[0];if(!latest)return;
   const tag=latest.date+":"+latest.items.length;
-  if(store("examPlannerSeenUpdate")===tag) return;
+  if(store("examPlannerSeenUpdate")===tag)return;
   toast("","What's new · "+fmt(latest.date),latest.items.map(esc),[{label:"Got it",pri:true,fn:()=>store("examPlannerSeenUpdate",tag)}]);
 })();
-// 2) Deadline alert: forms closing within 7 days (your starred exams if you have any, otherwise all)
 (function(){
   const key="examPlannerAlert-"+now.toISOString().slice(0,10);
-  if(store(key)) return;
-  const pool=mine.size?EXAMS.filter(e=>mine.has(e.id)):EXAMS;
+  if(store(key))return;
+  const pool=mine.size?EXAMS.filter(e=>mine.has(e.id)):EXAMS.filter(e=>F.stream==="all"||aud(e).includes(F.stream));
   const soon=pool.filter(e=>e.close&&days(e.open)<=0&&days(e.close)>=0&&days(e.close)<=7).sort((a,b)=>days(a.close)-days(b.close));
-  if(!soon.length) return;
-  toast("warn",mine.size?"Your exams closing this week":"Forms closing this week",
+  if(!soon.length)return;
+  toast("warn",mine.size?"Your saved exams closing this week":"Forms closing this week",
     soon.map(e=>{const c=days(e.close);return `<b>${esc(e.name)}</b>: ${c===0?"closes today":c+" day"+(c===1?"":"s")+" left"} (${fmt(e.close)})`;}),
     [{label:"Remind me tomorrow",fn:()=>store(key,"1")},{label:"Show",pri:true,fn:()=>{store(key,"1");goto(soon[0].id);}}]);
 })();
-setView(location.hash==="#timeline"?"timeline":"list");
 </script>
 </body>
 </html>
