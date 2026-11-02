@@ -277,6 +277,7 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
 const ADMISSION_YEAR = 2027;
 const LAST_CHECKED = "2026-11-02";
 const UPDATES = [
+ {date:"2026-11-02",items:["Each section and tab now has its own search box: a search in Study in India no longer carries over to Study abroad or to another tab."]},
  {date:"2026-11-02", items:["New Colleges & universities tab: Ashoka (Round 1 closes 23 Nov), Christ (25 Nov), FLAME (29 Nov), Azim Premji (20 Nov), Krea, IIIT Hyderabad UGEE, Shiv Nadar, St. Stephen's, top DU colleges, St. Xavier's Mumbai and Kolkata, University of Hyderabad."]},
  {date:"2026-11-02", items:["Added SEED (Symbiosis design; last date ~25 Dec 2026) and BITSDAT (BITS Design School; apply by 31 Jan 2027, test 29 Mar – 5 Apr).","NATA is listed as NATA 2027 (Architecture) under Design & architecture."]},
  {date:"2026-11-02", items:["New Ivy League tab under Study abroad: deadlines, decision dates and financial-aid policy for all 8 Ivies.","More law exams: LNAT for Jindal Global Law School (early deadline 30 Nov), Christ University CULEE, NMIMS LAT, MH CET Law, AP LAWCET."]},
@@ -976,8 +977,17 @@ function renderTimeline(list){
    <div style="position:relative">${rows}${tp>=0&&tp<=100?`<div style="position:absolute;top:0;bottom:0;left:200px;right:0;pointer-events:none"><div class="todayline" style="left:${tp}%"></div></div>`:""}</div></div></div>`;
 }
 
+const QS={};const qKey=()=>F.region+":"+F.stream;
+function syncSearch(){
+  F.q=QS[qKey()]||"";const box=document.getElementById("q");
+  if(box.value.trim().toLowerCase()!==F.q)box.value=QS[qKey()+":raw"]||"";
+  const tab=(F.region==="abroad"?DESTS:STREAMS).find(x=>x[0]===F.stream);
+  const where=F.region==="abroad"?"Study abroad":"Study in India";
+  box.placeholder="Search "+where+(F.stream==="all"?"":" › "+tab[1])+"…";
+  box.setAttribute("aria-label",box.placeholder.slice(0,-1));
+}
 function render(){
-  renderStreams();renderField();renderScope();renderSummary();
+  syncSearch();renderStreams();renderField();renderScope();renderSummary();
   const list=EXAMS.filter(matches);
   document.getElementById("view").innerHTML=view==="list"?renderList(list):renderTimeline(list);
   document.querySelectorAll("#status button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===F.status));
@@ -986,7 +996,7 @@ function render(){
 function goto(id){
   const e=EXAMS.find(x=>x.id===id);
   if(e&&!inRegion(e)){F.region=isAbroad(e)?"abroad":"india";F.stream="all";syncHash();}
-  if(e&&!matches(e)){F.cat="all";F.status="all";F.q="";document.getElementById("q").value="";if(!inStream(e,F.stream))F.stream="all";}
+  if(e&&!matches(e)){F.cat="all";F.status="all";delete QS[qKey()];delete QS[qKey()+":raw"];if(!inStream(e,F.stream))F.stream="all";delete QS[qKey()];delete QS[qKey()+":raw"];}
   opened.add(id);view="list";render();
   const el=document.getElementById("c-"+id);if(el)el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center"});
 }
@@ -1006,7 +1016,7 @@ document.addEventListener("click",ev=>{
 });
 document.addEventListener("keydown",ev=>{if((ev.key==="Enter"||ev.key===" ")&&ev.target.matches("[data-toggle]")){ev.preventDefault();ev.target.click();}});
 document.getElementById("field").addEventListener("change",ev=>{F.cat=ev.target.value;render();});
-document.getElementById("q").addEventListener("input",ev=>{F.q=ev.target.value.trim().toLowerCase();render();});
+document.getElementById("q").addEventListener("input",ev=>{QS[qKey()]=ev.target.value.trim().toLowerCase();QS[qKey()+":raw"]=ev.target.value;render();});
 window.addEventListener("hashchange",()=>{view=/timeline/.test(location.hash)?"timeline":"list";if(/abroad/.test(location.hash))F.region="abroad";render();});
 
 (function(){
