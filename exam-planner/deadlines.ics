@@ -12,7 +12,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:ashoka-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261007
 DTEND;VALUE=DATE:20261008
 SUMMARY:Form opens: Ashoka University (Sonipat)
@@ -29,7 +29,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ashoka-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261123
 DTEND;VALUE=DATE:20261124
 SUMMARY:LAST DATE to apply: Ashoka University (Sonipat)
@@ -54,7 +54,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ashoka-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:ASSESSMENT: Ashoka University (Sonipat) (Round 1 assessments ~ear
@@ -72,7 +72,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:christ-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:Form opens: Christ University (Bengaluru\, Pune\, Delhi NCR)
@@ -90,7 +90,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:christ-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261125
 DTEND;VALUE=DATE:20261126
 SUMMARY:LAST DATE to apply: Christ University (Bengaluru\, Pune\, Delhi N
@@ -118,7 +118,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:christ-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:TEST: Christ University (Bengaluru\, Pune\, Delhi NCR) (Session 1
@@ -137,7 +137,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:flame-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261020
 DTEND;VALUE=DATE:20261021
 SUMMARY:Form opens: FLAME University (Pune)
@@ -154,7 +154,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:flame-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:LAST DATE to apply: FLAME University (Pune)
@@ -178,7 +178,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:flame-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:TEST: FLAME University (Pune) (FEAT 4–6 Dec 2026 (Early Decisio
@@ -196,7 +196,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:azimpremji-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260915
 DTEND;VALUE=DATE:20260916
 SUMMARY:Form opens: Azim Premji University (Bengaluru\, Bhopal)
@@ -214,7 +214,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:azimpremji-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
 SUMMARY:LAST DATE to apply: Azim Premji University (Bengaluru\, Bhopal)
@@ -239,7 +239,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:krea-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260915
 DTEND;VALUE=DATE:20260916
 SUMMARY:Form opens: Krea University (Sri City\, near Chennai) (expected d
@@ -258,7 +258,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:krea-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:LAST DATE to apply: Krea University (Sri City\, near Chennai) (ex
@@ -286,7 +286,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:krea-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261214
 DTEND;VALUE=DATE:20261215
 SUMMARY:TEST: Krea University (Sri City\, near Chennai) (Round 2 test ~14
@@ -304,7 +304,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:iiith-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270210
 DTEND;VALUE=DATE:20270211
 SUMMARY:Form opens: IIIT Hyderabad: UGEE (B.Tech + MS by Research) (expec
@@ -323,7 +323,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:iiith-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:LAST DATE to apply: IIIT Hyderabad: UGEE (B.Tech + MS by Research
@@ -351,7 +351,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:iiith-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
 SUMMARY:EXAM: IIIT Hyderabad: UGEE (B.Tech + MS by Research) (~early May 
@@ -370,7 +370,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:snu-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:Form opens: Shiv Nadar University (Delhi NCR) (expected date)
@@ -387,7 +387,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:snu-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270630
 DTEND;VALUE=DATE:20270701
 SUMMARY:LAST DATE to apply: Shiv Nadar University (Delhi NCR) (expected d
@@ -413,7 +413,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:snu-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:TEST: Shiv Nadar University (Delhi NCR) (SNUSAT cycles Jan – Ju
@@ -431,7 +431,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ststephens-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270105
 DTEND;VALUE=DATE:20270106
 SUMMARY:Form opens: St. Stephen's College (Delhi) (expected date)
@@ -448,7 +448,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ststephens-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270205
 DTEND;VALUE=DATE:20270206
 SUMMARY:LAST DATE to apply: St. Stephen's College (Delhi) (expected date)
@@ -473,7 +473,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ststephens-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270701
 DTEND;VALUE=DATE:20270702
 SUMMARY:INTERVIEW: St. Stephen's College (Delhi) (Interviews after CUET r
@@ -491,7 +491,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:du-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270105
 DTEND;VALUE=DATE:20270106
 SUMMARY:Form opens: Top Delhi University colleges (SRCC\, Hindu\, Miranda
@@ -510,17 +510,19 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:du-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270205
 DTEND;VALUE=DATE:20270206
 SUMMARY:LAST DATE to apply: Top Delhi University colleges (SRCC\, Hindu\,
   Miranda\, LSR\, Hansraj…) (expected date)
 DESCRIPTION:The deadline shown is the CUET registration deadline (expecte
  d). B.Com (Hons) at SRCC and Economics (Hons) at top colleges need very h
- igh CUET scores. University of Hyderabad\, JNU and BHU also admit through
-  CUET.\nOfficial site: https://admission.uod.ac.in\nEligibility: Class 12
-  with the subjects each course requires + CUET UG in those subjects.\nPla
- nner: https://sourabhbhattacharya.github.io/SBT/exam-planner/
+ igh CUET scores. Management: BMS and BBA (Financial Investment Analysis) 
+ at Shaheed Sukhdev College of Business Studies and others\, also via CUET
+ . University of Hyderabad\, JNU and BHU also admit through CUET.\nOfficia
+ l site: https://admission.uod.ac.in\nEligibility: Class 12 with the subje
+ cts each course requires + CUET UG in those subjects.\nPlanner: https://s
+ ourabhbhattacharya.github.io/SBT/exam-planner/
 URL:https://admission.uod.ac.in
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -538,7 +540,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:du-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270715
 DTEND;VALUE=DATE:20270716
 SUMMARY:ALLOTMENT: Top Delhi University colleges (SRCC\, Hindu\, Miranda\
@@ -557,7 +559,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:xaviersmumbai-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:Form opens: St. Xavier's College Mumbai: XET (expected date)
@@ -574,7 +576,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:xaviersmumbai-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270420
 DTEND;VALUE=DATE:20270421
 SUMMARY:LAST DATE to apply: St. Xavier's College Mumbai: XET (expected da
@@ -600,7 +602,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:xaviersmumbai-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270502
 DTEND;VALUE=DATE:20270503
 SUMMARY:EXAM: St. Xavier's College Mumbai: XET (~early May 2027 (all-Indi
@@ -618,7 +620,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:xavierskolkata-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
 SUMMARY:Form opens: St. Xavier's College Kolkata (expected date)
@@ -635,7 +637,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:xavierskolkata-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270610
 DTEND;VALUE=DATE:20270611
 SUMMARY:LAST DATE to apply: St. Xavier's College Kolkata (expected date)
@@ -658,7 +660,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:xavierskolkata-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270615
 DTEND;VALUE=DATE:20270616
 SUMMARY:TEST: St. Xavier's College Kolkata (After Class 12 results (~Jun 
@@ -676,7 +678,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:uoh-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270105
 DTEND;VALUE=DATE:20270106
 SUMMARY:Form opens: University of Hyderabad (5-year integrated) (expected
@@ -695,7 +697,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:uoh-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270205
 DTEND;VALUE=DATE:20270206
 SUMMARY:LAST DATE to apply: University of Hyderabad (5-year integrated) (
@@ -723,7 +725,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:uoh-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270630
 DTEND;VALUE=DATE:20270701
 SUMMARY:ADMISSION: University of Hyderabad (5-year integrated) (Admission
@@ -741,8 +743,707 @@ TRIGGER:-P2DT15H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
+UID:iitmbs-open@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+SUMMARY:Form opens: IIT Madras BS degrees (Data Science\, Electronic Syst
+ ems…)
+DESCRIPTION:Official site: https://study.iitm.ac.in/ds/admissions.html\nE
+ ligibility: Passed Class 12 (any stream)\, or in Class 11 or 12 now (Clas
+ s 12 students can start the qualifier early). Maths and English in Class 
+ 10. No age limit.\nPlanner: https://sourabhbhattacharya.github.io/SBT/exa
+ m-planner/
+URL:https://study.iitm.ac.in/ds/admissions.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IIT Madras BS degrees (Data Science\, Electronic Systems…) 
+ application opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:iitmbs-close@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270129
+DTEND;VALUE=DATE:20270130
+SUMMARY:LAST DATE to apply: IIT Madras BS degrees (Data Science\, Electro
+ nic Systems…)
+DESCRIPTION:Online IIT degree with in-person exams (Hyderabad has centres
+ ). Three intakes a year: January (apply by 29 Jan 2027)\, May and Septemb
+ er terms. Qualifier fee ₹4\,000 (₹2\,000 SC/ST/PwD). Also BS in Manag
+ ement & Data Science and in Aeronautics & Space Technology. IIT Guwahati 
+ runs a similar online BSc (Hons) in Data Science & AI.\nOfficial site: ht
+ tps://study.iitm.ac.in/ds/admissions.html\nEligibility: Passed Class 12 (
+ any stream)\, or in Class 11 or 12 now (Class 12 students can start the q
+ ualifier early). Maths and English in Class 10. No age limit.\nPlanner: h
+ ttps://sourabhbhattacharya.github.io/SBT/exam-planner/
+URL:https://study.iitm.ac.in/ds/admissions.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IIT Madras BS degrees (Data Science\, Electronic Systems…):
+  application closes in 7 days
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IIT Madras BS degrees (Data Science\, Electronic Systems…):
+  application closes TOMORROW
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:iitmbs-exam@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:QUALIFIER: IIT Madras BS degrees (Data Science\, Electronic Syste
+ ms…) (Qualifier exam ~Mar 2027 (after 4 weeks of coursework)) (expected
+  date)
+DESCRIPTION:Official site: https://study.iitm.ac.in/ds/admissions.html\nE
+ ligibility: Passed Class 12 (any stream)\, or in Class 11 or 12 now (Clas
+ s 12 students can start the qualifier early). Maths and English in Class 
+ 10. No age limit.\nPlanner: https://sourabhbhattacharya.github.io/SBT/exa
+ m-planner/
+URL:https://study.iitm.ac.in/ds/admissions.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IIT Madras BS degrees (Data Science\, Electronic Systems…):
+  qualifier in 3 days
+TRIGGER:-P2DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:iimb-open@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20260817
+DTEND;VALUE=DATE:20260818
+SUMMARY:Form opens: IIM Bangalore: BSc (Hons) Economics / Data Science
+DESCRIPTION:Official site: https://ug.iimb.ac.in\nEligibility: Class 12 w
+ ith Mathematics in both Class 11 and 12; at least 60% in Class 10; age 20
+  or under on 1 Aug 2027.\nPlanner: https://sourabhbhattacharya.github.io/
+ SBT/exam-planner/
+URL:https://ug.iimb.ac.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IIM Bangalore: BSc (Hons) Economics / Data Science applicatio
+ n opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:iimb-close@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:LAST DATE to apply: IIM Bangalore: BSc (Hons) Economics / Data Sc
+ ience
+DESCRIPTION:4-year residential programmes\, 80 seats (40 each)\, about 
+ ₹8.5 lakh a year. The 2027 form has closed; the test is on 15 Nov 2026.
+  Next applications ~Aug 2027.\nOfficial site: https://ug.iimb.ac.in\nElig
+ ibility: Class 12 with Mathematics in both Class 11 and 12; at least 60% 
+ in Class 10; age 20 or under on 1 Aug 2027.\nPlanner: https://sourabhbhat
+ tacharya.github.io/SBT/exam-planner/
+URL:https://ug.iimb.ac.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IIM Bangalore: BSc (Hons) Economics / Data Science: applicati
+ on closes in 7 days
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IIM Bangalore: BSc (Hons) Economics / Data Science: applicati
+ on closes TOMORROW
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:iimb-exam@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:TEST: IIM Bangalore: BSc (Hons) Economics / Data Science (UG Admi
+ ssion Test 15 Nov 2026; interviews ~Jan 2027)
+DESCRIPTION:Official site: https://ug.iimb.ac.in\nEligibility: Class 12 w
+ ith Mathematics in both Class 11 and 12; at least 60% in Class 10; age 20
+  or under on 1 Aug 2027.\nPlanner: https://sourabhbhattacharya.github.io/
+ SBT/exam-planner/
+URL:https://ug.iimb.ac.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IIM Bangalore: BSc (Hons) Economics / Data Science: test in 3
+  days
+TRIGGER:-P2DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ipmrohtak-open@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:Form opens: IPMAT Rohtak 2027 (IIM Rohtak IPM) (expected date)
+DESCRIPTION:Official site: https://www.iimrohtak.ac.in\nEligibility: Clas
+ s 10 and 12 with 60% (55% SC/ST/PwD); age limit (2026: born on or after 3
+ 0 Jun 2006).\nPlanner: https://sourabhbhattacharya.github.io/SBT/exam-pla
+ nner/
+URL:https://www.iimrohtak.ac.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IPMAT Rohtak 2027 (IIM Rohtak IPM) application opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ipmrohtak-close@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270406
+DTEND;VALUE=DATE:20270407
+SUMMARY:LAST DATE to apply: IPMAT Rohtak 2027 (IIM Rohtak IPM) (expected 
+ date)
+DESCRIPTION:5-year BBA + MBA\, about 198 seats; separate exam from IPMAT 
+ Indore. 2026 cycle: apply 6 Feb – 6 Apr\, exam 10 May\, fee ₹4\,937.\
+ nOfficial site: https://www.iimrohtak.ac.in\nEligibility: Class 10 and 12
+  with 60% (55% SC/ST/PwD); age limit (2026: born on or after 30 Jun 2006)
+ .\nPlanner: https://sourabhbhattacharya.github.io/SBT/exam-planner/
+URL:https://www.iimrohtak.ac.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IPMAT Rohtak 2027 (IIM Rohtak IPM): application closes in 7 d
+ ays
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IPMAT Rohtak 2027 (IIM Rohtak IPM): application closes TOMORR
+ OW
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ipmrohtak-exam@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:EXAM: IPMAT Rohtak 2027 (IIM Rohtak IPM) (~2nd week of May 2027) 
+ (expected date)
+DESCRIPTION:Official site: https://www.iimrohtak.ac.in\nEligibility: Clas
+ s 10 and 12 with 60% (55% SC/ST/PwD); age limit (2026: born on or after 3
+ 0 Jun 2006).\nPlanner: https://sourabhbhattacharya.github.io/SBT/exam-pla
+ nner/
+URL:https://www.iimrohtak.ac.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IPMAT Rohtak 2027 (IIM Rohtak IPM): exam in 3 days
+TRIGGER:-P2DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:iimipm-open@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270216
+SUMMARY:Form opens: Other IIMs & IIFT (IPM via IPMAT Indore score) (expec
+ ted date)
+DESCRIPTION:Official site: https://www.iimranchi.ac.in\nEligibility: Clas
+ s 12 with 60% (55% SC/ST/PwD) + IPMAT Indore score. IIM Shillong\, IIM Am
+ ritsar and IIFT Kakinada need Maths in Class 12.\nPlanner: https://sourab
+ hbhattacharya.github.io/SBT/exam-planner/
+URL:https://www.iimranchi.ac.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Other IIMs & IIFT (IPM via IPMAT Indore score) application op
+ ens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:iimipm-close@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270420
+DTEND;VALUE=DATE:20270421
+SUMMARY:LAST DATE to apply: Other IIMs & IIFT (IPM via IPMAT Indore score
+ ) (expected date)
+DESCRIPTION:You must register for IPMAT Indore AND fill each institute's 
+ form separately (deadlines ~Mar–Apr; IIM Ranchi was ~21 Apr). Programme
+ s: IIM Ranchi IPM\, IIM Shillong IPM\, IIM Amritsar IPM\, IIM Sirmaur BMS
+  (4-year)\, IIFT Kakinada IPM (Andhra Pradesh). IIM Jammu and Bodh Gaya u
+ se JIPMAT instead; IIM Rohtak has its own test.\nOfficial site: https://w
+ ww.iimranchi.ac.in\nEligibility: Class 12 with 60% (55% SC/ST/PwD) + IPMA
+ T Indore score. IIM Shillong\, IIM Amritsar and IIFT Kakinada need Maths 
+ in Class 12.\nPlanner: https://sourabhbhattacharya.github.io/SBT/exam-pla
+ nner/
+URL:https://www.iimranchi.ac.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Other IIMs & IIFT (IPM via IPMAT Indore score): application c
+ loses in 7 days
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Other IIMs & IIFT (IPM via IPMAT Indore score): application c
+ loses TOMORROW
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:iimipm-exam@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270504
+SUMMARY:IPMAT: Other IIMs & IIFT (IPM via IPMAT Indore score) (IPMAT Indo
+ re ~first week of May 2027) (expected date)
+DESCRIPTION:Official site: https://www.iimranchi.ac.in\nEligibility: Clas
+ s 12 with 60% (55% SC/ST/PwD) + IPMAT Indore score. IIM Shillong\, IIM Am
+ ritsar and IIFT Kakinada need Maths in Class 12.\nPlanner: https://sourab
+ hbhattacharya.github.io/SBT/exam-planner/
+URL:https://www.iimranchi.ac.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Other IIMs & IIFT (IPM via IPMAT Indore score): ipmat in 3 da
+ ys
+TRIGGER:-P2DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nalsaripm-open@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:Form opens: NALSAR Hyderabad: 5-year BBA–MBA (IPM) (expected da
+ te)
+DESCRIPTION:Official site: https://doms.nalsar.ac.in/5-years-bba-mbaipa/\
+ nEligibility: Class 12 with 60% (50% SC/ST) + NMET UG or IPMAT Indore sco
+ re (not IPMAT Rohtak or JIPMAT).\nPlanner: https://sourabhbhattacharya.gi
+ thub.io/SBT/exam-planner/
+URL:https://doms.nalsar.ac.in/5-years-bba-mbaipa/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NALSAR Hyderabad: 5-year BBA–MBA (IPM) application opens to
+ morrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nalsaripm-close@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270520
+DTEND;VALUE=DATE:20270521
+SUMMARY:LAST DATE to apply: NALSAR Hyderabad: 5-year BBA–MBA (IPM) (exp
+ ected date)
+DESCRIPTION:In Hyderabad (Shameerpet). 66 seats\, 25% reserved for Telang
+ ana residents. 2026 cycle: forms 30 Nov 2025 – 20 May 2026\, NMET UG 14
+  Jun 2026. First-year fee about ₹4.5 lakh. Exit with a BBA after 3 year
+ s is allowed.\nOfficial site: https://doms.nalsar.ac.in/5-years-bba-mbaip
+ a/\nEligibility: Class 12 with 60% (50% SC/ST) + NMET UG or IPMAT Indore 
+ score (not IPMAT Rohtak or JIPMAT).\nPlanner: https://sourabhbhattacharya
+ .github.io/SBT/exam-planner/
+URL:https://doms.nalsar.ac.in/5-years-bba-mbaipa/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NALSAR Hyderabad: 5-year BBA–MBA (IPM): application closes 
+ in 7 days
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NALSAR Hyderabad: 5-year BBA–MBA (IPM): application closes 
+ TOMORROW
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nalsaripm-exam@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:NMET UG: NALSAR Hyderabad: 5-year BBA–MBA (IPM) (NMET UG ~mid-J
+ un 2027) (expected date)
+DESCRIPTION:Official site: https://doms.nalsar.ac.in/5-years-bba-mbaipa/\
+ nEligibility: Class 12 with 60% (50% SC/ST) + NMET UG or IPMAT Indore sco
+ re (not IPMAT Rohtak or JIPMAT).\nPlanner: https://sourabhbhattacharya.gi
+ thub.io/SBT/exam-planner/
+URL:https://doms.nalsar.ac.in/5-years-bba-mbaipa/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NALSAR Hyderabad: 5-year BBA–MBA (IPM): nmet ug in 3 days
+TRIGGER:-P2DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:iiscbs-open@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270401
+DTEND;VALUE=DATE:20270402
+SUMMARY:Form opens: IISc Bangalore: BS (Research) (expected date)
+DESCRIPTION:Official site: https://bs-ug.iisc.ac.in\nEligibility: Class 1
+ 2 science with 60% (passed in 2026 or 2027); must take IAT or JEE Advance
+ d.\nPlanner: https://sourabhbhattacharya.github.io/SBT/exam-planner/
+URL:https://bs-ug.iisc.ac.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IISc Bangalore: BS (Research) application opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:iiscbs-close@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270604
+DTEND;VALUE=DATE:20270605
+SUMMARY:LAST DATE to apply: IISc Bangalore: BS (Research) (expected date)
+DESCRIPTION:Majors in Biology\, Chemistry\, Physics\, Mathematics\, Mater
+ ials\, Earth & Environmental Science. Apply on IISc's own portal even if 
+ you've registered for IAT. 2026 cycle closed ~4–7 Jun. IISc's B.Tech (M
+ aths & Computing) is through JEE Advanced / JoSAA.\nOfficial site: https:
+ //bs-ug.iisc.ac.in\nEligibility: Class 12 science with 60% (passed in 202
+ 6 or 2027); must take IAT or JEE Advanced.\nPlanner: https://sourabhbhatt
+ acharya.github.io/SBT/exam-planner/
+URL:https://bs-ug.iisc.ac.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IISc Bangalore: BS (Research): application closes in 7 days
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IISc Bangalore: BS (Research): application closes TOMORROW
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:iiscbs-exam@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:IAT: IISc Bangalore: BS (Research) (Uses IAT or JEE Advanced 2027
+  score) (expected date)
+DESCRIPTION:Official site: https://bs-ug.iisc.ac.in\nEligibility: Class 1
+ 2 science with 60% (passed in 2026 or 2027); must take IAT or JEE Advance
+ d.\nPlanner: https://sourabhbhattacharya.github.io/SBT/exam-planner/
+URL:https://bs-ug.iisc.ac.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IISc Bangalore: BS (Research): iat in 3 days
+TRIGGER:-P2DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dost-open@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:Form opens: DOST Telangana (degree colleges: BA\, BCom\, BSc\, BB
+ A\, BCA) (expected date)
+DESCRIPTION:Official site: https://dost.cgg.gov.in\nEligibility: Passed I
+ ntermediate / Class 12 (TS board\, CBSE\, ICSE\, etc.).\nPlanner: https:/
+ /sourabhbhattacharya.github.io/SBT/exam-planner/
+URL:https://dost.cgg.gov.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DOST Telangana (degree colleges: BA\, BCom\, BSc\, BBA\, BCA)
+  application opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dost-close@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270508
+SUMMARY:LAST DATE to apply: DOST Telangana (degree colleges: BA\, BCom\, 
+ BSc\, BBA\, BCA) (expected date)
+DESCRIPTION:Single window for degree colleges under Osmania\, Kakatiya an
+ d other Telangana universities\, including many Hyderabad colleges. 2026 
+ cycle: Phase 1 registration 15 Apr – 7 May (₹200)\, later phases to J
+ une\, classes from July. From 2026-27 it also covers 5-year integrated pr
+ ogrammes. Some autonomous/minority colleges run their own admissions; che
+ ck the college.\nOfficial site: https://dost.cgg.gov.in\nEligibility: Pas
+ sed Intermediate / Class 12 (TS board\, CBSE\, ICSE\, etc.).\nPlanner: ht
+ tps://sourabhbhattacharya.github.io/SBT/exam-planner/
+URL:https://dost.cgg.gov.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DOST Telangana (degree colleges: BA\, BCom\, BSc\, BBA\, BCA)
+ : application closes in 7 days
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DOST Telangana (degree colleges: BA\, BCom\, BSc\, BBA\, BCA)
+ : application closes TOMORROW
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dost-exam@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:ALLOTMENT: DOST Telangana (degree colleges: BA\, BCom\, BSc\, BBA
+ \, BCA) (Phase 1 seat allotment ~mid-May 2027) (expected date)
+DESCRIPTION:Official site: https://dost.cgg.gov.in\nEligibility: Passed I
+ ntermediate / Class 12 (TS board\, CBSE\, ICSE\, etc.).\nPlanner: https:/
+ /sourabhbhattacharya.github.io/SBT/exam-planner/
+URL:https://dost.cgg.gov.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DOST Telangana (degree colleges: BA\, BCom\, BSc\, BBA\, BCA)
+ : allotment in 3 days
+TRIGGER:-P2DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mahindra-open@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Form opens: Mahindra University (Hyderabad) (expected date)
+DESCRIPTION:Official site: https://www.mahindrauniversity.edu.in\nEligibi
+ lity: Class 12; B.Tech needs PCM.\nPlanner: https://sourabhbhattacharya.g
+ ithub.io/SBT/exam-planner/
+URL:https://www.mahindrauniversity.edu.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mahindra University (Hyderabad) application opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mahindra-close@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270709
+DTEND;VALUE=DATE:20270710
+SUMMARY:LAST DATE to apply: Mahindra University (Hyderabad) (expected dat
+ e)
+DESCRIPTION:Bahadurpally\, Hyderabad. Early rounds from ~January; final d
+ eadline was 9 Jul in 2026. Tuition about ₹5 lakh a year (B.Tech/BBA).\n
+ Official site: https://www.mahindrauniversity.edu.in\nEligibility: Class 
+ 12; B.Tech needs PCM.\nPlanner: https://sourabhbhattacharya.github.io/SBT
+ /exam-planner/
+URL:https://www.mahindrauniversity.edu.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mahindra University (Hyderabad): application closes in 7 days
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mahindra University (Hyderabad): application closes TOMORROW
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:plaksha-open@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:Form opens: Plaksha University (Mohali): B.Tech (expected date)
+DESCRIPTION:Official site: https://plaksha.edu.in/admissions\nEligibility
+ : Class 12 with PCM.\nPlanner: https://sourabhbhattacharya.github.io/SBT/
+ exam-planner/
+URL:https://plaksha.edu.in/admissions
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Plaksha University (Mohali): B.Tech application opens tomorro
+ w
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:plaksha-close@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20261215
+DTEND;VALUE=DATE:20261216
+SUMMARY:LAST DATE to apply: Plaksha University (Mohali): B.Tech (expected
+  date)
+DESCRIPTION:Up to five rounds; 2026 cycle deadlines ~15 Dec\, 15 Feb\, 21
+  Mar\, 30 Apr\, 7 Jun. Earlier rounds have better odds for aid. Tech-focu
+ sed B.Tech (CS & AI\, Data Science & Economics\, Robotics…).\nOfficial 
+ site: https://plaksha.edu.in/admissions\nEligibility: Class 12 with PCM.\
+ nPlanner: https://sourabhbhattacharya.github.io/SBT/exam-planner/
+URL:https://plaksha.edu.in/admissions
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Plaksha University (Mohali): B.Tech: application closes in 7 
+ days
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Plaksha University (Mohali): B.Tech: application closes TOMOR
+ ROW
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:plaksha-exam@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:INTERVIEW: Plaksha University (Mohali): B.Tech (Round 1 interview
+ s ~Nov – Jan) (expected date)
+DESCRIPTION:Official site: https://plaksha.edu.in/admissions\nEligibility
+ : Class 12 with PCM.\nPlanner: https://sourabhbhattacharya.github.io/SBT/
+ exam-planner/
+URL:https://plaksha.edu.in/admissions
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Plaksha University (Mohali): B.Tech: interview in 3 days
+TRIGGER:-P2DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:jamia-open@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:Form opens: Jamia Millia Islamia (New Delhi) (expected date)
+DESCRIPTION:Official site: https://admission.jmi.ac.in\nEligibility: Clas
+ s 12 with course-specific subjects and marks (usually 50%).\nPlanner: htt
+ ps://sourabhbhattacharya.github.io/SBT/exam-planner/
+URL:https://admission.jmi.ac.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Jamia Millia Islamia (New Delhi) application opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:jamia-close@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270325
+DTEND;VALUE=DATE:20270326
+SUMMARY:LAST DATE to apply: Jamia Millia Islamia (New Delhi) (expected da
+ te)
+DESCRIPTION:2026 cycle: forms 20 Feb – 25 Mar (extended)\, tests 26 Apr
+  – 5 Jun. Check which route your course uses.\nOfficial site: https://a
+ dmission.jmi.ac.in\nEligibility: Class 12 with course-specific subjects a
+ nd marks (usually 50%).\nPlanner: https://sourabhbhattacharya.github.io/S
+ BT/exam-planner/
+URL:https://admission.jmi.ac.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Jamia Millia Islamia (New Delhi): application closes in 7 day
+ s
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Jamia Millia Islamia (New Delhi): application closes TOMORROW
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:jamia-exam@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270426
+DTEND;VALUE=DATE:20270427
+SUMMARY:EXAM: Jamia Millia Islamia (New Delhi) (JMI tests from ~late Apr 
+ 2027) (expected date)
+DESCRIPTION:Official site: https://admission.jmi.ac.in\nEligibility: Clas
+ s 12 with course-specific subjects and marks (usually 50%).\nPlanner: htt
+ ps://sourabhbhattacharya.github.io/SBT/exam-planner/
+URL:https://admission.jmi.ac.in
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Jamia Millia Islamia (New Delhi): exam in 3 days
+TRIGGER:-P2DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:amu-open@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Form opens: Aligarh Muslim University (AMU) (expected date)
+DESCRIPTION:Official site: https://www.amucontrollerexams.com\nEligibilit
+ y: Class 12 with course-specific subjects and marks.\nPlanner: https://so
+ urabhbhattacharya.github.io/SBT/exam-planner/
+URL:https://www.amucontrollerexams.com
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Aligarh Muslim University (AMU) application opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:amu-close@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:LAST DATE to apply: Aligarh Muslim University (AMU) (expected dat
+ e)
+DESCRIPTION:2026 cycle: UG forms 1–28 Feb (some courses to 5 Apr\, late
+  fee to 12 Apr)\, UG tests 12 Apr – 3 Jun.\nOfficial site: https://www.
+ amucontrollerexams.com\nEligibility: Class 12 with course-specific subjec
+ ts and marks.\nPlanner: https://sourabhbhattacharya.github.io/SBT/exam-pl
+ anner/
+URL:https://www.amucontrollerexams.com
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Aligarh Muslim University (AMU): application closes in 7 days
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Aligarh Muslim University (AMU): application closes TOMORROW
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:amu-exam@sbt-exam-planner
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270412
+DTEND;VALUE=DATE:20270413
+SUMMARY:EXAM: Aligarh Muslim University (AMU) (UG tests ~mid-Apr – earl
+ y Jun 2027) (expected date)
+DESCRIPTION:Official site: https://www.amucontrollerexams.com\nEligibilit
+ y: Class 12 with course-specific subjects and marks.\nPlanner: https://so
+ urabhbhattacharya.github.io/SBT/exam-planner/
+URL:https://www.amucontrollerexams.com
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Aligarh Muslim University (AMU): exam in 3 days
+TRIGGER:-P2DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:seed-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260806
 DTEND;VALUE=DATE:20260807
 SUMMARY:Form opens: SEED 2027 (Symbiosis Design) (expected date)
@@ -759,7 +1460,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:seed-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261225
 DTEND;VALUE=DATE:20261226
 SUMMARY:LAST DATE to apply: SEED 2027 (Symbiosis Design) (expected date)
@@ -784,7 +1485,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:seed-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
 SUMMARY:EXAM: SEED 2027 (Symbiosis Design) (~2nd week of Jan 2027 (round 
@@ -802,7 +1503,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bitsdat-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:Form opens: BITSDAT 2027 (BITS Design School)
@@ -819,7 +1520,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bitsdat-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:LAST DATE to apply: BITSDAT 2027 (BITS Design School)
@@ -845,7 +1546,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bitsdat-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270329
 DTEND;VALUE=DATE:20270330
 SUMMARY:EXAM: BITSDAT 2027 (BITS Design School) (29 Mar – 5 Apr 2027)
@@ -862,7 +1563,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:harvard-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260801
 DTEND;VALUE=DATE:20260802
 SUMMARY:Form opens: Harvard University
@@ -881,7 +1582,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:harvard-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:LAST DATE to apply: Harvard University
@@ -908,7 +1609,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:harvard-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DECISIONS: Harvard University (By end of March 2027) (expected da
@@ -928,7 +1629,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:yale-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260801
 DTEND;VALUE=DATE:20260802
 SUMMARY:Form opens: Yale University
@@ -946,7 +1647,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:yale-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270102
 DTEND;VALUE=DATE:20270103
 SUMMARY:LAST DATE to apply: Yale University
@@ -973,7 +1674,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:yale-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270327
 DTEND;VALUE=DATE:20270328
 SUMMARY:DECISIONS: Yale University (Late March 2027) (expected date)
@@ -991,7 +1692,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:princeton-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260801
 DTEND;VALUE=DATE:20260802
 SUMMARY:Form opens: Princeton University
@@ -1009,7 +1710,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:princeton-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:LAST DATE to apply: Princeton University
@@ -1036,7 +1737,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:princeton-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270327
 DTEND;VALUE=DATE:20270328
 SUMMARY:DECISIONS: Princeton University (Late March 2027) (expected date)
@@ -1054,7 +1755,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:columbia-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260801
 DTEND;VALUE=DATE:20260802
 SUMMARY:Form opens: Columbia University
@@ -1073,7 +1774,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:columbia-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:LAST DATE to apply: Columbia University
@@ -1100,7 +1801,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:columbia-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270327
 DTEND;VALUE=DATE:20270328
 SUMMARY:DECISIONS: Columbia University (Late March 2027) (expected date)
@@ -1119,7 +1820,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:penn-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260801
 DTEND;VALUE=DATE:20260802
 SUMMARY:Form opens: University of Pennsylvania (incl. Wharton)
@@ -1138,7 +1839,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:penn-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270105
 DTEND;VALUE=DATE:20270106
 SUMMARY:LAST DATE to apply: University of Pennsylvania (incl. Wharton)
@@ -1167,7 +1868,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:penn-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270401
 DTEND;VALUE=DATE:20270402
 SUMMARY:DECISIONS: University of Pennsylvania (incl. Wharton) (April 2027
@@ -1187,7 +1888,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:brown-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260801
 DTEND;VALUE=DATE:20260802
 SUMMARY:Form opens: Brown University
@@ -1205,7 +1906,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:brown-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270105
 DTEND;VALUE=DATE:20270106
 SUMMARY:LAST DATE to apply: Brown University
@@ -1232,7 +1933,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:brown-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270401
 DTEND;VALUE=DATE:20270402
 SUMMARY:DECISIONS: Brown University (By early April 2027) (expected date)
@@ -1250,7 +1951,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:dartmouth-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260801
 DTEND;VALUE=DATE:20260802
 SUMMARY:Form opens: Dartmouth College
@@ -1268,7 +1969,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:dartmouth-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:LAST DATE to apply: Dartmouth College
@@ -1295,7 +1996,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:dartmouth-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DECISIONS: Dartmouth College (Late March – early April 2027) (e
@@ -1314,7 +2015,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cornell-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260801
 DTEND;VALUE=DATE:20260802
 SUMMARY:Form opens: Cornell University
@@ -1332,7 +2033,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cornell-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270102
 DTEND;VALUE=DATE:20270103
 SUMMARY:LAST DATE to apply: Cornell University
@@ -1359,7 +2060,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cornell-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270327
 DTEND;VALUE=DATE:20270328
 SUMMARY:DECISIONS: Cornell University (Late March 2027) (expected date)
@@ -1377,7 +2078,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:jgls-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260801
 DTEND;VALUE=DATE:20260802
 SUMMARY:Form opens: LNAT for Jindal Global Law School
@@ -1394,7 +2095,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:jgls-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:LAST DATE to apply: LNAT for Jindal Global Law School
@@ -1421,7 +2122,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:jgls-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270125
 DTEND;VALUE=DATE:20270126
 SUMMARY:TEST: LNAT for Jindal Global Law School (Book a slot\, 1 Sep 2026
@@ -1439,7 +2140,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:culee-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Form opens: Christ University Law (CULEE 2027) (expected date)
@@ -1456,7 +2157,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:culee-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:LAST DATE to apply: Christ University Law (CULEE 2027) (expected 
@@ -1483,7 +2184,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:culee-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261207
 DTEND;VALUE=DATE:20261208
 SUMMARY:EXAM: Christ University Law (CULEE 2027) (Session 1 ~7 Dec 2026; 
@@ -1501,7 +2202,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nmimslat-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270125
 DTEND;VALUE=DATE:20270126
 SUMMARY:Form opens: NMIMS LAT 2027 (Law) (expected date)
@@ -1518,7 +2219,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nmimslat-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270520
 DTEND;VALUE=DATE:20270521
 SUMMARY:LAST DATE to apply: NMIMS LAT 2027 (Law) (expected date)
@@ -1541,7 +2242,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nmimslat-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270215
 DTEND;VALUE=DATE:20270216
 SUMMARY:EXAM: NMIMS LAT 2027 (Law) (Test windows Feb – May 2027) (expec
@@ -1559,7 +2260,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:mhcetlaw-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
 SUMMARY:Form opens: MH CET Law 2027 (5-year LLB) (expected date)
@@ -1576,7 +2277,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:mhcetlaw-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270210
 DTEND;VALUE=DATE:20270211
 SUMMARY:LAST DATE to apply: MH CET Law 2027 (5-year LLB) (expected date)
@@ -1601,7 +2302,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:mhcetlaw-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270405
 DTEND;VALUE=DATE:20270406
 SUMMARY:EXAM: MH CET Law 2027 (5-year LLB) (April 2027) (expected date)
@@ -1618,7 +2319,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aplawcet-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270210
 DTEND;VALUE=DATE:20270211
 SUMMARY:Form opens: AP LAWCET 2027 (5-year LLB) (expected date)
@@ -1635,7 +2336,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aplawcet-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270415
 DTEND;VALUE=DATE:20270416
 SUMMARY:LAST DATE to apply: AP LAWCET 2027 (5-year LLB) (expected date)
@@ -1658,7 +2359,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aplawcet-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270520
 DTEND;VALUE=DATE:20270521
 SUMMARY:EXAM: AP LAWCET 2027 (5-year LLB) (May 2027) (expected date)
@@ -1675,7 +2376,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:hk-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260923
 DTEND;VALUE=DATE:20260924
 SUMMARY:Form opens: Hong Kong: HKU & HKUST (Sept 2027)
@@ -1694,7 +2395,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:hk-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261125
 DTEND;VALUE=DATE:20261126
 SUMMARY:LAST DATE to apply: Hong Kong: HKU & HKUST (Sept 2027)
@@ -1722,7 +2423,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:hk-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
 SUMMARY:DECISIONS: Hong Kong: HKU & HKUST (Sept 2027) (From Dec 2026) (ex
@@ -1742,7 +2443,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:sat-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260601
 DTEND;VALUE=DATE:20260602
 SUMMARY:Form opens: SAT (Dec 2026 sitting)
@@ -1760,7 +2461,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:sat-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
 SUMMARY:LAST DATE to apply: SAT (Dec 2026 sitting)
@@ -1786,7 +2487,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:sat-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:TEST: SAT (Dec 2026 sitting) (5 Dec 2026)
@@ -1804,7 +2505,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:act-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260601
 DTEND;VALUE=DATE:20260602
 SUMMARY:Form opens: ACT (Dec 2026 international)
@@ -1821,7 +2522,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:act-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261113
 DTEND;VALUE=DATE:20261114
 SUMMARY:LAST DATE to apply: ACT (Dec 2026 international)
@@ -1845,7 +2546,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:act-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261211
 DTEND;VALUE=DATE:20261212
 SUMMARY:TEST: ACT (Dec 2026 international) (11–12 Dec 2026)
@@ -1862,7 +2563,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:commonapp-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260801
 DTEND;VALUE=DATE:20260802
 SUMMARY:Form opens: USA: Common App (Fall 2027) (expected date)
@@ -1880,7 +2581,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:commonapp-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:LAST DATE to apply: USA: Common App (Fall 2027) (expected date)
@@ -1907,7 +2608,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:commonapp-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270401
 DTEND;VALUE=DATE:20270402
 SUMMARY:DECISIONS: USA: Common App (Fall 2027) (Mar – Apr 2027) (expect
@@ -1926,7 +2627,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ucas-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260512
 DTEND;VALUE=DATE:20260513
 SUMMARY:Form opens: UK: UCAS (Sept 2027 entry)
@@ -1945,7 +2646,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ucas-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270113
 DTEND;VALUE=DATE:20270114
 SUMMARY:LAST DATE to apply: UK: UCAS (Sept 2027 entry)
@@ -1972,7 +2673,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ucas-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270512
 DTEND;VALUE=DATE:20270513
 SUMMARY:DECISIONS: UK: UCAS (Sept 2027 entry) (By ~12 May 2027) (expected
@@ -1992,7 +2693,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:canada-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261002
 SUMMARY:Form opens: Canada (Fall 2027) (expected date)
@@ -2010,7 +2711,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:canada-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:LAST DATE to apply: Canada (Fall 2027) (expected date)
@@ -2036,7 +2737,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:canada-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270415
 DTEND;VALUE=DATE:20270416
 SUMMARY:DECISIONS: Canada (Fall 2027) (Feb – May 2027) (expected date)
@@ -2054,7 +2755,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ntu-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:Form opens: Singapore: NTU (Aug 2027) (expected date)
@@ -2072,7 +2773,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ntu-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:LAST DATE to apply: Singapore: NTU (Aug 2027) (expected date)
@@ -2098,7 +2799,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ntu-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270515
 DTEND;VALUE=DATE:20270516
 SUMMARY:DECISIONS: Singapore: NTU (Aug 2027) (Apr – Jun 2027) (expected
@@ -2117,7 +2818,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nus-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261203
 DTEND;VALUE=DATE:20261204
 SUMMARY:Form opens: Singapore: NUS (Aug 2027) (expected date)
@@ -2135,7 +2836,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nus-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270223
 DTEND;VALUE=DATE:20270224
 SUMMARY:LAST DATE to apply: Singapore: NUS (Aug 2027) (expected date)
@@ -2160,7 +2861,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nus-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270701
 DTEND;VALUE=DATE:20270702
 SUMMARY:DECISIONS: Singapore: NUS (Aug 2027) (By July 2027) (expected dat
@@ -2179,7 +2880,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:germany-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270415
 DTEND;VALUE=DATE:20270416
 SUMMARY:Form opens: Germany (Winter semester 2027) (expected date)
@@ -2199,7 +2900,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:germany-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270715
 DTEND;VALUE=DATE:20270716
 SUMMARY:LAST DATE to apply: Germany (Winter semester 2027) (expected date
@@ -2228,7 +2929,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:germany-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270831
 DTEND;VALUE=DATE:20270901
 SUMMARY:DECISIONS: Germany (Winter semester 2027) (Aug – Sep 2027) (exp
@@ -2249,7 +2950,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ailet-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260807
 DTEND;VALUE=DATE:20260808
 SUMMARY:Form opens: AILET 2027
@@ -2267,7 +2968,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ailet-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261110
 DTEND;VALUE=DATE:20261111
 SUMMARY:LAST DATE to apply: AILET 2027
@@ -2291,7 +2992,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ailet-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:EXAM: AILET 2027 (13 Dec 2026\, 2–4 pm)
@@ -2309,7 +3010,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nid-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260910
 DTEND;VALUE=DATE:20260911
 SUMMARY:Form opens: NID DAT 2027 (B.Des)
@@ -2327,7 +3028,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nid-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:LAST DATE to apply: NID DAT 2027 (B.Des)
@@ -2351,7 +3052,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nid-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:EXAM: NID DAT 2027 (B.Des) (Prelims 20 Dec 2026; Mains Apr–May 
@@ -2370,7 +3071,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:slat-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260821
 DTEND;VALUE=DATE:20260822
 SUMMARY:Form opens: SLAT 2027 (Symbiosis Law)
@@ -2387,7 +3088,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:slat-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:LAST DATE to apply: SLAT 2027 (Symbiosis Law)
@@ -2410,7 +3111,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:slat-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261219
 DTEND;VALUE=DATE:20261220
 SUMMARY:EXAM: SLAT 2027 (Symbiosis Law) (Test 1: 19 Dec · Test 2: 26 Dec
@@ -2428,7 +3129,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cafound-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260902
 DTEND;VALUE=DATE:20260903
 SUMMARY:Form opens: CA Foundation (May 2027 attempt) (expected date)
@@ -2446,7 +3147,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cafound-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:LAST DATE to apply: CA Foundation (May 2027 attempt) (expected da
@@ -2474,7 +3175,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cafound-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270515
 DTEND;VALUE=DATE:20270516
 SUMMARY:EXAM: CA Foundation (May 2027 attempt) (mid-May 2027 (expected)) 
@@ -2493,7 +3194,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nchm-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:Form opens: NCHM JEE 2027 (expected date)
@@ -2510,7 +3211,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nchm-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270325
 DTEND;VALUE=DATE:20270326
 SUMMARY:LAST DATE to apply: NCHM JEE 2027 (expected date)
@@ -2533,7 +3234,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nchm-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270426
 SUMMARY:EXAM: NCHM JEE 2027 (April 2027) (expected date)
@@ -2550,7 +3251,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:npat-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270125
 DTEND;VALUE=DATE:20270126
 SUMMARY:Form opens: NMIMS NPAT 2027 (expected date)
@@ -2567,7 +3268,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:npat-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270520
 DTEND;VALUE=DATE:20270521
 SUMMARY:LAST DATE to apply: NMIMS NPAT 2027 (expected date)
@@ -2591,7 +3292,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:npat-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270215
 DTEND;VALUE=DATE:20270216
 SUMMARY:EXAM: NMIMS NPAT 2027 (Test window Feb – Jun 2027) (expected da
@@ -2609,7 +3310,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ncet-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270210
 DTEND;VALUE=DATE:20270211
 SUMMARY:Form opens: NCET 2027 (ITEP) (expected date)
@@ -2626,7 +3327,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ncet-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270312
 DTEND;VALUE=DATE:20270313
 SUMMARY:LAST DATE to apply: NCET 2027 (ITEP) (expected date)
@@ -2650,7 +3351,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ncet-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270420
 DTEND;VALUE=DATE:20270421
 SUMMARY:EXAM: NCET 2027 (ITEP) (April 2027) (expected date)
@@ -2667,7 +3368,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:set-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
 SUMMARY:Form opens: Symbiosis SET 2027 (expected date)
@@ -2684,7 +3385,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:set-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270415
 DTEND;VALUE=DATE:20270416
 SUMMARY:LAST DATE to apply: Symbiosis SET 2027 (expected date)
@@ -2708,7 +3409,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:set-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270508
 DTEND;VALUE=DATE:20270509
 SUMMARY:EXAM: Symbiosis SET 2027 (May 2027 (two test dates)) (expected da
@@ -2726,7 +3427,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:tglaw-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270215
 DTEND;VALUE=DATE:20270216
 SUMMARY:Form opens: TG LAWCET 2027 (5-year LLB) (expected date)
@@ -2743,7 +3444,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:tglaw-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270401
 DTEND;VALUE=DATE:20270402
 SUMMARY:LAST DATE to apply: TG LAWCET 2027 (5-year LLB) (expected date)
@@ -2766,7 +3467,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:tglaw-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270518
 DTEND;VALUE=DATE:20270519
 SUMMARY:EXAM: TG LAWCET 2027 (5-year LLB) (May 2027) (expected date)
@@ -2783,10 +3484,11 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:jipmat-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270325
 DTEND;VALUE=DATE:20270326
-SUMMARY:Form opens: JIPMAT 2027 (expected date)
+SUMMARY:Form opens: JIPMAT 2027 (IIM Jammu\, IIM Bodh Gaya) (expected dat
+ e)
 DESCRIPTION:Official site: https://exams.nta.ac.in/JIPMAT\nEligibility: C
  lass 12 in any stream with 60% (55% SC/ST/PwD) and passed Class 10 with 6
  0%.\nPlanner: https://sourabhbhattacharya.github.io/SBT/exam-planner/
@@ -2794,16 +3496,18 @@ URL:https://exams.nta.ac.in/JIPMAT
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:JIPMAT 2027 application opens tomorrow
+DESCRIPTION:JIPMAT 2027 (IIM Jammu\, IIM Bodh Gaya) application opens tom
+ orrow
 TRIGGER:-PT15H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:jipmat-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270420
 DTEND;VALUE=DATE:20270421
-SUMMARY:LAST DATE to apply: JIPMAT 2027 (expected date)
+SUMMARY:LAST DATE to apply: JIPMAT 2027 (IIM Jammu\, IIM Bodh Gaya) (expe
+ cted date)
 DESCRIPTION:5-year Integrated Programme in Management (BBA+MBA).\nOfficia
  l site: https://exams.nta.ac.in/JIPMAT\nEligibility: Class 12 in any stre
  am with 60% (55% SC/ST/PwD) and passed Class 10 with 60%.\nPlanner: https
@@ -2812,21 +3516,24 @@ URL:https://exams.nta.ac.in/JIPMAT
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:JIPMAT 2027: application closes in 7 days
+DESCRIPTION:JIPMAT 2027 (IIM Jammu\, IIM Bodh Gaya): application closes i
+ n 7 days
 TRIGGER:-P6DT15H
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:JIPMAT 2027: application closes TOMORROW
+DESCRIPTION:JIPMAT 2027 (IIM Jammu\, IIM Bodh Gaya): application closes T
+ OMORROW
 TRIGGER:-PT15H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:jipmat-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270605
 DTEND;VALUE=DATE:20270606
-SUMMARY:EXAM: JIPMAT 2027 (early June 2027) (expected date)
+SUMMARY:EXAM: JIPMAT 2027 (IIM Jammu\, IIM Bodh Gaya) (early June 2027) (
+ expected date)
 DESCRIPTION:Official site: https://exams.nta.ac.in/JIPMAT\nEligibility: C
  lass 12 in any stream with 60% (55% SC/ST/PwD) and passed Class 10 with 6
  0%.\nPlanner: https://sourabhbhattacharya.github.io/SBT/exam-planner/
@@ -2834,13 +3541,13 @@ URL:https://exams.nta.ac.in/JIPMAT
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:JIPMAT 2027: exam in 3 days
+DESCRIPTION:JIPMAT 2027 (IIM Jammu\, IIM Bodh Gaya): exam in 3 days
 TRIGGER:-P2DT15H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:uceed-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261002
 SUMMARY:Form opens: UCEED (IIT design)
@@ -2857,7 +3564,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:uceed-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261106
 DTEND;VALUE=DATE:20261107
 SUMMARY:LAST DATE to apply: UCEED (IIT design)
@@ -2880,7 +3587,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:uceed-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270117
 DTEND;VALUE=DATE:20270118
 SUMMARY:EXAM: UCEED (IIT design) (17 Jan 2027)
@@ -2897,7 +3604,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:jeem1-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261025
 SUMMARY:Form opens: JEE Main 2027 · Session 1
@@ -2916,7 +3623,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:jeem1-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:LAST DATE to apply: JEE Main 2027 · Session 1
@@ -2942,7 +3649,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:jeem1-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:EXAM: JEE Main 2027 · Session 1 (20–24 & 28 Jan 2027)
@@ -2961,7 +3668,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:clat-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20260803
 DTEND;VALUE=DATE:20260804
 SUMMARY:Form opens: CLAT 2027
@@ -2978,7 +3685,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:clat-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:LAST DATE to apply: CLAT 2027
@@ -3001,7 +3708,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:clat-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:EXAM: CLAT 2027 (6 Dec 2026)
@@ -3018,7 +3725,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nda1-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261202
 DTEND;VALUE=DATE:20261203
 SUMMARY:Form opens: NDA & NA (I) 2027
@@ -3037,7 +3744,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nda1-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261222
 DTEND;VALUE=DATE:20261223
 SUMMARY:LAST DATE to apply: NDA & NA (I) 2027
@@ -3062,7 +3769,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nda1-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270411
 DTEND;VALUE=DATE:20270412
 SUMMARY:EXAM: NDA & NA (I) 2027 (11 Apr 2027)
@@ -3081,7 +3788,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nift-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
 SUMMARY:Form opens: NIFT 2027 (expected date)
@@ -3098,7 +3805,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nift-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:LAST DATE to apply: NIFT 2027 (expected date)
@@ -3121,7 +3828,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nift-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
 SUMMARY:EXAM: NIFT 2027 (10 Jan 2027 (tentative)) (expected date)
@@ -3138,7 +3845,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:jeem2-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270105
 DTEND;VALUE=DATE:20270106
 SUMMARY:Form opens: JEE Main 2027 · Session 2
@@ -3155,7 +3862,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:jeem2-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270203
 DTEND;VALUE=DATE:20270204
 SUMMARY:LAST DATE to apply: JEE Main 2027 · Session 2
@@ -3178,7 +3885,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:jeem2-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270402
 DTEND;VALUE=DATE:20270403
 SUMMARY:EXAM: JEE Main 2027 · Session 2 (2–7 Apr 2027)
@@ -3195,7 +3902,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cuet-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270105
 DTEND;VALUE=DATE:20270106
 SUMMARY:Form opens: CUET UG 2027 (expected date)
@@ -3213,7 +3920,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cuet-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270205
 DTEND;VALUE=DATE:20270206
 SUMMARY:LAST DATE to apply: CUET UG 2027 (expected date)
@@ -3238,7 +3945,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cuet-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270515
 DTEND;VALUE=DATE:20270516
 SUMMARY:EXAM: CUET UG 2027 (mid-May – early Jun 2027) (expected date)
@@ -3256,7 +3963,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:neet-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270210
 DTEND;VALUE=DATE:20270211
 SUMMARY:Form opens: NEET UG 2027 (expected date)
@@ -3274,7 +3981,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:neet-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270310
 DTEND;VALUE=DATE:20270311
 SUMMARY:LAST DATE to apply: NEET UG 2027 (expected date)
@@ -3299,7 +4006,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:neet-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270502
 DTEND;VALUE=DATE:20270503
 SUMMARY:EXAM: NEET UG 2027 (~2 May 2027) (expected date)
@@ -3317,7 +4024,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:met-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:Form opens: MET 2027 (Manipal)
@@ -3334,7 +4041,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:met-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270315
 DTEND;VALUE=DATE:20270316
 SUMMARY:LAST DATE to apply: MET 2027 (Manipal)
@@ -3357,7 +4064,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:met-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
 SUMMARY:EXAM: MET 2027 (Manipal) (Apr & late May 2027) (expected date)
@@ -3374,7 +4081,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bitsat-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:Form opens: BITSAT 2027 (expected date)
@@ -3391,7 +4098,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bitsat-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270315
 DTEND;VALUE=DATE:20270316
 SUMMARY:LAST DATE to apply: BITSAT 2027 (expected date)
@@ -3414,7 +4121,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bitsat-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270420
 DTEND;VALUE=DATE:20270421
 SUMMARY:EXAM: BITSAT 2027 (Session 1 Apr–May; Session 2 Jun 2027) (expe
@@ -3432,7 +4139,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:comedk-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270203
 DTEND;VALUE=DATE:20270204
 SUMMARY:Form opens: COMEDK UGET 2027 (expected date)
@@ -3449,7 +4156,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:comedk-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270316
 DTEND;VALUE=DATE:20270317
 SUMMARY:LAST DATE to apply: COMEDK UGET 2027 (expected date)
@@ -3472,7 +4179,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:comedk-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270509
 DTEND;VALUE=DATE:20270510
 SUMMARY:EXAM: COMEDK UGET 2027 (~9 May 2027) (expected date)
@@ -3489,7 +4196,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:viteee-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261020
 DTEND;VALUE=DATE:20261021
 SUMMARY:Form opens: VITEEE 2027
@@ -3506,7 +4213,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:viteee-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:LAST DATE to apply: VITEEE 2027
@@ -3529,7 +4236,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:viteee-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270427
 DTEND;VALUE=DATE:20270428
 SUMMARY:EXAM: VITEEE 2027 (27 Apr – 2 May 2027) (expected date)
@@ -3546,7 +4253,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:srm-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Form opens: SRMJEEE 2027
@@ -3563,7 +4270,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:srm-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270402
 DTEND;VALUE=DATE:20270403
 SUMMARY:LAST DATE to apply: SRMJEEE 2027
@@ -3585,7 +4292,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:srm-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270424
 DTEND;VALUE=DATE:20270425
 SUMMARY:EXAM: SRMJEEE 2027 (Phase 1 late Apr; Phase 2 Jun 2027) (expected
@@ -3603,7 +4310,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:tgeap-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270219
 DTEND;VALUE=DATE:20270220
 SUMMARY:Form opens: TG EAPCET 2027 (expected date)
@@ -3621,7 +4328,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:tgeap-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270404
 DTEND;VALUE=DATE:20270405
 SUMMARY:LAST DATE to apply: TG EAPCET 2027 (expected date)
@@ -3646,7 +4353,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:tgeap-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270504
 DTEND;VALUE=DATE:20270505
 SUMMARY:EXAM: TG EAPCET 2027 (Agri & Pharmacy ~4–5 May; Engg ~9–11 Ma
@@ -3665,7 +4372,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:isi-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270210
 DTEND;VALUE=DATE:20270211
 SUMMARY:Form opens: ISI Admission Test 2027 (expected date)
@@ -3682,7 +4389,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:isi-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270325
 DTEND;VALUE=DATE:20270326
 SUMMARY:LAST DATE to apply: ISI Admission Test 2027 (expected date)
@@ -3704,7 +4411,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:isi-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270509
 DTEND;VALUE=DATE:20270510
 SUMMARY:EXAM: ISI Admission Test 2027 (~2nd week of May 2027) (expected d
@@ -3722,7 +4429,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cmi-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:Form opens: CMI Entrance 2027 (expected date)
@@ -3739,7 +4446,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cmi-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270405
 DTEND;VALUE=DATE:20270406
 SUMMARY:LAST DATE to apply: CMI Entrance 2027 (expected date)
@@ -3761,7 +4468,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cmi-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270502
 DTEND;VALUE=DATE:20270503
 SUMMARY:EXAM: CMI Entrance 2027 (May 2027) (expected date)
@@ -3778,7 +4485,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:apeap-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270215
 DTEND;VALUE=DATE:20270216
 SUMMARY:Form opens: AP EAPCET 2027 (expected date)
@@ -3795,7 +4502,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:apeap-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270415
 DTEND;VALUE=DATE:20270416
 SUMMARY:LAST DATE to apply: AP EAPCET 2027 (expected date)
@@ -3818,7 +4525,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:apeap-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270515
 DTEND;VALUE=DATE:20270516
 SUMMARY:EXAM: AP EAPCET 2027 (May 2027) (expected date)
@@ -3835,7 +4542,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:iat-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270305
 DTEND;VALUE=DATE:20270306
 SUMMARY:Form opens: IISER Aptitude Test (IAT) 2027 (expected date)
@@ -3852,7 +4559,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:iat-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270413
 DTEND;VALUE=DATE:20270414
 SUMMARY:LAST DATE to apply: IISER Aptitude Test (IAT) 2027 (expected date
@@ -3877,7 +4584,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:iat-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270606
 DTEND;VALUE=DATE:20270607
 SUMMARY:EXAM: IISER Aptitude Test (IAT) 2027 (early Jun 2027) (expected d
@@ -3895,63 +4602,70 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ipmat-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
-DTSTART;VALUE=DATE:20270215
-DTEND;VALUE=DATE:20270216
-SUMMARY:Form opens: IPMAT 2027 (expected date)
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Form opens: IPMAT Indore 2027 (IIM Indore IPM) (expected date)
 DESCRIPTION:Official site: https://www.iimidr.ac.in\nEligibility: Class 1
- 2 with 60% (55% SC/ST/PwD); age limit applies.\nPlanner: https://sourabhb
- hattacharya.github.io/SBT/exam-planner/
+ 0 and 12 with 60% (55% SC/ST/PwD); age limit applies.\nPlanner: https://s
+ ourabhbhattacharya.github.io/SBT/exam-planner/
 URL:https://www.iimidr.ac.in
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:IPMAT 2027 application opens tomorrow
+DESCRIPTION:IPMAT Indore 2027 (IIM Indore IPM) application opens tomorrow
 TRIGGER:-PT15H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ipmat-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270320
 DTEND;VALUE=DATE:20270321
-SUMMARY:LAST DATE to apply: IPMAT 2027 (expected date)
-DESCRIPTION:5-year BBA + MBA.\nOfficial site: https://www.iimidr.ac.in\nE
- ligibility: Class 12 with 60% (55% SC/ST/PwD); age limit applies.\nPlanne
- r: https://sourabhbhattacharya.github.io/SBT/exam-planner/
+SUMMARY:LAST DATE to apply: IPMAT Indore 2027 (IIM Indore IPM) (expected 
+ date)
+DESCRIPTION:5-year BBA + MBA (about 150 seats at Indore). The same score 
+ is used by IIM Ranchi\, Shillong\, Amritsar\, Sirmaur\, IIFT Kakinada\, N
+ ALSAR Hyderabad\, TAPMI and Nirma (separate forms; see their cards). 2026
+  exam was 4 May.\nOfficial site: https://www.iimidr.ac.in\nEligibility: C
+ lass 10 and 12 with 60% (55% SC/ST/PwD); age limit applies.\nPlanner: htt
+ ps://sourabhbhattacharya.github.io/SBT/exam-planner/
 URL:https://www.iimidr.ac.in
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:IPMAT 2027: application closes in 7 days
+DESCRIPTION:IPMAT Indore 2027 (IIM Indore IPM): application closes in 7 d
+ ays
 TRIGGER:-P6DT15H
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:IPMAT 2027: application closes TOMORROW
+DESCRIPTION:IPMAT Indore 2027 (IIM Indore IPM): application closes TOMORR
+ OW
 TRIGGER:-PT15H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ipmat-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
-DTSTART;VALUE=DATE:20270508
-DTEND;VALUE=DATE:20270509
-SUMMARY:EXAM: IPMAT 2027 (May 2027) (expected date)
+DTSTAMP:20261102T091522Z
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270504
+SUMMARY:EXAM: IPMAT Indore 2027 (IIM Indore IPM) (~first week of May 2027
+ ) (expected date)
 DESCRIPTION:Official site: https://www.iimidr.ac.in\nEligibility: Class 1
- 2 with 60% (55% SC/ST/PwD); age limit applies.\nPlanner: https://sourabhb
- hattacharya.github.io/SBT/exam-planner/
+ 0 and 12 with 60% (55% SC/ST/PwD); age limit applies.\nPlanner: https://s
+ ourabhbhattacharya.github.io/SBT/exam-planner/
 URL:https://www.iimidr.ac.in
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:IPMAT 2027: exam in 3 days
+DESCRIPTION:IPMAT Indore 2027 (IIM Indore IPM): exam in 3 days
 TRIGGER:-P2DT15H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nata-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:Form opens: NATA 2027 (Architecture) (expected date)
@@ -3968,7 +4682,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nata-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270531
 DTEND;VALUE=DATE:20270601
 SUMMARY:LAST DATE to apply: NATA 2027 (Architecture) (expected date)
@@ -3991,7 +4705,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nata-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
 SUMMARY:EXAM: NATA 2027 (Architecture) (Several test dates Apr–Jun 2027
@@ -4009,7 +4723,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nest-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270205
 DTEND;VALUE=DATE:20270206
 SUMMARY:Form opens: NEST 2027 (expected date)
@@ -4026,7 +4740,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nest-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270430
 DTEND;VALUE=DATE:20270501
 SUMMARY:LAST DATE to apply: NEST 2027 (expected date)
@@ -4049,7 +4763,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nest-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270627
 DTEND;VALUE=DATE:20270628
 SUMMARY:EXAM: NEST 2027 (Jun–Jul 2027) (expected date)
@@ -4066,7 +4780,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aiimsn-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270325
 DTEND;VALUE=DATE:20270326
 SUMMARY:Form opens: AIIMS B.Sc (Hons) Nursing 2027 (expected date)
@@ -4084,7 +4798,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aiimsn-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270507
 DTEND;VALUE=DATE:20270508
 SUMMARY:LAST DATE to apply: AIIMS B.Sc (Hons) Nursing 2027 (expected date
@@ -4108,7 +4822,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aiimsn-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270627
 DTEND;VALUE=DATE:20270628
 SUMMARY:EXAM: AIIMS B.Sc (Hons) Nursing 2027 (27 Jun 2027 (tentative)) (e
@@ -4127,7 +4841,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:jeeadv-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270426
 SUMMARY:Form opens: JEE Advanced 2027 (expected date)
@@ -4145,7 +4859,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:jeeadv-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270505
 DTEND;VALUE=DATE:20270506
 SUMMARY:LAST DATE to apply: JEE Advanced 2027 (expected date)
@@ -4169,7 +4883,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:jeeadv-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270516
 DTEND;VALUE=DATE:20270517
 SUMMARY:EXAM: JEE Advanced 2027 (mid-May 2027) (expected date)
@@ -4187,7 +4901,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nda2-open@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270512
 DTEND;VALUE=DATE:20270513
 SUMMARY:Form opens: NDA & NA (II) 2027
@@ -4204,7 +4918,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nda2-close@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270601
 DTEND;VALUE=DATE:20270602
 SUMMARY:LAST DATE to apply: NDA & NA (II) 2027
@@ -4227,7 +4941,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nda2-exam@sbt-exam-planner
-DTSTAMP:20261102T091040Z
+DTSTAMP:20261102T091522Z
 DTSTART;VALUE=DATE:20270919
 DTEND;VALUE=DATE:20270920
 SUMMARY:EXAM: NDA & NA (II) 2027 (19 Sep 2027)
