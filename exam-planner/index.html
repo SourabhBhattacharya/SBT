@@ -276,16 +276,16 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
 // ---- Weekly update log: the Saturday check adds a new entry at the TOP and sets LAST_CHECKED ----
 // ADMISSION_YEAR = the year students in this list will start college. The weekly update moves it forward each year.
 const ADMISSION_YEAR = 2027;
-const LAST_CHECKED = "2026-11-02";
+const LAST_CHECKED = "2026-11-07";
 const UPDATES = [
+ {date:"2026-11-07",items:["NIFT 2027: form is open now and closes 16 Nov 2026 (late fee until 21 Nov); exam 10 Jan 2027 confirmed. Earlier listing had expected dates.","CLAT 2027: deadline extended to 7 Nov 2026 (today); exam stays 6 Dec.","All other dates re-checked: AILET closes 10 Nov, IIM Bangalore BSc test 15 Nov, JEE Main Session 1 closes 22 Nov."]},
  {date:"2026-11-02",items:["Colleges & universities tab expanded: IIT Madras BS degrees (January term: apply by 29 Jan 2027), IIM Bangalore BSc (test 15 Nov), IPMAT Rohtak, other IIMs and IIFT via IPMAT Indore, NALSAR Hyderabad BBA–MBA, IISc BS (Research), DOST Telangana, Mahindra University, Plaksha, Jamia and AMU."]},
  {date:"2026-11-02",items:["Each section and tab now has its own search box: a search in Study in India no longer carries over to Study abroad or to another tab."]},
  {date:"2026-11-02", items:["New Colleges & universities tab: Ashoka (Round 1 closes 23 Nov), Christ (25 Nov), FLAME (29 Nov), Azim Premji (20 Nov), Krea, IIIT Hyderabad UGEE, Shiv Nadar, St. Stephen's, top DU colleges, St. Xavier's Mumbai and Kolkata, University of Hyderabad."]},
  {date:"2026-11-02", items:["Added SEED (Symbiosis design; last date ~25 Dec 2026) and BITSDAT (BITS Design School; apply by 31 Jan 2027, test 29 Mar – 5 Apr).","NATA is listed as NATA 2027 (Architecture) under Design & architecture."]},
  {date:"2026-11-02", items:["New Ivy League tab under Study abroad: deadlines, decision dates and financial-aid policy for all 8 Ivies.","More law exams: LNAT for Jindal Global Law School (early deadline 30 Nov), Christ University CULEE, NMIMS LAT, MH CET Law, AP LAWCET."]},
  {date:"2026-11-02", items:["New Study abroad tab: SAT, ACT, English tests, and application deadlines for the USA, UK, Canada, Singapore, Hong Kong, Australia and Germany.","SAT: register by 20 Nov for the 5 Dec sitting.","Hong Kong (HKU, HKUST) first-round deadline: 25 Nov 2026."]},
- {date:"2026-11-02", items:["Added 10 exams for commerce, arts and humanities students: AILET, SLAT, NID DAT, CA Foundation, NPAT, Symbiosis SET, NCHM JEE, NCET, TG LAWCET, JIPMAT.","New subject filters for Commerce and Arts & Humanities.","AILET closes 10 Nov; NID DAT closes 30 Nov 2026."]},
- {date:"2026-11-02", items:["Planner launched with 26 exams.","JEE Main Session 1 is open until 22 Nov 2026.","UCEED late-fee window closes 6 Nov 2026."]}
+ {date:"2026-11-02", items:["Added 10 exams for commerce, arts and humanities students: AILET, SLAT, NID DAT, CA Foundation, NPAT, Symbiosis SET, NCHM JEE, NCET, TG LAWCET, JIPMAT.","New subject filters for Commerce and Arts & Humanities.","AILET closes 10 Nov; NID DAT closes 30 Nov 2026."]}
 ];
 // ---- end of update log ----
 
@@ -718,11 +718,11 @@ const EXAMS = [
   note:"Late fee 23–26 Nov; correction window 27–29 Nov; admit card 13 Jan 2027. Scores are used for NITs, IIITs, Navy B.Tech and Army TES.",
   kw:"nit iiit josaa engineering btech"},
  {id:"clat",name:"CLAT 2027",full:"Common Law Admission Test",cat:"Law",stream:"Any",body:"Consortium of NLUs",url:"https://consortiumofnlus.ac.in",
-  open:"2026-08-03",close:"2026-10-31",closeExp:false,exam:"2026-12-06",examLbl:"6 Dec 2026",examExp:false,
+  open:"2026-08-03",close:"2026-11-07",closeExp:false,exam:"2026-12-06",examLbl:"6 Dec 2026",examExp:false,
   elig:"Class 12 with 45% (40% SC/ST); any stream.",
   pattern:"2 hours, comprehension-based: English, current affairs, legal reasoning, logical reasoning, quantitative.",
   cutoff:"Rank-based admission to National Law Universities.",
-  note:"2027 registration has closed. If law interests you, plan for CLAT 2028 (registration Aug–Oct 2027).",
+  note:"Deadline was extended to 7 Nov 2026 (11:59 pm); application correction and test-city window until 10 Nov. Exam 6 Dec, 2–4 pm, offline. After this, plan for CLAT 2028 (registration Aug–Oct 2027).",
   kw:"law nlu"},
  {id:"nda1",name:"NDA & NA (I) 2027",full:"National Defence Academy & Naval Academy Exam",cat:"Defence",stream:"PCM",aud:["m","b","c","h"],tagLbl:"Any stream for Army",body:"UPSC",url:"https://upsconline.nic.in",
   open:"2026-12-02",close:"2026-12-22",closeExp:false,exam:"2027-04-11",examLbl:"11 Apr 2027",examExp:false,
@@ -732,11 +732,11 @@ const EXAMS = [
   note:"Dates from the UPSC Annual Calendar 2027. Commerce, arts and biology students can apply for the Army wing.",
   kw:"defence army navy air force upsc officer"},
  {id:"nift",name:"NIFT 2027",full:"NIFT Entrance Exam",cat:"Design",stream:"Any",body:"NTA for NIFT",url:"https://exams.nta.ac.in/NIFT",
-  open:"2026-11-20",close:"2026-12-31",closeExp:true,exam:"2027-01-10",examLbl:"10 Jan 2027 (tentative)",examExp:true,
+  open:"2026-10-16",close:"2026-11-16",closeExp:false,exam:"2027-01-10",examLbl:"10 Jan 2027 (GAT on computer, CAT on paper)",examExp:false,
   elig:"Class 12 in any stream; for B.Des, under 24 years.",
   pattern:"General Ability Test + Creative Ability Test (B.Des), then situation test.",
   cutoff:"Rank-based; NIFT has a Hyderabad campus.",
-  note:"Exam date is from NTA's tentative calendar; form dates not yet announced.",
+  note:"Apply at exams.nta.nic.in/niftee by 16 Nov 2026; with ₹5,000 late fee until 21 Nov. Correction window 22–25 Nov; admit card ~4 Jan 2027.",
   kw:"fashion design bdes hyderabad"},
  {id:"jeem2",name:"JEE Main 2027 · Session 2",full:"Joint Entrance Examination (Main)",cat:"Engineering",stream:"PCM",body:"NTA",url:"https://jeemain.nta.nic.in",
   open:"2027-01-05",close:"2027-02-03",closeExp:false,exam:"2027-04-02",examLbl:"2–7 Apr 2027",examExp:false,
