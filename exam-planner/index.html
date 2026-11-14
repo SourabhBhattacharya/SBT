@@ -276,22 +276,22 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
 // ---- Weekly update log: the Saturday check adds a new entry at the TOP and sets LAST_CHECKED ----
 // ADMISSION_YEAR = the year students in this list will start college. The weekly update moves it forward each year.
 const ADMISSION_YEAR = 2027;
-const LAST_CHECKED = "2026-11-07";
+const LAST_CHECKED = "2026-11-14";
 const UPDATES = [
+ {date:"2026-11-14",items:["ACT December sitting (11–12 Dec): regular deadline passed on 13 Nov; late-fee registration open until 27 Nov.","Ashoka Round 1: assessment confirmed for 6 Dec 2026, decisions on 3 Feb 2027 (apply by 23 Nov).","Azim Premji University Round 1: entrance test expected ~20 Dec 2026, interviews ~4–8 Jan 2027 (apply by 20 Nov).","All other dates re-checked: NIFT closes 16 Nov (late fee to 21 Nov), Christ 25 Nov, FLAME 29 Nov, NID DAT 30 Nov, JEE Main Session 1 closes 22 Nov."]},
  {date:"2026-11-07",items:["NIFT 2027: form is open now and closes 16 Nov 2026 (late fee until 21 Nov); exam 10 Jan 2027 confirmed. Earlier listing had expected dates.","CLAT 2027: deadline extended to 7 Nov 2026 (today); exam stays 6 Dec.","All other dates re-checked: AILET closes 10 Nov, IIM Bangalore BSc test 15 Nov, JEE Main Session 1 closes 22 Nov."]},
  {date:"2026-11-02",items:["Colleges & universities tab expanded: IIT Madras BS degrees (January term: apply by 29 Jan 2027), IIM Bangalore BSc (test 15 Nov), IPMAT Rohtak, other IIMs and IIFT via IPMAT Indore, NALSAR Hyderabad BBA–MBA, IISc BS (Research), DOST Telangana, Mahindra University, Plaksha, Jamia and AMU."]},
  {date:"2026-11-02",items:["Each section and tab now has its own search box: a search in Study in India no longer carries over to Study abroad or to another tab."]},
  {date:"2026-11-02", items:["New Colleges & universities tab: Ashoka (Round 1 closes 23 Nov), Christ (25 Nov), FLAME (29 Nov), Azim Premji (20 Nov), Krea, IIIT Hyderabad UGEE, Shiv Nadar, St. Stephen's, top DU colleges, St. Xavier's Mumbai and Kolkata, University of Hyderabad."]},
  {date:"2026-11-02", items:["Added SEED (Symbiosis design; last date ~25 Dec 2026) and BITSDAT (BITS Design School; apply by 31 Jan 2027, test 29 Mar – 5 Apr).","NATA is listed as NATA 2027 (Architecture) under Design & architecture."]},
  {date:"2026-11-02", items:["New Ivy League tab under Study abroad: deadlines, decision dates and financial-aid policy for all 8 Ivies.","More law exams: LNAT for Jindal Global Law School (early deadline 30 Nov), Christ University CULEE, NMIMS LAT, MH CET Law, AP LAWCET."]},
- {date:"2026-11-02", items:["New Study abroad tab: SAT, ACT, English tests, and application deadlines for the USA, UK, Canada, Singapore, Hong Kong, Australia and Germany.","SAT: register by 20 Nov for the 5 Dec sitting.","Hong Kong (HKU, HKUST) first-round deadline: 25 Nov 2026."]},
- {date:"2026-11-02", items:["Added 10 exams for commerce, arts and humanities students: AILET, SLAT, NID DAT, CA Foundation, NPAT, Symbiosis SET, NCHM JEE, NCET, TG LAWCET, JIPMAT.","New subject filters for Commerce and Arts & Humanities.","AILET closes 10 Nov; NID DAT closes 30 Nov 2026."]}
+ {date:"2026-11-02", items:["New Study abroad tab: SAT, ACT, English tests, and application deadlines for the USA, UK, Canada, Singapore, Hong Kong, Australia and Germany.","SAT: register by 20 Nov for the 5 Dec sitting.","Hong Kong (HKU, HKUST) first-round deadline: 25 Nov 2026."]}
 ];
 // ---- end of update log ----
 
 const EXAMS = [
  {id:"ashoka",name:"Ashoka University (Sonipat)",full:"Ashoka University UG admissions",cat:"College",stream:"Any",body:"Ashoka University",url:"https://www.ashoka.edu.in/admissions/undergraduate-students/",
-  open:"2026-10-07",close:"2026-11-23",closeExp:false,exam:"2026-12-06",examLbl:"Round 1 assessments ~early Dec 2026",examExp:true,examTitle:"Assessment",
+  open:"2026-10-07",close:"2026-11-23",closeExp:false,exam:"2026-12-06",examLbl:"Round 1 assessment 6 Dec 2026; decision 3 Feb 2027",examExp:false,examTitle:"Assessment",
   elig:"Class 12 in any stream (passed or appearing).",
   pattern:"Application with essays, then Ashoka Aptitude Assessment and an on-the-spot essay; shortlisted students are interviewed.",
   cutoff:"Holistic; no published cutoff. Need-based financial aid and scholarships available.",
@@ -312,7 +312,7 @@ const EXAMS = [
   note:"Early Decision is the first of five cycles; later cycles run to June 2027. Liberal education, business, communication and design programmes.",
   kw:"flame pune liberal arts bba design private university"},
  {id:"azimpremji",name:"Azim Premji University (Bengaluru, Bhopal)",full:"Azim Premji University UG admissions",cat:"College",stream:"Any",body:"Azim Premji University",url:"https://azimpremjiuniversity.edu.in",
-  open:"2026-09-15",close:"2026-11-20",closeExp:false,exam:null,examLbl:"Entrance test and interview after the round deadline",examExp:true,examTitle:"Selection",
+  open:"2026-09-15",close:"2026-11-20",closeExp:false,exam:"2026-12-20",examLbl:"Entrance test ~20 Dec 2026; interviews ~4–8 Jan 2027",examExp:true,examTitle:"Selection",
   elig:"Class 12 in any stream (passed or appearing in 2027).",
   pattern:"University entrance assessment and interview; CUET UG, SAT or JEE Main scores also accepted for some programmes.",
   cutoff:"Holistic; strong need-based scholarships.",
@@ -571,11 +571,11 @@ const EXAMS = [
   note:"Late registration until 24 Nov. Later sittings: 6 Mar 2027 (register by 19 Feb), 1 May (16 Apr), 5 Jun 2027 (21 May). December is the last sitting most US regular-decision deadlines accept. Also used by some Indian private universities.",
   kw:"sat usa us america college board abroad international test"},
  {id:"act",dest:"tests",name:"ACT (Dec 2026 international)",full:"ACT",cat:"Intl",stream:"Any",body:"ACT",url:"https://global.act.org",
-  open:"2026-06-01",close:"2026-11-13",closeExp:false,exam:"2026-12-11",examLbl:"11–12 Dec 2026",examExp:false,examTitle:"Test",
+  open:"2026-06-01",close:"2026-11-27",closeExp:false,exam:"2026-12-11",examLbl:"11–12 Dec 2026",examExp:false,examTitle:"Test",
   elig:"Open to anyone; computer-based at international test centres.",
   pattern:"English, Math, Reading (Science optional). Score 1–36. Accepted interchangeably with the SAT by US universities.",
   cutoff:"No pass mark; the target score depends on the university.",
-  note:"Late fee deadline 27 Nov. Next international dates: 12–13 Feb 2027 (register by 15 Jan), 2–3 Apr (5 Mar), 11–12 Jun 2027 (14 May).",
+  note:"Regular deadline (13 Nov) has passed; register with the late fee by 27 Nov. Next international dates: 12–13 Feb 2027 (register by 15 Jan), 2–3 Apr (5 Mar), 11–12 Jun 2027 (14 May).",
   kw:"act usa us america abroad international test"},
  {id:"commonapp",dest:"usa",name:"USA: Common App (Fall 2027)",full:"US universities, regular decision",cat:"Intl",stream:"Any",body:"Common App / each university",url:"https://www.commonapp.org",
   open:"2026-08-01",close:"2027-01-01",closeExp:true,exam:"2027-04-01",examLbl:"Mar – Apr 2027",examExp:true,examTitle:"Decisions",
