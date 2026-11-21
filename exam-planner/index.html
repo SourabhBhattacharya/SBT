@@ -276,16 +276,16 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
 // ---- Weekly update log: the Saturday check adds a new entry at the TOP and sets LAST_CHECKED ----
 // ADMISSION_YEAR = the year students in this list will start college. The weekly update moves it forward each year.
 const ADMISSION_YEAR = 2027;
-const LAST_CHECKED = "2026-11-14";
+const LAST_CHECKED = "2026-11-21";
 const UPDATES = [
+ {date:"2026-11-21",items:["JEE Advanced 2027: IIT Delhi has fixed the exam for 23 May 2027 (official); registration dates come later.","NIFT 2027: deadline extended to 24 Nov 2026 (late fee 25–29 Nov).","SAT 5 Dec sitting: late registration open until 24 Nov.","Azim Premji University: Round 1 closed 20 Nov; the card now shows Round 2 (expected dates).","Closing soon: JEE Main Session 1 (22 Nov), Ashoka Round 1 (23 Nov), Christ and Hong Kong (25 Nov), ACT late (27 Nov), FLAME (29 Nov), NID DAT, LNAT-JGLS and CULEE (30 Nov)."]},
  {date:"2026-11-14",items:["ACT December sitting (11–12 Dec): regular deadline passed on 13 Nov; late-fee registration open until 27 Nov.","Ashoka Round 1: assessment confirmed for 6 Dec 2026, decisions on 3 Feb 2027 (apply by 23 Nov).","Azim Premji University Round 1: entrance test expected ~20 Dec 2026, interviews ~4–8 Jan 2027 (apply by 20 Nov).","All other dates re-checked: NIFT closes 16 Nov (late fee to 21 Nov), Christ 25 Nov, FLAME 29 Nov, NID DAT 30 Nov, JEE Main Session 1 closes 22 Nov."]},
  {date:"2026-11-07",items:["NIFT 2027: form is open now and closes 16 Nov 2026 (late fee until 21 Nov); exam 10 Jan 2027 confirmed. Earlier listing had expected dates.","CLAT 2027: deadline extended to 7 Nov 2026 (today); exam stays 6 Dec.","All other dates re-checked: AILET closes 10 Nov, IIM Bangalore BSc test 15 Nov, JEE Main Session 1 closes 22 Nov."]},
  {date:"2026-11-02",items:["Colleges & universities tab expanded: IIT Madras BS degrees (January term: apply by 29 Jan 2027), IIM Bangalore BSc (test 15 Nov), IPMAT Rohtak, other IIMs and IIFT via IPMAT Indore, NALSAR Hyderabad BBA–MBA, IISc BS (Research), DOST Telangana, Mahindra University, Plaksha, Jamia and AMU."]},
  {date:"2026-11-02",items:["Each section and tab now has its own search box: a search in Study in India no longer carries over to Study abroad or to another tab."]},
  {date:"2026-11-02", items:["New Colleges & universities tab: Ashoka (Round 1 closes 23 Nov), Christ (25 Nov), FLAME (29 Nov), Azim Premji (20 Nov), Krea, IIIT Hyderabad UGEE, Shiv Nadar, St. Stephen's, top DU colleges, St. Xavier's Mumbai and Kolkata, University of Hyderabad."]},
  {date:"2026-11-02", items:["Added SEED (Symbiosis design; last date ~25 Dec 2026) and BITSDAT (BITS Design School; apply by 31 Jan 2027, test 29 Mar – 5 Apr).","NATA is listed as NATA 2027 (Architecture) under Design & architecture."]},
- {date:"2026-11-02", items:["New Ivy League tab under Study abroad: deadlines, decision dates and financial-aid policy for all 8 Ivies.","More law exams: LNAT for Jindal Global Law School (early deadline 30 Nov), Christ University CULEE, NMIMS LAT, MH CET Law, AP LAWCET."]},
- {date:"2026-11-02", items:["New Study abroad tab: SAT, ACT, English tests, and application deadlines for the USA, UK, Canada, Singapore, Hong Kong, Australia and Germany.","SAT: register by 20 Nov for the 5 Dec sitting.","Hong Kong (HKU, HKUST) first-round deadline: 25 Nov 2026."]}
+ {date:"2026-11-02", items:["New Ivy League tab under Study abroad: deadlines, decision dates and financial-aid policy for all 8 Ivies.","More law exams: LNAT for Jindal Global Law School (early deadline 30 Nov), Christ University CULEE, NMIMS LAT, MH CET Law, AP LAWCET."]}
 ];
 // ---- end of update log ----
 
@@ -311,12 +311,12 @@ const EXAMS = [
   cutoff:"Holistic.",
   note:"Early Decision is the first of five cycles; later cycles run to June 2027. Liberal education, business, communication and design programmes.",
   kw:"flame pune liberal arts bba design private university"},
- {id:"azimpremji",name:"Azim Premji University (Bengaluru, Bhopal)",full:"Azim Premji University UG admissions",cat:"College",stream:"Any",body:"Azim Premji University",url:"https://azimpremjiuniversity.edu.in",
-  open:"2026-09-15",close:"2026-11-20",closeExp:false,exam:"2026-12-20",examLbl:"Entrance test ~20 Dec 2026; interviews ~4–8 Jan 2027",examExp:true,examTitle:"Selection",
+ {id:"azimpremji",name:"Azim Premji University (Bengaluru, Bhopal): Round 2",full:"Azim Premji University UG admissions",cat:"College",stream:"Any",body:"Azim Premji University",url:"https://azimpremjiuniversity.edu.in",
+  open:"2026-12-01",close:"2027-03-15",closeExp:true,exam:"2027-04-18",examLbl:"Round 2 test ~mid-Apr 2027; interviews ~May",examExp:true,examTitle:"Selection",
   elig:"Class 12 in any stream (passed or appearing in 2027).",
   pattern:"University entrance assessment and interview; CUET UG, SAT or JEE Main scores also accepted for some programmes.",
   cutoff:"Holistic; strong need-based scholarships.",
-  note:"20 Nov 2026 is the Round 1 deadline; later rounds follow in 2027. 4-year BA/B.Sc (Hons).",
+  note:"Round 1 closed on 20 Nov 2026 (Round 1 test 20 Dec 2026, interviews 4–8 Jan 2027). Now showing Round 2 (expected dates, based on past cycles; check the official site from December). 4-year BA/B.Sc (Hons).",
   kw:"azim premji bengaluru bhopal liberal arts private university"},
  {id:"krea",name:"Krea University (Sri City, near Chennai)",full:"Krea University SIAS undergraduate admissions",cat:"College",stream:"Any",body:"Krea University",url:"https://krea.edu.in",
   open:"2026-09-15",close:"2026-12-06",closeExp:true,exam:"2026-12-14",examLbl:"Round 2 test ~14–15 Dec 2026",examExp:true,examTitle:"Test",
@@ -386,7 +386,7 @@ const EXAMS = [
   elig:"Class 12 with Mathematics in both Class 11 and 12; at least 60% in Class 10; age 20 or under on 1 Aug 2027.",
   pattern:"Computer-based test, 135 min, 60 MCQs: Quant & Data Interpretation (30), Logical Reasoning (15), Verbal & Reading (15); then interview. Final score: test 40, interview 40, Class 10 marks 20.",
   cutoff:"2026 shortlist minimum (General): 80 percentile in Quant & DI and 114 aggregate; actual interview calls were higher.",
-  note:"4-year residential programmes, 80 seats (40 each), about ₹8.5 lakh a year. The 2027 form has closed; the test is on 15 Nov 2026. Next applications ~Aug 2027.",
+  note:"4-year residential programmes, 80 seats (40 each), about ₹8.5 lakh a year. Test held 15 Nov 2026; results expected Dec 2026, interviews ~mid-Jan, offers ~Feb 2027. Next applications ~Aug 2027.",
   kw:"iim bangalore iimb ug bsc economics data science ugat management"},
  {id:"ipmrohtak",name:"IPMAT Rohtak 2027 (IIM Rohtak IPM)",full:"IIM Rohtak IPM Aptitude Test",cat:["Mgmt","College"],stream:"Any",body:"IIM Rohtak",url:"https://www.iimrohtak.ac.in",
   open:"2027-02-06",close:"2027-04-06",closeExp:true,exam:"2027-05-09",examLbl:"~2nd week of May 2027",examExp:true,
@@ -564,11 +564,11 @@ const EXAMS = [
   note:"25 Nov 2026 (noon HK time) is the first-round deadline at HKU and HKUST's priority deadline; both keep accepting later applications (HKU to 25 Aug 2027) but early applicants get offers first. HKU fee HK$780.",
   kw:"hong kong hku hkust abroad international asia"},
  {id:"sat",dest:"tests",name:"SAT (Dec 2026 sitting)",full:"SAT by College Board",cat:"Intl",stream:"Any",body:"College Board",url:"https://satsuite.collegeboard.org/sat/dates-deadlines",
-  open:"2026-06-01",close:"2026-11-20",closeExp:false,exam:"2026-12-05",examLbl:"5 Dec 2026",examExp:false,examTitle:"Test",
+  open:"2026-06-01",close:"2026-11-24",closeExp:false,exam:"2026-12-05",examLbl:"5 Dec 2026",examExp:false,examTitle:"Test",
   elig:"Open to anyone; taken at centres across India including Hyderabad.",
   pattern:"Digital, about 2 hrs 14 min: Reading & Writing and Math (calculator allowed). Score 400–1600. Many US universities are test-optional, some require it again.",
   cutoff:"No pass mark; the target score depends on the university.",
-  note:"Late registration until 24 Nov. Later sittings: 6 Mar 2027 (register by 19 Feb), 1 May (16 Apr), 5 Jun 2027 (21 May). December is the last sitting most US regular-decision deadlines accept. Also used by some Indian private universities.",
+  note:"Regular deadline passed on 20 Nov; late registration (US$38 late fee) until 24 Nov. Scores out 18 Dec. Later sittings: 6 Mar 2027 (register by 19 Feb), 1 May (16 Apr), 5 Jun 2027 (21 May). December is the last sitting most US regular-decision deadlines accept. Also used by some Indian private universities.",
   kw:"sat usa us america college board abroad international test"},
  {id:"act",dest:"tests",name:"ACT (Dec 2026 international)",full:"ACT",cat:"Intl",stream:"Any",body:"ACT",url:"https://global.act.org",
   open:"2026-06-01",close:"2026-11-27",closeExp:false,exam:"2026-12-11",examLbl:"11–12 Dec 2026",examExp:false,examTitle:"Test",
@@ -732,11 +732,11 @@ const EXAMS = [
   note:"Dates from the UPSC Annual Calendar 2027. Commerce, arts and biology students can apply for the Army wing.",
   kw:"defence army navy air force upsc officer"},
  {id:"nift",name:"NIFT 2027",full:"NIFT Entrance Exam",cat:"Design",stream:"Any",body:"NTA for NIFT",url:"https://exams.nta.ac.in/NIFT",
-  open:"2026-10-16",close:"2026-11-16",closeExp:false,exam:"2027-01-10",examLbl:"10 Jan 2027 (GAT on computer, CAT on paper)",examExp:false,
+  open:"2026-10-16",close:"2026-11-24",closeExp:false,exam:"2027-01-10",examLbl:"10 Jan 2027 (GAT on computer, CAT on paper)",examExp:false,
   elig:"Class 12 in any stream; for B.Des, under 24 years.",
   pattern:"General Ability Test + Creative Ability Test (B.Des), then situation test.",
   cutoff:"Rank-based; NIFT has a Hyderabad campus.",
-  note:"Apply at exams.nta.nic.in/niftee by 16 Nov 2026; with ₹5,000 late fee until 21 Nov. Correction window 22–25 Nov; admit card ~4 Jan 2027.",
+  note:"Deadline extended: apply at exams.nta.nic.in/niftee by 24 Nov 2026; with ₹5,000 late fee 25–29 Nov. Correction window 30 Nov – 2 Dec; admit card ~4 Jan 2027.",
   kw:"fashion design bdes hyderabad"},
  {id:"jeem2",name:"JEE Main 2027 · Session 2",full:"Joint Entrance Examination (Main)",cat:"Engineering",stream:"PCM",body:"NTA",url:"https://jeemain.nta.nic.in",
   open:"2027-01-05",close:"2027-02-03",closeExp:false,exam:"2027-04-02",examLbl:"2–7 Apr 2027",examExp:false,
@@ -857,12 +857,12 @@ const EXAMS = [
   cutoff:"Rank-based.",
   note:"Exam date from AIIMS's tentative 2027 calendar.",
   kw:"nursing aiims bsc"},
- {id:"jeeadv",name:"JEE Advanced 2027",full:"Joint Entrance Examination (Advanced)",cat:"Engineering",stream:"PCM",body:"IIT Delhi (expected)",url:"https://jeeadv.ac.in",
-  open:"2027-04-25",close:"2027-05-05",closeExp:true,exam:"2027-05-16",examLbl:"mid-May 2027",examExp:true,
+ {id:"jeeadv",name:"JEE Advanced 2027",full:"Joint Entrance Examination (Advanced)",cat:"Engineering",stream:"PCM",body:"IIT Delhi",url:"https://jeeadv.ac.in",
+  open:"2027-05-02",close:"2027-05-12",closeExp:true,exam:"2027-05-23",examLbl:"23 May 2027 (Sunday)",examExp:false,
   elig:"Top 2,50,000 in JEE Main 2027; max 2 attempts in consecutive years; 75% board rule for IIT admission.",
   pattern:"Two compulsory 3-hour papers on the same day; 360 marks in 2026; pattern varies each year.",
   cutoff:"2026 CRL 92/360 (min 8 per subject); OBC-NCL/EWS 82; SC/ST/PwD 46.",
-  note:"Only route to the IITs. Registration opens after JEE Main results.",
+  note:"Only route to the IITs. Organised by IIT Delhi; exam on 23 May 2027 (official). Registration dates not yet announced; it opens after JEE Main results (dates shown are expected). Class 12 first taken in 2026 or 2027 only.",
   kw:"iit"},
  {id:"navy",name:"Indian Navy 10+2 B.Tech Entry",full:"Navy B.Tech Cadet Entry",cat:"Defence",stream:"PCM",body:"Indian Navy",url:"https://www.joinindiannavy.gov.in",
   open:null,close:null,exam:null,examLbl:"Shortlist by JEE Main rank, then SSB",examExp:false,
