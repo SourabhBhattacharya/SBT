@@ -48,8 +48,8 @@ for (const c of CONFS) {
     add("cf-" + c.id + "-close", c.close, addDay(c.close), `CFP DEADLINE: ${c.name}${est(c.closeExp)}`, info, c.url, remind(c.name));
   add("cf-" + c.id + "-event", c.start, addDay(c.end || c.start), `${c.name} · ${c.place}${c.eventExp ? " (expected dates)" : ""}`, info, c.url, []);
 }
-const cal = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//SBT//Research Call Planner//EN", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
-  "X-WR-CALNAME:Research Call Planner (FT50 + ABDC SIs & conferences)", "X-WR-TIMEZONE:Asia/Kolkata",
+const cal = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//SBT//Journal Special Issues and CFP//EN", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
+  "X-WR-CALNAME:Journal Special Issues and CFP", "X-WR-TIMEZONE:Asia/Kolkata",
   "X-WR-CALDESC:" + esc(`FT50 and ABDC 2025 A*/A special-issue and conference call-for-papers deadlines. Last checked ${lc}. ${PAGE}`),
   "REFRESH-INTERVAL;VALUE=DURATION:PT12H", "X-PUBLISHED-TTL:PT12H", ...ev, "END:VCALENDAR"];
 fs.writeFileSync(path.join(dir, "deadlines.ics"), cal.map(fold).join("\r\n") + "\r\n");
