@@ -82,7 +82,9 @@ h1{font-family:var(--display);font-weight:600;font-size:clamp(30px,5vw,50px);lin
 .chip .n{font-family:var(--mono);font-size:11px;color:var(--muted)}
 .chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .chip[aria-pressed="true"] .n{color:inherit;opacity:.8}
-.chip[disabled]{opacity:.4;cursor:default}
+.chip.zero{color:var(--muted)}
+.chip.zero .n{opacity:.7}
+.chip.zero[aria-pressed="true"]{color:var(--accent-ink)}
 .panel .chip,.jhead .chip,#jmore .chip{border:1px solid var(--line);border-radius:2px}
 .tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
 .search{flex:1 1 240px;display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-bottom:2px solid var(--ink);border-radius:0;padding:0 10px}
@@ -1496,7 +1498,7 @@ function render(){
   document.getElementById("jpanel").hidden=S.sec!=="si";
   const base=items().filter(passBase);
   document.getElementById("areas").innerHTML=AREAS.map(([k,l])=>{const n=k==="all"?base.length:base.filter(x=>areaKey(x)===k).length;
-    return `<button class="chip" data-area="${k}" aria-pressed="${S.area===k}"${n||k==="all"||S.area===k?"":" disabled"}>${l}<span class="n">${n}</span></button>`}).join("");
+    return `<button class="chip${n||k==="all"?"":" zero"}" data-area="${k}" aria-pressed="${S.area===k}"${n||k==="all"?"":` data-zero="1"`}${n||k==="all"||S.area===k?"":` title="No open calls in this area with the current filters"`}>${l}<span class="n">${n}</span></button>`}).join("");
   ["region","ctype","status","rating"].forEach(g=>document.querySelectorAll("#"+g+" button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===S[g])));
   const L=base.filter(x=>S.area==="all"||areaKey(x)===S.area).sort((a,b)=>{const ca=days(a.close)<0,cb=days(b.close)<0;
     if(ca!==cb)return ca?1:-1; return ca?(a.start||a.close).localeCompare(b.start||b.close):a.close.localeCompare(b.close)});
@@ -1508,7 +1510,10 @@ function render(){
     h+=card(x)}
   if(cur)h+="</div>";
   if(shut.length)h+=`<h2 class="month">${S.sec==="si"?"Closed calls":"Submissions closed, event still ahead"}<small>${shut.length}</small></h2><div class="grid">${shut.map(card).join("")}</div>`;
-  if(!L.length)h=`<div class="empty">No ${S.sec==="si"?"special-issue calls":"conferences"} match these filters.${S.status!=="any"?" Try “Include closed” or another area.":""}</div>`;
+  if(!L.length){const al=(AREAS.find(a=>a[0]===S.area)||[])[1],fl=[];
+    if(S.sec==="si"&&S.rating==="ft")fl.push("FT50 only");if(S.sec==="si"&&S.rating==="A*")fl.push("A* only");if(S.status==="30")fl.push("closing in 30 days");
+    if(S.sec==="cf"&&S.region!=="all")fl.push(S.region);if(S.sec==="cf"&&S.ctype!=="all")fl.push(S.ctype);if(S.journal&&S.sec==="si")fl.push(S.journal);if(S.q)fl.push("“"+S.q+"”");
+    h=`<div class="empty">No open ${S.sec==="si"?"special-issue calls":"conference calls"}${S.area!=="all"?" in <b>"+esc(al)+"</b>":""}${fl.length?" with: "+esc(fl.join(", ")):""} right now. <button class="chip" data-reset="1">Clear filters</button></div>`}
   if(S.sec==="si"&&S.journal){const j=JOURNALS.find(r=>r[0]===S.journal)||[];
     h=`<div class="jhead"><span>Showing special issues in <b>${esc(S.journal)}</b>${j[1]?` · ABDC 2025 ${esc(j[1])}`:""}${j[4]===1||j[4]===3?" · FT50":""}</span><button class="chip" data-clearj="1">Show all journals</button></div>`+h}
   document.getElementById("list").innerHTML=h;
@@ -1535,6 +1540,7 @@ document.getElementById("checked").textContent="Dates last checked "+fmt(LAST_CH
 document.getElementById("upd").innerHTML=UPDATES.map(u=>`<li><time>${fmt(u.date)}</time><ul>${u.items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></li>`).join("");
 journals();
 document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;
+  if(t.dataset.reset){Object.assign(S,{area:"all",q:"",region:"all",ctype:"all",status:"open",rating:"all",journal:""});document.getElementById("q").value="";render();return}
   if(t.dataset.clearj){S.journal="";render();return}
   if(t.dataset.jcalls||t.dataset.pickj){S.sec="si";S.area="all";S.rating="all";S.status="open";S.q="";document.getElementById("q").value="";S.journal=t.dataset.jcalls||t.dataset.pickj;render();window.scrollTo({top:0,behavior:"smooth"});return}
   if(t.dataset.sec){S.sec=t.dataset.sec;S.area="all"}
