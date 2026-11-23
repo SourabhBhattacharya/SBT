@@ -1,0 +1,4987 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SBT//Research Call Planner//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Research Call Planner (FT50 SIs & conferences)
+X-WR-TIMEZONE:Asia/Kolkata
+X-WR-CALDESC:FT50 special-issue and conference call-for-papers deadlines.
+  Last checked 2026-11-23. https://sourabhbhattacharya.github.io/SBT/cfp-p
+ lanner/
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:si-jom-qualitative-proposals-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:DEADLINE: JOM SI – Special Call: Qualitative Research Proposals
+DESCRIPTION:Journal of Management: Special Call: Qualitative Research Pro
+ posals\nABDC A* · FT50\nCall: https://omt.aom.org/discussion/special-cal
+ l-qualitative-research-proposals\nA special call\, not a special issue: a
+ uthors submit a qualitative research proposal rather than a full paper (s
+ ubmissions 1-15 Jan 2027\, 11:59 pm EST). Accepted proposals are notified
+  by 15 Mar 2027\, and the full paper is due 15 Mar 2028 for regular doubl
+ e-blind review.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-p
+ lanner/
+URL:https://omt.aom.org/discussion/special-call-qualitative-research-prop
+ osals
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JOM special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JOM special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jom-qualitative-proposals-2027-open@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:Submissions open: JOM SI – Special Call: Qualitative Research P
+ roposals
+DESCRIPTION:Journal of Management: Special Call: Qualitative Research Pro
+ posals\nABDC A* · FT50\nCall: https://omt.aom.org/discussion/special-cal
+ l-qualitative-research-proposals\nA special call\, not a special issue: a
+ uthors submit a qualitative research proposal rather than a full paper (s
+ ubmissions 1-15 Jan 2027\, 11:59 pm EST). Accepted proposals are notified
+  by 15 Mar 2027\, and the full paper is due 15 Mar 2028 for regular doubl
+ e-blind review.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-p
+ lanner/
+URL:https://omt.aom.org/discussion/special-call-qualitative-research-prop
+ osals
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JOM special issue opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-orsc-agency-age-of-ai-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:DEADLINE: OrgSci SI – Agency in the Age of AI
+DESCRIPTION:Organization Science: Agency in the Age of AI\nABDC A* · FT5
+ 0\nCall: https://pubsonline.informs.org/pb-assets/filesorsc/CFP_Agency in
+  the Age of AI_post-1789996319620.pdf\nSeeks theoretically ambitious conc
+ eptual or empirical work on how AI changes the production of action and a
+ gency in organizations\, not general commentary on digital transformation
+ . Review is accelerated\, with first decisions by 15 May 2027 and no dead
+ line extensions. An earlier version of the call listed 30 Nov 2026; the c
+ urrent PDF and the journal's calls page give 1 Feb 2027.\nPlanner: https:
+ //sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://pubsonline.informs.org/pb-assets/filesorsc/CFP_Agency in the 
+ Age of AI_post-1789996319620.pdf
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:OrgSci special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:OrgSci special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-orsc-agency-age-of-ai-2027-open@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+SUMMARY:Submissions open: OrgSci SI – Agency in the Age of AI
+DESCRIPTION:Organization Science: Agency in the Age of AI\nABDC A* · FT5
+ 0\nCall: https://pubsonline.informs.org/pb-assets/filesorsc/CFP_Agency in
+  the Age of AI_post-1789996319620.pdf\nSeeks theoretically ambitious conc
+ eptual or empirical work on how AI changes the production of action and a
+ gency in organizations\, not general commentary on digital transformation
+ . Review is accelerated\, with first decisions by 15 May 2027 and no dead
+ line extensions. An earlier version of the call listed 30 Nov 2026; the c
+ urrent PDF and the journal's calls page give 1 Feb 2027.\nPlanner: https:
+ //sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://pubsonline.informs.org/pb-assets/filesorsc/CFP_Agency in the 
+ Age of AI_post-1789996319620.pdf
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:OrgSci special issue opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-os-architecture-of-hope-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:DEADLINE: OS SI – The Architecture of Hope in Distressing Times
+  and Places: Construction\, Action\, and Possibilities
+DESCRIPTION:Organization Studies: The Architecture of Hope in Distressing
+  Times and Places: Construction\, Action\, and Possibilities\nABDC A*\nCa
+ ll: https://www.egos.org/CfPs_Journals_and_Book-Chapters\nListed on the E
+ GOS journal-calls page. The full call is at https://journals.sagepub.com/
+ page/oss/call-for-papers/architecture-of-hope\, which could not be read\,
+  so check scope and format there.\nPlanner: https://sourabhbhattacharya.g
+ ithub.io/SBT/cfp-planner/
+URL:https://www.egos.org/CfPs_Journals_and_Book-Chapters
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:OS special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:OS special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jms-board-dynamics-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:DEADLINE: JMS SI – Board Dynamics in Complex Times
+DESCRIPTION:Journal of Management Studies: Board Dynamics in Complex Time
+ s\nABDC A* · FT50\nCall: https://journalofmanagementstudies.ac.uk/specia
+ l-issue-call-for-papers-board-dynamics-in-complex-times/\nCovers interact
+ ions\, relationships\, power and decision processes among directors and w
+ ith CEOs\, investors and regulators under uncertainty; empirical and conc
+ eptual papers are welcome but literature reviews are not. A revision work
+ shop for R&R authors is planned for summer 2027 (dates TBA).\nPlanner: ht
+ tps://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://journalofmanagementstudies.ac.uk/special-issue-call-for-paper
+ s-board-dynamics-in-complex-times/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JMS special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JMS special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jms-edi-contested-times-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270331
+DTEND;VALUE=DATE:20270401
+SUMMARY:DEADLINE: JMS SI – Organizational Practices for Equality\, Dive
+ rsity\, and Inclusion in Institutionally Contested Times
+DESCRIPTION:Journal of Management Studies: Organizational Practices for E
+ quality\, Diversity\, and Inclusion in Institutionally Contested Times\nA
+ BDC A* · FT50\nCall: https://journalofmanagementstudies.ac.uk/special-is
+ sue-call-for-papers-organizational-practices-for-equality-diversity-and-i
+ nclusion-in-institutionally-contested-times/\nExamines how organizations 
+ retrench\, relabel\, decouple or sustain EDI practices under political an
+ d legal pressure\, across levels and multinational networks; submissions 
+ are accepted only 15-31 Mar 2027. An in-person post-submission PDW for R&
+ R authors is planned for October 2027 at the University of Palermo\, Ital
+ y (date TBA).\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-pla
+ nner/
+URL:https://journalofmanagementstudies.ac.uk/special-issue-call-for-paper
+ s-organizational-practices-for-equality-diversity-and-inclusion-in-instit
+ utionally-contested-times/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JMS special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JMS special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jms-edi-contested-times-2027-open@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:Submissions open: JMS SI – Organizational Practices for Equalit
+ y\, Diversity\, and Inclusion in Institutionally Contested Times
+DESCRIPTION:Journal of Management Studies: Organizational Practices for E
+ quality\, Diversity\, and Inclusion in Institutionally Contested Times\nA
+ BDC A* · FT50\nCall: https://journalofmanagementstudies.ac.uk/special-is
+ sue-call-for-papers-organizational-practices-for-equality-diversity-and-i
+ nclusion-in-institutionally-contested-times/\nExamines how organizations 
+ retrench\, relabel\, decouple or sustain EDI practices under political an
+ d legal pressure\, across levels and multinational networks; submissions 
+ are accepted only 15-31 Mar 2027. An in-person post-submission PDW for R&
+ R authors is planned for October 2027 at the University of Palermo\, Ital
+ y (date TBA).\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-pla
+ nner/
+URL:https://journalofmanagementstudies.ac.uk/special-issue-call-for-paper
+ s-organizational-practices-for-equality-diversity-and-inclusion-in-instit
+ utionally-contested-times/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JMS special issue opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jms-organizing-truth-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270504
+SUMMARY:DEADLINE: JMS SI – Organizing Truth in an Age of Polarization a
+ nd Artificial Intelligence
+DESCRIPTION:Journal of Management Studies: Organizing Truth in an Age of 
+ Polarization and Artificial Intelligence\nABDC A* · FT50\nCall: https://
+ journalofmanagementstudies.ac.uk/special-issue-call-for-papers-truth-and-
+ organizations-in-the-age-of-polarization/\nSeeks work at any level and wi
+ th any method on how truth is contested and made consequential in and aro
+ und organizations\, including credibility\, expertise\, whistleblowing\, 
+ misinformation and AI-generated content. A revision workshop for R&R auth
+ ors is planned for late 2027 (TBA).\nPlanner: https://sourabhbhattacharya
+ .github.io/SBT/cfp-planner/
+URL:https://journalofmanagementstudies.ac.uk/special-issue-call-for-paper
+ s-truth-and-organizations-in-the-age-of-polarization/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JMS special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JMS special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jms-corporate-transactions-ai-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270601
+DTEND;VALUE=DATE:20270602
+SUMMARY:DEADLINE: JMS SI – Corporate Transactions in the Age of AI: Dig
+ ital Infrastructures\, Strategic Processes\, and Market Dynamics
+DESCRIPTION:Journal of Management Studies: Corporate Transactions in the 
+ Age of AI: Digital Infrastructures\, Strategic Processes\, and Market Dyn
+ amics\nABDC A* · FT50\nCall: https://journalofmanagementstudies.ac.uk/sp
+ ecial-issue-call-for-papers-corporate-transactions-in-the-age-of-ai-digit
+ al-infrastructures-strategic-processes-and-market-dynamics/\nCovers how A
+ I and digital infrastructures reshape M&A\, divestitures and alliances ac
+ ross the transaction lifecycle and how capital markets interpret them; li
+ terature reviews are not considered. An online information session is pla
+ nned for Q4 2026 and a hybrid revision workshop for Q4 2027.\nPlanner: ht
+ tps://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://journalofmanagementstudies.ac.uk/special-issue-call-for-paper
+ s-corporate-transactions-in-the-age-of-ai-digital-infrastructures-strateg
+ ic-processes-and-market-dynamics/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JMS special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JMS special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jar-2027-conf-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261201
+DTEND;VALUE=DATE:20261202
+SUMMARY:DEADLINE: JAR SI – 2027 Ray Ball JAR Conference: Current Topics
+  in Accounting Research by Emerging Scholars
+DESCRIPTION:Journal of Accounting Research: 2027 Ray Ball JAR Conference:
+  Current Topics in Accounting Research by Emerging Scholars\nABDC A* · F
+ T50\nCall: https://www.chicagobooth.edu/research/chookaszian/journal-of-a
+ ccounting-research/call-for-papers\nPreference for papers where all autho
+ rs are untenured and got their PhD in 2017 or later. Submit via the JAR p
+ ortal (wiley.atyponrex.com/journal/JOAR); the fee depends on the authors'
+  country of residence ($750/$500/$50)\, and selected papers go to the con
+ ference issue.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-pl
+ anner/
+URL:https://www.chicagobooth.edu/research/chookaszian/journal-of-accounti
+ ng-research/call-for-papers
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JAR special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JAR special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jar-2027-conf-step@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270430
+DTEND;VALUE=DATE:20270501
+SUMMARY:JAR Conference at Chicago Booth (to 1 May): JAR SI – 2027 Ray B
+ all JAR Conference: Current Topics in Accounting Research by Emerging Sch
+ olars
+DESCRIPTION:Journal of Accounting Research: 2027 Ray Ball JAR Conference:
+  Current Topics in Accounting Research by Emerging Scholars\nABDC A* · F
+ T50\nCall: https://www.chicagobooth.edu/research/chookaszian/journal-of-a
+ ccounting-research/call-for-papers\nPreference for papers where all autho
+ rs are untenured and got their PhD in 2017 or later. Submit via the JAR p
+ ortal (wiley.atyponrex.com/journal/JOAR); the fee depends on the authors'
+  country of residence ($750/$500/$50)\, and selected papers go to the con
+ ference issue.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-pl
+ anner/
+URL:https://www.chicagobooth.edu/research/chookaszian/journal-of-accounti
+ ng-research/call-for-papers
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JAR special issue: JAR Conference at Chicago Booth (to 1 May)
+  in 7 days
+TRIGGER:-P6DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jae-2027-conf-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270226
+DTEND;VALUE=DATE:20270227
+SUMMARY:DEADLINE: JAE SI – 2027 JAE Conference: new and innovative econ
+ omics-based accounting research
+DESCRIPTION:Journal of Accounting and Economics: 2027 JAE Conference: new
+  and innovative economics-based accounting research\nABDC A* · FT50\nCal
+ l: https://eaa-online.org/arc/?p=7117\nSeeks economics-based research who
+ se novelty may come from ideas\, theory\, data\, methods\, design or sett
+ ing\, and welcomes researchers from outside accounting. Early submissions
+  are welcome.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-pla
+ nner/
+URL:https://eaa-online.org/arc/?p=7117
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JAE special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JAE special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jae-2027-conf-step@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271015
+DTEND;VALUE=DATE:20271016
+SUMMARY:JAE Conference in Rochester (to 16 Oct): JAE SI – 2027 JAE Conf
+ erence: new and innovative economics-based accounting research
+DESCRIPTION:Journal of Accounting and Economics: 2027 JAE Conference: new
+  and innovative economics-based accounting research\nABDC A* · FT50\nCal
+ l: https://eaa-online.org/arc/?p=7117\nSeeks economics-based research who
+ se novelty may come from ideas\, theory\, data\, methods\, design or sett
+ ing\, and welcomes researchers from outside accounting. Early submissions
+  are welcome.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-pla
+ nner/
+URL:https://eaa-online.org/arc/?p=7117
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JAE special issue: JAE Conference in Rochester (to 16 Oct) in
+  7 days
+TRIGGER:-P6DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jfe-si-ai-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:DEADLINE: JFE SI – Special Issue: Economic and Financial Implic
+ ations of Artificial Intelligence
+DESCRIPTION:Journal of Financial Economics: Special Issue: Economic and F
+ inancial Implications of Artificial Intelligence\nABDC A* · FT50\nCall: 
+ https://www.sciencedirect.com/journal/journal-of-financial-economics/spec
+ ial-issues\nAn open JFE special-issue call on how AI changes what is meas
+ ured in the economy and how\, including work using large language models.
+  The full call page (sciencedirect.com/special-issue/335472) could not be
+  fetched; the details come from the JFE special-issues listing.\nPlanner:
+  https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.sciencedirect.com/journal/journal-of-financial-economics/
+ special-issues
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JFE special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JFE special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jmis-agentic-orgs-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:DEADLINE: JMIS SI – Agentic Organizations: Designing\, Governin
+ g\, and Managing AI Agents
+DESCRIPTION:Journal of Management Information Systems: Agentic Organizati
+ ons: Designing\, Governing\, and Managing AI Agents\nABDC A* · FT50\nCal
+ l: https://www.jmis-web.org/cfps/JMIS_CfP_Agentic_Organizations.pdf\nSeek
+ s research on how organizations design\, govern and manage human-AI arran
+ gements in which AI agents act with growing autonomy. First-round reviews
+  are planned for 1 May 2027 and publication for summer 2028.\nPlanner: ht
+ tps://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.jmis-web.org/cfps/JMIS_CfP_Agentic_Organizations.pdf
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JMIS special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JMIS special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jmis-agentic-orgs-step@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261215
+DTEND;VALUE=DATE:20261216
+SUMMARY:Optional extended abstract (max. 2 pages) due: JMIS SI – Agenti
+ c Organizations: Designing\, Governing\, and Managing AI Agents
+DESCRIPTION:Journal of Management Information Systems: Agentic Organizati
+ ons: Designing\, Governing\, and Managing AI Agents\nABDC A* · FT50\nCal
+ l: https://www.jmis-web.org/cfps/JMIS_CfP_Agentic_Organizations.pdf\nSeek
+ s research on how organizations design\, govern and manage human-AI arran
+ gements in which AI agents act with growing autonomy. First-round reviews
+  are planned for 1 May 2027 and publication for summer 2028.\nPlanner: ht
+ tps://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.jmis-web.org/cfps/JMIS_CfP_Agentic_Organizations.pdf
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JMIS special issue: Optional extended abstract (max. 2 pages)
+  due in 7 days
+TRIGGER:-P6DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jom-multiflow-supply-chains-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:DEADLINE: JOpsM SI – Operationally Distinctive Supply Chains an
+ d Multi-Flow Operational Networks
+DESCRIPTION:Journal of Operations Management: Operationally Distinctive S
+ upply Chains and Multi-Flow Operational Networks\nABDC A* · FT50\nCall: 
+ https://www.jom-hub.com/special-issues\nListed by JOM as actively collect
+ ing submissions. Extended abstracts open 1 January (the page gives no yea
+ r; 2027 is assumed) and are due 27 Feb 2027\, ahead of the 15 Jul 2027 fu
+ ll-paper deadline.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cf
+ p-planner/
+URL:https://www.jom-hub.com/special-issues
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JOpsM special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JOpsM special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jom-multiflow-supply-chains-open@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:Submissions open: JOpsM SI – Operationally Distinctive Supply C
+ hains and Multi-Flow Operational Networks
+DESCRIPTION:Journal of Operations Management: Operationally Distinctive S
+ upply Chains and Multi-Flow Operational Networks\nABDC A* · FT50\nCall: 
+ https://www.jom-hub.com/special-issues\nListed by JOM as actively collect
+ ing submissions. Extended abstracts open 1 January (the page gives no yea
+ r; 2027 is assumed) and are due 27 Feb 2027\, ahead of the 15 Jul 2027 fu
+ ll-paper deadline.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cf
+ p-planner/
+URL:https://www.jom-hub.com/special-issues
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JOpsM special issue opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jom-multiflow-supply-chains-step@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270715
+DTEND;VALUE=DATE:20270716
+SUMMARY:Full paper due: JOpsM SI – Operationally Distinctive Supply Cha
+ ins and Multi-Flow Operational Networks
+DESCRIPTION:Journal of Operations Management: Operationally Distinctive S
+ upply Chains and Multi-Flow Operational Networks\nABDC A* · FT50\nCall: 
+ https://www.jom-hub.com/special-issues\nListed by JOM as actively collect
+ ing submissions. Extended abstracts open 1 January (the page gives no yea
+ r; 2027 is assumed) and are due 27 Feb 2027\, ahead of the 15 Jul 2027 fu
+ ll-paper deadline.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cf
+ p-planner/
+URL:https://www.jom-hub.com/special-issues
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JOpsM special issue: Full paper due in 7 days
+TRIGGER:-P6DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jom-underexplored-social-contexts-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270601
+DTEND;VALUE=DATE:20270602
+SUMMARY:DEADLINE: JOpsM SI – Using OM to Confront Challenges in Underex
+ plored Social Contexts
+DESCRIPTION:Journal of Operations Management: Using OM to Confront Challe
+ nges in Underexplored Social Contexts\nABDC A* · FT50\nCall: https://www
+ .jom-hub.com/special-issues\nListed by JOM as actively collecting submiss
+ ions. Full papers can be submitted from 1 Mar 2027 to 1 Jun 2027.\nPlanne
+ r: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.jom-hub.com/special-issues
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JOpsM special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JOpsM special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jom-underexplored-social-contexts-open@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270302
+SUMMARY:Submissions open: JOpsM SI – Using OM to Confront Challenges in
+  Underexplored Social Contexts
+DESCRIPTION:Journal of Operations Management: Using OM to Confront Challe
+ nges in Underexplored Social Contexts\nABDC A* · FT50\nCall: https://www
+ .jom-hub.com/special-issues\nListed by JOM as actively collecting submiss
+ ions. Full papers can be submitted from 1 Mar 2027 to 1 Jun 2027.\nPlanne
+ r: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.jom-hub.com/special-issues
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JOpsM special issue opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-aom-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270112
+DTEND;VALUE=DATE:20270113
+SUMMARY:CFP DEADLINE: AOM Annual Meeting 2027
+DESCRIPTION:87th Annual Meeting of the Academy of Management (Academic\, 
+ Global)\nVienna\, Austria\nCall: https://www.aom.org/events/annual-meetin
+ g/\nMoved from Seattle to Vienna. Full papers\, symposia\, PDWs and caucu
+ s proposals are due 12 Jan 2027\, 17:00 ET; the Submission Center opens i
+ n early December 2026. Each division has its own call.\nPlanner: https://
+ sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.aom.org/events/annual-meeting/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOM Annual Meeting 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOM Annual Meeting 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-aom-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270730
+DTEND;VALUE=DATE:20270804
+SUMMARY:AOM Annual Meeting 2027 · Vienna\, Austria
+DESCRIPTION:87th Annual Meeting of the Academy of Management (Academic\, 
+ Global)\nVienna\, Austria\nCall: https://www.aom.org/events/annual-meetin
+ g/\nMoved from Seattle to Vienna. Full papers\, symposia\, PDWs and caucu
+ s proposals are due 12 Jan 2027\, 17:00 ET; the Submission Center opens i
+ n early December 2026. Each division has its own call.\nPlanner: https://
+ sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.aom.org/events/annual-meeting/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-sms-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270224
+DTEND;VALUE=DATE:20270225
+SUMMARY:CFP DEADLINE: SMS 47th Annual Conference 2027
+DESCRIPTION:Strategic Management Society 47th Annual Conference: Competin
+ g in the Shadow of Sovereignty (Academic\, Global)\nVancouver\, Canada\nC
+ all: https://www.strategicmanagement.net/conferences-events/annual-confer
+ ence-2027/\nThe theme is Firms\, Technology\, and Middle Powers. Short pr
+ oposals for papers and panels are due 24 Feb 2027\, and the system opens 
+ in mid-December 2026 (exact day estimated). No 2027 SMS Special Conferenc
+ es were listed when checked.\nPlanner: https://sourabhbhattacharya.github
+ .io/SBT/cfp-planner/
+URL:https://www.strategicmanagement.net/conferences-events/annual-confere
+ nce-2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SMS 47th Annual Conference 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SMS 47th Annual Conference 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-sms-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271016
+DTEND;VALUE=DATE:20271020
+SUMMARY:SMS 47th Annual Conference 2027 · Vancouver\, Canada
+DESCRIPTION:Strategic Management Society 47th Annual Conference: Competin
+ g in the Shadow of Sovereignty (Academic\, Global)\nVancouver\, Canada\nC
+ all: https://www.strategicmanagement.net/conferences-events/annual-confer
+ ence-2027/\nThe theme is Firms\, Technology\, and Middle Powers. Short pr
+ oposals for papers and panels are due 24 Feb 2027\, and the system opens 
+ in mid-December 2026 (exact day estimated). No 2027 SMS Special Conferenc
+ es were listed when checked.\nPlanner: https://sourabhbhattacharya.github
+ .io/SBT/cfp-planner/
+URL:https://www.strategicmanagement.net/conferences-events/annual-confere
+ nce-2027/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-aib-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:CFP DEADLINE: AIB Annual Meeting 2027 (estimated)
+DESCRIPTION:Academy of International Business Annual Meeting 2027 (Academ
+ ic\, Global)\nTBA\nCall: https://www.aib.world/events/\nEstimated from th
+ e usual annual cycle: the deadline is usually mid-January and the meeting
+  runs from late June to early July. The 2027 venue and call could not be 
+ verified because the AIB site was not reachable. AIB usually accepts comp
+ etitive papers\, panels and PDWs.\nPlanner: https://sourabhbhattacharya.g
+ ithub.io/SBT/cfp-planner/
+URL:https://www.aib.world/events/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AIB Annual Meeting 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AIB Annual Meeting 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-aib-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270628
+DTEND;VALUE=DATE:20270703
+SUMMARY:AIB Annual Meeting 2027 · TBA (expected dates)
+DESCRIPTION:Academy of International Business Annual Meeting 2027 (Academ
+ ic\, Global)\nTBA\nCall: https://www.aib.world/events/\nEstimated from th
+ e usual annual cycle: the deadline is usually mid-January and the meeting
+  runs from late June to early July. The 2027 venue and call could not be 
+ verified because the AIB site was not reachable. AIB usually accepts comp
+ etitive papers\, panels and PDWs.\nPlanner: https://sourabhbhattacharya.g
+ ithub.io/SBT/cfp-planner/
+URL:https://www.aib.world/events/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-euram-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270112
+DTEND;VALUE=DATE:20270113
+SUMMARY:CFP DEADLINE: EURAM 2027
+DESCRIPTION:European Academy of Management Annual Conference 2027 (Academ
+ ic\, Global)\nAmsterdam\, Netherlands\nCall: https://conferences.euram.ac
+ ademy/2027conference/\nHosted by Vrije Universiteit Amsterdam. Full paper
+ s go to Strategic Interest Group tracks by 12 Jan 2027\, 14:00 CEST\, and
+  submissions open in late November 2026. The Doctoral Colloquium runs 21
+ –22 June.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-plann
+ er/
+URL:https://conferences.euram.academy/2027conference/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EURAM 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EURAM 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-euram-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270622
+DTEND;VALUE=DATE:20270626
+SUMMARY:EURAM 2027 · Amsterdam\, Netherlands
+DESCRIPTION:European Academy of Management Annual Conference 2027 (Academ
+ ic\, Global)\nAmsterdam\, Netherlands\nCall: https://conferences.euram.ac
+ ademy/2027conference/\nHosted by Vrije Universiteit Amsterdam. Full paper
+ s go to Strategic Interest Group tracks by 12 Jan 2027\, 14:00 CEST\, and
+  submissions open in late November 2026. The Doctoral Colloquium runs 21
+ –22 June.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-plann
+ er/
+URL:https://conferences.euram.academy/2027conference/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-egos-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:CFP DEADLINE: EGOS Colloquium 2027
+DESCRIPTION:43rd EGOS Colloquium (Academic\, Global)\nLiverpool\, UK\nCal
+ l: https://egos.org/2027_Liverpool/CALL_for_short_papers\nSubmit a short 
+ paper of about 3\,000 words to one sub-theme by 15 Jan 2027\, 12:00 CET. 
+ Submission is free\, and accepted authors send a full paper by mid-June. 
+ Some sub-themes are hybrid.\nPlanner: https://sourabhbhattacharya.github.
+ io/SBT/cfp-planner/
+URL:https://egos.org/2027_Liverpool/CALL_for_short_papers
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EGOS Colloquium 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EGOS Colloquium 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-egos-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270708
+DTEND;VALUE=DATE:20270711
+SUMMARY:EGOS Colloquium 2027 · Liverpool\, UK
+DESCRIPTION:43rd EGOS Colloquium (Academic\, Global)\nLiverpool\, UK\nCal
+ l: https://egos.org/2027_Liverpool/CALL_for_short_papers\nSubmit a short 
+ paper of about 3\,000 words to one sub-theme by 15 Jan 2027\, 12:00 CET. 
+ Submission is free\, and accepted authors send a full paper by mid-June. 
+ Some sub-themes are hybrid.\nPlanner: https://sourabhbhattacharya.github.
+ io/SBT/cfp-planner/
+URL:https://egos.org/2027_Liverpool/CALL_for_short_papers
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-bam-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:CFP DEADLINE: BAM2027 Conference (estimated)
+DESCRIPTION:British Academy of Management Annual Conference 2027 (Academi
+ c\, Global)\nUK (host TBA)\nCall: https://www.bam.ac.uk/events-landing/20
+ 26-conference/call-for-papers.html\nEstimated from the BAM2026 cycle\, wh
+ ich opened 7 Jan and closed 27 Feb and had a virtual day plus in-person d
+ ays in early September. Developmental or full papers go to the tracks. Th
+ e 2027 host is not yet announced.\nPlanner: https://sourabhbhattacharya.g
+ ithub.io/SBT/cfp-planner/
+URL:https://www.bam.ac.uk/events-landing/2026-conference/call-for-papers.
+ html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:BAM2027 Conference: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:BAM2027 Conference: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-bam-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270907
+DTEND;VALUE=DATE:20270911
+SUMMARY:BAM2027 Conference · UK (host TBA) (expected dates)
+DESCRIPTION:British Academy of Management Annual Conference 2027 (Academi
+ c\, Global)\nUK (host TBA)\nCall: https://www.bam.ac.uk/events-landing/20
+ 26-conference/call-for-papers.html\nEstimated from the BAM2026 cycle\, wh
+ ich opened 7 Jan and closed 27 Feb and had a virtual day plus in-person d
+ ays in early September. Developmental or full papers go to the tracks. Th
+ e 2027 host is not yet announced.\nPlanner: https://sourabhbhattacharya.g
+ ithub.io/SBT/cfp-planner/
+URL:https://www.bam.ac.uk/events-landing/2026-conference/call-for-papers.
+ html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-anzam-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270630
+DTEND;VALUE=DATE:20270701
+SUMMARY:CFP DEADLINE: ANZAM 2027 Conference (estimated)
+DESCRIPTION:40th Australian and New Zealand Academy of Management Confere
+ nce (Academic\, Global)\nAustralia/New Zealand (TBA)\nCall: https://www.a
+ nzam.org/events/types/events-conference/\nEstimated: ANZAM 2026 runs 1–
+ 3 Dec 2026 in Newcastle\, NSW\, and the 2027 conference is expected in ea
+ rly December with a mid-year deadline. Both full and developmental papers
+  are usually accepted.\nPlanner: https://sourabhbhattacharya.github.io/SB
+ T/cfp-planner/
+URL:https://www.anzam.org/events/types/events-conference/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ANZAM 2027 Conference: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ANZAM 2027 Conference: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-anzam-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271201
+DTEND;VALUE=DATE:20271204
+SUMMARY:ANZAM 2027 Conference · Australia/New Zealand (TBA) (expected da
+ tes)
+DESCRIPTION:40th Australian and New Zealand Academy of Management Confere
+ nce (Academic\, Global)\nAustralia/New Zealand (TBA)\nCall: https://www.a
+ nzam.org/events/types/events-conference/\nEstimated: ANZAM 2026 runs 1–
+ 3 Dec 2026 in Newcastle\, NSW\, and the 2027 conference is expected in ea
+ rly December with a mid-year deadline. Both full and developmental papers
+  are usually accepted.\nPlanner: https://sourabhbhattacharya.github.io/SB
+ T/cfp-planner/
+URL:https://www.anzam.org/events/types/events-conference/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-bcerc-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261014
+DTEND;VALUE=DATE:20261015
+SUMMARY:CFP DEADLINE: BCERC 2027
+DESCRIPTION:Babson College Entrepreneurship Research Conference 2027 (Aca
+ demic\, Global)\nLausanne\, Switzerland\nCall: https://www.babson.edu/med
+ ia/babson/assets/bcerc/2027-BCERC-Call-for-Papers.pdf\nClosed: 900-word a
+ bstracts were due 14 Oct 2026. Doctoral Consortium applications (25 place
+ s) are still open until 7 Dec 2026.\nPlanner: https://sourabhbhattacharya
+ .github.io/SBT/cfp-planner/
+URL:https://www.babson.edu/media/babson/assets/bcerc/2027-BCERC-Call-for-
+ Papers.pdf
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:BCERC 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:BCERC 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-bcerc-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270609
+DTEND;VALUE=DATE:20270613
+SUMMARY:BCERC 2027 · Lausanne\, Switzerland
+DESCRIPTION:Babson College Entrepreneurship Research Conference 2027 (Aca
+ demic\, Global)\nLausanne\, Switzerland\nCall: https://www.babson.edu/med
+ ia/babson/assets/bcerc/2027-BCERC-Call-for-Papers.pdf\nClosed: 900-word a
+ bstracts were due 14 Oct 2026. Doctoral Consortium applications (25 place
+ s) are still open until 7 Dec 2026.\nPlanner: https://sourabhbhattacharya
+ .github.io/SBT/cfp-planner/
+URL:https://www.babson.edu/media/babson/assets/bcerc/2027-BCERC-Call-for-
+ Papers.pdf
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ama-winter-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270212
+DTEND;VALUE=DATE:20270215
+SUMMARY:AMA Winter Academic Conference 2027 · New Orleans\, USA
+DESCRIPTION:2027 AMA Winter Academic Conference (Academic\, Global)\nNew 
+ Orleans\, USA\nCall: https://www.ama.org/2027-ama-winter-academic-confere
+ nce-call-for-papers/\nClosed. Submissions shut in 2026\, and the exact de
+ adline (about mid-August) is estimated. A virtual session is on 8 Feb\, a
+ nd formats include competitive papers\, posters\, special sessions and fl
+ ash talks.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planne
+ r/
+URL:https://www.ama.org/2027-ama-winter-academic-conference-call-for-pape
+ rs/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ama-summer-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:CFP DEADLINE: AMA Summer Academic Conference 2027
+DESCRIPTION:2027 AMA Summer Academic Conference (Academic\, Global)\nNati
+ onal Harbor (Washington DC)\, USA\nCall: https://www.ama.org/2027-ama-sum
+ mer-academic-conference-call-for-papers/\nCompetitive papers (up to 3\,60
+ 0 words)\, posters\, special sessions and flash talks go through Ex Ordo 
+ by 27 Jan 2027. There is a virtual session on 30 July\, and decisions arr
+ ive on 30 Mar 2027.\nPlanner: https://sourabhbhattacharya.github.io/SBT/c
+ fp-planner/
+URL:https://www.ama.org/2027-ama-summer-academic-conference-call-for-pape
+ rs/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AMA Summer Academic Conference 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AMA Summer Academic Conference 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ama-summer-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270806
+DTEND;VALUE=DATE:20270809
+SUMMARY:AMA Summer Academic Conference 2027 · National Harbor (Washingto
+ n DC)\, USA
+DESCRIPTION:2027 AMA Summer Academic Conference (Academic\, Global)\nNati
+ onal Harbor (Washington DC)\, USA\nCall: https://www.ama.org/2027-ama-sum
+ mer-academic-conference-call-for-papers/\nCompetitive papers (up to 3\,60
+ 0 words)\, posters\, special sessions and flash talks go through Ex Ordo 
+ by 27 Jan 2027. There is a virtual session on 30 July\, and decisions arr
+ ive on 30 Mar 2027.\nPlanner: https://sourabhbhattacharya.github.io/SBT/c
+ fp-planner/
+URL:https://www.ama.org/2027-ama-summer-academic-conference-call-for-pape
+ rs/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ams-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:CFP DEADLINE: AMS Annual Conference 2027
+DESCRIPTION:Academy of Marketing Science Annual Conference 2027 (Academic
+ \, Global)\nLa Jolla\, USA\nCall: https://www.ams-web.org/ams27-cfp\nClos
+ ed: submissions were due 15 Oct 2026. Full papers (up to 7\,000 words) ca
+ n be published in Springer's Developments in Marketing Science\, and stru
+ ctured abstracts and posters were also accepted.\nPlanner: https://sourab
+ hbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.ams-web.org/ams27-cfp
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AMS Annual Conference 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AMS Annual Conference 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ams-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270519
+DTEND;VALUE=DATE:20270522
+SUMMARY:AMS Annual Conference 2027 · La Jolla\, USA
+DESCRIPTION:Academy of Marketing Science Annual Conference 2027 (Academic
+ \, Global)\nLa Jolla\, USA\nCall: https://www.ams-web.org/ams27-cfp\nClos
+ ed: submissions were due 15 Oct 2026. Full papers (up to 7\,000 words) ca
+ n be published in Springer's Developments in Marketing Science\, and stru
+ ctured abstracts and posters were also accepted.\nPlanner: https://sourab
+ hbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.ams-web.org/ams27-cfp
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ams-wmc-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:CFP DEADLINE: AMS World Marketing Congress 2027
+DESCRIPTION:Academy of Marketing Science World Marketing Congress 2027 (A
+ cademic\, Global)\nLisbon\, Portugal\nCall: https://www.ams-web.org/wmc27
+ -cfp\nClosed: full papers and structured abstracts were due through EasyC
+ hair by 1 Nov 2026. The AMS site mentions visa-related cancellation provi
+ sions.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.ams-web.org/wmc27-cfp
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AMS World Marketing Congress 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AMS World Marketing Congress 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ams-wmc-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270720
+DTEND;VALUE=DATE:20270724
+SUMMARY:AMS World Marketing Congress 2027 · Lisbon\, Portugal
+DESCRIPTION:Academy of Marketing Science World Marketing Congress 2027 (A
+ cademic\, Global)\nLisbon\, Portugal\nCall: https://www.ams-web.org/wmc27
+ -cfp\nClosed: full papers and structured abstracts were due through EasyC
+ hair by 1 Nov 2026. The AMS site mentions visa-related cancellation provi
+ sions.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.ams-web.org/wmc27-cfp
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-emac-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261201
+DTEND;VALUE=DATE:20261202
+SUMMARY:CFP DEADLINE: EMAC 2027 (estimated)
+DESCRIPTION:56th European Marketing Academy Annual Conference (Academic\,
+  Global)\nEurope (TBA)\nCall: https://emac-online.org/\nEstimated: EMAC u
+ sually takes competitive papers or extended abstracts by early December\,
+  and the conference is in late May. The 2027 host and dates could not be 
+ verified.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner
+ /
+URL:https://emac-online.org/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EMAC 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EMAC 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-emac-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270525
+DTEND;VALUE=DATE:20270529
+SUMMARY:EMAC 2027 · Europe (TBA) (expected dates)
+DESCRIPTION:56th European Marketing Academy Annual Conference (Academic\,
+  Global)\nEurope (TBA)\nCall: https://emac-online.org/\nEstimated: EMAC u
+ sually takes competitive papers or extended abstracts by early December\,
+  and the conference is in late May. The 2027 host and dates could not be 
+ verified.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner
+ /
+URL:https://emac-online.org/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-isms-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270216
+SUMMARY:CFP DEADLINE: ISMS Marketing Science Conference 2027 (estimated)
+DESCRIPTION:2027 INFORMS Society for Marketing Science Conference (Academ
+ ic\, Global)\nSeattle\, USA\nCall: https://www.informs.org/Meetings-Confe
+ rences/INFORMS-Conference-Calendar/2027-ISMS-Marketing-Science-Conference
+ \nThe dates and Seattle venue (Sheraton) are confirmed by INFORMS\, with 
+ INSEAD involved as organiser. The abstract deadline is an estimate from p
+ ast cycles; check conferences.insead.edu for the call.\nPlanner: https://
+ sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.informs.org/Meetings-Conferences/INFORMS-Conference-Calen
+ dar/2027-ISMS-Marketing-Science-Conference
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ISMS Marketing Science Conference 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ISMS Marketing Science Conference 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-isms-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270624
+DTEND;VALUE=DATE:20270627
+SUMMARY:ISMS Marketing Science Conference 2027 · Seattle\, USA
+DESCRIPTION:2027 INFORMS Society for Marketing Science Conference (Academ
+ ic\, Global)\nSeattle\, USA\nCall: https://www.informs.org/Meetings-Confe
+ rences/INFORMS-Conference-Calendar/2027-ISMS-Marketing-Science-Conference
+ \nThe dates and Seattle venue (Sheraton) are confirmed by INFORMS\, with 
+ INSEAD involved as organiser. The abstract deadline is an estimate from p
+ ast cycles; check conferences.insead.edu for the call.\nPlanner: https://
+ sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.informs.org/Meetings-Conferences/INFORMS-Conference-Calen
+ dar/2027-ISMS-Marketing-Science-Conference
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-acr-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:CFP DEADLINE: ACR 2027 Conference (estimated)
+DESCRIPTION:Association for Consumer Research North American Conference 2
+ 027 (Academic\, Global)\nAnaheim\, USA\nCall: https://acrwebsite.org/?p=8
+ 758\nThe dates and Anaheim location are confirmed. The deadline is an est
+ imate (usually mid-March)\, and the competitive paper\, special session a
+ nd working paper calls have not yet been posted.\nPlanner: https://sourab
+ hbhattacharya.github.io/SBT/cfp-planner/
+URL:https://acrwebsite.org/?p=8758
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ACR 2027 Conference: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ACR 2027 Conference: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-acr-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271028
+DTEND;VALUE=DATE:20271101
+SUMMARY:ACR 2027 Conference · Anaheim\, USA
+DESCRIPTION:Association for Consumer Research North American Conference 2
+ 027 (Academic\, Global)\nAnaheim\, USA\nCall: https://acrwebsite.org/?p=8
+ 758\nThe dates and Anaheim location are confirmed. The deadline is an est
+ imate (usually mid-March)\, and the competitive paper\, special session a
+ nd working paper calls have not yet been posted.\nPlanner: https://sourab
+ hbhattacharya.github.io/SBT/cfp-planner/
+URL:https://acrwebsite.org/?p=8758
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ap-acr-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270107
+DTEND;VALUE=DATE:20270111
+SUMMARY:AP-ACR 2027 (Mumbai) · Mumbai\, India
+DESCRIPTION:Asia-Pacific Association for Consumer Research Conference 202
+ 7 (Academic\, India)\nMumbai\, India\nCall: https://acrwebsite.org/?p=875
+ 8\nClosed: submissions were due 22 June 2026. It is hosted by SPJIMR Mumb
+ ai and is worth attending for Indian consumer researchers.\nPlanner: http
+ s://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://acrwebsite.org/?p=8758
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-scp-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270311
+DTEND;VALUE=DATE:20270315
+SUMMARY:SCP Annual Conference 2027 · Cancun\, Mexico
+DESCRIPTION:Society for Consumer Psychology Annual Conference 2027 (Acade
+ mic\, Global)\nCancun\, Mexico\nCall: https://myscp.org/events/annual27/\
+ nClosed: competitive papers\, special sessions and working papers were du
+ e 16 Aug 2026.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-pl
+ anner/
+URL:https://myscp.org/events/annual27/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-informs-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:CFP DEADLINE: INFORMS Annual Meeting 2027 (estimated)
+DESCRIPTION:2027 INFORMS Annual Meeting (Academic\, Global)\nSeattle\, US
+ A\nCall: https://www.informs.org/Meetings-Conferences/INFORMS-Conference-
+ Calendar/2027-INFORMS-Annual-Meeting\nThe dates and venue are confirmed. 
+ The abstract deadline is an estimate (usually mid-May)\, and INFORMS take
+ s short abstracts for contributed or invited talks rather than full paper
+ s.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.informs.org/Meetings-Conferences/INFORMS-Conference-Calen
+ dar/2027-INFORMS-Annual-Meeting
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:INFORMS Annual Meeting 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:INFORMS Annual Meeting 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-informs-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271024
+DTEND;VALUE=DATE:20271028
+SUMMARY:INFORMS Annual Meeting 2027 · Seattle\, USA
+DESCRIPTION:2027 INFORMS Annual Meeting (Academic\, Global)\nSeattle\, US
+ A\nCall: https://www.informs.org/Meetings-Conferences/INFORMS-Conference-
+ Calendar/2027-INFORMS-Annual-Meeting\nThe dates and venue are confirmed. 
+ The abstract deadline is an estimate (usually mid-May)\, and INFORMS take
+ s short abstracts for contributed or invited talks rather than full paper
+ s.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.informs.org/Meetings-Conferences/INFORMS-Conference-Calen
+ dar/2027-INFORMS-Annual-Meeting
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-msom-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:CFP DEADLINE: MSOM Conference 2027 (estimated)
+DESCRIPTION:2027 INFORMS MSOM Conference and SIG Day (Academic\, Global)\
+ nBanff\, Canada\nCall: https://haskayne.ucalgary.ca/msom\nSIG Day is 20 J
+ une and the main conference 21–22 June at the Banff Centre. The submiss
+ ion details were 'to be announced'; the deadline (about early February\, 
+ extended abstracts) is an estimate.\nPlanner: https://sourabhbhattacharya
+ .github.io/SBT/cfp-planner/
+URL:https://haskayne.ucalgary.ca/msom
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MSOM Conference 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MSOM Conference 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-msom-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270623
+SUMMARY:MSOM Conference 2027 · Banff\, Canada
+DESCRIPTION:2027 INFORMS MSOM Conference and SIG Day (Academic\, Global)\
+ nBanff\, Canada\nCall: https://haskayne.ucalgary.ca/msom\nSIG Day is 20 J
+ une and the main conference 21–22 June at the Banff Centre. The submiss
+ ion details were 'to be announced'; the deadline (about early February\, 
+ extended abstracts) is an estimate.\nPlanner: https://sourabhbhattacharya
+ .github.io/SBT/cfp-planner/
+URL:https://haskayne.ucalgary.ca/msom
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-poms-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:CFP DEADLINE: POMS Annual Conference 2027
+DESCRIPTION:Production and Operations Management Society 37th Annual Conf
+ erence (Academic\, Global)\nOrlando\, USA\nCall: https://www.poms.org/sit
+ es/default/files/2026-08/2027-POMS-Important-Dates.pdf\nClosed: abstracts
+  were due 8 Nov 2026. Presenting authors must register by 4 Jan 2027.\nPl
+ anner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.poms.org/sites/default/files/2026-08/2027-POMS-Important-
+ Dates.pdf
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:POMS Annual Conference 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:POMS Annual Conference 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-poms-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270422
+DTEND;VALUE=DATE:20270427
+SUMMARY:POMS Annual Conference 2027 · Orlando\, USA
+DESCRIPTION:Production and Operations Management Society 37th Annual Conf
+ erence (Academic\, Global)\nOrlando\, USA\nCall: https://www.poms.org/sit
+ es/default/files/2026-08/2027-POMS-Important-Dates.pdf\nClosed: abstracts
+  were due 8 Nov 2026. Presenting authors must register by 4 Jan 2027.\nPl
+ anner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.poms.org/sites/default/files/2026-08/2027-POMS-Important-
+ Dates.pdf
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-dsi-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:CFP DEADLINE: DSI Annual Conference 2027 (estimated)
+DESCRIPTION:Decision Sciences Institute 58th Annual Conference (Academic\
+ , Global)\nBoston\, USA\nCall: https://decisionsciences.org/conferences/\
+ nThe dates and Boston location are confirmed. The deadline for papers and
+  abstracts is an estimate (usually spring).\nPlanner: https://sourabhbhat
+ tacharya.github.io/SBT/cfp-planner/
+URL:https://decisionsciences.org/conferences/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DSI Annual Conference 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DSI Annual Conference 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-dsi-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271120
+DTEND;VALUE=DATE:20271123
+SUMMARY:DSI Annual Conference 2027 · Boston\, USA
+DESCRIPTION:Decision Sciences Institute 58th Annual Conference (Academic\
+ , Global)\nBoston\, USA\nCall: https://decisionsciences.org/conferences/\
+ nThe dates and Boston location are confirmed. The deadline for papers and
+  abstracts is an estimate (usually spring).\nPlanner: https://sourabhbhat
+ tacharya.github.io/SBT/cfp-planner/
+URL:https://decisionsciences.org/conferences/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-euroma-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:CFP DEADLINE: EurOMA 2027 (estimated)
+DESCRIPTION:34th EurOMA Conference 2027 (Academic\, Global)\nEurope (TBA)
+ \nCall: https://www.euroma-online.org/\nEstimated: EurOMA usually takes c
+ ompetitive or working papers in mid-January for a conference in early Jul
+ y. The 2027 call and host were not verified.\nPlanner: https://sourabhbha
+ ttacharya.github.io/SBT/cfp-planner/
+URL:https://www.euroma-online.org/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EurOMA 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EurOMA 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-euroma-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270708
+SUMMARY:EurOMA 2027 · Europe (TBA) (expected dates)
+DESCRIPTION:34th EurOMA Conference 2027 (Academic\, Global)\nEurope (TBA)
+ \nCall: https://www.euroma-online.org/\nEstimated: EurOMA usually takes c
+ ompetitive or working papers in mid-January for a conference in early Jul
+ y. The 2027 call and host were not verified.\nPlanner: https://sourabhbha
+ ttacharya.github.io/SBT/cfp-planner/
+URL:https://www.euroma-online.org/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icis-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:CFP DEADLINE: ICIS 2027 (estimated)
+DESCRIPTION:48th International Conference on Information Systems (Academi
+ c\, Global)\nTBA\nCall: https://aisnet.org/page/ICISPage\nEstimated: ICIS
+  full papers and short papers are usually due in early May for a conferen
+ ce in mid-December. The 2027 venue was not verified.\nPlanner: https://so
+ urabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://aisnet.org/page/ICISPage
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICIS 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICIS 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icis-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271212
+DTEND;VALUE=DATE:20271216
+SUMMARY:ICIS 2027 · TBA (expected dates)
+DESCRIPTION:48th International Conference on Information Systems (Academi
+ c\, Global)\nTBA\nCall: https://aisnet.org/page/ICISPage\nEstimated: ICIS
+  full papers and short papers are usually due in early May for a conferen
+ ce in mid-December. The 2027 venue was not verified.\nPlanner: https://so
+ urabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://aisnet.org/page/ICISPage
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ecis-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:CFP DEADLINE: ECIS 2027 (estimated)
+DESCRIPTION:European Conference on Information Systems 2027 (Academic\, G
+ lobal)\nEurope (TBA)\nCall: https://aisnet.org/page/ECIS\nEstimated: ECIS
+  papers are usually due around late November or early December for a June
+  conference. Check the ECIS 2027 site now\, because the deadline may be i
+ mminent.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://aisnet.org/page/ECIS
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECIS 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECIS 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ecis-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270614
+DTEND;VALUE=DATE:20270619
+SUMMARY:ECIS 2027 · Europe (TBA) (expected dates)
+DESCRIPTION:European Conference on Information Systems 2027 (Academic\, G
+ lobal)\nEurope (TBA)\nCall: https://aisnet.org/page/ECIS\nEstimated: ECIS
+  papers are usually due around late November or early December for a June
+  conference. Check the ECIS 2027 site now\, because the deadline may be i
+ mminent.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://aisnet.org/page/ECIS
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-amcis-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270302
+SUMMARY:CFP DEADLINE: AMCIS 2027 (estimated)
+DESCRIPTION:Americas Conference on Information Systems 2027 (Academic\, G
+ lobal)\nAmericas (TBA)\nCall: https://aisnet.org/page/AMCIS\nEstimated: A
+ MCIS full papers and emergent research forum papers are usually due aroun
+ d 1 March for an August conference.\nPlanner: https://sourabhbhattacharya
+ .github.io/SBT/cfp-planner/
+URL:https://aisnet.org/page/AMCIS
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AMCIS 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AMCIS 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-amcis-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270812
+DTEND;VALUE=DATE:20270815
+SUMMARY:AMCIS 2027 · Americas (TBA) (expected dates)
+DESCRIPTION:Americas Conference on Information Systems 2027 (Academic\, G
+ lobal)\nAmericas (TBA)\nCall: https://aisnet.org/page/AMCIS\nEstimated: A
+ MCIS full papers and emergent research forum papers are usually due aroun
+ d 1 March for an August conference.\nPlanner: https://sourabhbhattacharya
+ .github.io/SBT/cfp-planner/
+URL:https://aisnet.org/page/AMCIS
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-pacis-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:CFP DEADLINE: PACIS 2027 (estimated)
+DESCRIPTION:Pacific Asia Conference on Information Systems 2027 (Academic
+ \, Global)\nAsia-Pacific (TBA)\nCall: https://aisnet.org/page/PACIS\nEsti
+ mated: PACIS papers are usually due in February or March for a conference
+  in early July. It is the closest regional AIS outlet for Indian IS schol
+ ars.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://aisnet.org/page/PACIS
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PACIS 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PACIS 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-pacis-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270705
+DTEND;VALUE=DATE:20270710
+SUMMARY:PACIS 2027 · Asia-Pacific (TBA) (expected dates)
+DESCRIPTION:Pacific Asia Conference on Information Systems 2027 (Academic
+ \, Global)\nAsia-Pacific (TBA)\nCall: https://aisnet.org/page/PACIS\nEsti
+ mated: PACIS papers are usually due in February or March for a conference
+  in early July. It is the closest regional AIS outlet for Indian IS schol
+ ars.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://aisnet.org/page/PACIS
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-hicss-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270105
+DTEND;VALUE=DATE:20270109
+SUMMARY:HICSS-60 (2027) · Hawaii\, USA (expected dates)
+DESCRIPTION:60th Hawaii International Conference on System Sciences (Acad
+ emic\, Global)\nHawaii\, USA\nCall: https://hicss.hawaii.edu/\nClosed: fu
+ ll papers were due in mid-June 2026 (estimated from the usual cycle). The
+  HICSS-61 call (January 2028) should close around mid-June 2027\, and pro
+ ceedings are published open access.\nPlanner: https://sourabhbhattacharya
+ .github.io/SBT/cfp-planner/
+URL:https://hicss.hawaii.edu/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-afa-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270106
+SUMMARY:AFA Annual Meeting 2027 · USA (with ASSA; TBC) (expected dates)
+DESCRIPTION:American Finance Association Annual Meeting 2027 (with ASSA) 
+ (Academic\, Global)\nUSA (with ASSA; TBC)\nCall: https://afajof.org/annua
+ l-meeting/\nClosed: the 2027 meeting runs with ASSA in early January\, an
+ d its paper deadline was mid-2026 (estimated). The 2028 call will open in
+  2027\, and full papers are required.\nPlanner: https://sourabhbhattachar
+ ya.github.io/SBT/cfp-planner/
+URL:https://afajof.org/annual-meeting/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-wfa-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:CFP DEADLINE: WFA 2027 (estimated)
+DESCRIPTION:Western Finance Association 62nd Annual Meeting (Academic\, G
+ lobal)\nTBA\nCall: https://westernfinance.org/\nEstimated: WFA full paper
+ s are usually due in mid-November\, so the 2027 call has probably just cl
+ osed. Check the site.\nPlanner: https://sourabhbhattacharya.github.io/SBT
+ /cfp-planner/
+URL:https://westernfinance.org/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:WFA 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:WFA 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-wfa-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270624
+SUMMARY:WFA 2027 · TBA (expected dates)
+DESCRIPTION:Western Finance Association 62nd Annual Meeting (Academic\, G
+ lobal)\nTBA\nCall: https://westernfinance.org/\nEstimated: WFA full paper
+ s are usually due in mid-November\, so the 2027 call has probably just cl
+ osed. Check the site.\nPlanner: https://sourabhbhattacharya.github.io/SBT
+ /cfp-planner/
+URL:https://westernfinance.org/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-efa-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:CFP DEADLINE: EFA 2027 (estimated)
+DESCRIPTION:European Finance Association 54th Annual Meeting (Academic\, 
+ Global)\nEurope (TBA)\nCall: https://www.efa-online.org/\nEstimated: EFA 
+ usually takes full papers in late winter (around February or March) for a
+  late-August meeting. A doctoral tutorial runs alongside.\nPlanner: https
+ ://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.efa-online.org/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EFA 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EFA 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-efa-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270825
+DTEND;VALUE=DATE:20270829
+SUMMARY:EFA 2027 · Europe (TBA) (expected dates)
+DESCRIPTION:European Finance Association 54th Annual Meeting (Academic\, 
+ Global)\nEurope (TBA)\nCall: https://www.efa-online.org/\nEstimated: EFA 
+ usually takes full papers in late winter (around February or March) for a
+  late-August meeting. A doctoral tutorial runs alongside.\nPlanner: https
+ ://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.efa-online.org/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-fma-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270302
+SUMMARY:CFP DEADLINE: FMA Annual Meeting 2027 (estimated)
+DESCRIPTION:Financial Management Association Annual Meeting 2027 (Academi
+ c\, Global)\nUSA (TBA)\nCall: https://www.fma.org/\nEstimated: FMA full p
+ apers are usually due around early March for an October meeting. A doctor
+ al consortium and special paper sessions are typical.\nPlanner: https://s
+ ourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.fma.org/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FMA Annual Meeting 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FMA Annual Meeting 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-fma-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271020
+DTEND;VALUE=DATE:20271024
+SUMMARY:FMA Annual Meeting 2027 · USA (TBA) (expected dates)
+DESCRIPTION:Financial Management Association Annual Meeting 2027 (Academi
+ c\, Global)\nUSA (TBA)\nCall: https://www.fma.org/\nEstimated: FMA full p
+ apers are usually due around early March for an October meeting. A doctor
+ al consortium and special paper sessions are typical.\nPlanner: https://s
+ ourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.fma.org/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-aaa-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270114
+SUMMARY:CFP DEADLINE: AAA Annual Meeting 2027 (estimated)
+DESCRIPTION:American Accounting Association Annual Meeting 2027 (Academic
+ \, Global)\nUSA (TBA)\nCall: https://aaahq.org/Meetings\nEstimated: AAA r
+ esearch papers are usually due in early to mid January for an August meet
+ ing. Concurrent and research-forum formats are typical.\nPlanner: https:/
+ /sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://aaahq.org/Meetings
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AAA Annual Meeting 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AAA Annual Meeting 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-aaa-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270812
+SUMMARY:AAA Annual Meeting 2027 · USA (TBA) (expected dates)
+DESCRIPTION:American Accounting Association Annual Meeting 2027 (Academic
+ \, Global)\nUSA (TBA)\nCall: https://aaahq.org/Meetings\nEstimated: AAA r
+ esearch papers are usually due in early to mid January for an August meet
+ ing. Concurrent and research-forum formats are typical.\nPlanner: https:/
+ /sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://aaahq.org/Meetings
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-eaa-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261201
+DTEND;VALUE=DATE:20261202
+SUMMARY:CFP DEADLINE: EAA Congress 2027
+DESCRIPTION:European Accounting Association 49th Annual Congress (Academi
+ c\, Global)\nTurin\, Italy\nCall: https://eaa-online.org/congress-2027/ke
+ y-dates/\nFull papers are due online by 1 Dec 2026\, and the venue is Tur
+ in. The exact congress dates are estimated (EAA is usually held in May).\
+ nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://eaa-online.org/congress-2027/key-dates/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EAA Congress 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EAA Congress 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-eaa-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270519
+DTEND;VALUE=DATE:20270522
+SUMMARY:EAA Congress 2027 · Turin\, Italy (expected dates)
+DESCRIPTION:European Accounting Association 49th Annual Congress (Academi
+ c\, Global)\nTurin\, Italy\nCall: https://eaa-online.org/congress-2027/ke
+ y-dates/\nFull papers are due online by 1 Dec 2026\, and the venue is Tur
+ in. The exact congress dates are estimated (EAA is usually held in May).\
+ nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://eaa-online.org/congress-2027/key-dates/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-assa-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270106
+SUMMARY:ASSA/AEA Annual Meeting 2027 · USA (TBC) (expected dates)
+DESCRIPTION:Allied Social Science Associations Annual Meeting 2027 (Acade
+ mic\, Global)\nUSA (TBC)\nCall: https://www.aeaweb.org/conference/\nClose
+ d: individual papers and sessions were due in spring 2026 (estimated). Ca
+ lls for the January 2028 meeting usually open around March 2027\, and the
+  meeting includes the job market.\nPlanner: https://sourabhbhattacharya.g
+ ithub.io/SBT/cfp-planner/
+URL:https://www.aeaweb.org/conference/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-esem-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270216
+SUMMARY:CFP DEADLINE: ESEM 2027 (estimated)
+DESCRIPTION:European Meeting of the Econometric Society 2027 (with EEA) (
+ Academic\, Global)\nEurope (TBA)\nCall: https://www.econometricsociety.or
+ g/meetings\nEstimated: ESEM-EEA full papers are usually due in mid-Februa
+ ry for a late-August meeting. The World Congress is held every five years
+ \, so there is none in 2027.\nPlanner: https://sourabhbhattacharya.github
+ .io/SBT/cfp-planner/
+URL:https://www.econometricsociety.org/meetings
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ESEM 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ESEM 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-esem-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270823
+DTEND;VALUE=DATE:20270828
+SUMMARY:ESEM 2027 · Europe (TBA) (expected dates)
+DESCRIPTION:European Meeting of the Econometric Society 2027 (with EEA) (
+ Academic\, Global)\nEurope (TBA)\nCall: https://www.econometricsociety.or
+ g/meetings\nEstimated: ESEM-EEA full papers are usually due in mid-Februa
+ ry for a late-August meeting. The World Congress is held every five years
+ \, so there is none in 2027.\nPlanner: https://sourabhbhattacharya.github
+ .io/SBT/cfp-planner/
+URL:https://www.econometricsociety.org/meetings
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ames-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:CFP DEADLINE: Econometric Society Asian Meetings 2027 (estimated)
+DESCRIPTION:Asian Meetings of the Econometric Society 2027 (Academic\, Gl
+ obal)\nAsia (TBA)\nCall: https://www.econometricsociety.org/meetings\nEst
+ imated: the Asian meetings (East\, South/Southeast and China) run from Ju
+ ne to August\, with deadlines in early spring. The South and Southeast As
+ ia meeting is often hosted in India.\nPlanner: https://sourabhbhattachary
+ a.github.io/SBT/cfp-planner/
+URL:https://www.econometricsociety.org/meetings
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Econometric Society Asian Meetings 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Econometric Society Asian Meetings 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ames-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270615
+DTEND;VALUE=DATE:20270816
+SUMMARY:Econometric Society Asian Meetings 2027 · Asia (TBA) (expected d
+ ates)
+DESCRIPTION:Asian Meetings of the Econometric Society 2027 (Academic\, Gl
+ obal)\nAsia (TBA)\nCall: https://www.econometricsociety.org/meetings\nEst
+ imated: the Asian meetings (East\, South/Southeast and China) run from Ju
+ ne to August\, with deadlines in early spring. The South and Southeast As
+ ia meeting is often hosted in India.\nPlanner: https://sourabhbhattachary
+ a.github.io/SBT/cfp-planner/
+URL:https://www.econometricsociety.org/meetings
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-sase-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270125
+DTEND;VALUE=DATE:20270126
+SUMMARY:CFP DEADLINE: SASE 2027 (estimated)
+DESCRIPTION:Society for the Advancement of Socio-Economics 39th Annual Co
+ nference (Academic\, Global)\nTBA\nCall: https://sase.org/\nEstimated: SA
+ SE usually takes extended abstracts by late January for a conference in e
+ arly July\, organised by networks. Fee reductions are offered for lower-i
+ ncome-country participants.\nPlanner: https://sourabhbhattacharya.github.
+ io/SBT/cfp-planner/
+URL:https://sase.org/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SASE 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SASE 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-sase-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270701
+DTEND;VALUE=DATE:20270704
+SUMMARY:SASE 2027 · TBA (expected dates)
+DESCRIPTION:Society for the Advancement of Socio-Economics 39th Annual Co
+ nference (Academic\, Global)\nTBA\nCall: https://sase.org/\nEstimated: SA
+ SE usually takes extended abstracts by late January for a conference in e
+ arly July\, organised by networks. Fee reductions are offered for lower-i
+ ncome-country participants.\nPlanner: https://sourabhbhattacharya.github.
+ io/SBT/cfp-planner/
+URL:https://sase.org/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-iacmr-2028-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271215
+DTEND;VALUE=DATE:20271216
+SUMMARY:CFP DEADLINE: IACMR Biennial Conference (next: 2028) (estimated)
+DESCRIPTION:International Association for Chinese Management Research Bie
+ nnial Conference (Academic\, Global)\nChina (TBA)\nCall: https://www.iacm
+ r.org/\nEstimated: IACMR main conferences are held in even years\, so non
+ e is expected in 2027. Papers for 2028 are expected around December 2027.
+ \nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.iacmr.org/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IACMR Biennial Conference (next: 2028): deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IACMR Biennial Conference (next: 2028): deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-iacmr-2028-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20280615
+DTEND;VALUE=DATE:20280619
+SUMMARY:IACMR Biennial Conference (next: 2028) · China (TBA) (expected d
+ ates)
+DESCRIPTION:International Association for Chinese Management Research Bie
+ nnial Conference (Academic\, Global)\nChina (TBA)\nCall: https://www.iacm
+ r.org/\nEstimated: IACMR main conferences are held in even years\, so non
+ e is expected in 2027. Papers for 2028 are expected around December 2027.
+ \nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.iacmr.org/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-asiaaom-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270831
+DTEND;VALUE=DATE:20270901
+SUMMARY:CFP DEADLINE: Asia Academy of Management 2027 (estimated)
+DESCRIPTION:Asia Academy of Management Conference 2027 (Academic\, Global
+ )\nAsia (TBA)\nCall: https://www.asiaacademyofmanagement.org/\nEstimated:
+  the conference is usually held in December with a submission deadline in
+  late summer. It is relevant for Asia-focused management research.\nPlann
+ er: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.asiaacademyofmanagement.org/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Asia Academy of Management 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Asia Academy of Management 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-asiaaom-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271210
+DTEND;VALUE=DATE:20271213
+SUMMARY:Asia Academy of Management 2027 · Asia (TBA) (expected dates)
+DESCRIPTION:Asia Academy of Management Conference 2027 (Academic\, Global
+ )\nAsia (TBA)\nCall: https://www.asiaacademyofmanagement.org/\nEstimated:
+  the conference is usually held in December with a submission deadline in
+  late summer. It is relevant for Asia-focused management research.\nPlann
+ er: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.asiaacademyofmanagement.org/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-isb-arc-2026-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261221
+DTEND;VALUE=DATE:20261223
+SUMMARY:ISB ARC 2026 · Hyderabad\, India
+DESCRIPTION:18th ISB Accounting Research Conference (Academic\, India)\nH
+ yderabad\, India\nCall: https://www.isb.edu/events/18th-isb-accounting-re
+ search-conference\nPapers were due 15 June 2026 to acctg_conf@isb.edu. He
+ ld at the ISB Hyderabad campus\, so there is no travel for Hyderabad facu
+ lty.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.isb.edu/events/18th-isb-accounting-research-conference
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-isb-arc-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270615
+DTEND;VALUE=DATE:20270616
+SUMMARY:CFP DEADLINE: ISB ARC 2027 (estimated)
+DESCRIPTION:19th ISB Accounting Research Conference (Academic\, India)\nH
+ yderabad\, India\nCall: https://www.isb.edu/events/18th-isb-accounting-re
+ search-conference\nNot yet announced. The dates are estimated from the 20
+ 26 edition (deadline 15 June\, conference late December).\nPlanner: https
+ ://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.isb.edu/events/18th-isb-accounting-research-conference
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ISB ARC 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ISB ARC 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-isb-arc-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271220
+DTEND;VALUE=DATE:20271222
+SUMMARY:ISB ARC 2027 · Hyderabad\, India (expected dates)
+DESCRIPTION:19th ISB Accounting Research Conference (Academic\, India)\nH
+ yderabad\, India\nCall: https://www.isb.edu/events/18th-isb-accounting-re
+ search-conference\nNot yet announced. The dates are estimated from the 20
+ 26 edition (deadline 15 June\, conference late December).\nPlanner: https
+ ://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.isb.edu/events/18th-isb-accounting-research-conference
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-iimcfrc-2026-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20260930
+DTEND;VALUE=DATE:20261001
+SUMMARY:CFP DEADLINE: IIMCFRC 2026
+DESCRIPTION:IIM Calcutta Finance Research Conference 2026 (Academic\, Ind
+ ia)\nKolkata\, India\nCall: https://iimcal.ac.in/events/Call-for-Papers-I
+ IM-Calcutta-Finance-Research-Conference-IIMCFRC-2026\nFull papers were du
+ e 30 September 2026. In person only\, at the Joka campus.\nPlanner: https
+ ://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://iimcal.ac.in/events/Call-for-Papers-IIM-Calcutta-Finance-Rese
+ arch-Conference-IIMCFRC-2026
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IIMCFRC 2026: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IIMCFRC 2026: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-iimcfrc-2026-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261215
+SUMMARY:IIMCFRC 2026 · Kolkata\, India
+DESCRIPTION:IIM Calcutta Finance Research Conference 2026 (Academic\, Ind
+ ia)\nKolkata\, India\nCall: https://iimcal.ac.in/events/Call-for-Papers-I
+ IM-Calcutta-Finance-Research-Conference-IIMCFRC-2026\nFull papers were du
+ e 30 September 2026. In person only\, at the Joka campus.\nPlanner: https
+ ://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://iimcal.ac.in/events/Call-for-Papers-IIM-Calcutta-Finance-Rese
+ arch-Conference-IIMCFRC-2026
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-imrc-2026-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261207
+SUMMARY:IMRC 2026 · Ahmedabad\, India
+DESCRIPTION:IIMA International Management Research Conference 2026 (Acade
+ mic\, India)\nAhmedabad\, India\nCall: https://conference.iima.ac.in/imrc
+ 2026/?p=10\nHas 14 tracks\, including marketing\, finance\, behavioural s
+ cience\, digital transformation\, AI startups\, and JMS/JPIM paper develo
+ pment workshops. Submissions closed 14 August 2026 and the JMS PDW deadli
+ ne was 15 October 2026.\nPlanner: https://sourabhbhattacharya.github.io/S
+ BT/cfp-planner/
+URL:https://conference.iima.ac.in/imrc2026/?p=10
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-isc-2026-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261216
+SUMMARY:ISC 2026 · Bengaluru\, India
+DESCRIPTION:India Strategy Conference 2026 (Academic\, India)\nBengaluru\
+ , India\nCall: https://digest.iimb.ac.in/?p=22715\nIIMB hosts the 2026 ed
+ ition. The call for proposals closed 16 August 2026.\nPlanner: https://so
+ urabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://digest.iimb.ac.in/?p=22715
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-indam-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:CFP DEADLINE: INDAM 2027
+DESCRIPTION:Indian Academy of Management Conference 2027 (Academic\, Indi
+ a)\nSambalpur\, India\nCall: https://conference.iimsambalpur.ac.in/indam/
+ call_for_submissions\nPapers were due 10 October 2026. A pre-conference w
+ orkshop and doctoral colloquium run on 6 January\, before the main confer
+ ence on 7–9 January 2027.\nPlanner: https://sourabhbhattacharya.github.
+ io/SBT/cfp-planner/
+URL:https://conference.iimsambalpur.ac.in/indam/call_for_submissions
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:INDAM 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:INDAM 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-indam-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270110
+SUMMARY:INDAM 2027 · Sambalpur\, India
+DESCRIPTION:Indian Academy of Management Conference 2027 (Academic\, Indi
+ a)\nSambalpur\, India\nCall: https://conference.iimsambalpur.ac.in/indam/
+ call_for_submissions\nPapers were due 10 October 2026. A pre-conference w
+ orkshop and doctoral colloquium run on 6 January\, before the main confer
+ ence on 7–9 January 2027.\nPlanner: https://sourabhbhattacharya.github.
+ io/SBT/cfp-planner/
+URL:https://conference.iimsambalpur.ac.in/indam/call_for_submissions
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-imrdc-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270122
+DTEND;VALUE=DATE:20270124
+SUMMARY:IMRDC 2027 · Bengaluru\, India
+DESCRIPTION:18th IMR Doctoral Conference (Academic\, India)\nBengaluru\, 
+ India\nCall: https://www.iimb.ac.in/imrdc2027/call-submissions.php\nA doc
+ toral conference run by IIMB Management Review. Full papers were due 12 J
+ uly 2026.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner
+ /
+URL:https://www.iimb.ac.in/imrdc2027/call-submissions.php
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-imarc-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261110
+DTEND;VALUE=DATE:20261111
+SUMMARY:CFP DEADLINE: iMarC 2027
+DESCRIPTION:6th International Marketing Conference (iMarC VI) (Academic\,
+  India)\nShillong\, India\nCall: https://www.iimshillong.ac.in/events-and
+ -conferences/conferences/imarc6/about\nExtended abstracts or full papers 
+ were due 10 November 2026\, and registration closes 20 December 2026. Onl
+ ine pre-conference workshops run 30–31 January 2027.\nPlanner: https://
+ sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.iimshillong.ac.in/events-and-conferences/conferences/imar
+ c6/about
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:iMarC 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:iMarC 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-imarc-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270203
+SUMMARY:iMarC 2027 · Shillong\, India
+DESCRIPTION:6th International Marketing Conference (iMarC VI) (Academic\,
+  India)\nShillong\, India\nCall: https://www.iimshillong.ac.in/events-and
+ -conferences/conferences/imarc6/about\nExtended abstracts or full papers 
+ were due 10 November 2026\, and registration closes 20 December 2026. Onl
+ ine pre-conference workshops run 30–31 January 2027.\nPlanner: https://
+ sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.iimshillong.ac.in/events-and-conferences/conferences/imar
+ c6/about
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-airc-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261215
+DTEND;VALUE=DATE:20261216
+SUMMARY:CFP DEADLINE: AIRC 2027
+DESCRIPTION:6th Annual International Research Conference and Pre-Conferen
+ ce Doctoral Workshop (Academic\, India)\nLucknow\, India\nCall: https://e
+ asychair.org/cfp/airc06\nPapers are due 15 December 2026 via EasyChair\, 
+ with notification on 20 January 2027. The doctoral workshop is on 24 Febr
+ uary and the conference on 25–27 February.\nPlanner: https://sourabhbha
+ ttacharya.github.io/SBT/cfp-planner/
+URL:https://easychair.org/cfp/airc06
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AIRC 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AIRC 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-airc-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270224
+DTEND;VALUE=DATE:20270228
+SUMMARY:AIRC 2027 · Lucknow\, India
+DESCRIPTION:6th Annual International Research Conference and Pre-Conferen
+ ce Doctoral Workshop (Academic\, India)\nLucknow\, India\nCall: https://e
+ asychair.org/cfp/airc06\nPapers are due 15 December 2026 via EasyChair\, 
+ with notification on 20 January 2027. The doctoral workshop is on 24 Febr
+ uary and the conference on 25–27 February.\nPlanner: https://sourabhbha
+ ttacharya.github.io/SBT/cfp-planner/
+URL:https://easychair.org/cfp/airc06
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icopex-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260926
+SUMMARY:CFP DEADLINE: ICOPEX 2027
+DESCRIPTION:11th International Conference on Operational Excellence (Acad
+ emic\, India)\nKozhikode\, India\nCall: https://iimk.ac.in/apps/ICOPEX202
+ 7/\nAbstracts were due 31 May 2026 and full papers 25 September 2026. Reg
+ istration closes 30 November 2026.\nPlanner: https://sourabhbhattacharya.
+ github.io/SBT/cfp-planner/
+URL:https://iimk.ac.in/apps/ICOPEX2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICOPEX 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICOPEX 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icopex-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270111
+DTEND;VALUE=DATE:20270114
+SUMMARY:ICOPEX 2027 · Kozhikode\, India
+DESCRIPTION:11th International Conference on Operational Excellence (Acad
+ emic\, India)\nKozhikode\, India\nCall: https://iimk.ac.in/apps/ICOPEX202
+ 7/\nAbstracts were due 31 May 2026 and full papers 25 September 2026. Reg
+ istration closes 30 November 2026.\nPlanner: https://sourabhbhattacharya.
+ github.io/SBT/cfp-planner/
+URL:https://iimk.ac.in/apps/ICOPEX2027/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-mdc-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:CFP DEADLINE: MDC 2027
+DESCRIPTION:13th Management Doctoral Colloquium (Academic\, India)\nKhara
+ gpur\, India\nCall: https://som.iitkgp.ac.in/CONFERENCES/MDC/mdc2027-webs
+ ite.php\nA doctoral colloquium. Papers or abstracts were due 15 November 
+ 2026\, with notification on 30 November.\nPlanner: https://sourabhbhattac
+ harya.github.io/SBT/cfp-planner/
+URL:https://som.iitkgp.ac.in/CONFERENCES/MDC/mdc2027-website.php
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MDC 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MDC 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-mdc-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270128
+DTEND;VALUE=DATE:20270130
+SUMMARY:MDC 2027 · Kharagpur\, India
+DESCRIPTION:13th Management Doctoral Colloquium (Academic\, India)\nKhara
+ gpur\, India\nCall: https://som.iitkgp.ac.in/CONFERENCES/MDC/mdc2027-webs
+ ite.php\nA doctoral colloquium. Papers or abstracts were due 15 November 
+ 2026\, with notification on 30 November.\nPlanner: https://sourabhbhattac
+ harya.github.io/SBT/cfp-planner/
+URL:https://som.iitkgp.ac.in/CONFERENCES/MDC/mdc2027-website.php
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-rutgers-atp-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270107
+DTEND;VALUE=DATE:20270109
+SUMMARY:Rutgers-ATP 2027 · Chennai\, India
+DESCRIPTION:10th Rutgers–ATP India Accounting & Finance Symposium (Acad
+ emic\, India)\nChennai\, India\nCall: https://www.greatlakes.edu.in/chenn
+ ai/coe/centre-for-finance-and-economics-research/rutgers-conference\nPape
+ rs were due 15 September 2026. The 2026 edition was at IIMB\, and this on
+ e is at the Great Lakes ECR campus near Chennai.\nPlanner: https://sourab
+ hbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.greatlakes.edu.in/chennai/coe/centre-for-finance-and-econ
+ omics-research/rutgers-conference
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ifrc-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:CFP DEADLINE: IFRC 2027
+DESCRIPTION:International Finance Research Colloquium 2027 (Academic\, In
+ dia)\nMumbai\, India\nCall: https://www.nldalmia.in/ifrc-2027\nThe theme 
+ is sustainable\, digital and data-driven finance. The extended deadline i
+ s 30 November 2026\, but parts of the page still show 30 September\, so c
+ onfirm with the organisers.\nPlanner: https://sourabhbhattacharya.github.
+ io/SBT/cfp-planner/
+URL:https://www.nldalmia.in/ifrc-2027
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IFRC 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IFRC 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ifrc-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270131
+SUMMARY:IFRC 2027 · Mumbai\, India
+DESCRIPTION:International Finance Research Colloquium 2027 (Academic\, In
+ dia)\nMumbai\, India\nCall: https://www.nldalmia.in/ifrc-2027\nThe theme 
+ is sustainable\, digital and data-driven finance. The extended deadline i
+ s 30 November 2026\, but parts of the page still show 30 September\, so c
+ onfirm with the organisers.\nPlanner: https://sourabhbhattacharya.github.
+ io/SBT/cfp-planner/
+URL:https://www.nldalmia.in/ifrc-2027
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-iitk-dc-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:CFP DEADLINE: IITK DoMS DC 2027
+DESCRIPTION:Doctoral Colloquium 2027 (2nd edition) (Academic\, India)\nKa
+ npur\, India\nCall: https://iitk.ac.in/doms/dc2027/\nExtended abstracts a
+ re due 30 November 2026 and decisions come by 5 January 2027. In person o
+ nly.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://iitk.ac.in/doms/dc2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IITK DoMS DC 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IITK DoMS DC 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-iitk-dc-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:IITK DoMS DC 2027 · Kanpur\, India
+DESCRIPTION:Doctoral Colloquium 2027 (2nd edition) (Academic\, India)\nKa
+ npur\, India\nCall: https://iitk.ac.in/doms/dc2027/\nExtended abstracts a
+ re due 30 November 2026 and decisions come by 5 January 2027. In person o
+ nly.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://iitk.ac.in/doms/dc2027/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ircdc-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261230
+DTEND;VALUE=DATE:20261231
+SUMMARY:CFP DEADLINE: IRCDC 2027
+DESCRIPTION:IES MCRC International Research Conference 2027: Transformati
+ on Unleashed (Academic\, India)\nMumbai\, India\nCall: https://easychair.
+ org/cfp/IRCDC2027\nAbstract registration closes 30 November 2026 and full
+  papers are due 30 December 2026. Hybrid format\, at Bandra\, Mumbai.\nPl
+ anner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://easychair.org/cfp/IRCDC2027
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IRCDC 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IRCDC 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ircdc-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:IRCDC 2027 · Mumbai\, India
+DESCRIPTION:IES MCRC International Research Conference 2027: Transformati
+ on Unleashed (Academic\, India)\nMumbai\, India\nCall: https://easychair.
+ org/cfp/IRCDC2027\nAbstract registration closes 30 November 2026 and full
+  papers are due 30 December 2026. Hybrid format\, at Bandra\, Mumbai.\nPl
+ anner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://easychair.org/cfp/IRCDC2027
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-code-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270105
+DTEND;VALUE=DATE:20270108
+SUMMARY:CODE@ISB 2027 · Hyderabad\, India
+DESCRIPTION:16th Conference on the Digital Economy (Academic\, India)\nHy
+ derabad\, India\nCall: https://www.isb.edu/events/code-2027\nPapers were 
+ due 21 September 2026. A leading IS and digital-economy conference held a
+ t ISB Hyderabad.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-
+ planner/
+URL:https://www.isb.edu/events/code-2027
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-acef-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:CFP DEADLINE: ACEF 2027 (estimated)
+DESCRIPTION:8th Annual Conference on Economics and Finance (Academic\, In
+ dia)\nHyderabad\, India\nCall: https://www.bits-pilani.ac.in/hyderabad/ac
+ ef2027/\nThe conference dates are confirmed\, but the submission deadline
+  is not posted. Registration opens after 15 December 2026\, so we estimat
+ e the deadline at about 30 November; check the site soon.\nPlanner: https
+ ://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.bits-pilani.ac.in/hyderabad/acef2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ACEF 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ACEF 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-acef-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270128
+DTEND;VALUE=DATE:20270131
+SUMMARY:ACEF 2027 · Hyderabad\, India
+DESCRIPTION:8th Annual Conference on Economics and Finance (Academic\, In
+ dia)\nHyderabad\, India\nCall: https://www.bits-pilani.ac.in/hyderabad/ac
+ ef2027/\nThe conference dates are confirmed\, but the submission deadline
+  is not posted. Registration opens after 15 December 2026\, so we estimat
+ e the deadline at about 30 November; check the site soon.\nPlanner: https
+ ://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.bits-pilani.ac.in/hyderabad/acef2027/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-rsi-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:CFP DEADLINE: Research Summit India 2027
+DESCRIPTION:Reimagining Innovation and Value Pathways in Service Ecosyste
+ ms (AOM CAP India) (Academic\, India)\nGurugram\, India\nCall: https://hr
+ .aom.org/discussion/call-for-papers-international-conference-india-januar
+ y-2027\nAbstracts were due 1 June 2026 and final papers 15 October 2026. 
+ Held at BML Munjal University\, with workshops on 29 January.\nPlanner: h
+ ttps://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://hr.aom.org/discussion/call-for-papers-international-conferenc
+ e-india-january-2027
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Research Summit India 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Research Summit India 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-rsi-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270129
+DTEND;VALUE=DATE:20270201
+SUMMARY:Research Summit India 2027 · Gurugram\, India
+DESCRIPTION:Reimagining Innovation and Value Pathways in Service Ecosyste
+ ms (AOM CAP India) (Academic\, India)\nGurugram\, India\nCall: https://hr
+ .aom.org/discussion/call-for-papers-international-conference-india-januar
+ y-2027\nAbstracts were due 1 June 2026 and final papers 15 October 2026. 
+ Held at BML Munjal University\, with workshops on 29 January.\nPlanner: h
+ ttps://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://hr.aom.org/discussion/call-for-papers-international-conferenc
+ e-india-january-2027
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-edii-bce-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261215
+DTEND;VALUE=DATE:20261216
+SUMMARY:CFP DEADLINE: EDII BCE 2027 (estimated)
+DESCRIPTION:17th Biennial Conference on Entrepreneurship (Academic\, Indi
+ a)\nAhmedabad\, India\nCall: https://groups.google.com/g/knowledge-forum-
+ im-bhu/c/tNTFH1C8joM\nThe conference dates are confirmed\, but the deadli
+ ne is not stated in the announcement (see conference.ediindia.org)\, so t
+ he date shown is an estimate.\nPlanner: https://sourabhbhattacharya.githu
+ b.io/SBT/cfp-planner/
+URL:https://groups.google.com/g/knowledge-forum-im-bhu/c/tNTFH1C8joM
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EDII BCE 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EDII BCE 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-edii-bce-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270224
+DTEND;VALUE=DATE:20270227
+SUMMARY:EDII BCE 2027 · Ahmedabad\, India
+DESCRIPTION:17th Biennial Conference on Entrepreneurship (Academic\, Indi
+ a)\nAhmedabad\, India\nCall: https://groups.google.com/g/knowledge-forum-
+ im-bhu/c/tNTFH1C8joM\nThe conference dates are confirmed\, but the deadli
+ ne is not stated in the announcement (see conference.ediindia.org)\, so t
+ he date shown is an estimate.\nPlanner: https://sourabhbhattacharya.githu
+ b.io/SBT/cfp-planner/
+URL:https://groups.google.com/g/knowledge-forum-im-bhu/c/tNTFH1C8joM
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-incis-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20260930
+DTEND;VALUE=DATE:20261001
+SUMMARY:CFP DEADLINE: InCIS 2027
+DESCRIPTION:3rd India Conference on Information Systems (Academic\, India
+ )\nChennai\, India\nCall: https://easychair.org/cfp/InCIS-2027\nPapers we
+ re due 30 September 2026\, after an extension. India's AIS-affiliated IS 
+ conference; a first doctoral consortium is also announced.\nPlanner: http
+ s://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://easychair.org/cfp/InCIS-2027
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:InCIS 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:InCIS 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-incis-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270312
+DTEND;VALUE=DATE:20270315
+SUMMARY:InCIS 2027 · Chennai\, India
+DESCRIPTION:3rd India Conference on Information Systems (Academic\, India
+ )\nChennai\, India\nCall: https://easychair.org/cfp/InCIS-2027\nPapers we
+ re due 30 September 2026\, after an extension. India's AIS-affiliated IS 
+ conference; a first doctoral consortium is also announced.\nPlanner: http
+ s://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://easychair.org/cfp/InCIS-2027
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-imc-irc-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270621
+DTEND;VALUE=DATE:20270622
+SUMMARY:CFP DEADLINE: IMC-IRC 2027 (estimated)
+DESCRIPTION:IMC International Research Conference 2027 (Academic\, India)
+ \nNoida\, India\nCall: https://www.mbauniverse.com/imc/imc2026/irc-resear
+ ch\nNot yet announced. Estimated from the 2026 edition (abstracts due 21 
+ June\, conference 18–19 September at IIM Lucknow Noida).\nPlanner: http
+ s://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.mbauniverse.com/imc/imc2026/irc-research
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IMC-IRC 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IMC-IRC 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-imc-irc-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270917
+DTEND;VALUE=DATE:20270919
+SUMMARY:IMC-IRC 2027 · Noida\, India (expected dates)
+DESCRIPTION:IMC International Research Conference 2027 (Academic\, India)
+ \nNoida\, India\nCall: https://www.mbauniverse.com/imc/imc2026/irc-resear
+ ch\nNot yet announced. Estimated from the 2026 edition (abstracts due 21 
+ June\, conference 18–19 September at IIM Lucknow Noida).\nPlanner: http
+ s://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.mbauniverse.com/imc/imc2026/irc-research
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-cpp-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270531
+DTEND;VALUE=DATE:20270601
+SUMMARY:CFP DEADLINE: ICPP 2027 (estimated)
+DESCRIPTION:XXII International Conference on Public Policy & Management (
+ Academic\, India)\nBengaluru\, India\nCall: https://www.iimb.ac.in/call-p
+ apers-cpp-xxi-2026\nNot yet announced. Estimated from the XXI edition (fu
+ ll papers due 31 May\, conference 2–4 September 2026).\nPlanner: https:
+ //sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.iimb.ac.in/call-papers-cpp-xxi-2026
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICPP 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICPP 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-cpp-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270901
+DTEND;VALUE=DATE:20270904
+SUMMARY:ICPP 2027 · Bengaluru\, India (expected dates)
+DESCRIPTION:XXII International Conference on Public Policy & Management (
+ Academic\, India)\nBengaluru\, India\nCall: https://www.iimb.ac.in/call-p
+ apers-cpp-xxi-2026\nNot yet announced. Estimated from the XXI edition (fu
+ ll papers due 31 May\, conference 2–4 September 2026).\nPlanner: https:
+ //sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.iimb.ac.in/call-papers-cpp-xxi-2026
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-isb-src-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:CFP DEADLINE: ISB SRC 2027 (estimated)
+DESCRIPTION:ISB Summer Research Conference in Finance 2027 (Academic\, In
+ dia)\nHyderabad\, India\nCall: https://isb.edu/events/summer-research-con
+ ference-2026\nNot yet announced. The 2026 edition ran 30–31 July at ISB
+  Hyderabad\, and the deadline shown is an estimate.\nPlanner: https://sou
+ rabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://isb.edu/events/summer-research-conference-2026
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ISB SRC 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ISB SRC 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-isb-src-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270729
+DTEND;VALUE=DATE:20270731
+SUMMARY:ISB SRC 2027 · Hyderabad\, India (expected dates)
+DESCRIPTION:ISB Summer Research Conference in Finance 2027 (Academic\, In
+ dia)\nHyderabad\, India\nCall: https://isb.edu/events/summer-research-con
+ ference-2026\nNot yet announced. The 2026 edition ran 30–31 July at ISB
+  Hyderabad\, and the deadline shown is an estimate.\nPlanner: https://sou
+ rabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://isb.edu/events/summer-research-conference-2026
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-scipy-india-2026-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:CFP DEADLINE: SciPy India 2026
+DESCRIPTION:SciPy India 2026 (Industry\, India)\nChennai\, India\nCall: h
+ ttps://discuss.python.org/t/scipy-india-2026-19th-20th-december-in-chenna
+ i-india-cfp-open/108760\nTalk and workshop proposals were due 1 November 
+ 2026 (extended). Held at IIT Madras.\nPlanner: https://sourabhbhattachary
+ a.github.io/SBT/cfp-planner/
+URL:https://discuss.python.org/t/scipy-india-2026-19th-20th-december-in-c
+ hennai-india-cfp-open/108760
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SciPy India 2026: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SciPy India 2026: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-scipy-india-2026-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261219
+DTEND;VALUE=DATE:20261221
+SUMMARY:SciPy India 2026 · Chennai\, India
+DESCRIPTION:SciPy India 2026 (Industry\, India)\nChennai\, India\nCall: h
+ ttps://discuss.python.org/t/scipy-india-2026-19th-20th-december-in-chenna
+ i-india-cfp-open/108760\nTalk and workshop proposals were due 1 November 
+ 2026 (extended). Held at IIT Madras.\nPlanner: https://sourabhbhattachary
+ a.github.io/SBT/cfp-planner/
+URL:https://discuss.python.org/t/scipy-india-2026-19th-20th-december-in-c
+ hennai-india-cfp-open/108760
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-isb-dss-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:CFP DEADLINE: ISB DSS 2027
+DESCRIPTION:ISB Data Science Summit 2027 (Industry\, India)\nHyderabad\, 
+ India\nCall: https://www.isb.edu/events/data-science-summit-2027\nThere i
+ s no paper call. Research poster abstracts are due 15 January 2027\, with
+  a fee of Rs 5000 + GST\, and topics include GenAI\, agentic AI and digit
+ al finance.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-plann
+ er/
+URL:https://www.isb.edu/events/data-science-summit-2027
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ISB DSS 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ISB DSS 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-isb-dss-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270129
+DTEND;VALUE=DATE:20270130
+SUMMARY:ISB DSS 2027 · Hyderabad\, India
+DESCRIPTION:ISB Data Science Summit 2027 (Industry\, India)\nHyderabad\, 
+ India\nCall: https://www.isb.edu/events/data-science-summit-2027\nThere i
+ s no paper call. Research poster abstracts are due 15 January 2027\, with
+  a fee of Rs 5000 + GST\, and topics include GenAI\, agentic AI and digit
+ al finance.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-plann
+ er/
+URL:https://www.isb.edu/events/data-science-summit-2027
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-comsnets-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270105
+DTEND;VALUE=DATE:20270110
+SUMMARY:COMSNETS 2027 · Bengaluru\, India
+DESCRIPTION:International Conference on COMmunication Systems & NETworkS 
+ 2027 (Academic\, India)\nBengaluru\, India\nCall: https://www.comsnets.or
+ g\nMain papers were due 31 August 2026. Workshop\, graduate forum and dem
+ o calls are listed on the site.\nPlanner: https://sourabhbhattacharya.git
+ hub.io/SBT/cfp-planner/
+URL:https://www.comsnets.org
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-cods-2026-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261217
+SUMMARY:CODS-COMAD 2026 · Gandhinagar\, India
+DESCRIPTION:ACM IKDD Conference on Data Science (CODS-COMAD) 2026 (Academ
+ ic\, India)\nGandhinagar\, India\nCall: https://ikdd.acm.org/cods-2026/\n
+ Papers were due 20 August 2026. Held at Dhirubhai Ambani University; the 
+ next edition would likely have a deadline around August 2027.\nPlanner: h
+ ttps://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://ikdd.acm.org/cods-2026/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icvgip-2026-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261221
+DTEND;VALUE=DATE:20261225
+SUMMARY:ICVGIP 2026 · Kolkata\, India
+DESCRIPTION:Indian Conference on Computer Vision\, Graphics and Image Pro
+ cessing 2026 (Academic\, India)\nKolkata\, India\nCall: https://www.beri.
+ net/events/icvgip-2026\nThe event dates are confirmed (main conference 22
+ –24 December)\, but the paper deadline was not found. Past editions clo
+ sed around late July or August\, so the date shown is an estimate; see ic
+ vgip.in/2026.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-pla
+ nner/
+URL:https://www.beri.net/events/icvgip-2026
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-cvip-2026-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261209
+DTEND;VALUE=DATE:20261213
+SUMMARY:CVIP 2026 · Kozhikode\, India
+DESCRIPTION:11th International Conference on Computer Vision and Image Pr
+ ocessing (Academic\, India)\nKozhikode\, India\nCall: https://nitc.ac.in/
+ upcoming-events/call-for-papers--cvip-20269-12-december-2026\nPapers were
+  accepted in two rounds\, due 15 April and 31 July 2026.\nPlanner: https:
+ //sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://nitc.ac.in/upcoming-events/call-for-papers--cvip-20269-12-dec
+ ember-2026
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-mlds-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:CFP DEADLINE: MLDS 2027 (estimated)
+DESCRIPTION:Machine Learning Developers Summit 2027 (Industry\, India)\nB
+ engaluru\, India\nCall: https://mlds.analyticsindiamag.com/ai-conference-
+ india-2027\nSpeaker proposals go through AIM's contact form\, and no dead
+ line is published\, so the date shown is an estimate. A Hyderabad edition
+  runs 4–5 March 2027.\nPlanner: https://sourabhbhattacharya.github.io/S
+ BT/cfp-planner/
+URL:https://mlds.analyticsindiamag.com/ai-conference-india-2027
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MLDS 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MLDS 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-mlds-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270225
+DTEND;VALUE=DATE:20270227
+SUMMARY:MLDS 2027 · Bengaluru\, India
+DESCRIPTION:Machine Learning Developers Summit 2027 (Industry\, India)\nB
+ engaluru\, India\nCall: https://mlds.analyticsindiamag.com/ai-conference-
+ india-2027\nSpeaker proposals go through AIM's contact form\, and no dead
+ line is published\, so the date shown is an estimate. A Hyderabad edition
+  runs 4–5 March 2027.\nPlanner: https://sourabhbhattacharya.github.io/S
+ BT/cfp-planner/
+URL:https://mlds.analyticsindiamag.com/ai-conference-india-2027
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-des-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270331
+DTEND;VALUE=DATE:20270401
+SUMMARY:CFP DEADLINE: DES 2027 (estimated)
+DESCRIPTION:Data Engineering Summit 2027: The Agentic Data Stack (Industr
+ y\, India)\nBengaluru\, India\nCall: https://des.analyticsindiamag.com/\n
+ Talk ideas go through the site's contact form\, and no deadline is publis
+ hed\, so the date shown is an estimate. At NIMHANS Convention Centre.\nPl
+ anner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://des.analyticsindiamag.com/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DES 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DES 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-des-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270513
+DTEND;VALUE=DATE:20270515
+SUMMARY:DES 2027 · Bengaluru\, India
+DESCRIPTION:Data Engineering Summit 2027: The Agentic Data Stack (Industr
+ y\, India)\nBengaluru\, India\nCall: https://des.analyticsindiamag.com/\n
+ Talk ideas go through the site's contact form\, and no deadline is publis
+ hed\, so the date shown is an estimate. At NIMHANS Convention Centre.\nPl
+ anner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://des.analyticsindiamag.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-cypher-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270630
+DTEND;VALUE=DATE:20270701
+SUMMARY:CFP DEADLINE: Cypher 2027 (estimated)
+DESCRIPTION:Cypher 2027 (11th edition) (Industry\, India)\nBengaluru\, In
+ dia\nCall: https://cypher.analyticsindiamag.com/\nSpeaking slots are open
+  now via the contact form. Only 'September 2027' is announced\, so the da
+ tes and deadline shown are estimates.\nPlanner: https://sourabhbhattachar
+ ya.github.io/SBT/cfp-planner/
+URL:https://cypher.analyticsindiamag.com/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Cypher 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Cypher 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-cypher-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270915
+DTEND;VALUE=DATE:20270918
+SUMMARY:Cypher 2027 · Bengaluru\, India (expected dates)
+DESCRIPTION:Cypher 2027 (11th edition) (Industry\, India)\nBengaluru\, In
+ dia\nCall: https://cypher.analyticsindiamag.com/\nSpeaking slots are open
+  now via the contact form. Only 'September 2027' is announced\, so the da
+ tes and deadline shown are estimates.\nPlanner: https://sourabhbhattachar
+ ya.github.io/SBT/cfp-planner/
+URL:https://cypher.analyticsindiamag.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ntlf-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:CFP DEADLINE: NTLF 2027 (estimated)
+DESCRIPTION:35th Nasscom Technology & Leadership Forum (Industry\, India)
+ \nMumbai\, India\nCall: https://ecorpit.com/nasscom-ntlf-2027-india-it-ai
+ -services/\nMainly invite-only\, with no open paper call; speakers are cu
+ rated by Nasscom (nasscom.in/ntlf). The deadline shown is a placeholder f
+ or reaching out to Nasscom.\nPlanner: https://sourabhbhattacharya.github.
+ io/SBT/cfp-planner/
+URL:https://ecorpit.com/nasscom-ntlf-2027-india-it-ai-services/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NTLF 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NTLF 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ntlf-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270224
+DTEND;VALUE=DATE:20270226
+SUMMARY:NTLF 2027 · Mumbai\, India
+DESCRIPTION:35th Nasscom Technology & Leadership Forum (Industry\, India)
+ \nMumbai\, India\nCall: https://ecorpit.com/nasscom-ntlf-2027-india-it-ai
+ -services/\nMainly invite-only\, with no open paper call; speakers are cu
+ rated by Nasscom (nasscom.in/ntlf). The deadline shown is a placeholder f
+ or reaching out to Nasscom.\nPlanner: https://sourabhbhattacharya.github.
+ io/SBT/cfp-planner/
+URL:https://ecorpit.com/nasscom-ntlf-2027-india-it-ai-services/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-gff-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270630
+DTEND;VALUE=DATE:20270701
+SUMMARY:CFP DEADLINE: GFF 2027 (estimated)
+DESCRIPTION:Global Fintech Fest 2027 (Industry\, India)\nMumbai\, India\n
+ Call: https://www.digitalindia.gov.in/?p=15235\nNot yet announced. The 20
+ 26 edition ran 8–11 September at Jio World Centre; GFF takes speaker an
+ d partner nominations\, not papers.\nPlanner: https://sourabhbhattacharya
+ .github.io/SBT/cfp-planner/
+URL:https://www.digitalindia.gov.in/?p=15235
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:GFF 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:GFF 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-gff-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270907
+DTEND;VALUE=DATE:20270911
+SUMMARY:GFF 2027 · Mumbai\, India (expected dates)
+DESCRIPTION:Global Fintech Fest 2027 (Industry\, India)\nMumbai\, India\n
+ Call: https://www.digitalindia.gov.in/?p=15235\nNot yet announced. The 20
+ 26 edition ran 8–11 September at Jio World Centre; GFF takes speaker an
+ d partner nominations\, not papers.\nPlanner: https://sourabhbhattacharya
+ .github.io/SBT/cfp-planner/
+URL:https://www.digitalindia.gov.in/?p=15235
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-isle-2026-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:CFP DEADLINE: ISLE 2026 (estimated)
+DESCRIPTION:67th Annual Conference of the Indian Society of Labour Econom
+ ics (Academic\, India)\nVaranasi\, India\nCall: https://conference.isleij
+ le.org/\nThe paper deadline is not on the home page\, so the date shown i
+ s an estimate and has likely passed. A useful venue for labour\, HR-econo
+ mics and employment research.\nPlanner: https://sourabhbhattacharya.githu
+ b.io/SBT/cfp-planner/
+URL:https://conference.isleijle.org/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ISLE 2026: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ISLE 2026: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-isle-2026-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261219
+DTEND;VALUE=DATE:20261222
+SUMMARY:ISLE 2026 · Varanasi\, India
+DESCRIPTION:67th Annual Conference of the Indian Society of Labour Econom
+ ics (Academic\, India)\nVaranasi\, India\nCall: https://conference.isleij
+ le.org/\nThe paper deadline is not on the home page\, so the date shown i
+ s an estimate and has likely passed. A useful venue for labour\, HR-econo
+ mics and employment research.\nPlanner: https://sourabhbhattacharya.githu
+ b.io/SBT/cfp-planner/
+URL:https://conference.isleijle.org/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icombs-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:CFP DEADLINE: ICOMBS 2027 (estimated)
+DESCRIPTION:13th International Conference on Management and Business Stra
+ tegy (Academic\, India)\nHyderabad\, India\nCall: https://www.ifheindia.o
+ rg/IBS-Hyderabad/icombs-2026/\nNot yet announced. Estimated from ICOMBS 2
+ 026 (abstracts due 28 February\, conference 13–14 March); local to Hyde
+ rabad.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.ifheindia.org/IBS-Hyderabad/icombs-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICOMBS 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICOMBS 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icombs-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270312
+DTEND;VALUE=DATE:20270314
+SUMMARY:ICOMBS 2027 · Hyderabad\, India (expected dates)
+DESCRIPTION:13th International Conference on Management and Business Stra
+ tegy (Academic\, India)\nHyderabad\, India\nCall: https://www.ifheindia.o
+ rg/IBS-Hyderabad/icombs-2026/\nNot yet announced. Estimated from ICOMBS 2
+ 026 (abstracts due 28 February\, conference 13–14 March); local to Hyde
+ rabad.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.ifheindia.org/IBS-Hyderabad/icombs-2026/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icbf-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:CFP DEADLINE: ICBF 2027 (estimated)
+DESCRIPTION:19th International Conference on Business and Finance (Academ
+ ic\, India)\nHyderabad\, India\nCall: https://ifheindia.org/conference/IC
+ BF-2026/\nNot yet announced. Estimated from ICBF 2026 (full papers due 15
+  March\, conference 10–11 April).\nPlanner: https://sourabhbhattacharya
+ .github.io/SBT/cfp-planner/
+URL:https://ifheindia.org/conference/ICBF-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICBF 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICBF 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icbf-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270409
+DTEND;VALUE=DATE:20270411
+SUMMARY:ICBF 2027 · Hyderabad\, India (expected dates)
+DESCRIPTION:19th International Conference on Business and Finance (Academ
+ ic\, India)\nHyderabad\, India\nCall: https://ifheindia.org/conference/IC
+ BF-2026/\nNot yet announced. Estimated from ICBF 2026 (full papers due 15
+  March\, conference 10–11 April).\nPlanner: https://sourabhbhattacharya
+ .github.io/SBT/cfp-planner/
+URL:https://ifheindia.org/conference/ICBF-2026/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ichrm-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:CFP DEADLINE: ICHRM 2027 (estimated)
+DESCRIPTION:9th International Conference on Human Resource Management (Ac
+ ademic\, India)\nHyderabad\, India\nCall: https://ifheindia.org/ichrm-202
+ 6/\nNot yet announced. Estimated from ICHRM 2026 (abstracts due 30 May\, 
+ conference 18–19 June; theme 'HR with AI').\nPlanner: https://sourabhbh
+ attacharya.github.io/SBT/cfp-planner/
+URL:https://ifheindia.org/ichrm-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICHRM 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICHRM 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ichrm-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270617
+DTEND;VALUE=DATE:20270619
+SUMMARY:ICHRM 2027 · Hyderabad\, India (expected dates)
+DESCRIPTION:9th International Conference on Human Resource Management (Ac
+ ademic\, India)\nHyderabad\, India\nCall: https://ifheindia.org/ichrm-202
+ 6/\nNot yet announced. Estimated from ICHRM 2026 (abstracts due 30 May\, 
+ conference 18–19 June; theme 'HR with AI').\nPlanner: https://sourabhbh
+ attacharya.github.io/SBT/cfp-planner/
+URL:https://ifheindia.org/ichrm-2026/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-pramaan-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:CFP DEADLINE: Pramaan 2027 (estimated)
+DESCRIPTION:Pramaan International Conference 2027 (Academic\, India)\nHyd
+ erabad\, India\nCall: https://www.mahindrauniversity.edu.in/pramaan-inter
+ national-conference-2026\nNot yet announced. Estimated from the 2026 edit
+ ion (extended abstracts due 31 January\, conference 27–28 August; theme
+  'Leadership in the Digital Age').\nPlanner: https://sourabhbhattacharya.
+ github.io/SBT/cfp-planner/
+URL:https://www.mahindrauniversity.edu.in/pramaan-international-conferenc
+ e-2026
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Pramaan 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Pramaan 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-pramaan-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270826
+DTEND;VALUE=DATE:20270828
+SUMMARY:Pramaan 2027 · Hyderabad\, India (expected dates)
+DESCRIPTION:Pramaan International Conference 2027 (Academic\, India)\nHyd
+ erabad\, India\nCall: https://www.mahindrauniversity.edu.in/pramaan-inter
+ national-conference-2026\nNot yet announced. Estimated from the 2026 edit
+ ion (extended abstracts due 31 January\, conference 27–28 August; theme
+  'Leadership in the Digital Age').\nPlanner: https://sourabhbhattacharya.
+ github.io/SBT/cfp-planner/
+URL:https://www.mahindrauniversity.edu.in/pramaan-international-conferenc
+ e-2026
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-cere-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:CFP DEADLINE: CERE 2027 (estimated)
+DESCRIPTION:17th International Conference on Excellence in Research and E
+ ducation (Academic\, India)\nIndore\, India\nCall: https://iimidr.ac.in/r
+ esearch-publications/conferences/cere-2026/\nNot yet announced. Estimated
+  from CERE 2026 (papers 5 January to 28 February\, conference 1–3 May).
+ \nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://iimidr.ac.in/research-publications/conferences/cere-2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CERE 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CERE 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-cere-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270504
+SUMMARY:CERE 2027 · Indore\, India (expected dates)
+DESCRIPTION:17th International Conference on Excellence in Research and E
+ ducation (Academic\, India)\nIndore\, India\nCall: https://iimidr.ac.in/r
+ esearch-publications/conferences/cere-2026/\nNot yet announced. Estimated
+  from CERE 2026 (papers 5 January to 28 February\, conference 1–3 May).
+ \nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://iimidr.ac.in/research-publications/conferences/cere-2026/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icfmcf-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:CFP DEADLINE: ICFMCF 2027 (estimated)
+DESCRIPTION:9th Pan-IIT International Conference on Financial Markets & C
+ orporate Finance (Academic\, India)\nHost IIT TBA\, India\nCall: https://
+ www.iitk.ac.in/doms/icfmcf/index.php\nNot yet announced. The 2026 edition
+  ran 3–5 July at IIT Madras with submissions open until 25 April. The h
+ ost rotates among the IITs (2025 was IIT Kanpur).\nPlanner: https://soura
+ bhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.iitk.ac.in/doms/icfmcf/index.php
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICFMCF 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICFMCF 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icfmcf-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270702
+DTEND;VALUE=DATE:20270705
+SUMMARY:ICFMCF 2027 · Host IIT TBA\, India (expected dates)
+DESCRIPTION:9th Pan-IIT International Conference on Financial Markets & C
+ orporate Finance (Academic\, India)\nHost IIT TBA\, India\nCall: https://
+ www.iitk.ac.in/doms/icfmcf/index.php\nNot yet announced. The 2026 edition
+  ran 3–5 July at IIT Madras with submissions open until 25 April. The h
+ ost rotates among the IITs (2025 was IIT Kanpur).\nPlanner: https://soura
+ bhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.iitk.ac.in/doms/icfmcf/index.php
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-merc-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:CFP DEADLINE: MERC 2027 (estimated)
+DESCRIPTION:7th Management Education and Research Colloquium (Academic\, 
+ India)\nKashipur\, India\nCall: https://iimkashipur.ac.in/merc2026\nNot y
+ et announced. Estimated from MERC 2026 (submissions due 20 March\, extend
+ ed to 5 April; colloquium 29–31 May).\nPlanner: https://sourabhbhattach
+ arya.github.io/SBT/cfp-planner/
+URL:https://iimkashipur.ac.in/merc2026
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MERC 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MERC 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-merc-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270531
+SUMMARY:MERC 2027 · Kashipur\, India (expected dates)
+DESCRIPTION:7th Management Education and Research Colloquium (Academic\, 
+ India)\nKashipur\, India\nCall: https://iimkashipur.ac.in/merc2026\nNot y
+ et announced. Estimated from MERC 2026 (submissions due 20 March\, extend
+ ed to 5 April; colloquium 29–31 May).\nPlanner: https://sourabhbhattach
+ arya.github.io/SBT/cfp-planner/
+URL:https://iimkashipur.ac.in/merc2026
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-iimr-icc-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:CFP DEADLINE: IIMR ICC 2027 (estimated)
+DESCRIPTION:International Case Conference 2027 (Academic\, India)\nRaipur
+ \, India\nCall: https://www.servicesetu.org/call-for-paper/conferences/72
+ fc5a9e-5519-4eb4-a9f0-f4821f2a1d4b\nNot yet confirmed. Estimated from ICC
+  2026 (cases due 31 December 2025\, conference 30–31 January 2026). A g
+ ood outlet for teaching cases.\nPlanner: https://sourabhbhattacharya.gith
+ ub.io/SBT/cfp-planner/
+URL:https://www.servicesetu.org/call-for-paper/conferences/72fc5a9e-5519-
+ 4eb4-a9f0-f4821f2a1d4b
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IIMR ICC 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IIMR ICC 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-iimr-icc-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270129
+DTEND;VALUE=DATE:20270131
+SUMMARY:IIMR ICC 2027 · Raipur\, India (expected dates)
+DESCRIPTION:International Case Conference 2027 (Academic\, India)\nRaipur
+ \, India\nCall: https://www.servicesetu.org/call-for-paper/conferences/72
+ fc5a9e-5519-4eb4-a9f0-f4821f2a1d4b\nNot yet confirmed. Estimated from ICC
+  2026 (cases due 31 December 2025\, conference 30–31 January 2026). A g
+ ood outlet for teaching cases.\nPlanner: https://sourabhbhattacharya.gith
+ ub.io/SBT/cfp-planner/
+URL:https://www.servicesetu.org/call-for-paper/conferences/72fc5a9e-5519-
+ 4eb4-a9f0-f4821f2a1d4b
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-pyconf-hyd-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:CFP DEADLINE: PyConf Hyderabad 2027 (estimated)
+DESCRIPTION:PyConf Hyderabad 2027 (Industry\, India)\nHyderabad\, India\n
+ Call: https://www.meetup.com/indian-data-club/events/312971683\nNot yet a
+ nnounced. Estimated from the 2026 edition (proposals due about 15–21 Ja
+ nuary\, event 14–15 March at ESCI Gachibowli); local to Hyderabad.\nPla
+ nner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.meetup.com/indian-data-club/events/312971683
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PyConf Hyderabad 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PyConf Hyderabad 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-pyconf-hyd-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270315
+SUMMARY:PyConf Hyderabad 2027 · Hyderabad\, India (expected dates)
+DESCRIPTION:PyConf Hyderabad 2027 (Industry\, India)\nHyderabad\, India\n
+ Call: https://www.meetup.com/indian-data-club/events/312971683\nNot yet a
+ nnounced. Estimated from the 2026 edition (proposals due about 15–21 Ja
+ nuary\, event 14–15 March at ESCI Gachibowli); local to Hyderabad.\nPla
+ nner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.meetup.com/indian-data-club/events/312971683
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-neurips-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270514
+DTEND;VALUE=DATE:20270515
+SUMMARY:CFP DEADLINE: NeurIPS 2027 (estimated)
+DESCRIPTION:Conference on Neural Information Processing Systems (Academic
+ \, Global)\nEurope (city TBA)\nCall: https://neurips.cc/Conferences/Futur
+ eMeetings\nOfficial site confirms only 'Europe' for 2027; dates and deadl
+ ines are estimates from the 2026 cycle (abstract ~14 May\, full paper ~21
+  May 2027 AoE).\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-p
+ lanner/
+URL:https://neurips.cc/Conferences/FutureMeetings
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NeurIPS 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NeurIPS 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-neurips-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271206
+DTEND;VALUE=DATE:20271213
+SUMMARY:NeurIPS 2027 · Europe (city TBA) (expected dates)
+DESCRIPTION:Conference on Neural Information Processing Systems (Academic
+ \, Global)\nEurope (city TBA)\nCall: https://neurips.cc/Conferences/Futur
+ eMeetings\nOfficial site confirms only 'Europe' for 2027; dates and deadl
+ ines are estimates from the 2026 cycle (abstract ~14 May\, full paper ~21
+  May 2027 AoE).\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-p
+ lanner/
+URL:https://neurips.cc/Conferences/FutureMeetings
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icml-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270114
+DTEND;VALUE=DATE:20270115
+SUMMARY:CFP DEADLINE: ICML 2027
+DESCRIPTION:International Conference on Machine Learning (Academic\, Glob
+ al)\nRio de Janeiro\, Brazil\nCall: https://icml.cc/Conferences/current/D
+ ates\nAbstract deadline 14 Jan 2027\, full paper 22 Jan 2027 (AoE); submi
+ ssions open 8 Jan. Main conference 2-4 Aug with expo\, tutorials and work
+ shops around it.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-
+ planner/
+URL:https://icml.cc/Conferences/current/Dates
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICML 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICML 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icml-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270807
+SUMMARY:ICML 2027 · Rio de Janeiro\, Brazil
+DESCRIPTION:International Conference on Machine Learning (Academic\, Glob
+ al)\nRio de Janeiro\, Brazil\nCall: https://icml.cc/Conferences/current/D
+ ates\nAbstract deadline 14 Jan 2027\, full paper 22 Jan 2027 (AoE); submi
+ ssions open 8 Jan. Main conference 2-4 Aug with expo\, tutorials and work
+ shops around it.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-
+ planner/
+URL:https://icml.cc/Conferences/current/Dates
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-iclr-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270426
+DTEND;VALUE=DATE:20270501
+SUMMARY:ICLR 2027 · San Francisco\, USA
+DESCRIPTION:International Conference on Learning Representations (Academi
+ c\, Global)\nSan Francisco\, USA\nCall: https://www.iclr.cc/Conferences/2
+ 027/Dates\nSubmission closed (abstract 18 Sep\, paper 25 Sep 2026). Site 
+ lists California; the Moscone Center\, San Francisco venue is not yet for
+ mally confirmed.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-
+ planner/
+URL:https://www.iclr.cc/Conferences/2027/Dates
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-aaai-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270216
+DTEND;VALUE=DATE:20270224
+SUMMARY:AAAI-27 · Montréal\, Canada
+DESCRIPTION:41st AAAI Conference on Artificial Intelligence (Academic\, G
+ lobal)\nMontréal\, Canada\nCall: https://aaai.org/conference/aaai/aaai-2
+ 7/\nSubmission closed (abstract 21 Jul\, full paper 28 Jul 2026). Some si
+ de tracks and workshops may still take submissions.\nPlanner: https://sou
+ rabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://aaai.org/conference/aaai/aaai-27/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ijcai-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270104
+DTEND;VALUE=DATE:20270105
+SUMMARY:CFP DEADLINE: IJCAI 2027
+DESCRIPTION:36th International Joint Conference on Artificial Intelligenc
+ e (Academic\, Global)\nKyoto\, Japan\nCall: https://www.ijcai.org/future_
+ conferences\nAbstract 4 Jan 2027\, full paper 11 Jan 2027 (AoE\, per dead
+ line trackers citing the official dates page). A satellite event runs in 
+ Hengqin\, China\, 15-17 Aug 2027.\nPlanner: https://sourabhbhattacharya.g
+ ithub.io/SBT/cfp-planner/
+URL:https://www.ijcai.org/future_conferences
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IJCAI 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IJCAI 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ijcai-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270814
+SUMMARY:IJCAI 2027 · Kyoto\, Japan
+DESCRIPTION:36th International Joint Conference on Artificial Intelligenc
+ e (Academic\, Global)\nKyoto\, Japan\nCall: https://www.ijcai.org/future_
+ conferences\nAbstract 4 Jan 2027\, full paper 11 Jan 2027 (AoE\, per dead
+ line trackers citing the official dates page). A satellite event runs in 
+ Hengqin\, China\, 15-17 Aug 2027.\nPlanner: https://sourabhbhattacharya.g
+ ithub.io/SBT/cfp-planner/
+URL:https://www.ijcai.org/future_conferences
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-kdd-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270208
+DTEND;VALUE=DATE:20270209
+SUMMARY:CFP DEADLINE: KDD 2027 (estimated)
+DESCRIPTION:ACM SIGKDD Conference on Knowledge Discovery and Data Mining 
+ (Academic\, Global)\nSan Jose\, USA\nCall: https://kdd2027.kdd.org/resear
+ ch-track-call-for-papers/\nCycle 1 closed (Jul 2026). The call names a Fe
+ bruary 2027 second cycle\, but the exact day is not yet published\, so th
+ e deadline shown is an estimate. The official page could not be opened he
+ re; details come from a deadline tracker.\nPlanner: https://sourabhbhatta
+ charya.github.io/SBT/cfp-planner/
+URL:https://kdd2027.kdd.org/research-track-call-for-papers/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:KDD 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:KDD 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-kdd-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270806
+SUMMARY:KDD 2027 · San Jose\, USA
+DESCRIPTION:ACM SIGKDD Conference on Knowledge Discovery and Data Mining 
+ (Academic\, Global)\nSan Jose\, USA\nCall: https://kdd2027.kdd.org/resear
+ ch-track-call-for-papers/\nCycle 1 closed (Jul 2026). The call names a Fe
+ bruary 2027 second cycle\, but the exact day is not yet published\, so th
+ e deadline shown is an estimate. The official page could not be opened he
+ re; details come from a deadline tracker.\nPlanner: https://sourabhbhatta
+ charya.github.io/SBT/cfp-planner/
+URL:https://kdd2027.kdd.org/research-track-call-for-papers/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-www-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:CFP DEADLINE: WWW 2027
+DESCRIPTION:The Web Conference 2027 (Academic\, Global)\nDublin\, Ireland
+ \nCall: https://www2027.thewebconf.org/?p=296\nResearch-track submission 
+ closed (long papers: abstract 18 Oct\, paper 25 Oct 2026; short papers: 9
+ /16 Nov 2026). Calls for demos\, workshops and tutorials are listed separ
+ ately.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www2027.thewebconf.org/?p=296
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:WWW 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:WWW 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-www-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270510
+DTEND;VALUE=DATE:20270515
+SUMMARY:WWW 2027 · Dublin\, Ireland
+DESCRIPTION:The Web Conference 2027 (Academic\, Global)\nDublin\, Ireland
+ \nCall: https://www2027.thewebconf.org/?p=296\nResearch-track submission 
+ closed (long papers: abstract 18 Oct\, paper 25 Oct 2026; short papers: 9
+ /16 Nov 2026). Calls for demos\, workshops and tutorials are listed separ
+ ately.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www2027.thewebconf.org/?p=296
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-wsdm-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270220
+SUMMARY:WSDM 2027 · Hong Kong\, China
+DESCRIPTION:ACM International Conference on Web Search and Data Mining (A
+ cademic\, Global)\nHong Kong\, China\nCall: https://wsdm-conference.org/2
+ 027/cffp.html\nFull paper submission closed (abstract 17 Aug\, paper 24 A
+ ug 2026). The conference is in person only.\nPlanner: https://sourabhbhat
+ tacharya.github.io/SBT/cfp-planner/
+URL:https://wsdm-conference.org/2027/cffp.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-cikm-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270524
+DTEND;VALUE=DATE:20270525
+SUMMARY:CFP DEADLINE: CIKM 2027 (estimated)
+DESCRIPTION:ACM International Conference on Information and Knowledge Man
+ agement (Academic\, Global)\nSydney\, Australia\nCall: https://www.beri.n
+ et/events/cikm-2027\nDates and place were announced as tentative at the C
+ IKM business meeting (host: Macquarie University). The deadline is estima
+ ted from the usual late-May cycle.\nPlanner: https://sourabhbhattacharya.
+ github.io/SBT/cfp-planner/
+URL:https://www.beri.net/events/cikm-2027
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CIKM 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CIKM 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-cikm-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271025
+DTEND;VALUE=DATE:20271030
+SUMMARY:CIKM 2027 · Sydney\, Australia (expected dates)
+DESCRIPTION:ACM International Conference on Information and Knowledge Man
+ agement (Academic\, Global)\nSydney\, Australia\nCall: https://www.beri.n
+ et/events/cikm-2027\nDates and place were announced as tentative at the C
+ IKM business meeting (host: Macquarie University). The deadline is estima
+ ted from the usual late-May cycle.\nPlanner: https://sourabhbhattacharya.
+ github.io/SBT/cfp-planner/
+URL:https://www.beri.net/events/cikm-2027
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-recsys-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270414
+DTEND;VALUE=DATE:20270415
+SUMMARY:CFP DEADLINE: RecSys 2027 (estimated)
+DESCRIPTION:ACM Conference on Recommender Systems (Academic\, Global)\nHo
+ nolulu\, USA\nCall: https://recsys.acm.org/\nThe official site announces 
+ Hawaii for 23-27 Aug 2027. The call is not out yet\, so the deadline is e
+ stimated from earlier editions (mid-April).\nPlanner: https://sourabhbhat
+ tacharya.github.io/SBT/cfp-planner/
+URL:https://recsys.acm.org/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RecSys 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RecSys 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-recsys-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270823
+DTEND;VALUE=DATE:20270828
+SUMMARY:RecSys 2027 · Honolulu\, USA
+DESCRIPTION:ACM Conference on Recommender Systems (Academic\, Global)\nHo
+ nolulu\, USA\nCall: https://recsys.acm.org/\nThe official site announces 
+ Hawaii for 23-27 Aug 2027. The call is not out yet\, so the deadline is e
+ stimated from earlier editions (mid-April).\nPlanner: https://sourabhbhat
+ tacharya.github.io/SBT/cfp-planner/
+URL:https://recsys.acm.org/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-sigir-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270114
+DTEND;VALUE=DATE:20270115
+SUMMARY:CFP DEADLINE: SIGIR 2027
+DESCRIPTION:ACM SIGIR Conference on Research and Development in Informati
+ on Retrieval (Academic\, Global)\nSan Jose\, USA\nCall: https://sigir2027
+ .org/\nMandatory abstract 14 Jan 2027\, full paper 21 Jan 2027. Times are
+  assumed to be AoE\, so confirm on the official call.\nPlanner: https://s
+ ourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://sigir2027.org/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SIGIR 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SIGIR 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-sigir-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270718
+DTEND;VALUE=DATE:20270725
+SUMMARY:SIGIR 2027 · San Jose\, USA
+DESCRIPTION:ACM SIGIR Conference on Research and Development in Informati
+ on Retrieval (Academic\, Global)\nSan Jose\, USA\nCall: https://sigir2027
+ .org/\nMandatory abstract 14 Jan 2027\, full paper 21 Jan 2027. Times are
+  assumed to be AoE\, so confirm on the official call.\nPlanner: https://s
+ ourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://sigir2027.org/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-acl-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270104
+DTEND;VALUE=DATE:20270105
+SUMMARY:CFP DEADLINE: ACL 2027
+DESCRIPTION:65th Annual Meeting of the Association for Computational Ling
+ uistics (Academic\, Global)\nKyoto\, Japan\nCall: https://2027.aclweb.org
+ /\nSubmission is through ACL Rolling Review\, with a deadline of 4 Jan 20
+ 27 (AoE). The commitment deadline is TBA.\nPlanner: https://sourabhbhatta
+ charya.github.io/SBT/cfp-planner/
+URL:https://2027.aclweb.org/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ACL 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ACL 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-acl-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270817
+DTEND;VALUE=DATE:20270823
+SUMMARY:ACL 2027 · Kyoto\, Japan
+DESCRIPTION:65th Annual Meeting of the Association for Computational Ling
+ uistics (Academic\, Global)\nKyoto\, Japan\nCall: https://2027.aclweb.org
+ /\nSubmission is through ACL Rolling Review\, with a deadline of 4 Jan 20
+ 27 (AoE). The commitment deadline is TBA.\nPlanner: https://sourabhbhatta
+ charya.github.io/SBT/cfp-planner/
+URL:https://2027.aclweb.org/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-emnlp-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270525
+DTEND;VALUE=DATE:20270526
+SUMMARY:CFP DEADLINE: EMNLP 2027 (estimated)
+DESCRIPTION:Conference on Empirical Methods in Natural Language Processin
+ g (Academic\, Global)\nTBA\nCall: https://www.beri.net/events/emnlp-2027\
+ nNot announced yet. Dates are estimated from EMNLP 2026 (ARR deadline 25 
+ May\, conference late October).\nPlanner: https://sourabhbhattacharya.git
+ hub.io/SBT/cfp-planner/
+URL:https://www.beri.net/events/emnlp-2027
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EMNLP 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EMNLP 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-emnlp-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271025
+DTEND;VALUE=DATE:20271031
+SUMMARY:EMNLP 2027 · TBA (expected dates)
+DESCRIPTION:Conference on Empirical Methods in Natural Language Processin
+ g (Academic\, Global)\nTBA\nCall: https://www.beri.net/events/emnlp-2027\
+ nNot announced yet. Dates are estimated from EMNLP 2026 (ARR deadline 25 
+ May\, conference late October).\nPlanner: https://sourabhbhattacharya.git
+ hub.io/SBT/cfp-planner/
+URL:https://www.beri.net/events/emnlp-2027
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-naacl-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261012
+DTEND;VALUE=DATE:20261013
+SUMMARY:CFP DEADLINE: NAACL 2027
+DESCRIPTION:Annual Conference of the Nations of the Americas Chapter of t
+ he ACL (Academic\, Global)\nSan Francisco\, USA\nCall: https://2027.naacl
+ .org/calls/main_conference_papers/\nThe ARR submission deadline (12 Oct 2
+ 026) has passed\, so submission is closed for new papers. Papers already 
+ reviewed in ARR can still commit by 23 Dec 2026.\nPlanner: https://sourab
+ hbhattacharya.github.io/SBT/cfp-planner/
+URL:https://2027.naacl.org/calls/main_conference_papers/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NAACL 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NAACL 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-naacl-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270601
+DTEND;VALUE=DATE:20270606
+SUMMARY:NAACL 2027 · San Francisco\, USA
+DESCRIPTION:Annual Conference of the Nations of the Americas Chapter of t
+ he ACL (Academic\, Global)\nSan Francisco\, USA\nCall: https://2027.naacl
+ .org/calls/main_conference_papers/\nThe ARR submission deadline (12 Oct 2
+ 026) has passed\, so submission is closed for new papers. Papers already 
+ reviewed in ARR can still commit by 23 Dec 2026.\nPlanner: https://sourab
+ hbhattacharya.github.io/SBT/cfp-planner/
+URL:https://2027.naacl.org/calls/main_conference_papers/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-cvpr-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261110
+DTEND;VALUE=DATE:20261111
+SUMMARY:CFP DEADLINE: CVPR 2027
+DESCRIPTION:IEEE/CVF Conference on Computer Vision and Pattern Recognitio
+ n (Academic\, Global)\nSeattle\, USA\nCall: https://cvpr.thecvf.com/Confe
+ rences/2027/Dates\nPaper submission closed (registration 10 Nov\, paper 1
+ 6 Nov 2026). The main conference runs 22-24 Jun\, with workshops on 20-21
+  Jun.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://cvpr.thecvf.com/Conferences/2027/Dates
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CVPR 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CVPR 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-cvpr-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270625
+SUMMARY:CVPR 2027 · Seattle\, USA
+DESCRIPTION:IEEE/CVF Conference on Computer Vision and Pattern Recognitio
+ n (Academic\, Global)\nSeattle\, USA\nCall: https://cvpr.thecvf.com/Confe
+ rences/2027/Dates\nPaper submission closed (registration 10 Nov\, paper 1
+ 6 Nov 2026). The main conference runs 22-24 Jun\, with workshops on 20-21
+  Jun.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://cvpr.thecvf.com/Conferences/2027/Dates
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-iccv-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270302
+SUMMARY:CFP DEADLINE: ICCV 2027 (estimated)
+DESCRIPTION:IEEE/CVF International Conference on Computer Vision (Academi
+ c\, Global)\nHong Kong\, China\nCall: https://iccv.thecvf.com/\nThe venue
+  is HKCEC. The site header gives 3-7 Oct 2027\, though another section sa
+ ys 2-8 Oct. The call is not out\, so deadlines are estimated (registratio
+ n ~1 Mar\, paper ~8 Mar 2027).\nPlanner: https://sourabhbhattacharya.gith
+ ub.io/SBT/cfp-planner/
+URL:https://iccv.thecvf.com/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICCV 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICCV 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-iccv-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271003
+DTEND;VALUE=DATE:20271008
+SUMMARY:ICCV 2027 · Hong Kong\, China
+DESCRIPTION:IEEE/CVF International Conference on Computer Vision (Academi
+ c\, Global)\nHong Kong\, China\nCall: https://iccv.thecvf.com/\nThe venue
+  is HKCEC. The site header gives 3-7 Oct 2027\, though another section sa
+ ys 2-8 Oct. The call is not out\, so deadlines are estimated (registratio
+ n ~1 Mar\, paper ~8 Mar 2027).\nPlanner: https://sourabhbhattacharya.gith
+ ub.io/SBT/cfp-planner/
+URL:https://iccv.thecvf.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-aistats-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20260929
+DTEND;VALUE=DATE:20260930
+SUMMARY:CFP DEADLINE: AISTATS 2027
+DESCRIPTION:International Conference on Artificial Intelligence and Stati
+ stics (Academic\, Global)\nMontréal\, Canada\nCall: https://virtual.aist
+ ats.org/Conferences/2027/CallForPapers\nSubmission closed (abstract 29 Se
+ p\, paper 6 Oct 2026). Decisions are due 20 Jan 2027.\nPlanner: https://s
+ ourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://virtual.aistats.org/Conferences/2027/CallForPapers
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AISTATS 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AISTATS 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-aistats-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270507
+SUMMARY:AISTATS 2027 · Montréal\, Canada
+DESCRIPTION:International Conference on Artificial Intelligence and Stati
+ stics (Academic\, Global)\nMontréal\, Canada\nCall: https://virtual.aist
+ ats.org/Conferences/2027/CallForPapers\nSubmission closed (abstract 29 Se
+ p\, paper 6 Oct 2026). Decisions are due 20 Jan 2027.\nPlanner: https://s
+ ourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://virtual.aistats.org/Conferences/2027/CallForPapers
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-uai-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270212
+DTEND;VALUE=DATE:20270213
+SUMMARY:CFP DEADLINE: UAI 2027 (estimated)
+DESCRIPTION:Conference on Uncertainty in Artificial Intelligence (Academi
+ c\, Global)\nTBA\nCall: https://www.auai.org/\nThe 2027 call is not out. 
+ The deadline is estimated from the UAI 2026 cycle (25 Feb 2026\, Amsterda
+ m) and the dates from the usual July slot.\nPlanner: https://sourabhbhatt
+ acharya.github.io/SBT/cfp-planner/
+URL:https://www.auai.org/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:UAI 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:UAI 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-uai-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270720
+DTEND;VALUE=DATE:20270725
+SUMMARY:UAI 2027 · TBA (expected dates)
+DESCRIPTION:Conference on Uncertainty in Artificial Intelligence (Academi
+ c\, Global)\nTBA\nCall: https://www.auai.org/\nThe 2027 call is not out. 
+ The deadline is estimated from the UAI 2026 cycle (25 Feb 2026\, Amsterda
+ m) and the dates from the usual July slot.\nPlanner: https://sourabhbhatt
+ acharya.github.io/SBT/cfp-planner/
+URL:https://www.auai.org/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-facct-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261027
+DTEND;VALUE=DATE:20261028
+SUMMARY:CFP DEADLINE: FAccT 2027
+DESCRIPTION:ACM Conference on Fairness\, Accountability\, and Transparenc
+ y (Academic\, Global)\nPorto\, Portugal\nCall: https://facctconference.or
+ g/2027/cfp.html\nSubmission closed (abstract 27 Oct\, full paper 3 Nov 20
+ 26). Porto comes from a third-party listing; the CFP page does not name t
+ he city.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://facctconference.org/2027/cfp.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FAccT 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FAccT 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-facct-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270621
+DTEND;VALUE=DATE:20270625
+SUMMARY:FAccT 2027 · Porto\, Portugal
+DESCRIPTION:ACM Conference on Fairness\, Accountability\, and Transparenc
+ y (Academic\, Global)\nPorto\, Portugal\nCall: https://facctconference.or
+ g/2027/cfp.html\nSubmission closed (abstract 27 Oct\, full paper 3 Nov 20
+ 26). Porto comes from a third-party listing; the CFP page does not name t
+ he city.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://facctconference.org/2027/cfp.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-aies-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270513
+DTEND;VALUE=DATE:20270514
+SUMMARY:CFP DEADLINE: AIES 2027 (estimated)
+DESCRIPTION:AAAI/ACM Conference on AI\, Ethics\, and Society (Academic\, 
+ Global)\nTBA\nCall: https://www.aies-conference.com/2026/\nAIES 2027 is n
+ ot announced yet. Dates are estimated from AIES 2026 (abstract 14 May\, p
+ aper 21 May; held 12-14 Oct 2026 in Malmö).\nPlanner: https://sourabhbha
+ ttacharya.github.io/SBT/cfp-planner/
+URL:https://www.aies-conference.com/2026/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AIES 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AIES 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-aies-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271011
+DTEND;VALUE=DATE:20271014
+SUMMARY:AIES 2027 · TBA (expected dates)
+DESCRIPTION:AAAI/ACM Conference on AI\, Ethics\, and Society (Academic\, 
+ Global)\nTBA\nCall: https://www.aies-conference.com/2026/\nAIES 2027 is n
+ ot announced yet. Dates are estimated from AIES 2026 (abstract 14 May\, p
+ aper 21 May; held 12-14 Oct 2026 in Malmö).\nPlanner: https://sourabhbha
+ ttacharya.github.io/SBT/cfp-planner/
+URL:https://www.aies-conference.com/2026/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icdm-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:CFP DEADLINE: ICDM 2027 (estimated)
+DESCRIPTION:IEEE International Conference on Data Mining (Academic\, Glob
+ al)\nBrisbane\, Australia\nCall: https://www.beri.net/events/ieee-icdm-20
+ 27\nBrisbane and 15-18 Nov 2027 come from a third-party listing\, not yet
+  confirmed by the official site. The deadline mirrors ICDM 2026 (6 Jun).\
+ nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.beri.net/events/ieee-icdm-2027
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICDM 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICDM 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icdm-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271115
+DTEND;VALUE=DATE:20271119
+SUMMARY:ICDM 2027 · Brisbane\, Australia (expected dates)
+DESCRIPTION:IEEE International Conference on Data Mining (Academic\, Glob
+ al)\nBrisbane\, Australia\nCall: https://www.beri.net/events/ieee-icdm-20
+ 27\nBrisbane and 15-18 Nov 2027 come from a third-party listing\, not yet
+  confirmed by the official site. The deadline mirrors ICDM 2026 (6 Jun).\
+ nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.beri.net/events/ieee-icdm-2027
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ec-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270202
+DTEND;VALUE=DATE:20270203
+SUMMARY:CFP DEADLINE: EC 2027 (estimated)
+DESCRIPTION:ACM Conference on Economics and Computation (Academic\, Globa
+ l)\nTBA\nCall: https://www.sigecom.org/events.html\nEC 2027 is not announ
+ ced yet. Dates are estimated from EC 2026 (abstract 2 Feb\, paper 9 Feb; 
+ held 6-10 Jul 2026 in Rome).\nPlanner: https://sourabhbhattacharya.github
+ .io/SBT/cfp-planner/
+URL:https://www.sigecom.org/events.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EC 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:EC 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ec-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270705
+DTEND;VALUE=DATE:20270710
+SUMMARY:EC 2027 · TBA (expected dates)
+DESCRIPTION:ACM Conference on Economics and Computation (Academic\, Globa
+ l)\nTBA\nCall: https://www.sigecom.org/events.html\nEC 2027 is not announ
+ ced yet. Dates are estimated from EC 2026 (abstract 2 Feb\, paper 9 Feb; 
+ held 6-10 Jul 2026 in Rome).\nPlanner: https://sourabhbhattacharya.github
+ .io/SBT/cfp-planner/
+URL:https://www.sigecom.org/events.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-chi-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270121
+DTEND;VALUE=DATE:20270122
+SUMMARY:CFP DEADLINE: CHI 2027
+DESCRIPTION:ACM CHI Conference on Human Factors in Computing Systems (Aca
+ demic\, Global)\nPittsburgh\, USA\nCall: https://chi2027.acm.org/\nPapers
+  are closed (the resubmission round was due 3 Dec 2026). Posters\, intera
+ ctive demos and the SRC are due 21 Jan 2027\, and journal presentations 1
+ 4 Jan 2027.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-plann
+ er/
+URL:https://chi2027.acm.org/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CHI 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CHI 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-chi-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270510
+DTEND;VALUE=DATE:20270515
+SUMMARY:CHI 2027 · Pittsburgh\, USA
+DESCRIPTION:ACM CHI Conference on Human Factors in Computing Systems (Aca
+ demic\, Global)\nPittsburgh\, USA\nCall: https://chi2027.acm.org/\nPapers
+  are closed (the resubmission round was due 3 Dec 2026). Posters\, intera
+ ctive demos and the SRC are due 21 Jan 2027\, and journal presentations 1
+ 4 Jan 2027.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-plann
+ er/
+URL:https://chi2027.acm.org/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-cscw-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:CFP DEADLINE: CSCW 2027 (estimated)
+DESCRIPTION:ACM Conference on Computer-Supported Cooperative Work and Soc
+ ial Computing (Academic\, Global)\nTBA\nCall: https://cscw.acm.org\nAn ag
+ gregator lists a 15 Oct 2026 paper deadline (likely submission closed). T
+ he conference is expected in October 2027 at a venue TBA; confirm on the 
+ official site.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-pl
+ anner/
+URL:https://cscw.acm.org
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CSCW 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CSCW 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-cscw-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271015
+DTEND;VALUE=DATE:20271021
+SUMMARY:CSCW 2027 · TBA (expected dates)
+DESCRIPTION:ACM Conference on Computer-Supported Cooperative Work and Soc
+ ial Computing (Academic\, Global)\nTBA\nCall: https://cscw.acm.org\nAn ag
+ gregator lists a 15 Oct 2026 paper deadline (likely submission closed). T
+ he conference is expected in October 2027 at a venue TBA; confirm on the 
+ official site.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-pl
+ anner/
+URL:https://cscw.acm.org
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icwsm-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:CFP DEADLINE: ICWSM 2027
+DESCRIPTION:International AAAI Conference on Web and Social Media (Academ
+ ic\, Global)\nEdinburgh\, UK\nCall: https://www.icwsm.org/2027/\nRound 3 
+ (the final round) is due 15 Jan 2027 (AoE); rounds 1 and 2 are closed. Co
+ nference dates are TBA\, so June is an estimate.\nPlanner: https://sourab
+ hbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.icwsm.org/2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICWSM 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ICWSM 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-icwsm-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270607
+DTEND;VALUE=DATE:20270611
+SUMMARY:ICWSM 2027 · Edinburgh\, UK (expected dates)
+DESCRIPTION:International AAAI Conference on Web and Social Media (Academ
+ ic\, Global)\nEdinburgh\, UK\nCall: https://www.icwsm.org/2027/\nRound 3 
+ (the final round) is due 15 Jan 2027 (AoE); rounds 1 and 2 are closed. Co
+ nference dates are TBA\, so June is an estimate.\nPlanner: https://sourab
+ hbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.icwsm.org/2027/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-code-mit-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270913
+DTEND;VALUE=DATE:20270914
+SUMMARY:CFP DEADLINE: CODE@MIT 2027 (estimated)
+DESCRIPTION:Conference on Digital Experimentation @ MIT (Academic\, Globa
+ l)\nCambridge\, USA\nCall: https://ide.mit.edu/wp-content/uploads/2026/04
+ /CODE@MIT-CALL-2026-FINAL.docx.pdf\nEstimated from CODE@MIT 2026 (3-page 
+ abstract due 13 Sep; conference 13-14 Nov 2026 at MIT). The 2027 call is 
+ not out.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://ide.mit.edu/wp-content/uploads/2026/04/CODE@MIT-CALL-2026-FIN
+ AL.docx.pdf
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CODE@MIT 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CODE@MIT 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-code-mit-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271112
+DTEND;VALUE=DATE:20271114
+SUMMARY:CODE@MIT 2027 · Cambridge\, USA (expected dates)
+DESCRIPTION:Conference on Digital Experimentation @ MIT (Academic\, Globa
+ l)\nCambridge\, USA\nCall: https://ide.mit.edu/wp-content/uploads/2026/04
+ /CODE@MIT-CALL-2026-FINAL.docx.pdf\nEstimated from CODE@MIT 2026 (3-page 
+ abstract due 13 Sep; conference 13-14 Nov 2026 at MIT). The 2027 call is 
+ not out.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://ide.mit.edu/wp-content/uploads/2026/04/CODE@MIT-CALL-2026-FIN
+ AL.docx.pdf
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-wise-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270823
+DTEND;VALUE=DATE:20270824
+SUMMARY:CFP DEADLINE: WISE 2027 (estimated)
+DESCRIPTION:Workshop on Information Systems and Economics (Academic\, Glo
+ bal)\nTBA\nCall: https://connect.informs.org/discussion/reminder-wise-202
+ 6-submission-deadline-august-23\nEstimated from WISE 2026 (deadline 23 Au
+ g; held 16-18 Dec 2026 in Lisbon). The 2027 location is not announced; se
+ e wiseconf.org.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-p
+ lanner/
+URL:https://connect.informs.org/discussion/reminder-wise-2026-submission-
+ deadline-august-23
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:WISE 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:WISE 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-wise-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271215
+DTEND;VALUE=DATE:20271218
+SUMMARY:WISE 2027 · TBA (expected dates)
+DESCRIPTION:Workshop on Information Systems and Economics (Academic\, Glo
+ bal)\nTBA\nCall: https://connect.informs.org/discussion/reminder-wise-202
+ 6-submission-deadline-august-23\nEstimated from WISE 2026 (deadline 23 Au
+ g; held 16-18 Dec 2026 in Lisbon). The 2027 location is not announced; se
+ e wiseconf.org.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-p
+ lanner/
+URL:https://connect.informs.org/discussion/reminder-wise-2026-submission-
+ deadline-august-23
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-cist-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:CFP DEADLINE: CIST 2027 (estimated)
+DESCRIPTION:INFORMS Conference on Information Systems and Technology (Aca
+ demic\, Global)\nTBA\nCall: https://cist2026.github.io/\nEstimated from C
+ IST 2026 (deadline 12 Jun\, extended to 21 Jun; held 31 Oct-1 Nov 2026 in
+  San Francisco before the INFORMS Annual Meeting). The 2027 site is not u
+ p.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://cist2026.github.io/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CIST 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CIST 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-cist-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271016
+DTEND;VALUE=DATE:20271018
+SUMMARY:CIST 2027 · TBA (expected dates)
+DESCRIPTION:INFORMS Conference on Information Systems and Technology (Aca
+ demic\, Global)\nTBA\nCall: https://cist2026.github.io/\nEstimated from C
+ IST 2026 (deadline 12 Jun\, extended to 21 Jun; held 31 Oct-1 Nov 2026 in
+  San Francisco before the INFORMS Annual Meeting). The 2027 site is not u
+ p.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://cist2026.github.io/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-scecr-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:CFP DEADLINE: SCECR 2027 (estimated)
+DESCRIPTION:Statistical Challenges in Electronic Commerce Research Sympos
+ ium (Academic\, Global)\nTBA\nCall: https://connect.informs.org/discussio
+ n/call-for-papers-scecr-2025\nNo 2026 or 2027 call was found. Dates are e
+ stimated from SCECR 2025 (deadline 7 Mar; held 22-24 Jun 2025 in Paphos);
+  see scecr.com.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-p
+ lanner/
+URL:https://connect.informs.org/discussion/call-for-papers-scecr-2025
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SCECR 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SCECR 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-scecr-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270621
+DTEND;VALUE=DATE:20270624
+SUMMARY:SCECR 2027 · TBA (expected dates)
+DESCRIPTION:Statistical Challenges in Electronic Commerce Research Sympos
+ ium (Academic\, Global)\nTBA\nCall: https://connect.informs.org/discussio
+ n/call-for-papers-scecr-2025\nNo 2026 or 2027 call was found. Dates are e
+ stimated from SCECR 2025 (deadline 7 Mar; held 22-24 Jun 2025 in Paphos);
+  see scecr.com.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-p
+ lanner/
+URL:https://connect.informs.org/discussion/call-for-papers-scecr-2025
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-isms-mksc-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270216
+SUMMARY:CFP DEADLINE: ISMS Marketing Science 2027 (estimated)
+DESCRIPTION:ISMS Marketing Science Conference (Academic\, Global)\nSeattl
+ e\, USA\nCall: https://www.informs.org/Meetings-Conferences/INFORMS-Confe
+ rence-Calendar/2027-ISMS-Marketing-Science-Conference\nINFORMS lists 24-2
+ 6 Jun 2027 at the Sheraton Seattle. The deadline is estimated (mid-Feb); 
+ the conference site (conferences.insead.edu) could not be opened here. It
+  has sessions on AI and machine learning in marketing.\nPlanner: https://
+ sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.informs.org/Meetings-Conferences/INFORMS-Conference-Calen
+ dar/2027-ISMS-Marketing-Science-Conference
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ISMS Marketing Science 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ISMS Marketing Science 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-isms-mksc-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270624
+DTEND;VALUE=DATE:20270627
+SUMMARY:ISMS Marketing Science 2027 · Seattle\, USA
+DESCRIPTION:ISMS Marketing Science Conference (Academic\, Global)\nSeattl
+ e\, USA\nCall: https://www.informs.org/Meetings-Conferences/INFORMS-Confe
+ rence-Calendar/2027-ISMS-Marketing-Science-Conference\nINFORMS lists 24-2
+ 6 Jun 2027 at the Sheraton Seattle. The deadline is estimated (mid-Feb); 
+ the conference site (conferences.insead.edu) could not be opened here. It
+  has sessions on AI and machine learning in marketing.\nPlanner: https://
+ sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.informs.org/Meetings-Conferences/INFORMS-Conference-Calen
+ dar/2027-ISMS-Marketing-Science-Conference
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-informs-analytics-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270111
+DTEND;VALUE=DATE:20270112
+SUMMARY:CFP DEADLINE: INFORMS Analytics+ 2027 (estimated)
+DESCRIPTION:INFORMS Analytics+ Conference (formerly Business Analytics Co
+ nference) (Industry\, Global)\nWashington DC\, USA\nCall: https://meeting
+ s.informs.org/wordpress/analytics\nDates and venue (Washington Hilton) ar
+ e confirmed. The 2027 presentation deadline is not posted; the estimate f
+ ollows the 2026 deadline (12 Jan 2026).\nPlanner: https://sourabhbhattach
+ arya.github.io/SBT/cfp-planner/
+URL:https://meetings.informs.org/wordpress/analytics
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:INFORMS Analytics+ 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:INFORMS Analytics+ 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-informs-analytics-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270407
+SUMMARY:INFORMS Analytics+ 2027 · Washington DC\, USA
+DESCRIPTION:INFORMS Analytics+ Conference (formerly Business Analytics Co
+ nference) (Industry\, Global)\nWashington DC\, USA\nCall: https://meeting
+ s.informs.org/wordpress/analytics\nDates and venue (Washington Hilton) ar
+ e confirmed. The 2027 presentation deadline is not posted; the estimate f
+ ollows the 2026 deadline (12 Jan 2026).\nPlanner: https://sourabhbhattach
+ arya.github.io/SBT/cfp-planner/
+URL:https://meetings.informs.org/wordpress/analytics
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-odsc-east-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:CFP DEADLINE: ODSC AI East 2027 (estimated)
+DESCRIPTION:ODSC AI East (Open Data Science Conference) (Industry\, Globa
+ l)\nBoston\, USA\nCall: https://opendatascience.com/odsc-ai-east-2027-bos
+ ton-conference-guide/\nDates come from ODSC. The call for speakers deadli
+ ne is not posted\, so it is estimated at about three months before the ev
+ ent; see odsc.ai/east.\nPlanner: https://sourabhbhattacharya.github.io/SB
+ T/cfp-planner/
+URL:https://opendatascience.com/odsc-ai-east-2027-boston-conference-guide
+ /
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ODSC AI East 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ODSC AI East 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-odsc-east-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270510
+DTEND;VALUE=DATE:20270513
+SUMMARY:ODSC AI East 2027 · Boston\, USA
+DESCRIPTION:ODSC AI East (Open Data Science Conference) (Industry\, Globa
+ l)\nBoston\, USA\nCall: https://opendatascience.com/odsc-ai-east-2027-bos
+ ton-conference-guide/\nDates come from ODSC. The call for speakers deadli
+ ne is not posted\, so it is estimated at about three months before the ev
+ ent; see odsc.ai/east.\nPlanner: https://sourabhbhattacharya.github.io/SB
+ T/cfp-planner/
+URL:https://opendatascience.com/odsc-ai-east-2027-boston-conference-guide
+ /
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-odsc-west-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270630
+DTEND;VALUE=DATE:20270701
+SUMMARY:CFP DEADLINE: ODSC AI West 2027 (estimated)
+DESCRIPTION:ODSC AI West (Open Data Science Conference) (Industry\, Globa
+ l)\nSan Francisco\, USA\nCall: https://www.vdura.com/?p=16665\nDates are 
+ projected from earlier editions and not official. The call-for-speakers t
+ iming is also estimated; see odsc.ai/west.\nPlanner: https://sourabhbhatt
+ acharya.github.io/SBT/cfp-planner/
+URL:https://www.vdura.com/?p=16665
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ODSC AI West 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ODSC AI West 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-odsc-west-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271026
+DTEND;VALUE=DATE:20271029
+SUMMARY:ODSC AI West 2027 · San Francisco\, USA (expected dates)
+DESCRIPTION:ODSC AI West (Open Data Science Conference) (Industry\, Globa
+ l)\nSan Francisco\, USA\nCall: https://www.vdura.com/?p=16665\nDates are 
+ projected from earlier editions and not official. The call-for-speakers t
+ iming is also estimated; see odsc.ai/west.\nPlanner: https://sourabhbhatt
+ acharya.github.io/SBT/cfp-planner/
+URL:https://www.vdura.com/?p=16665
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ai-summit-london-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270331
+DTEND;VALUE=DATE:20270401
+SUMMARY:CFP DEADLINE: AI Summit London 2027 (estimated)
+DESCRIPTION:The AI Summit London (London Tech Week) (Industry\, Global)\n
+ London\, UK\nCall: https://www.opencurious.com/tech-events/ai-summit-lond
+ on-2027\nHeld at Tobacco Dock. Speaker submissions are usually reviewed o
+ n a rolling basis through london.theaisummit.com\, so the close date is a
+ n estimate.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-plann
+ er/
+URL:https://www.opencurious.com/tech-events/ai-summit-london-2027
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AI Summit London 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AI Summit London 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ai-summit-london-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270609
+DTEND;VALUE=DATE:20270611
+SUMMARY:AI Summit London 2027 · London\, UK
+DESCRIPTION:The AI Summit London (London Tech Week) (Industry\, Global)\n
+ London\, UK\nCall: https://www.opencurious.com/tech-events/ai-summit-lond
+ on-2027\nHeld at Tobacco Dock. Speaker submissions are usually reviewed o
+ n a rolling basis through london.theaisummit.com\, so the close date is a
+ n estimate.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-plann
+ er/
+URL:https://www.opencurious.com/tech-events/ai-summit-london-2027
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ai-summit-ny-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270930
+DTEND;VALUE=DATE:20271001
+SUMMARY:CFP DEADLINE: AI Summit New York 2027 (estimated)
+DESCRIPTION:The AI Summit New York (Industry\, Global)\nNew York\, USA\nC
+ all: https://newyork.theaisummit.com/conference-speakers/submit-speaker/\
+ nEstimated from the 2026 edition (9-10 Dec 2026\, Javits Center). Speaker
+  applications are reviewed on a rolling basis.\nPlanner: https://sourabhb
+ hattacharya.github.io/SBT/cfp-planner/
+URL:https://newyork.theaisummit.com/conference-speakers/submit-speaker/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AI Summit New York 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AI Summit New York 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ai-summit-ny-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271208
+DTEND;VALUE=DATE:20271210
+SUMMARY:AI Summit New York 2027 · New York\, USA (expected dates)
+DESCRIPTION:The AI Summit New York (Industry\, Global)\nNew York\, USA\nC
+ all: https://newyork.theaisummit.com/conference-speakers/submit-speaker/\
+ nEstimated from the 2026 edition (9-10 Dec 2026\, Javits Center). Speaker
+  applications are reviewed on a rolling basis.\nPlanner: https://sourabhb
+ hattacharya.github.io/SBT/cfp-planner/
+URL:https://newyork.theaisummit.com/conference-speakers/submit-speaker/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ai4-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270430
+DTEND;VALUE=DATE:20270501
+SUMMARY:CFP DEADLINE: Ai4 2027 (estimated)
+DESCRIPTION:Ai4 – North America's AI Industry Event (Industry\, Global)
+ \nLas Vegas\, USA\nCall: https://www.beri.net/events/ai4-2027\nHeld at th
+ e Venetian Expo (third-party listing). Speaker interest goes through the 
+ ai4.io speaker-interest form with no published deadline\, so the close da
+ te is an estimate.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cf
+ p-planner/
+URL:https://www.beri.net/events/ai4-2027
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Ai4 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Ai4 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-ai4-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270802
+DTEND;VALUE=DATE:20270806
+SUMMARY:Ai4 2027 · Las Vegas\, USA
+DESCRIPTION:Ai4 – North America's AI Industry Event (Industry\, Global)
+ \nLas Vegas\, USA\nCall: https://www.beri.net/events/ai4-2027\nHeld at th
+ e Venetian Expo (third-party listing). Speaker interest goes through the 
+ ai4.io speaker-interest form with no published deadline\, so the close da
+ te is an estimate.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cf
+ p-planner/
+URL:https://www.beri.net/events/ai4-2027
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-pydata-global-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270831
+DTEND;VALUE=DATE:20270901
+SUMMARY:CFP DEADLINE: PyData Global 2027 (estimated)
+DESCRIPTION:PyData Global (virtual) (Industry\, Global)\nOnline\nCall: ht
+ tps://pydata.org/global2026\nEstimated from PyData Global 2026 (virtual\,
+  9-10 Dec 2026). The CFP usually runs over the summer.\nPlanner: https://
+ sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://pydata.org/global2026
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PyData Global 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PyData Global 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-pydata-global-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271208
+DTEND;VALUE=DATE:20271211
+SUMMARY:PyData Global 2027 · Online (expected dates)
+DESCRIPTION:PyData Global (virtual) (Industry\, Global)\nOnline\nCall: ht
+ tps://pydata.org/global2026\nEstimated from PyData Global 2026 (virtual\,
+  9-10 Dec 2026). The CFP usually runs over the summer.\nPlanner: https://
+ sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://pydata.org/global2026
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-dais-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270216
+SUMMARY:CFP DEADLINE: Data + AI Summit 2027 (estimated)
+DESCRIPTION:Databricks Data + AI Summit (Industry\, Global)\nSan Francisc
+ o\, USA\nCall: https://www.opencurious.com/tech-events/databricks-data-ai
+ -summit-2027\nHeld at Moscone Center. The 2027 call for presentations is 
+ not posted; the close date is estimated from earlier cycles (opens about 
+ Dec\, closes about Feb). See databricks.com/dataaisummit/call-for-present
+ ations.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.opencurious.com/tech-events/databricks-data-ai-summit-202
+ 7
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Data + AI Summit 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Data + AI Summit 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-dais-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270621
+DTEND;VALUE=DATE:20270625
+SUMMARY:Data + AI Summit 2027 · San Francisco\, USA
+DESCRIPTION:Databricks Data + AI Summit (Industry\, Global)\nSan Francisc
+ o\, USA\nCall: https://www.opencurious.com/tech-events/databricks-data-ai
+ -summit-2027\nHeld at Moscone Center. The 2027 call for presentations is 
+ not posted; the close date is estimated from earlier cycles (opens about 
+ Dec\, closes about Feb). See databricks.com/dataaisummit/call-for-present
+ ations.\nPlanner: https://sourabhbhattacharya.github.io/SBT/cfp-planner/
+URL:https://www.opencurious.com/tech-events/databricks-data-ai-summit-202
+ 7
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-amld-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20261215
+DTEND;VALUE=DATE:20261216
+SUMMARY:CFP DEADLINE: AMLD 2027 (estimated)
+DESCRIPTION:AMLD Intelligence Summit (Applied Machine Learning Days) (Ind
+ ustry\, Global)\nLausanne\, Switzerland\nCall: https://www.appliedmldays.
+ org/amld/2027/overview\nCalls for posters\, workshops and tracks are list
+ ed\, but no deadlines are posted\, so the close date is an estimate. Held
+  at the SwissTech Convention Center.\nPlanner: https://sourabhbhattachary
+ a.github.io/SBT/cfp-planner/
+URL:https://www.appliedmldays.org/amld/2027/overview
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AMLD 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AMLD 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-amld-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270309
+DTEND;VALUE=DATE:20270312
+SUMMARY:AMLD 2027 · Lausanne\, Switzerland
+DESCRIPTION:AMLD Intelligence Summit (Applied Machine Learning Days) (Ind
+ ustry\, Global)\nLausanne\, Switzerland\nCall: https://www.appliedmldays.
+ org/amld/2027/overview\nCalls for posters\, workshops and tracks are list
+ ed\, but no deadlines are posted\, so the close date is an estimate. Held
+  at the SwissTech Convention Center.\nPlanner: https://sourabhbhattachary
+ a.github.io/SBT/cfp-planner/
+URL:https://www.appliedmldays.org/amld/2027/overview
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-wsai-2027-close@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20270531
+DTEND;VALUE=DATE:20270601
+SUMMARY:CFP DEADLINE: World Summit AI 2027 (estimated)
+DESCRIPTION:World Summit AI Amsterdam (Industry\, Global)\nAmsterdam\, Ne
+ therlands\nCall: https://www.beri.net/events/world-summit-ai-2027\nHeld a
+ t Taets Art & Event Park (Zaandam) during World AI Week. There is no publ
+ ic open speaker call; contact the organisers via worldsummit.ai. The clos
+ e date is an estimate.\nPlanner: https://sourabhbhattacharya.github.io/SB
+ T/cfp-planner/
+URL:https://www.beri.net/events/world-summit-ai-2027
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:World Summit AI 2027: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:World Summit AI 2027: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cf-wsai-2027-event@sbt-cfp-planner
+DTSTAMP:20261123T052742Z
+DTSTART;VALUE=DATE:20271006
+DTEND;VALUE=DATE:20271008
+SUMMARY:World Summit AI 2027 · Amsterdam\, Netherlands
+DESCRIPTION:World Summit AI Amsterdam (Industry\, Global)\nAmsterdam\, Ne
+ therlands\nCall: https://www.beri.net/events/world-summit-ai-2027\nHeld a
+ t Taets Art & Event Park (Zaandam) during World AI Week. There is no publ
+ ic open speaker call; contact the organisers via worldsummit.ai. The clos
+ e date is an estimate.\nPlanner: https://sourabhbhattacharya.github.io/SB
+ T/cfp-planner/
+URL:https://www.beri.net/events/world-summit-ai-2027
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
