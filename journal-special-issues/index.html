@@ -148,6 +148,7 @@ main{padding:18px 0 40px}
 .upd time{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
 .upd ul{margin:3px 0 0;padding-left:18px;font-size:14px}
 footer{color:var(--muted);font-size:13px;padding:10px 0 40px}
+.copy{margin:10px 0 0;font-size:12.5px;line-height:1.55}
 </style>
 </head>
 <body>
@@ -208,7 +209,10 @@ footer{color:var(--muted);font-size:13px;padding:10px 0 40px}
     <ul class="upd" id="upd"></ul>
   </section>
 </main>
-<footer class="in">Dates come from journal, publisher and conference websites; dates marked “estimated” follow the last edition’s pattern and are replaced when the official call appears. Always confirm on the linked call before submitting. Companion to the <a href="../exam-planner/">Entrance Exam Planner</a>.</footer>
+<footer class="in">Dates come from journal, publisher and conference websites; dates marked “estimated” follow the last edition’s pattern and are replaced when the official call appears. Always confirm on the linked call before submitting. Companion to the <a href="../exam-planner/">Entrance Exam Planner</a>.
+  <p class="copy">© <span id="cy">2026</span> Sourabh Bhattacharya. All rights reserved. The compilation, selection, arrangement, text and design of this page are protected by copyright. You may view it, link to it and subscribe to its calendar for personal, non-commercial use; copying or republishing the page or its data, in whole or in part, needs prior written permission.</p>
+  <p class="copy">Journal ratings are from the ABDC Journal Quality List © Australian Business Deans Council. “FT50” refers to the Financial Times Research Rank journal list; the Financial Times is not affiliated with this page. Journal names, special-issue calls and conference names belong to their publishers and organisers and are summarised here for information only, with links to the original calls. This page is provided as is, without warranty: always check dates and requirements on the official call before submitting.</p>
+</footer>
 
 <script>
 const LAST_CHECKED = "2026-11-23";
@@ -1519,6 +1523,7 @@ function journals(){const open=new Map();CALLS.forEach(c=>{if(days(c.close)>=0)o
     return `<tr><td>${j[5]?`<b>${esc(j[5])}</b> `:""}${j[6]?`<a href="${esc(j[6])}" target="_blank" rel="noopener">${esc(j[0])}</a>`:esc(j[0])}<div class="no" style="font-size:12px">${esc(j[3])}</div></td><td>${esc(j[1])}</td><td>${esc(FORL[j[2]]||"")}</td><td>${FTL[j[4]]}</td><td>${n?`<button class="chip" data-jcalls="${esc(j[0])}">${n} open</button>`:'<span class="no">–</span>'}</td></tr>`}).join("")+"</tbody>";
   document.getElementById("jmore").innerHTML=rows.length>JS.n?`Showing ${JS.n} of ${rows.length} journals. <button class="chip" id="jmorebtn">Show more</button>`:`${rows.length} journal${rows.length===1?"":"s"}`}
 const FORL={3501:"Accounting",3502:"Finance",3503:"Business systems",3504:"Commercial services",3505:"HR & industrial relations",3506:"Marketing",3507:"Strategy, management & OB",3508:"Tourism",3509:"Logistics & supply chain",3599:"Other business",3801:"Applied economics",3802:"Econometrics",3803:"Economic theory",3899:"Other economics",4609:"Information systems",4801:"Commercial law",4905:"Statistics"};
+(()=>{const y=new Date().getFullYear();document.getElementById("cy").textContent=y>2026?"2026–"+y:"2026"})();
 document.getElementById("checked").textContent="Dates last checked "+fmt(LAST_CHECKED);
 document.getElementById("upd").innerHTML=UPDATES.map(u=>`<li><time>${fmt(u.date)}</time><ul>${u.items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></li>`).join("");
 journals();
