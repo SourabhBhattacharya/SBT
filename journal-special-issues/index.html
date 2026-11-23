@@ -194,7 +194,7 @@ footer{color:var(--muted);font-size:13px;padding:18px 0 44px;border-top:1px soli
     <div class="tools">
       <label class="search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input id="q" type="search" placeholder="Search journal, conference, topic, city…" aria-label="Search"></label>
       <label class="jpick" id="jpickwrap"><span class="sr">Journal</span><select id="jsel" aria-label="Choose a journal"></select></label>
-      <div class="seg" id="rating" role="group" aria-label="Journal list"><button data-v="all" aria-pressed="true">A* and A</button><button data-v="A*" aria-pressed="false">A* only</button><button data-v="ft" aria-pressed="false">FT50</button></div>
+      <div class="seg" id="rating" role="group" aria-label="Journal list"><button data-v="all" aria-pressed="true" title="All journals: FT50 plus every ABDC 2025 A* and A journal">A* + A + FT50</button><button data-v="A*" aria-pressed="false">A*</button><button data-v="A" aria-pressed="false">A</button><button data-v="ft" aria-pressed="false">FT50</button></div>
       <div class="seg" id="region" role="group" aria-label="Region"><button data-v="all" aria-pressed="true">India + global</button><button data-v="India" aria-pressed="false">India</button><button data-v="Global" aria-pressed="false">Global</button></div>
       <div class="seg" id="ctype" role="group" aria-label="Type"><button data-v="all" aria-pressed="true">All</button><button data-v="Academic" aria-pressed="false">Academic</button><button data-v="Industry" aria-pressed="false">Industry</button></div>
       <div class="seg" id="status" role="group" aria-label="Status"><button data-v="open" aria-pressed="true">Open calls</button><button data-v="30" aria-pressed="false">Closing in 30 days</button><button data-v="any" aria-pressed="false">Include closed</button></div>
@@ -1452,7 +1452,7 @@ const matchQ=x=>{if(!S.q)return true;const h=[x.title,x.journal,x.abbr,x.name,x.
   return S.q.toLowerCase().split(/\s+/).every(t=>h.includes(t))};
 const passStatus=x=>{const d=days(x.close);if(S.status==="open")return d>=0;if(S.status==="30")return d>=0&&d<=30;return true};
 const isFT=x=>x.ft50===1||x.ft50===3;
-const passBase=x=>matchQ(x)&&(S.sec!=="si"||!S.journal||x.journal===S.journal)&&(S.sec!=="si"||S.rating==="all"||(S.rating==="ft"?isFT(x):x.abdc==="A*"))&&(S.sec==="si"||((S.region==="all"||x.region===S.region)&&(S.ctype==="all"||x.type===S.ctype)))&&passStatus(x);
+const passBase=x=>matchQ(x)&&(S.sec!=="si"||!S.journal||x.journal===S.journal)&&(S.sec!=="si"||S.rating==="all"||(S.rating==="ft"?isFT(x):x.abdc===S.rating))&&(S.sec==="si"||((S.region==="all"||x.region===S.region)&&(S.ctype==="all"||x.type===S.ctype)))&&passStatus(x);
 
 function statusPill(x){const d=days(x.close);
   if(d<0)return `<span class="pill">Closed ${fmt(x.close)}</span>`;
@@ -1487,7 +1487,7 @@ function card(x){const d=dt(x.close),closed=days(x.close)<0;
   return `<article class="card${closed?" closed":""}">${dl}<div class="body"><div class="pills">${pills}</div>${head}<ul class="facts">${facts.join("")}</ul>${x.note?`<p class="note">${esc(x.note)}</p>`:""}<div class="links"><a href="${esc(x.url)}" target="_blank" rel="noopener">${S.sec==="si"?"Read the call":"Conference call"} ${I.ext}</a></div></div></article>`}
 
 function fillJsel(){const el=document.getElementById("jsel");const cnt=new Map();
-  CALLS.filter(c=>(S.status==="any"||days(c.close)>=0)&&(S.rating==="all"||(S.rating==="ft"?isFT(c):c.abdc==="A*"))).forEach(c=>cnt.set(c.journal,(cnt.get(c.journal)||0)+1));
+  CALLS.filter(c=>(S.status==="any"||days(c.close)>=0)&&(S.rating==="all"||(S.rating==="ft"?isFT(c):c.abdc===S.rating))).forEach(c=>cnt.set(c.journal,(cnt.get(c.journal)||0)+1));
   if(S.journal&&!cnt.has(S.journal))cnt.set(S.journal,0);
   const names=[...cnt.keys()].sort((a,b)=>a.localeCompare(b));
   el.innerHTML=`<option value="">All journals (${names.filter(n=>cnt.get(n)).length} with calls)</option>`+names.map(n=>`<option value="${esc(n)}"${n===S.journal?" selected":""}>${esc(n)} (${cnt.get(n)})</option>`).join("");
@@ -1511,7 +1511,7 @@ function render(){
   if(cur)h+="</div>";
   if(shut.length)h+=`<h2 class="month">${S.sec==="si"?"Closed calls":"Submissions closed, event still ahead"}<small>${shut.length}</small></h2><div class="grid">${shut.map(card).join("")}</div>`;
   if(!L.length){const al=(AREAS.find(a=>a[0]===S.area)||[])[1],fl=[];
-    if(S.sec==="si"&&S.rating==="ft")fl.push("FT50 only");if(S.sec==="si"&&S.rating==="A*")fl.push("A* only");if(S.status==="30")fl.push("closing in 30 days");
+    if(S.sec==="si"&&S.rating==="ft")fl.push("FT50 only");if(S.sec==="si"&&(S.rating==="A*"||S.rating==="A"))fl.push("ABDC "+S.rating+" only");if(S.status==="30")fl.push("closing in 30 days");
     if(S.sec==="cf"&&S.region!=="all")fl.push(S.region);if(S.sec==="cf"&&S.ctype!=="all")fl.push(S.ctype);if(S.journal&&S.sec==="si")fl.push(S.journal);if(S.q)fl.push("“"+S.q+"”");
     h=`<div class="empty">No open ${S.sec==="si"?"special-issue calls":"conference calls"}${S.area!=="all"?" in <b>"+esc(al)+"</b>":""}${fl.length?" with: "+esc(fl.join(", ")):""} right now. <button class="chip" data-reset="1">Clear filters</button></div>`}
   if(S.sec==="si"&&S.journal){const j=JOURNALS.find(r=>r[0]===S.journal)||[];
