@@ -1,5 +1,6 @@
-// Builds cfp-planner/deadlines.ics from CALLS and CONFS in cfp-planner/index.html.
-// Run from the repo root after every change: node cfp-planner/build-ics.js
+// Builds journal-special-issues/deadlines.ics from CALLS and CONFS in journal-special-issues/index.html.
+// Run from the repo root after every change: node journal-special-issues/build-ics.js
+// Also writes a copy to ../cfp-planner/deadlines.ics so calendar subscriptions made at the old address keep updating.
 const fs = require("fs"), path = require("path");
 const dir = __dirname;
 const html = fs.readFileSync(path.join(dir, "index.html"), "utf8");
@@ -10,7 +11,7 @@ const grab = name => {
 };
 const CALLS = grab("CALLS"), CONFS = grab("CONFS");
 const lc = (html.match(/const LAST_CHECKED = "([\d-]+)"/) || [])[1] || "";
-const PAGE = "https://sourabhbhattacharya.github.io/SBT/cfp-planner/";
+const PAGE = "https://sourabhbhattacharya.github.io/SBT/journal-special-issues/";
 
 const ymd = s => s.replace(/-/g, "");
 const addDay = (s, n = 1) => { const d = new Date(s + "T00:00:00Z"); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10).replace(/-/g, ""); };
@@ -22,7 +23,7 @@ const keepFrom = (() => { const d = new Date(today + "T00:00:00Z"); d.setUTCDate
 
 const ev = [];
 function add(uid, start, endExcl, summary, desc, url, alarms) {
-  const L = ["BEGIN:VEVENT", "UID:" + uid + "@sbt-cfp-planner", "DTSTAMP:" + stamp,
+  const L = ["BEGIN:VEVENT", "UID:" + uid + "@sbt-cfp-planner" /* keep this UID suffix: existing calendar subscriptions depend on it */, "DTSTAMP:" + stamp,
     "DTSTART;VALUE=DATE:" + ymd(start), "DTEND;VALUE=DATE:" + endExcl,
     "SUMMARY:" + esc(summary), "DESCRIPTION:" + esc(desc), "URL:" + url, "TRANSP:TRANSPARENT"];
   alarms.forEach(([trig, txt]) => L.push("BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:" + esc(txt), "TRIGGER:" + trig, "END:VALARM"));
@@ -52,5 +53,8 @@ const cal = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//SBT//Journal Special I
   "X-WR-CALNAME:Journal Special Issues and CFP", "X-WR-TIMEZONE:Asia/Kolkata",
   "X-WR-CALDESC:" + esc(`FT50 and ABDC 2025 A*/A special-issue and conference call-for-papers deadlines. Last checked ${lc}. ${PAGE}`),
   "REFRESH-INTERVAL;VALUE=DURATION:PT12H", "X-PUBLISHED-TTL:PT12H", ...ev, "END:VCALENDAR"];
-fs.writeFileSync(path.join(dir, "deadlines.ics"), cal.map(fold).join("\r\n") + "\r\n");
+const out = cal.map(fold).join("\r\n") + "\r\n";
+fs.writeFileSync(path.join(dir, "deadlines.ics"), out);
+const legacy = path.join(dir, "..", "cfp-planner");
+if (fs.existsSync(legacy)) fs.writeFileSync(path.join(legacy, "deadlines.ics"), out);
 console.log(`deadlines.ics written: ${ev.filter(l => l === "BEGIN:VEVENT").length} events`);
