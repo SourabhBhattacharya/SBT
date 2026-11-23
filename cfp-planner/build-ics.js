@@ -34,7 +34,7 @@ const remind = n => [["-P13DT15H", `${n}: deadline in 14 days`], ["-P1DT15H", `$
 for (const c of CALLS) {
   if (c.close < keepFrom) continue;
   const n = `${c.abbr} special issue`;
-  const info = `${c.journal}: ${c.title}\nABDC ${c.abdc}${c.ft50 ? " · FT50" : ""}\nCall: ${c.url}\n${c.note || ""}\nPlanner: ${PAGE}`;
+  const info = `${c.journal}: ${c.title}\nABDC 2025: ${c.abdc}${c.ft50 === 1 || c.ft50 === 3 ? " · FT50" : ""}\nCall: ${c.url}\n${c.note || ""}\nPlanner: ${PAGE}`;
   add("si-" + c.id + "-close", c.close, addDay(c.close), `DEADLINE: ${c.abbr} SI – ${c.title}${est(c.closeExp)}`, info, c.url, remind(n));
   if (c.open && c.open !== c.close && c.open >= keepFrom)
     add("si-" + c.id + "-open", c.open, addDay(c.open), `Submissions open: ${c.abbr} SI – ${c.title}`, info, c.url, [["-PT15H", `${n} opens tomorrow`]]);
@@ -49,8 +49,8 @@ for (const c of CONFS) {
   add("cf-" + c.id + "-event", c.start, addDay(c.end || c.start), `${c.name} · ${c.place}${c.eventExp ? " (expected dates)" : ""}`, info, c.url, []);
 }
 const cal = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//SBT//Research Call Planner//EN", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
-  "X-WR-CALNAME:Research Call Planner (FT50 SIs & conferences)", "X-WR-TIMEZONE:Asia/Kolkata",
-  "X-WR-CALDESC:" + esc(`FT50 special-issue and conference call-for-papers deadlines. Last checked ${lc}. ${PAGE}`),
+  "X-WR-CALNAME:Research Call Planner (FT50 + ABDC SIs & conferences)", "X-WR-TIMEZONE:Asia/Kolkata",
+  "X-WR-CALDESC:" + esc(`FT50 and ABDC 2025 A*/A special-issue and conference call-for-papers deadlines. Last checked ${lc}. ${PAGE}`),
   "REFRESH-INTERVAL;VALUE=DURATION:PT12H", "X-PUBLISHED-TTL:PT12H", ...ev, "END:VCALENDAR"];
 fs.writeFileSync(path.join(dir, "deadlines.ics"), cal.map(fold).join("\r\n") + "\r\n");
 console.log(`deadlines.ics written: ${ev.filter(l => l === "BEGIN:VEVENT").length} events`);
