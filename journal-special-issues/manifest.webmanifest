@@ -1,0 +1,16 @@
+{
+  "name": "Journal Special Issues and CFP",
+  "short_name": "CFP Planner",
+  "description": "Open special-issue calls in FT50 and ABDC A*/A journals, and conference calls for papers in India and worldwide.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f2ea",
+  "theme_color": "#7d2133",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
