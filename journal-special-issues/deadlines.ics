@@ -6,13 +6,882 @@ METHOD:PUBLISH
 X-WR-CALNAME:Journal Special Issues and CFP
 X-WR-TIMEZONE:Asia/Kolkata
 X-WR-CALDESC:FT50 and ABDC 2025 A*/A special-issue and conference call-fo
- r-papers deadlines. Last checked 2026-11-23. https://sourabhbhattacharya.
+ r-papers deadlines. Last checked 2026-11-24. https://sourabhbhattacharya.
  github.io/SBT/journal-special-issues/
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
+UID:si-sej-mobilizing-organizing-exploiting-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270302
+SUMMARY:DEADLINE: SEJ SI – Mobilizing\, Organizing\, and Exploiting Ent
+ repreneurial Judgment within Ecosystems
+DESCRIPTION:Strategic Entrepreneurship Journal: Mobilizing\, Organizing\,
+  and Exploiting Entrepreneurial Judgment within Ecosystems\nABDC 2025: A 
+ · FT50\nCall: https://strategicmanagement.net/publications-resources/sms
+ -journals/strategic-entrepreneurship-journal/sej-special-issues\nInvites 
+ research on how entrepreneurial judgment is mobilized\, organized and exp
+ loited within entrepreneurial and business ecosystems.\nPlanner: https://
+ sourabhbhattacharya.github.io/SBT/journal-special-issues/
+URL:https://strategicmanagement.net/publications-resources/sms-journals/s
+ trategic-entrepreneurship-journal/sej-special-issues
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SEJ special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SEJ special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-sej-entrepreneurial-ecosystems-emerging-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270430
+DTEND;VALUE=DATE:20270501
+SUMMARY:DEADLINE: SEJ SI – Entrepreneurial Ecosystems in Emerging Econo
+ mies
+DESCRIPTION:Strategic Entrepreneurship Journal: Entrepreneurial Ecosystem
+ s in Emerging Economies\nABDC 2025: A · FT50\nCall: https://strategicman
+ agement.net/publications-resources/sms-journals/strategic-entrepreneurshi
+ p-journal/sej-special-issues\nInvites research on how entrepreneurial eco
+ systems form and work in emerging economies.\nPlanner: https://sourabhbha
+ ttacharya.github.io/SBT/journal-special-issues/
+URL:https://strategicmanagement.net/publications-resources/sms-journals/s
+ trategic-entrepreneurship-journal/sej-special-issues
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SEJ special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SEJ special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-job-chronic-illness-work-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270630
+DTEND;VALUE=DATE:20270701
+SUMMARY:DEADLINE: JOB SI – Chronic Illness at Work: Advancing Theory an
+ d Practice in Organizational Behavior
+DESCRIPTION:Journal of Organizational Behavior: Chronic Illness at Work: 
+ Advancing Theory and Practice in Organizational Behavior\nABDC 2025: A*\n
+ Call: https://hr.aom.org/discussion/job-call-for-papers-chronic-illness-a
+ t-work-advancing-theory-and-practice-in-organizational-behavior\nTreats c
+ hronic illness at work as a distinct organizational phenomenon and examin
+ es it at individual\, organizational and institutional levels.\nPlanner: 
+ https://sourabhbhattacharya.github.io/SBT/journal-special-issues/
+URL:https://hr.aom.org/discussion/job-call-for-papers-chronic-illness-at-
+ work-advancing-theory-and-practice-in-organizational-behavior
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JOB special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JOB special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-job-chronic-illness-work-2027-open@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270601
+DTEND;VALUE=DATE:20270602
+SUMMARY:Submissions open: JOB SI – Chronic Illness at Work: Advancing T
+ heory and Practice in Organizational Behavior
+DESCRIPTION:Journal of Organizational Behavior: Chronic Illness at Work: 
+ Advancing Theory and Practice in Organizational Behavior\nABDC 2025: A*\n
+ Call: https://hr.aom.org/discussion/job-call-for-papers-chronic-illness-a
+ t-work-advancing-theory-and-practice-in-organizational-behavior\nTreats c
+ hronic illness at work as a distinct organizational phenomenon and examin
+ es it at individual\, organizational and institutional levels.\nPlanner: 
+ https://sourabhbhattacharya.github.io/SBT/journal-special-issues/
+URL:https://hr.aom.org/discussion/job-call-for-papers-chronic-illness-at-
+ work-advancing-theory-and-practice-in-organizational-behavior
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JOB special issue opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-ae-implementing-corporate-sustainability-2026-close@sbt-cfp-planne
+ r
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:DEADLINE: AE SI – Implementing the Corporate Sustainability Rep
+ orting Directive: Challenges\, Opportunities\, and Emerging Practices
+DESCRIPTION:Accounting in Europe: Implementing the Corporate Sustainabili
+ ty Reporting Directive: Challenges\, Opportunities\, and Emerging Practic
+ es\nABDC 2025: A\nCall: https://think.taylorandfrancis.com/special_issues
+ /implementing-corporate-sustainability-reporting-directive/\nExamines how
+  the EU Corporate Sustainability Reporting Directive (including the 2025 
+ Omnibus changes) affects companies\, assurance providers\, smaller firms 
+ and global reporting practice.\nPlanner: https://sourabhbhattacharya.gith
+ ub.io/SBT/journal-special-issues/
+URL:https://think.taylorandfrancis.com/special_issues/implementing-corpor
+ ate-sustainability-reporting-directive/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AE special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AE special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-pmr-administrative-inequality-conceptualization-2026-close@sbt-cfp
+ -planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20261125
+DTEND;VALUE=DATE:20261126
+SUMMARY:DEADLINE: PMR SI – Administrative Inequality: Conceptualization
+  and Micro-Mechanisms
+DESCRIPTION:Public Management Review: Administrative Inequality: Conceptu
+ alization and Micro-Mechanisms\nABDC 2025: A\nCall: https://callforpapers
+ .taylorandfrancis.com/special_issues/administrative-inequality-conceptual
+ ization-and-micro-mechanisms/\nStudies how administrative rules\, process
+ es and behaviours produce unequal access to public services\, using equal
+  opportunity of access as a benchmark.\nPlanner: https://sourabhbhattacha
+ rya.github.io/SBT/journal-special-issues/
+URL:https://callforpapers.taylorandfrancis.com/special_issues/administrat
+ ive-inequality-conceptualization-and-micro-mechanisms/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PMR special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PMR special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-pmr-administrative-inequality-conceptualization-2026-step@sbt-cfp-
+ planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:Full paper due: PMR SI – Administrative Inequality: Conceptuali
+ zation and Micro-Mechanisms
+DESCRIPTION:Public Management Review: Administrative Inequality: Conceptu
+ alization and Micro-Mechanisms\nABDC 2025: A\nCall: https://callforpapers
+ .taylorandfrancis.com/special_issues/administrative-inequality-conceptual
+ ization-and-micro-mechanisms/\nStudies how administrative rules\, process
+ es and behaviours produce unequal access to public services\, using equal
+  opportunity of access as a benchmark.\nPlanner: https://sourabhbhattacha
+ rya.github.io/SBT/journal-special-issues/
+URL:https://callforpapers.taylorandfrancis.com/special_issues/administrat
+ ive-inequality-conceptualization-and-micro-mechanisms/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PMR special issue: Full paper due in 7 days
+TRIGGER:-P6DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-pmm-emergency-response-inclusive-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:DEADLINE: PMM SI – From emergency response to inclusive resilie
+ nt governance in an era of crises
+DESCRIPTION:Public Money & Management: From emergency response to inclusi
+ ve resilient governance in an era of crises\nABDC 2025: A\nCall: https://
+ think.taylorandfrancis.com/special_issues/from-emergency-response-to-incl
+ usive-resilient-governance-in-an-era-of-crises/\nExamines how disaster ma
+ nagement and emergency services can move from narrow response models to m
+ ore inclusive\, resilient public governance.\nPlanner: https://sourabhbha
+ ttacharya.github.io/SBT/journal-special-issues/
+URL:https://think.taylorandfrancis.com/special_issues/from-emergency-resp
+ onse-to-inclusive-resilient-governance-in-an-era-of-crises/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PMM special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PMM special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-pmm-emergency-response-inclusive-2027-step@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:Debate and New development pieces due: PMM SI – From emergency 
+ response to inclusive resilient governance in an era of crises
+DESCRIPTION:Public Money & Management: From emergency response to inclusi
+ ve resilient governance in an era of crises\nABDC 2025: A\nCall: https://
+ think.taylorandfrancis.com/special_issues/from-emergency-response-to-incl
+ usive-resilient-governance-in-an-era-of-crises/\nExamines how disaster ma
+ nagement and emergency services can move from narrow response models to m
+ ore inclusive\, resilient public governance.\nPlanner: https://sourabhbha
+ ttacharya.github.io/SBT/journal-special-issues/
+URL:https://think.taylorandfrancis.com/special_issues/from-emergency-resp
+ onse-to-inclusive-resilient-governance-in-an-era-of-crises/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PMM special issue: Debate and New development pieces due in 7
+  days
+TRIGGER:-P6DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-ijhrm-digital-nomadism-future-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270430
+DTEND;VALUE=DATE:20270501
+SUMMARY:DEADLINE: IJHRM SI – Digital Nomadism and the Future of HRM: Re
+ thinking Work\, Workforce\, and Workplace
+DESCRIPTION:International Journal of Human Resource Management: Digital N
+ omadism and the Future of HRM: Rethinking Work\, Workforce\, and Workplac
+ e\nABDC 2025: A\nCall: https://think.taylorandfrancis.com/special_issues/
+ digital-nomadism-and-the-future-of-hrm-rethinking-work-workforce-and-work
+ place/\nExamines how location-independent\, mobile work challenges HRM mo
+ dels built on stable membership\, fixed workplaces and national employmen
+ t.\nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-special-is
+ sues/
+URL:https://think.taylorandfrancis.com/special_issues/digital-nomadism-an
+ d-the-future-of-hrm-rethinking-work-workforce-and-workplace/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IJHRM special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IJHRM special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jbr-pressure-makes-diamonds-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:DEADLINE: JBR SI – Pressure makes diamonds… or not? Investiga
+ ting Pressure in an Era of Increasing Uncertainty
+DESCRIPTION:Journal of Business Research: Pressure makes diamonds… or n
+ ot? Investigating Pressure in an Era of Increasing Uncertainty\nABDC 2025
+ : A\nCall: https://servicesetu.org/call-for-paper/journals/jbr\nInvites r
+ esearch on how pressure (time\, financial\, social\, competitive) shapes 
+ decisions and outcomes for businesses and consumers in an era of rising u
+ ncertainty.\nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-s
+ pecial-issues/
+URL:https://servicesetu.org/call-for-paper/journals/jbr
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JBR special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JBR special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jbr-pressure-makes-diamonds-2027-open@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Submissions open: JBR SI – Pressure makes diamonds… or not? I
+ nvestigating Pressure in an Era of Increasing Uncertainty
+DESCRIPTION:Journal of Business Research: Pressure makes diamonds… or n
+ ot? Investigating Pressure in an Era of Increasing Uncertainty\nABDC 2025
+ : A\nCall: https://servicesetu.org/call-for-paper/journals/jbr\nInvites r
+ esearch on how pressure (time\, financial\, social\, competitive) shapes 
+ decisions and outcomes for businesses and consumers in an era of rising u
+ ncertainty.\nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-s
+ pecial-issues/
+URL:https://servicesetu.org/call-for-paper/journals/jbr
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JBR special issue opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-tfsc-ai-whom-whom-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270430
+DTEND;VALUE=DATE:20270501
+SUMMARY:DEADLINE: TFSC SI – AI for whom and by whom? Cultural bias and 
+ the institutional and social shaping of large language models
+DESCRIPTION:Technological Forecasting and Social Change: AI for whom and 
+ by whom? Cultural bias and the institutional and social shaping of large 
+ language models\nABDC 2025: A\nCall: https://tim.aom.org/discussion/cfp-s
+ pecial-issue-ai-for-whom-and-by-whom-cultural-bias-and-the-institutional-
+ and-social-shaping-of-large-language-models-in-technological-forecasting-
+ and-social-change\nExamines cultural bias in large language models and ho
+ w institutions and society shape who builds and benefits from AI.\nPlanne
+ r: https://sourabhbhattacharya.github.io/SBT/journal-special-issues/
+URL:https://tim.aom.org/discussion/cfp-special-issue-ai-for-whom-and-by-w
+ hom-cultural-bias-and-the-institutional-and-social-shaping-of-large-langu
+ age-models-in-technological-forecasting-and-social-change
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:TFSC special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:TFSC special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jbe-business-human-rights-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:DEADLINE: JBE SI – Business\, Human Rights Abuses\, and the Cli
+ mate Crisis: Towards Integrated Responses
+DESCRIPTION:Journal of Business Ethics: Business\, Human Rights Abuses\, 
+ and the Climate Crisis: Towards Integrated Responses\nABDC 2025: A\nCall:
+  https://link.springer.com/journal/10551/collections\nExamines how busine
+ ss connects human rights abuses with the climate crisis and how integrate
+ d responses to both can be developed.\nPlanner: https://sourabhbhattachar
+ ya.github.io/SBT/journal-special-issues/
+URL:https://link.springer.com/journal/10551/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JBE special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JBE special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jbe-business-human-rights-2027-open@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20261201
+DTEND;VALUE=DATE:20261202
+SUMMARY:Submissions open: JBE SI – Business\, Human Rights Abuses\, and
+  the Climate Crisis: Towards Integrated Responses
+DESCRIPTION:Journal of Business Ethics: Business\, Human Rights Abuses\, 
+ and the Climate Crisis: Towards Integrated Responses\nABDC 2025: A\nCall:
+  https://link.springer.com/journal/10551/collections\nExamines how busine
+ ss connects human rights abuses with the climate crisis and how integrate
+ d responses to both can be developed.\nPlanner: https://sourabhbhattachar
+ ya.github.io/SBT/journal-special-issues/
+URL:https://link.springer.com/journal/10551/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JBE special issue opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jbe-publish-perish-reimagining-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270831
+DTEND;VALUE=DATE:20270901
+SUMMARY:DEADLINE: JBE SI – Beyond Publish and Perish: Reimagining the E
+ thics of Business Ethics Research
+DESCRIPTION:Journal of Business Ethics: Beyond Publish and Perish: Reimag
+ ining the Ethics of Business Ethics Research\nABDC 2025: A\nCall: https:/
+ /link.springer.com/journal/10551/collections\nReflects on the ethics of h
+ ow business ethics research itself is produced\, published and rewarded i
+ n academia.\nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-s
+ pecial-issues/
+URL:https://link.springer.com/journal/10551/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JBE special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JBE special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jbe-publish-perish-reimagining-2027-open@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270701
+DTEND;VALUE=DATE:20270702
+SUMMARY:Submissions open: JBE SI – Beyond Publish and Perish: Reimagini
+ ng the Ethics of Business Ethics Research
+DESCRIPTION:Journal of Business Ethics: Beyond Publish and Perish: Reimag
+ ining the Ethics of Business Ethics Research\nABDC 2025: A\nCall: https:/
+ /link.springer.com/journal/10551/collections\nReflects on the ethics of h
+ ow business ethics research itself is produced\, published and rewarded i
+ n academia.\nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-s
+ pecial-issues/
+URL:https://link.springer.com/journal/10551/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JBE special issue opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jbe-corporate-complicity-crimes-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270930
+DTEND;VALUE=DATE:20271001
+SUMMARY:DEADLINE: JBE SI – Corporate Complicity in Crimes Against Human
+ ity
+DESCRIPTION:Journal of Business Ethics: Corporate Complicity in Crimes Ag
+ ainst Humanity\nABDC 2025: A\nCall: https://link.springer.com/journal/105
+ 51/collections\nInvestigates how corporations become complicit in atrocit
+ ies and crimes against humanity and what accountability follows.\nPlanner
+ : https://sourabhbhattacharya.github.io/SBT/journal-special-issues/
+URL:https://link.springer.com/journal/10551/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JBE special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JBE special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jbe-corporate-complicity-crimes-2027-open@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:Submissions open: JBE SI – Corporate Complicity in Crimes Again
+ st Humanity
+DESCRIPTION:Journal of Business Ethics: Corporate Complicity in Crimes Ag
+ ainst Humanity\nABDC 2025: A\nCall: https://link.springer.com/journal/105
+ 51/collections\nInvestigates how corporations become complicit in atrocit
+ ies and crimes against humanity and what accountability follows.\nPlanner
+ : https://sourabhbhattacharya.github.io/SBT/journal-special-issues/
+URL:https://link.springer.com/journal/10551/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JBE special issue opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jbe-promise-price-power-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270930
+DTEND;VALUE=DATE:20271001
+SUMMARY:DEADLINE: JBE SI – The Promise (and Price) of Power: How Power 
+ Shapes and Responds to the Ethical Dimensions of Organizing and Organizat
+ ions
+DESCRIPTION:Journal of Business Ethics: The Promise (and Price) of Power:
+  How Power Shapes and Responds to the Ethical Dimensions of Organizing an
+ d Organizations\nABDC 2025: A\nCall: https://link.springer.com/journal/10
+ 551/collections\nExplores how power in and around organizations shapes\, 
+ and is shaped by\, ethical behaviour and organizing.\nPlanner: https://so
+ urabhbhattacharya.github.io/SBT/journal-special-issues/
+URL:https://link.springer.com/journal/10551/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JBE special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JBE special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jbe-promise-price-power-2027-open@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:Submissions open: JBE SI – The Promise (and Price) of Power: Ho
+ w Power Shapes and Responds to the Ethical Dimensions of Organizing and O
+ rganizations
+DESCRIPTION:Journal of Business Ethics: The Promise (and Price) of Power:
+  How Power Shapes and Responds to the Ethical Dimensions of Organizing an
+ d Organizations\nABDC 2025: A\nCall: https://link.springer.com/journal/10
+ 551/collections\nExplores how power in and around organizations shapes\, 
+ and is shaped by\, ethical behaviour and organizing.\nPlanner: https://so
+ urabhbhattacharya.github.io/SBT/journal-special-issues/
+URL:https://link.springer.com/journal/10551/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JBE special issue opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jibs-ai-data-multinational-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270930
+DTEND;VALUE=DATE:20271001
+SUMMARY:DEADLINE: JIBS SI – AI\, Data\, and Multinational Enterprises i
+ n a Multipolar World
+DESCRIPTION:Journal of International Business Studies: AI\, Data\, and Mu
+ ltinational Enterprises in a Multipolar World\nABDC 2025: A* · FT50\nCal
+ l: https://link.springer.com/journal/41267/collections\nStudies how AI an
+ d data reshape multinational enterprises' strategies and operations amid 
+ geopolitical fragmentation.\nPlanner: https://sourabhbhattacharya.github.
+ io/SBT/journal-special-issues/
+URL:https://link.springer.com/journal/41267/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JIBS special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JIBS special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jibs-ai-data-multinational-2027-open@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270915
+DTEND;VALUE=DATE:20270916
+SUMMARY:Submissions open: JIBS SI – AI\, Data\, and Multinational Enter
+ prises in a Multipolar World
+DESCRIPTION:Journal of International Business Studies: AI\, Data\, and Mu
+ ltinational Enterprises in a Multipolar World\nABDC 2025: A* · FT50\nCal
+ l: https://link.springer.com/journal/41267/collections\nStudies how AI an
+ d data reshape multinational enterprises' strategies and operations amid 
+ geopolitical fragmentation.\nPlanner: https://sourabhbhattacharya.github.
+ io/SBT/journal-special-issues/
+URL:https://link.springer.com/journal/41267/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JIBS special issue opens tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-mir-international-business-reconfiguring-2027-close@sbt-cfp-planne
+ r
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270330
+DTEND;VALUE=DATE:20270331
+SUMMARY:DEADLINE: MIR SI – International Business in a Reconfiguring So
+ utheast Asia
+DESCRIPTION:Management International Review: International Business in a 
+ Reconfiguring Southeast Asia\nABDC 2025: A\nCall: https://link.springer.c
+ om/journal/11575/collections\nExamines how shifting geopolitics and suppl
+ y chains are reconfiguring international business in Southeast Asia.\nPla
+ nner: https://sourabhbhattacharya.github.io/SBT/journal-special-issues/
+URL:https://link.springer.com/journal/11575/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MIR special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MIR special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-jce-history-market-art-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:DEADLINE: JCE SI – History of Market for Art and Cultural Goods
+  (estimated)
+DESCRIPTION:Journal of Cultural Economics: History of Market for Art and 
+ Cultural Goods\nABDC 2025: A\nCall: https://link.springer.com/journal/108
+ 24/updates/27818466\nApplies economic history and cultural economics with
+  quantitative data to art and cultural-goods markets across eras and regi
+ ons.\nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-special-
+ issues/
+URL:https://link.springer.com/journal/10824/updates/27818466
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JCE special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JCE special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-os-advancing-systems-perspectives-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270430
+DTEND;VALUE=DATE:20270501
+SUMMARY:DEADLINE: OS SI – Advancing Systems Perspectives in Organizatio
+ n Studies to Address Social-Ecological Challenges
+DESCRIPTION:Organization Studies: Advancing Systems Perspectives in Organ
+ ization Studies to Address Social-Ecological Challenges\nABDC 2025: A*\nC
+ all: https://journals.sagepub.com/special-issue-calls-for-papers\nCalls f
+ or systems-based theorizing in organization studies to tackle intertwined
+  social and ecological challenges.\nPlanner: https://sourabhbhattacharya.
+ github.io/SBT/journal-special-issues/
+URL:https://journals.sagepub.com/special-issue-calls-for-papers
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:OS special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:OS special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-aor-climate-transition-operational-2026-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:DEADLINE: AOR SI – Climate Transition and Operational Risk Mode
+ lling: Implications for Supply Chains and Financial Decision-Making
+DESCRIPTION:Annals of Operations Research: Climate Transition and Operati
+ onal Risk Modelling: Implications for Supply Chains and Financial Decisio
+ n-Making\nABDC 2025: A\nCall: https://link.springer.com/journal/10479/col
+ lections\nOperational risk models for the climate transition and their im
+ plications for supply chains and financial decisions.\nPlanner: https://s
+ ourabhbhattacharya.github.io/SBT/journal-special-issues/
+URL:https://link.springer.com/journal/10479/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOR special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOR special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-aor-collaborative-intelligence-operations-2026-close@sbt-cfp-plann
+ er
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:DEADLINE: AOR SI – Collaborative Intelligence in Operations Res
+ earch: Models\, Methods\, and Applications
+DESCRIPTION:Annals of Operations Research: Collaborative Intelligence in 
+ Operations Research: Models\, Methods\, and Applications\nABDC 2025: A\nC
+ all: https://link.springer.com/journal/10479/collections\nOperations rese
+ arch models and methods that combine human and artificial intelligence in
+  decision making.\nPlanner: https://sourabhbhattacharya.github.io/SBT/jou
+ rnal-special-issues/
+URL:https://link.springer.com/journal/10479/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOR special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOR special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-aor-advances-quantitative-finance-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:DEADLINE: AOR SI – Advances in Quantitative Finance and Risk Mo
+ deling
+DESCRIPTION:Annals of Operations Research: Advances in Quantitative Finan
+ ce and Risk Modeling\nABDC 2025: A\nCall: https://link.springer.com/journ
+ al/10479/collections\nNew operations-research and quantitative methods fo
+ r finance and risk modelling.\nPlanner: https://sourabhbhattacharya.githu
+ b.io/SBT/journal-special-issues/
+URL:https://link.springer.com/journal/10479/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOR special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOR special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-aor-game-theoretical-models-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270420
+DTEND;VALUE=DATE:20270421
+SUMMARY:DEADLINE: AOR SI – Game Theoretical Models and Applications SIN
+ G21
+DESCRIPTION:Annals of Operations Research: Game Theoretical Models and Ap
+ plications SING21\nABDC 2025: A\nCall: https://link.springer.com/journal/
+ 10479/collections\nGame-theoretic models and their applications\, linked 
+ to the SING21 game theory meeting.\nPlanner: https://sourabhbhattacharya.
+ github.io/SBT/journal-special-issues/
+URL:https://link.springer.com/journal/10479/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOR special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOR special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-aor-multiple-objective-programming-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270630
+DTEND;VALUE=DATE:20270701
+SUMMARY:DEADLINE: AOR SI – Multiple Objective Programming and Goal Prog
+ ramming: Artificial Intelligence for Decision Making in Economic and Soci
+ al Sciences
+DESCRIPTION:Annals of Operations Research: Multiple Objective Programming
+  and Goal Programming: Artificial Intelligence for Decision Making in Eco
+ nomic and Social Sciences\nABDC 2025: A\nCall: https://link.springer.com/
+ journal/10479/collections\nMulti-objective and goal programming combined 
+ with AI for decision making in economics and social sciences.\nPlanner: h
+ ttps://sourabhbhattacharya.github.io/SBT/journal-special-issues/
+URL:https://link.springer.com/journal/10479/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOR special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOR special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-aor-contextual-optimization-side-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:DEADLINE: AOR SI – Contextual Optimization with Side Informatio
+ n: Theory\, Methodology\, and Applications
+DESCRIPTION:Annals of Operations Research: Contextual Optimization with S
+ ide Information: Theory\, Methodology\, and Applications\nABDC 2025: A\nC
+ all: https://link.springer.com/journal/10479/collections\nTheory and meth
+ ods for optimization that uses contextual side information\, such as pred
+ ict-then-optimize approaches.\nPlanner: https://sourabhbhattacharya.githu
+ b.io/SBT/journal-special-issues/
+URL:https://link.springer.com/journal/10479/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOR special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOR special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-aor-data-driven-reliability-2027-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:DEADLINE: AOR SI – Data-Driven Reliability Modeling and Decisio
+ n Support in Industrial Engineering Systems
+DESCRIPTION:Annals of Operations Research: Data-Driven Reliability Modeli
+ ng and Decision Support in Industrial Engineering Systems\nABDC 2025: A\n
+ Call: https://link.springer.com/journal/10479/collections\nData-driven re
+ liability models and decision support for industrial engineering systems.
+ \nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-special-issu
+ es/
+URL:https://link.springer.com/journal/10479/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOR special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOR special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:si-aor-recent-advances-optimization-2028-close@sbt-cfp-planner
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20280331
+DTEND;VALUE=DATE:20280401
+SUMMARY:DEADLINE: AOR SI – Recent Advances in Optimization and Decision
+  Making under Uncertainty: Theory and Algorithms
+DESCRIPTION:Annals of Operations Research: Recent Advances in Optimizatio
+ n and Decision Making under Uncertainty: Theory and Algorithms\nABDC 2025
+ : A\nCall: https://link.springer.com/journal/10479/collections\nTheory an
+ d algorithms for optimization and decision making under uncertainty.\nPla
+ nner: https://sourabhbhattacharya.github.io/SBT/journal-special-issues/
+URL:https://link.springer.com/journal/10479/collections
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOR special issue: deadline in 14 days
+TRIGGER:-P13DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AOR special issue: deadline in 2 days
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:si-ijrm-the-transformative-role-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:DEADLINE: IJRM SI – The Transformative Role of Artificial Intel
@@ -40,7 +909,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-rp-science-technology-and-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:DEADLINE: RP SI – Science\, Technology and Innovation in Today'
@@ -65,7 +934,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijhm-space-hospitality-theories-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:DEADLINE: IJHM SI – Space Hospitality: Theories\, Frameworks\, 
@@ -93,7 +962,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-tr-a-highspeed-rail-planning-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:DEADLINE: TR-A SI – High-Speed Rail Planning\, Station–City I
@@ -121,7 +990,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-tr-e-building-resilient-and-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:DEADLINE: TR-E SI – Building Resilient and Intelligent Maritime
@@ -149,7 +1018,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-caie-bridging-datadriven-innovation-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:DEADLINE: CAIE SI – Bridging Data-Driven Innovation and Sustain
@@ -176,7 +1045,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ss-interdisciplinary-approaches-to-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:DEADLINE: SS SI – Interdisciplinary Approaches to Electric Micr
@@ -202,7 +1071,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jpim-spaces-innovation-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:DEADLINE: JPIM SI – Reimagining Spaces for Innovation in an Era
@@ -231,7 +1100,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jpim-spaces-innovation-2026-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 SUMMARY:Submissions open: JPIM SI – Reimagining Spaces for Innovation i
@@ -255,7 +1124,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jpim-genai-framing-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:DEADLINE: JPIM SI – Communicating & Framing Innovation in the E
@@ -285,7 +1154,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-medar-biodiversity-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:DEADLINE: MEDAR SI – Accounting for Biodiversity\, Ecosystems\,
@@ -314,7 +1183,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-medar-biodiversity-2026-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261002
 SUMMARY:Submissions open: MEDAR SI – Accounting for Biodiversity\, Ecos
@@ -338,7 +1207,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-medar-equity-inclusion-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:DEADLINE: MEDAR SI – Are Equity and Inclusion achievable? How e
@@ -367,7 +1236,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ejm-luxury-ai-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:DEADLINE: EJM SI – Redefining luxury consumption in the age of 
@@ -395,7 +1264,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-pr-work-family-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:DEADLINE: PR SI – Navigating the Work–Family Interface in the
@@ -423,7 +1292,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijrdm-marketing-myopia-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:DEADLINE: IJRDM SI – Marketing Myopia Reloaded: Re-Centring the
@@ -452,7 +1321,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijhrm-low-fertility-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:DEADLINE: IJHRM SI – Addressing Ultra-Low Fertility and Workfor
@@ -483,7 +1352,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jibs-microfoundations-ib-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:DEADLINE: JIBS SI – Microfoundations of International Business:
@@ -512,7 +1381,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jar-2027-conf-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:DEADLINE: JAR SI – 2027 Ray Ball JAR Conference: Current Topics
@@ -542,7 +1411,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jar-2027-conf-step@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270430
 DTEND;VALUE=DATE:20270501
 SUMMARY:JAR Conference at Chicago Booth (to 1 May): JAR SI – 2027 Ray B
@@ -569,7 +1438,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-rcfs-winter-conference-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:DEADLINE: RCFS SI – RCFS Winter Conference 2027 (Registered Rep
@@ -597,7 +1466,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-rcfs-winter-conference-2027-step@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270212
 DTEND;VALUE=DATE:20270213
 SUMMARY:Conference\, San Juan\, Puerto Rico: RCFS SI – RCFS Winter Conf
@@ -621,7 +1490,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-cgir-stakeholder-theory-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:DEADLINE: CGIR SI – Stakeholder Theory and Responsible Business
@@ -650,7 +1519,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-cgir-stakeholder-theory-2026-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261002
 SUMMARY:Submissions open: CGIR SI – Stakeholder Theory and Responsible 
@@ -674,7 +1543,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-aaaj-sustainability-assurance-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:DEADLINE: AAAJ SI – Governing Futures: Sustainability Assurance
@@ -703,7 +1572,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-medar-ai-sustainability-assurance-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:DEADLINE: MEDAR SI – Artificial Intelligence in Sustainability 
@@ -731,7 +1600,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-josm-pls-sem-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:DEADLINE: JOSM SI – Partial Least Squares Structural Equation M
@@ -759,7 +1628,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-so-strategy-aesthetics-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:DEADLINE: SO SI – Strategy and Aesthetics
@@ -784,7 +1653,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-itd-telecom-finance-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:DEADLINE: ITD SI – Information Flows and Capital Flows: Telecom
@@ -811,7 +1680,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-itd-telecom-finance-2027-step@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270531
 DTEND;VALUE=DATE:20270601
 SUMMARY:Full paper due: ITD SI – Information Flows and Capital Flows: T
@@ -833,7 +1702,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ija-advertising-narratives-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261211
 DTEND;VALUE=DATE:20261212
 SUMMARY:DEADLINE: IJA SI – Advertising Narratives: Transportation\, Ima
@@ -862,7 +1731,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ija-advertising-narratives-2026-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Submissions open: IJA SI – Advertising Narratives: Transportati
@@ -886,7 +1755,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-amle-neuroinclusive-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261214
 DTEND;VALUE=DATE:20261215
 SUMMARY:DEADLINE: AMLE SI – Rethinking Business School Structures\, Sta
@@ -915,7 +1784,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-amle-neuroinclusive-2026-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:Submissions open: AMLE SI – Rethinking Business School Structur
@@ -940,7 +1809,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-fqp-sensometrics-2026-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
 SUMMARY:DEADLINE: FQP SI – Sensometrics 2026
@@ -965,7 +1834,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jstp-immersive-sensory-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
 SUMMARY:DEADLINE: JSTP SI – Immersive Technologies and Sensory Service 
@@ -994,7 +1863,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jim-ai-international-marketing-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
 SUMMARY:DEADLINE: JIM SI – Artificial Intelligence in International Mar
@@ -1026,7 +1895,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-horizons-ai-conference-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
 SUMMARY:DEADLINE: AH SI – Accounting Horizons AI Conference (with Georg
@@ -1054,7 +1923,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-horizons-ai-conference-2027-step@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270513
 DTEND;VALUE=DATE:20270514
 SUMMARY:Conference\, Atlanta (13-14 May): AH SI – Accounting Horizons A
@@ -1077,7 +1946,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-i-m-emerging-methods-in-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:DEADLINE: I&M SI – Emerging Methods in Information Systems
@@ -1102,7 +1971,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-eer-macroeconomic-consequences-of-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261223
 DTEND;VALUE=DATE:20261224
 SUMMARY:DEADLINE: EER SI – Macroeconomic Consequences of Geoeconomic Ri
@@ -1129,7 +1998,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-tr-c-intelligent-and-safe-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261230
 DTEND;VALUE=DATE:20261231
 SUMMARY:DEADLINE: TR-C SI – Intelligent and Safe Operations of Low-Alti
@@ -1157,7 +2026,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jbf-new-technology-and-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: JBF SI – New Technology and Economics for Banking and
@@ -1184,7 +2053,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-tr-e-datadriven-industrial-engineering-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: TR-E SI – Data-Driven Industrial Engineering for Sust
@@ -1212,7 +2081,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-aap-spatiotemporal-ai-for-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: AAP SI – Spatiotemporal AI for Transportation Safety 
@@ -1240,7 +2109,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-eer-elevated-sovereign-debt-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: EER SI – Elevated Sovereign Debt and the Fiscal-Monet
@@ -1267,7 +2136,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jde-special-issue-in-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: JDE SI – Special Issue in Honor of Elisabeth Sadoulet
@@ -1292,7 +2161,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jebo-bounded-rationality-a-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: JEBO SI – Bounded Rationality: A Special Issue in Hon
@@ -1320,7 +2189,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijio-artificial-intelligence-and-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: IJIO SI – Artificial Intelligence and Industrial Orga
@@ -1347,7 +2216,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jie-special-issue-from-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: JIE SI – Special Issue from the International Seminar
@@ -1374,7 +2243,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-omega-aiaugmented-msor-for-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: Omega SI – AI-Augmented MS/OR for Digital Operations 
@@ -1399,7 +2268,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-omega-dataenabled-analytics-for-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: Omega SI – Data-Enabled Analytics for Insightful and 
@@ -1425,7 +2294,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-irfa-entrepreneurial-finance-venture-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: IRFA SI – Entrepreneurial Finance\, Venture Capital\,
@@ -1452,7 +2321,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jbef-experimental-sustainable-finance-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: JBEF SI – Experimental Sustainable Finance
@@ -1478,7 +2347,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-pbfj-6th-international-conference-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: PBFJ SI – 6th International Conference on Uncertainti
@@ -1505,7 +2374,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jdmm-understanding-and-managing-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: JDMM SI – Understanding and Managing the Dark Side of
@@ -1532,7 +2401,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-em-digital-economics-fintech-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: EM SI – Digital Economics & FinTech: Modelling\, Meas
@@ -1559,7 +2428,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ss-nudging-crowds-subtle-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: SS SI – Nudging Crowds: Subtle Interventions for Safe
@@ -1586,7 +2455,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-hp-improving-productivity-in-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: HP SI – Improving Productivity in Health Care
@@ -1611,7 +2480,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jpim-creative-industries-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: JPIM SI – Radical Innovation in the Creative Industri
@@ -1640,7 +2509,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-hrmj-global-south-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: HRMJ SI – New Vistas for Human Resource Management Re
@@ -1669,7 +2538,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-hrmj-global-south-2026-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:Submissions open: HRMJ SI – New Vistas for Human Resource Manag
@@ -1693,7 +2562,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jmo-navigating-complexity-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: JMO SI – Navigating Complexity: Adaptive Strategies f
@@ -1721,7 +2590,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-cit-middle-east-crisis-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: CIT SI – Tourism and the 2026 Middle East Crisis: Int
@@ -1749,7 +2618,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-amd-registered-reports-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:DEADLINE: AMD SI – Registered Reports (call for submissions) (e
@@ -1774,7 +2643,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jsm-null-results-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:DEADLINE: JSM SI – Null Results in Sport Management Research
@@ -1803,7 +2672,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jsm-null-results-2027-step@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270730
 DTEND;VALUE=DATE:20270731
 SUMMARY:Final cutoff: JSM SI – Null Results in Sport Management Researc
@@ -1828,7 +2697,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-prr-the-value-of-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270105
 DTEND;VALUE=DATE:20270106
 SUMMARY:DEADLINE: PRR SI – The Value of "Null": Advancing CSR and Corpo
@@ -1855,7 +2724,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jbee-causal-behavioral-finance-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
 SUMMARY:DEADLINE: JBEE SI – Causal Behavioral Finance: From Biases to M
@@ -1882,7 +2751,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jom-qualitative-proposals-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:DEADLINE: JOM SI – Special Call: Qualitative Research Proposals
@@ -1910,7 +2779,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jom-qualitative-proposals-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Submissions open: JOM SI – Special Call: Qualitative Research P
@@ -1934,7 +2803,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jimf-climate-weather-and-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:DEADLINE: JIMF SI – Climate\, Weather and Geopolitical Risk: In
@@ -1962,7 +2831,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijebr-critical-perspectives-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:DEADLINE: IJEBR SI – Critical Perspectives in Entrepreneurship 
@@ -1990,7 +2859,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijebr-critical-perspectives-2027-step@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271130
 DTEND;VALUE=DATE:20271201
 SUMMARY:Full manuscript due: IJEBR SI – Critical Perspectives in Entrep
@@ -2013,7 +2882,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jors-or-ai-healthcare-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:DEADLINE: JORS SI – Operational Research and Artificial Intelli
@@ -2042,7 +2911,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijebr-regenerative-ent-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270121
 DTEND;VALUE=DATE:20270122
 SUMMARY:DEADLINE: IJEBR SI – Resilient and Regenerative Entrepreneurshi
@@ -2070,7 +2939,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijlm-africa-sc-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270129
 DTEND;VALUE=DATE:20270130
 SUMMARY:DEADLINE: IJLM SI – Resilient\, Inclusive and Digital Supply Ch
@@ -2099,7 +2968,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijlm-africa-sc-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Submissions open: IJLM SI – Resilient\, Inclusive and Digital S
@@ -2123,7 +2992,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-os-architecture-of-hope-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270130
 DTEND;VALUE=DATE:20270131
 SUMMARY:DEADLINE: OS SI – The Architecture of Hope in Distressing Times
@@ -2150,7 +3019,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-tr-a-governing-safety-in-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270130
 DTEND;VALUE=DATE:20270131
 SUMMARY:DEADLINE: TR-A SI – Governing Safety in Connected and Automated
@@ -2178,7 +3047,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jbee-null-results-in-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270130
 DTEND;VALUE=DATE:20270131
 SUMMARY:DEADLINE: JBEE SI – Null Results in Behavioral and Experimental
@@ -2205,7 +3074,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-aaaj-value-worth-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270130
 DTEND;VALUE=DATE:20270131
 SUMMARY:DEADLINE: AAAJ SI – Accounting and Accountability for Value and
@@ -2234,7 +3103,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-dss-extended-reality-xr-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: DSS SI – Extended Reality (XR) for Enhanced Decision 
@@ -2261,7 +3130,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-aap-human-factors-efficiency-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: AAP SI – Human Factors\, Efficiency\, and Safety in R
@@ -2288,7 +3157,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-le-labour-markets-in-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: LE SI – Labour Markets in an Unequal World
@@ -2313,7 +3182,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:si-technovation-hybrid-platformization-exploring-2027-close@sbt-cfp-p
  lanner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: Technovation SI – Hybrid Platformization: Exploring C
@@ -2339,7 +3208,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jbef-the-avatar-turn-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: JBEF SI – The Avatar Turn in Behavioral Finance: Expe
@@ -2366,7 +3235,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-cpa-studies-of-auditing-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: CPA SI – Studies of Auditing "On-the-Ground" in the M
@@ -2393,7 +3262,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-hp-health-security-and-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: HP SI – Health Security and Health and Care Workforce
@@ -2420,7 +3289,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-hrm-work-learning-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: HRM SI – Learning That Works and Workers That Learn: 
@@ -2450,7 +3319,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-hrm-work-learning-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Submissions open: HRM SI – Learning That Works and Workers That
@@ -2475,7 +3344,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-bjm-ijopm-polycrisis-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: BJM SI – Reshaping Organisations and Supply Chains in
@@ -2508,7 +3377,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-bjm-ijopm-polycrisis-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:Submissions open: BJM SI – Reshaping Organisations and Supply C
@@ -2536,7 +3405,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-gwo-gendered-practices-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: GWO SI – Gendered Practices at Work: (Un)intended Con
@@ -2565,7 +3434,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-aaaj-inclusive-capitalism-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: AAAJ SI – Reimagining Accounting for Inclusive Capita
@@ -2593,7 +3462,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-aaaj-inclusive-capitalism-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:Submissions open: AAAJ SI – Reimagining Accounting for Inclusiv
@@ -2616,7 +3485,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-medar-double-materiality-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: MEDAR SI – Double Materiality in Action: Challenges f
@@ -2644,7 +3513,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-medar-double-materiality-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:Submissions open: MEDAR SI – Double Materiality in Action: Chal
@@ -2667,7 +3536,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijopm-polycrisis-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: IJOPM SI – Reshaping Organisations and Supply Chains 
@@ -2698,7 +3567,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijopm-polycrisis-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:Submissions open: IJOPM SI – Reshaping Organisations and Supply
@@ -2724,7 +3593,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-pr-genai-productivity-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: PR SI – Measuring GenAI and Productivity in Work and 
@@ -2751,7 +3620,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-imr-consumer-sustainability-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: IMR SI – Global Impact\, Local Action: Understanding 
@@ -2779,7 +3648,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-imr-consumer-sustainability-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:Submissions open: IMR SI – Global Impact\, Local Action: Unders
@@ -2802,7 +3671,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijebr-women-social-ent-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: IJEBR SI – Women's Social Entrepreneurship and Digita
@@ -2830,7 +3699,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jbe-moral-repair-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: JBE SI – To Right a Wrong: Theorizing and Guiding the
@@ -2860,7 +3729,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jbe-moral-repair-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:Submissions open: JBE SI – To Right a Wrong: Theorizing and Gui
@@ -2885,7 +3754,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ot-temporal-fabrics-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: OT SI – Temporal Fabrics: Theorizing the Multipliciti
@@ -2916,7 +3785,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ot-temporal-fabrics-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:Submissions open: OT SI – Temporal Fabrics: Theorizing the Mult
@@ -2942,7 +3811,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ot-configurational-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: OT SI – Theorizing the Configurational Nature of Orga
@@ -2971,7 +3840,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ot-configurational-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:Submissions open: OT SI – Theorizing the Configurational Nature
@@ -2995,7 +3864,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-rms-unpacking-digitalization-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: RMS SI – Unpacking Digitalization: Antecedents\, Stra
@@ -3022,7 +3891,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-deca-risk-security-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: DA SI – Global Perspectives on Advances in Decision A
@@ -3049,7 +3918,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-amp-implications-evidence-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: AMP SI – Turning Implications Into Evidence: Actionab
@@ -3078,7 +3947,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-amp-implications-evidence-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Submissions open: AMP SI – Turning Implications Into Evidence: 
@@ -3102,7 +3971,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jpsp-close-relationships-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:DEADLINE: JPSP SI – Close Relationships in an Interdependent So
@@ -3129,7 +3998,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jpsp-close-relationships-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:Submissions open: JPSP SI – Close Relationships in an Interdepe
@@ -3151,7 +4020,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-orsc-agency-age-of-ai-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:DEADLINE: OrgSci SI – Agency in the Age of AI
@@ -3180,7 +4049,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-orsc-agency-age-of-ai-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261102
 DTEND;VALUE=DATE:20261103
 SUMMARY:Submissions open: OrgSci SI – Agency in the Age of AI
@@ -3204,7 +4073,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jmis-agentic-orgs-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:DEADLINE: JMIS SI – Agentic Organizations: Designing\, Governin
@@ -3231,7 +4100,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jmis-agentic-orgs-step@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
 SUMMARY:Optional extended abstract (max. 2 pages) due: JMIS SI – Agenti
@@ -3254,7 +4123,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-imm-building-a-sustainable-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:DEADLINE: IMM SI – Building a Sustainable World – the Role of
@@ -3281,7 +4150,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijpm-recapturing-the-project-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:DEADLINE: IJPM SI – Recapturing the Project Business Case
@@ -3307,7 +4176,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ss-50-years-since-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:DEADLINE: SS SI – 50 Years since the Seveso Disaster – Lesson
@@ -3334,7 +4203,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jpbm-enshittification-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:DEADLINE: JPBM SI – Enshittification\, Products\, and Brands
@@ -3361,7 +4230,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jpbm-enshittification-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261002
 SUMMARY:Submissions open: JPBM SI – Enshittification\, Products\, and B
@@ -3384,7 +4253,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jmm-divisive-world-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:DEADLINE: JMM SI – Marketing in a Divisive World: The Role of P
@@ -3413,7 +4282,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-deca-nonstationarity-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:DEADLINE: DA SI – Navigating Nonstationarity: Decision Analysis
@@ -3440,7 +4309,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-deca-nonstationarity-2027-step@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270831
 DTEND;VALUE=DATE:20270901
 SUMMARY:Manuscripts preferably by (rolling): DA SI – Navigating Nonstat
@@ -3463,7 +4332,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-thci-anthropomorphism-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:DEADLINE: THCI SI – Anthropomorphism in the Age of AI: When\, W
@@ -3489,7 +4358,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-job-org-change-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270215
 DTEND;VALUE=DATE:20270216
 SUMMARY:DEADLINE: JOB SI – Organizational Change in Transforming Global
@@ -3519,7 +4388,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-job-org-change-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:Submissions open: JOB SI – Organizational Change in Transformin
@@ -3544,7 +4413,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijebr-female-senior-ent-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270215
 DTEND;VALUE=DATE:20270216
 SUMMARY:DEADLINE: IJEBR SI – Female senior entrepreneurship: Theory and
@@ -3572,7 +4441,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-itd-disruption-repression-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270222
 DTEND;VALUE=DATE:20270223
 SUMMARY:DEADLINE: ITD SI – Digital Technologies in Disruption and Repre
@@ -3598,7 +4467,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-itd-disruption-repression-2027-step@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270630
 DTEND;VALUE=DATE:20270701
 SUMMARY:Full paper due: ITD SI – Digital Technologies in Disruption and
@@ -3619,7 +4488,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jae-2027-conf-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270226
 DTEND;VALUE=DATE:20270227
 SUMMARY:DEADLINE: JAE SI – 2027 JAE Conference: new and innovative econ
@@ -3646,7 +4515,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jae-2027-conf-step@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271015
 DTEND;VALUE=DATE:20271016
 SUMMARY:JAE Conference in Rochester (to 16 Oct): JAE SI – 2027 JAE Conf
@@ -3669,7 +4538,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-eist-the-role-of-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270226
 DTEND;VALUE=DATE:20270227
 SUMMARY:DEADLINE: EIST SI – The Role of Law in Sustainability Transitio
@@ -3696,7 +4565,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jsm-genai-agentic-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270226
 DTEND;VALUE=DATE:20270227
 SUMMARY:DEADLINE: JSM SI – Theoretical perspectives on Generative and A
@@ -3724,7 +4593,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jom-multiflow-supply-chains-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270227
 DTEND;VALUE=DATE:20270228
 SUMMARY:DEADLINE: JOpsM SI – Operationally Distinctive Supply Chains an
@@ -3751,7 +4620,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jom-multiflow-supply-chains-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Submissions open: JOpsM SI – Operationally Distinctive Supply C
@@ -3773,7 +4642,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jom-multiflow-supply-chains-step@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270715
 DTEND;VALUE=DATE:20270716
 SUMMARY:Full paper due: JOpsM SI – Operationally Distinctive Supply Cha
@@ -3795,7 +4664,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jms-board-dynamics-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:DEADLINE: JMS SI – Board Dynamics in Complex Times
@@ -3823,7 +4692,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijpm-rethinking-time-in-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:DEADLINE: IJPM SI – Rethinking Time in Projects: Temporal Pract
@@ -3851,7 +4720,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-emj-designing-research-for-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:DEADLINE: EMJ SI – Designing Research for Responsible Futures: 
@@ -3878,7 +4747,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jim-how-multinational-enterprises-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:DEADLINE: JIM SI – How Multinational Enterprises and Traders in
@@ -3905,7 +4774,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-em-artificial-intelligence-data-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:DEADLINE: EM SI – Artificial Intelligence\, Data Investment and
@@ -3931,7 +4800,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ejm-algorithmic-integration-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:DEADLINE: EJM SI – Marketing and Algorithmic Integration for Ec
@@ -3960,7 +4829,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ejm-algorithmic-integration-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20260925
 DTEND;VALUE=DATE:20260926
 SUMMARY:Submissions open: EJM SI – Marketing and Algorithmic Integratio
@@ -3984,7 +4853,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijopm-unethical-sc-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:DEADLINE: IJOPM SI – (Un)ethical Decision-Making in Supply Chai
@@ -4014,7 +4883,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijopm-unethical-sc-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:Submissions open: IJOPM SI – (Un)ethical Decision-Making in Sup
@@ -4039,7 +4908,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-thci-human-ai-cocreation-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:DEADLINE: THCI SI – Human-AI Co-Creation of Realistic Media: Ri
@@ -4067,7 +4936,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-imm-regional-industrial-marketing-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:DEADLINE: IMM SI – Regional Industrial Marketing Management: Ba
@@ -4094,7 +4963,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-qram-transforming-ma-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:DEADLINE: QRAM SI – Transforming Management Accounting: Digital
@@ -4122,7 +4991,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-qram-transforming-ma-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:Submissions open: QRAM SI – Transforming Management Accounting:
@@ -4145,7 +5014,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-pr-human-centered-ai-dei-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:DEADLINE: PR SI – Toward a Human-Centered Workplace: Empowering
@@ -4173,7 +5042,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-cdi-meaningful-work-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:DEADLINE: CDI SI – Meaning\, Meaningfulness\, and Purpose at Wo
@@ -4201,7 +5070,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijchm-human-ai-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:DEADLINE: IJCHM SI – Human-AI Collaboration in Hospitality and 
@@ -4229,7 +5098,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijchm-human-ai-2027-step@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270801
 DTEND;VALUE=DATE:20270802
 SUMMARY:Full manuscript due: IJCHM SI – Human-AI Collaboration in Hospi
@@ -4252,7 +5121,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jmm-ai-human-loop-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:DEADLINE: JMM SI – Artificial Intelligence and Marketing: Rethi
@@ -4281,7 +5150,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-misqe-agentic-ai-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:DEADLINE: MISQE SI – Designing\, Managing\, and Scaling the Del
@@ -4309,7 +5178,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-imr-entrepreneurship-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270302
 DTEND;VALUE=DATE:20270303
 SUMMARY:DEADLINE: IMR SI – Entrepreneurship and International Marketing
@@ -4335,7 +5204,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijlm-regenerative-tech-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270315
 DTEND;VALUE=DATE:20270316
 SUMMARY:DEADLINE: IJLM SI – Harnessing Technological Innovation for Man
@@ -4364,7 +5233,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-josm-grand-challenges-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270330
 DTEND;VALUE=DATE:20270331
 SUMMARY:DEADLINE: JOSM SI – How can service management research address
@@ -4392,7 +5261,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-josm-grand-challenges-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:Submissions open: JOSM SI – How can service management research
@@ -4415,7 +5284,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jms-edi-contested-times-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DEADLINE: JMS SI – Organizational Practices for Equality\, Dive
@@ -4448,7 +5317,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jms-edi-contested-times-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270315
 DTEND;VALUE=DATE:20270316
 SUMMARY:Submissions open: JMS SI – Organizational Practices for Equalit
@@ -4476,7 +5345,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-atr-curated-collection-on-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DEADLINE: ATR SI – Curated Collection on Methods in Tourism Res
@@ -4503,7 +5372,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-aap-safety-challenges-and-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DEADLINE: AAP SI – Safety Challenges and Innovations in the Low
@@ -4530,7 +5399,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-eer-global-trade-fragmentation-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DEADLINE: EER SI – Global Trade Fragmentation and Regional Trad
@@ -4557,7 +5426,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jebo-origins-and-stabilization-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DEADLINE: JEBO SI – Origins and Stabilization of Economic Cycle
@@ -4585,7 +5454,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:si-technovation-technological-sovereignty-and-2027-close@sbt-cfp-plan
  ner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DEADLINE: Technovation SI – Technological Sovereignty and Innov
@@ -4611,7 +5480,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jimf-trade-wars-geopolitical-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DEADLINE: JIMF SI – Trade Wars\, Geopolitical Fragmentation and
@@ -4639,7 +5508,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-eap-geoeconomic-fragmentation-and-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DEADLINE: EAP SI – Geoeconomic Fragmentation and AI-Driven Fina
@@ -4669,7 +5538,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:si-sej-international-entrepreneurship-disruption-2027-close@sbt-cfp-p
  lanner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DEADLINE: SEJ SI – International Entrepreneurship in an Age of 
@@ -4698,7 +5567,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-hrm-tech-talent-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DEADLINE: HRM SI – Tech & Talent: The Evolving Role of Technolo
@@ -4728,7 +5597,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-hrm-tech-talent-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:Submissions open: HRM SI – Tech & Talent: The Evolving Role of 
@@ -4753,7 +5622,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-isj-digital-sovereignty-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DEADLINE: ISJ SI – Digital Sovereignty
@@ -4781,7 +5650,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ejm-service-impact-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DEADLINE: EJM SI – Creating\, Measuring\, and Managing Impact i
@@ -4809,7 +5678,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ejm-service-impact-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:Submissions open: EJM SI – Creating\, Measuring\, and Managing 
@@ -4832,7 +5701,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijebr-destructive-ent-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DEADLINE: IJEBR SI – Scaling up technology driven innovations i
@@ -4860,7 +5729,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijebr-destructive-ent-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261230
 DTEND;VALUE=DATE:20261231
 SUMMARY:Submissions open: IJEBR SI – Scaling up technology driven innov
@@ -4883,7 +5752,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ejis-digital-visibility-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DEADLINE: EJIS SI – Digital Visibility: Design\, Management\, &
@@ -4911,7 +5780,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-af-fraud-guardians-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DEADLINE: AF SI – Guardians of Accountability: Accounting Profe
@@ -4939,7 +5808,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-af-fraud-guardians-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:Submissions open: AF SI – Guardians of Accountability: Accounti
@@ -4962,7 +5831,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-horizons-ai-accounting-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:DEADLINE: AH SI – AI in Accounting Practice and Research (speci
@@ -4991,7 +5860,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-imm-artificial-intelligence-and-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270401
 DTEND;VALUE=DATE:20270402
 SUMMARY:DEADLINE: IMM SI – Artificial Intelligence and Social Media in 
@@ -5020,7 +5889,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jppm-wiser-consumption-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270405
 DTEND;VALUE=DATE:20270406
 SUMMARY:DEADLINE: JPP&M SI – Advancing Wiser Consumption and Innovation
@@ -5051,7 +5920,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jppm-wiser-consumption-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Submissions open: JPP&M SI – Advancing Wiser Consumption and In
@@ -5078,7 +5947,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijopm-scaling-tech-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270408
 DTEND;VALUE=DATE:20270409
 SUMMARY:DEADLINE: IJOPM SI – Managing Operational Tensions in Scaling E
@@ -5106,7 +5975,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijopm-scaling-tech-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270108
 DTEND;VALUE=DATE:20270109
 SUMMARY:Submissions open: IJOPM SI – Managing Operational Tensions in S
@@ -5129,7 +5998,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-technovation-technology-as-a-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270430
 DTEND;VALUE=DATE:20270501
 SUMMARY:DEADLINE: Technovation SI – Technology as a Transformative Arti
@@ -5156,7 +6025,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-pbfj-special-issue-on-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270430
 DTEND;VALUE=DATE:20270501
 SUMMARY:DEADLINE: PBFJ SI – Special Issue on AI Disruption in Global Ca
@@ -5182,7 +6051,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-em-challenges-to-financial-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270430
 DTEND;VALUE=DATE:20270501
 SUMMARY:DEADLINE: EM SI – Challenges to Financial Stability in Latin Am
@@ -5208,7 +6077,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jep-numeracy-and-economic-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270430
 DTEND;VALUE=DATE:20270501
 SUMMARY:DEADLINE: JEP SI – Numeracy and Economic Decisions
@@ -5233,7 +6102,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-beq-illiberalism-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270430
 DTEND;VALUE=DATE:20270501
 SUMMARY:DEADLINE: BEQ SI – Business Ethics\, Illiberalism\, and the New
@@ -5263,7 +6132,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-beq-illiberalism-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:Submissions open: BEQ SI – Business Ethics\, Illiberalism\, and
@@ -5288,7 +6157,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ejm-healthy-food-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270430
 DTEND;VALUE=DATE:20270501
 SUMMARY:DEADLINE: EJM SI – Healthy Food and Sustainable Consumption: Wh
@@ -5317,7 +6186,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ejm-healthy-food-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:Submissions open: EJM SI – Healthy Food and Sustainable Consump
@@ -5341,7 +6210,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijhrm-ai-literacy-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270430
 DTEND;VALUE=DATE:20270501
 SUMMARY:DEADLINE: IJHRM SI – AI Literacy at Work: Implications for Huma
@@ -5369,7 +6238,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijhrm-ai-literacy-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:Submissions open: IJHRM SI – AI Literacy at Work: Implications 
@@ -5392,7 +6261,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ibr-strategic-adaptation-of-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
 SUMMARY:DEADLINE: IBR SI – Strategic Adaptation of MNEs in a Fragmented
@@ -5419,7 +6288,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ajm-innovation-market-transformation-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
 SUMMARY:DEADLINE: AJM SI – Innovation and Market Transformation
@@ -5445,7 +6314,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jms-organizing-truth-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270503
 DTEND;VALUE=DATE:20270504
 SUMMARY:DEADLINE: JMS SI – Organizing Truth in an Age of Polarization a
@@ -5475,7 +6344,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-bas-blue-economy-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270515
 DTEND;VALUE=DATE:20270516
 SUMMARY:DEADLINE: B&S SI – Our oceans as a business-society nexus: adva
@@ -5505,7 +6374,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-bas-blue-economy-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270315
 DTEND;VALUE=DATE:20270316
 SUMMARY:Submissions open: B&S SI – Our oceans as a business-society nex
@@ -5531,7 +6400,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-bas-blue-economy-2027-step@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270601
 DTEND;VALUE=DATE:20270602
 SUMMARY:Post-submission R&R workshop\, Univ. of the South Pacific\, Suva\
@@ -5559,7 +6428,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jebo-fertility-and-family-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270530
 DTEND;VALUE=DATE:20270531
 SUMMARY:DEADLINE: JEBO SI – Fertility and Family Dynamics: Mechanisms\,
@@ -5586,7 +6455,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-frl-call-for-african-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270530
 DTEND;VALUE=DATE:20270531
 SUMMARY:DEADLINE: FRL SI – Call for African Financial Research Proposal
@@ -5612,7 +6481,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jifmim-call-for-african-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270530
 DTEND;VALUE=DATE:20270531
 SUMMARY:DEADLINE: JIFMIM SI – Call for African Financial Research Propo
@@ -5639,7 +6508,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-tpd-ai-asia-pacific-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270530
 DTEND;VALUE=DATE:20270531
 SUMMARY:DEADLINE: TPD SI – Intelligent Transformation of Tourism Develo
@@ -5667,7 +6536,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-omega-omega-55th-anniversary-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270531
 DTEND;VALUE=DATE:20270601
 SUMMARY:DEADLINE: Omega SI – Omega 55th Anniversary Special Issue – D
@@ -5692,7 +6561,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ss-ensuring-safety-in-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270531
 DTEND;VALUE=DATE:20270601
 SUMMARY:DEADLINE: SS SI – Ensuring Safety in Digital and Autonomous Tra
@@ -5719,7 +6588,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jbim-turbulent-networks-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270531
 DTEND;VALUE=DATE:20270601
 SUMMARY:DEADLINE: JBIM SI – Relationship dynamics in turbulent business
@@ -5746,7 +6615,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jbim-turbulent-networks-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:Submissions open: JBIM SI – Relationship dynamics in turbulent 
@@ -5768,7 +6637,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jms-corporate-transactions-ai-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270601
 DTEND;VALUE=DATE:20270602
 SUMMARY:DEADLINE: JMS SI – Corporate Transactions in the Age of AI: Dig
@@ -5800,7 +6669,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jom-underexplored-social-contexts-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270601
 DTEND;VALUE=DATE:20270602
 SUMMARY:DEADLINE: JOpsM SI – Using OM to Confront Challenges in Underex
@@ -5826,7 +6695,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jom-underexplored-social-contexts-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:Submissions open: JOpsM SI – Using OM to Confront Challenges in
@@ -5847,7 +6716,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-rp-academic-engagement-promises-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270601
 DTEND;VALUE=DATE:20270602
 SUMMARY:DEADLINE: RP SI – Academic Engagement: Promises\, Potential\, a
@@ -5873,7 +6742,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-i-m-special-issue-for-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270601
 DTEND;VALUE=DATE:20270602
 SUMMARY:DEADLINE: I&M SI – Special Issue for the Pacific Asia Conferenc
@@ -5900,7 +6769,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-er-green-hrm-leadership-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270601
 DTEND;VALUE=DATE:20270602
 SUMMARY:DEADLINE: ER SI – Integrating Leadership and Green Human Resour
@@ -5928,7 +6797,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-er-green-hrm-leadership-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:Submissions open: ER SI – Integrating Leadership and Green Huma
@@ -5951,7 +6820,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jmm-literary-perspectives-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270607
 DTEND;VALUE=DATE:20270608
 SUMMARY:DEADLINE: JMM SI – Literary Perspectives on Marketing
@@ -5977,7 +6846,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-tr-a-how-new-technologies-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270610
 DTEND;VALUE=DATE:20270611
 SUMMARY:DEADLINE: TR-A SI – How New Technologies Reshape Public Transpo
@@ -6005,7 +6874,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-eap-the-economics-of-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270630
 DTEND;VALUE=DATE:20270701
 SUMMARY:DEADLINE: EAP SI – The Economics of Climate Transition in Asia-
@@ -6032,7 +6901,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ppc-ai-production-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270630
 DTEND;VALUE=DATE:20270701
 SUMMARY:DEADLINE: PPC SI – Artificial Intelligence–Enabled Production
@@ -6061,7 +6930,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-applied-econ-ai-productivity-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270630
 DTEND;VALUE=DATE:20270701
 SUMMARY:DEADLINE: AE SI – Productivity\, Risk and Economic Performance 
@@ -6089,7 +6958,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-fbr-quasi-replications-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270715
 DTEND;VALUE=DATE:20270716
 SUMMARY:DEADLINE: FBR SI – Quasi-Replications in Family Business: Stren
@@ -6117,7 +6986,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-fbr-quasi-replications-2027-step@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270915
 DTEND;VALUE=DATE:20270916
 SUMMARY:Virtual paper development workshop for invited proposals (tentati
@@ -6142,7 +7011,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jfe-si-ai-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270717
 DTEND;VALUE=DATE:20270718
 SUMMARY:DEADLINE: JFE SI – Special Issue: Economic and Financial Implic
@@ -6171,7 +7040,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-tm-visualising-tourism-imagery-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270731
 DTEND;VALUE=DATE:20270801
 SUMMARY:DEADLINE: TM SI – Visualising Tourism: Imagery\, Attention and 
@@ -6198,7 +7067,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ee-the-future-of-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270731
 DTEND;VALUE=DATE:20270801
 SUMMARY:DEADLINE: EE SI – The Future of Electrification in Transportati
@@ -6223,7 +7092,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jim-china-and-the-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270731
 DTEND;VALUE=DATE:20270801
 SUMMARY:DEADLINE: JIM SI – China and the Reconfiguration of Internation
@@ -6251,7 +7120,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijpdlm-digital-ecosystems-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270731
 DTEND;VALUE=DATE:20270801
 SUMMARY:DEADLINE: IJPDLM SI – Understanding Tensions in Digital Supply 
@@ -6279,7 +7148,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijpdlm-digital-ecosystems-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:Submissions open: IJPDLM SI – Understanding Tensions in Digital
@@ -6302,7 +7171,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jmk-measuring-what-matters-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270731
 DTEND;VALUE=DATE:20270801
 SUMMARY:DEADLINE: JMM SI – Measuring What Matters
@@ -6327,7 +7196,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-imm-trust-under-disruption-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270801
 DTEND;VALUE=DATE:20270802
 SUMMARY:DEADLINE: IMM SI – Trust Under Disruption in B2B Relationships:
@@ -6355,7 +7224,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jar-machines-as-method-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270801
 DTEND;VALUE=DATE:20270802
 SUMMARY:DEADLINE: JAR SI – Machines as Method: The Use of Artificial In
@@ -6383,7 +7252,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jar-machines-as-method-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270701
 DTEND;VALUE=DATE:20270702
 SUMMARY:Submissions open: JAR SI – Machines as Method: The Use of Artif
@@ -6406,7 +7275,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-omega-omega-55thanniversary-special-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270831
 DTEND;VALUE=DATE:20270901
 SUMMARY:DEADLINE: Omega SI – Omega 55th-Anniversary Special Issue: Data
@@ -6431,7 +7300,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-tr-ai-robotic-marketing-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270831
 DTEND;VALUE=DATE:20270901
 SUMMARY:DEADLINE: TR SI – Themed Issue: Tourism and Hospitality Marketi
@@ -6460,7 +7329,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ajpt-null-results-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270831
 DTEND;VALUE=DATE:20270901
 SUMMARY:DEADLINE: AJPT SI – Unexpected or Non-Significant Results in Ex
@@ -6489,7 +7358,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ajpt-shorter-papers-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270831
 DTEND;VALUE=DATE:20270901
 SUMMARY:DEADLINE: AJPT SI – Shorter Papers (call for submissions)
@@ -6514,7 +7383,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jbv-entrepreneurial-ethics-moral-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270901
 DTEND;VALUE=DATE:20270902
 SUMMARY:DEADLINE: JBV SI – Entrepreneurial Ethics: Moral Cognition\, Af
@@ -6542,7 +7411,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jbvi-applying-the-prism-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270909
 DTEND;VALUE=DATE:20270910
 SUMMARY:DEADLINE: JBVI SI – Applying the Prism Effect to Local Developm
@@ -6569,7 +7438,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jsis-digital-strategizing-emerging-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270915
 DTEND;VALUE=DATE:20270916
 SUMMARY:DEADLINE: JSIS SI – Digital Strategizing: Emerging Forms and Un
@@ -6596,7 +7465,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-tpd-coastal-africa-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270920
 DTEND;VALUE=DATE:20270921
 SUMMARY:DEADLINE: TPD SI – Oceans of Opportunity: Navigating a New Cour
@@ -6626,7 +7495,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-mar-ai-and-management-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270930
 DTEND;VALUE=DATE:20271001
 SUMMARY:DEADLINE: MAR SI – AI and Management Control
@@ -6652,7 +7521,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jimf-global-capital-reallocation-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270930
 DTEND;VALUE=DATE:20271001
 SUMMARY:DEADLINE: JIMF SI – Global Capital Reallocation\, Geoeconomic F
@@ -6679,7 +7548,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-gsj-demographic-transformation-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270930
 DTEND;VALUE=DATE:20271001
 SUMMARY:DEADLINE: GSJ SI – Global Strategy in an Era of Demographic Tra
@@ -6707,7 +7576,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-gsj-demographic-transformation-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270915
 DTEND;VALUE=DATE:20270916
 SUMMARY:Submissions open: GSJ SI – Global Strategy in an Era of Demogra
@@ -6730,7 +7599,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-scm-geopolitical-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270930
 DTEND;VALUE=DATE:20271001
 SUMMARY:DEADLINE: SCMIJ SI – Leveraging supply chains as strategic geop
@@ -6761,7 +7630,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-scm-geopolitical-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270601
 DTEND;VALUE=DATE:20270602
 SUMMARY:Submissions open: SCMIJ SI – Leveraging supply chains as strate
@@ -6787,7 +7656,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-imr-family-business-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270930
 DTEND;VALUE=DATE:20271001
 SUMMARY:DEADLINE: IMR SI – International Marketing in Family Business: 
@@ -6815,7 +7684,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-imr-family-business-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:Submissions open: IMR SI – International Marketing in Family Bu
@@ -6838,7 +7707,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-etp-time-entrepreneurship-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270930
 DTEND;VALUE=DATE:20271001
 SUMMARY:DEADLINE: ETP SI – Time in Entrepreneurship: New Perspectives a
@@ -6866,7 +7735,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jbv-entrepreneurship-from-the-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271001
 DTEND;VALUE=DATE:20271002
 SUMMARY:DEADLINE: JBV SI – Entrepreneurship from the Margins: Structure
@@ -6895,7 +7764,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-gwo-family-firms-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271001
 DTEND;VALUE=DATE:20271002
 SUMMARY:DEADLINE: GWO SI – The Gendered Architecture of Family Firms: O
@@ -6924,7 +7793,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jeplmc-conflict-adaptation-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271001
 DTEND;VALUE=DATE:20271002
 SUMMARY:DEADLINE: JEP:LMC SI – Conflict Adaptation across Single-Task a
@@ -6950,7 +7819,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijpr-hazardous-chemicals-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271031
 DTEND;VALUE=DATE:20271101
 SUMMARY:DEADLINE: IJPR SI – Management Theories and Methods for Safe Op
@@ -6979,7 +7848,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijpr-hazardous-chemicals-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:Submissions open: IJPR SI – Management Theories and Methods for
@@ -7004,7 +7873,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-imr-corporate-sustainability-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271101
 DTEND;VALUE=DATE:20271102
 SUMMARY:DEADLINE: IMR SI – Corporate Sustainability in a Fragmenting Gl
@@ -7033,7 +7902,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-imr-corporate-sustainability-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270901
 DTEND;VALUE=DATE:20270902
 SUMMARY:Submissions open: IMR SI – Corporate Sustainability in a Fragme
@@ -7057,7 +7926,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-imr-corporate-sustainability-2027-step@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:PDW submission\, Global Marketing Conference 2027: IMR SI – Cor
@@ -7083,7 +7952,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jais-growing-up-online-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271101
 DTEND;VALUE=DATE:20271102
 SUMMARY:DEADLINE: JAIS SI – Growing up Online: How Digital Platforms Sh
@@ -7110,7 +7979,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jde-special-issue-in-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271115
 DTEND;VALUE=DATE:20271116
 SUMMARY:DEADLINE: JDE SI – Special Issue in Honor of Jere R. Behrman: H
@@ -7137,7 +8006,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-medar-fair-presentation-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271130
 DTEND;VALUE=DATE:20271201
 SUMMARY:DEADLINE: MEDAR SI – Sustainability Reporting and Fair Presenta
@@ -7165,7 +8034,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-medar-fair-presentation-2027-open@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270901
 DTEND;VALUE=DATE:20270902
 SUMMARY:Submissions open: MEDAR SI – Sustainability Reporting and Fair 
@@ -7188,7 +8057,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-ijchm-critical-reflection-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271231
 DTEND;VALUE=DATE:20280101
 SUMMARY:DEADLINE: IJCHM SI – Call for Critical Reflection Papers (estim
@@ -7215,7 +8084,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-erd-ecosystem-leadership-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271231
 DTEND;VALUE=DATE:20280101
 SUMMARY:DEADLINE: ERD SI – Entrepreneurial Ecosystem Leadership: Proces
@@ -7243,7 +8112,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jbv-new-venture-professionalization-2028-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20280108
 DTEND;VALUE=DATE:20280109
 SUMMARY:DEADLINE: JBV SI – New Venture Professionalization: Processes\,
@@ -7270,7 +8139,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jbvi-situating-india-in-2028-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20280115
 DTEND;VALUE=DATE:20280116
 SUMMARY:DEADLINE: JBVI SI – Situating India in Entrepreneurship Scholar
@@ -7298,7 +8167,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jdmm-phygital-wellbeing-in-2028-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20280730
 DTEND;VALUE=DATE:20280731
 SUMMARY:DEADLINE: JDMM SI – Phygital Well-Being in Hybrid Tourism Desti
@@ -7326,7 +8195,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jdmm-digital-transformation-and-2028-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20280831
 DTEND;VALUE=DATE:20280901
 SUMMARY:DEADLINE: JDMM SI – Digital Transformation and AI-Enabled Accom
@@ -7355,7 +8224,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-jbvi-number-eight-wire-2028-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20280901
 DTEND;VALUE=DATE:20280902
 SUMMARY:DEADLINE: JBVI SI – Number Eight Wire Mindset: Enhancing our Un
@@ -7383,7 +8252,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:si-pbfj-pbfj-responsible-and-2028-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20281231
 DTEND;VALUE=DATE:20290101
 SUMMARY:DEADLINE: PBFJ SI – PBFJ Responsible and Open Science in Action
@@ -7410,7 +8279,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-aom-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270112
 DTEND;VALUE=DATE:20270113
 SUMMARY:CFP DEADLINE: AOM Annual Meeting 2027
@@ -7435,7 +8304,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-aom-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270730
 DTEND;VALUE=DATE:20270804
 SUMMARY:AOM Annual Meeting 2027 · Vienna\, Austria
@@ -7450,7 +8319,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-sms-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270224
 DTEND;VALUE=DATE:20270225
 SUMMARY:CFP DEADLINE: SMS 47th Annual Conference 2027
@@ -7478,7 +8347,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-sms-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271016
 DTEND;VALUE=DATE:20271020
 SUMMARY:SMS 47th Annual Conference 2027 · Vancouver\, Canada
@@ -7496,18 +8365,17 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-aib-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
-DTSTART;VALUE=DATE:20270115
-DTEND;VALUE=DATE:20270116
-SUMMARY:CFP DEADLINE: AIB Annual Meeting 2027 (estimated)
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270112
+DTEND;VALUE=DATE:20270113
+SUMMARY:CFP DEADLINE: AIB Annual Meeting 2027
 DESCRIPTION:Academy of International Business Annual Meeting 2027 (Academ
- ic\, Global)\nTBA\nCall: https://www.aib.world/events/\nEstimated from th
- e usual annual cycle: the deadline is usually mid-January and the meeting
-  runs from late June to early July. The 2027 venue and call could not be 
- verified because the AIB site was not reachable. AIB usually accepts comp
- etitive papers\, panels and PDWs.\nPlanner: https://sourabhbhattacharya.g
- ithub.io/SBT/journal-special-issues/
-URL:https://www.aib.world/events/
+ ic\, Global)\nKuala Lumpur\, Malaysia\nCall: https://www.aib.world/2027-a
+ nnual-meeting/contribute/call-for-papers/\nHosted by Sunway Business Scho
+ ol\, Sunway University (Sunway City\, Kuala Lumpur). Submissions are due 
+ 12 January 2027.\nPlanner: https://sourabhbhattacharya.github.io/SBT/jour
+ nal-special-issues/
+URL:https://www.aib.world/2027-annual-meeting/contribute/call-for-papers/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -7522,23 +8390,22 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-aib-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
-DTSTART;VALUE=DATE:20270628
-DTEND;VALUE=DATE:20270703
-SUMMARY:AIB Annual Meeting 2027 · TBA (expected dates)
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270701
+SUMMARY:AIB Annual Meeting 2027 · Kuala Lumpur\, Malaysia
 DESCRIPTION:Academy of International Business Annual Meeting 2027 (Academ
- ic\, Global)\nTBA\nCall: https://www.aib.world/events/\nEstimated from th
- e usual annual cycle: the deadline is usually mid-January and the meeting
-  runs from late June to early July. The 2027 venue and call could not be 
- verified because the AIB site was not reachable. AIB usually accepts comp
- etitive papers\, panels and PDWs.\nPlanner: https://sourabhbhattacharya.g
- ithub.io/SBT/journal-special-issues/
-URL:https://www.aib.world/events/
+ ic\, Global)\nKuala Lumpur\, Malaysia\nCall: https://www.aib.world/2027-a
+ nnual-meeting/contribute/call-for-papers/\nHosted by Sunway Business Scho
+ ol\, Sunway University (Sunway City\, Kuala Lumpur). Submissions are due 
+ 12 January 2027.\nPlanner: https://sourabhbhattacharya.github.io/SBT/jour
+ nal-special-issues/
+URL:https://www.aib.world/2027-annual-meeting/contribute/call-for-papers/
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-euram-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270112
 DTEND;VALUE=DATE:20270113
 SUMMARY:CFP DEADLINE: EURAM 2027
@@ -7564,7 +8431,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-euram-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270622
 DTEND;VALUE=DATE:20270626
 SUMMARY:EURAM 2027 · Amsterdam\, Netherlands
@@ -7580,7 +8447,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-egos-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:CFP DEADLINE: EGOS Colloquium 2027
@@ -7605,7 +8472,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-egos-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270708
 DTEND;VALUE=DATE:20270711
 SUMMARY:EGOS Colloquium 2027 · Liverpool\, UK
@@ -7620,7 +8487,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-bam-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270227
 DTEND;VALUE=DATE:20270228
 SUMMARY:CFP DEADLINE: BAM2027 Conference (estimated)
@@ -7647,7 +8514,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-bam-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270907
 DTEND;VALUE=DATE:20270911
 SUMMARY:BAM2027 Conference · UK (host TBA) (expected dates)
@@ -7664,7 +8531,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-anzam-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270630
 DTEND;VALUE=DATE:20270701
 SUMMARY:CFP DEADLINE: ANZAM 2027 Conference (estimated)
@@ -7690,7 +8557,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-anzam-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271201
 DTEND;VALUE=DATE:20271204
 SUMMARY:ANZAM 2027 Conference · Australia/New Zealand (TBA) (expected da
@@ -7707,7 +8574,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-bcerc-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
 SUMMARY:CFP DEADLINE: BCERC 2027
@@ -7733,7 +8600,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-bcerc-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270609
 DTEND;VALUE=DATE:20270613
 SUMMARY:BCERC 2027 · Lausanne\, Switzerland
@@ -7749,7 +8616,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ama-winter-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270212
 DTEND;VALUE=DATE:20270215
 SUMMARY:AMA Winter Academic Conference 2027 · New Orleans\, USA
@@ -7766,7 +8633,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ama-summer-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:CFP DEADLINE: AMA Summer Academic Conference 2027
@@ -7793,7 +8660,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ama-summer-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270806
 DTEND;VALUE=DATE:20270809
 SUMMARY:AMA Summer Academic Conference 2027 · National Harbor (Washingto
@@ -7811,7 +8678,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ams-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:CFP DEADLINE: AMS Annual Conference 2027
@@ -7836,7 +8703,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ams-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270519
 DTEND;VALUE=DATE:20270522
 SUMMARY:AMS Annual Conference 2027 · La Jolla\, USA
@@ -7851,7 +8718,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ams-wmc-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:CFP DEADLINE: AMS World Marketing Congress 2027
@@ -7876,7 +8743,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ams-wmc-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270720
 DTEND;VALUE=DATE:20270724
 SUMMARY:AMS World Marketing Congress 2027 · Lisbon\, Portugal
@@ -7891,17 +8758,17 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-emac-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
-SUMMARY:CFP DEADLINE: EMAC 2027 (estimated)
+SUMMARY:CFP DEADLINE: EMAC 2027
 DESCRIPTION:56th European Marketing Academy Annual Conference (Academic\,
-  Global)\nEurope (TBA)\nCall: https://emac-online.org/\nEstimated: EMAC u
- sually takes competitive papers or extended abstracts by early December\,
-  and the conference is in late May. The 2027 host and dates could not be 
- verified.\nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-spe
+  Global)\nRome\, Italy\nCall: https://emac2027.org/paper-special-sessions
+ -submission/\n56th EMAC Annual Conference at Luiss Guido Carli University
+ \, Rome. Papers and special-session proposals are due 1 December 2026\, 1
+ 6:00 CET.\nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-spe
  cial-issues/
-URL:https://emac-online.org/
+URL:https://emac2027.org/paper-special-sessions-submission/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -7916,22 +8783,22 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-emac-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270525
 DTEND;VALUE=DATE:20270529
-SUMMARY:EMAC 2027 · Europe (TBA) (expected dates)
+SUMMARY:EMAC 2027 · Rome\, Italy
 DESCRIPTION:56th European Marketing Academy Annual Conference (Academic\,
-  Global)\nEurope (TBA)\nCall: https://emac-online.org/\nEstimated: EMAC u
- sually takes competitive papers or extended abstracts by early December\,
-  and the conference is in late May. The 2027 host and dates could not be 
- verified.\nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-spe
+  Global)\nRome\, Italy\nCall: https://emac2027.org/paper-special-sessions
+ -submission/\n56th EMAC Annual Conference at Luiss Guido Carli University
+ \, Rome. Papers and special-session proposals are due 1 December 2026\, 1
+ 6:00 CET.\nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-spe
  cial-issues/
-URL:https://emac-online.org/
+URL:https://emac2027.org/paper-special-sessions-submission/
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-isms-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270215
 DTEND;VALUE=DATE:20270216
 SUMMARY:CFP DEADLINE: ISMS Marketing Science Conference 2027 (estimated)
@@ -7958,7 +8825,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-isms-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270624
 DTEND;VALUE=DATE:20270627
 SUMMARY:ISMS Marketing Science Conference 2027 · Seattle\, USA
@@ -7975,7 +8842,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-acr-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270315
 DTEND;VALUE=DATE:20270316
 SUMMARY:CFP DEADLINE: ACR 2027 Conference (estimated)
@@ -8000,7 +8867,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-acr-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271028
 DTEND;VALUE=DATE:20271101
 SUMMARY:ACR 2027 Conference · Anaheim\, USA
@@ -8015,7 +8882,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ap-acr-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270107
 DTEND;VALUE=DATE:20270111
 SUMMARY:AP-ACR 2027 (Mumbai) · Mumbai\, India
@@ -8029,7 +8896,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-scp-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270311
 DTEND;VALUE=DATE:20270315
 SUMMARY:SCP Annual Conference 2027 · Cancun\, Mexico
@@ -8043,7 +8910,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-informs-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270515
 DTEND;VALUE=DATE:20270516
 SUMMARY:CFP DEADLINE: INFORMS Annual Meeting 2027 (estimated)
@@ -8070,7 +8937,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-informs-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271024
 DTEND;VALUE=DATE:20271028
 SUMMARY:INFORMS Annual Meeting 2027 · Seattle\, USA
@@ -8087,7 +8954,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-msom-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:CFP DEADLINE: MSOM Conference 2027 (estimated)
@@ -8112,7 +8979,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-msom-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270620
 DTEND;VALUE=DATE:20270623
 SUMMARY:MSOM Conference 2027 · Banff\, Canada
@@ -8127,7 +8994,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-poms-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:CFP DEADLINE: POMS Annual Conference 2027
@@ -8152,7 +9019,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-poms-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270422
 DTEND;VALUE=DATE:20270427
 SUMMARY:POMS Annual Conference 2027 · Orlando\, USA
@@ -8167,7 +9034,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-dsi-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270415
 DTEND;VALUE=DATE:20270416
 SUMMARY:CFP DEADLINE: DSI Annual Conference 2027 (estimated)
@@ -8191,7 +9058,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-dsi-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271120
 DTEND;VALUE=DATE:20271123
 SUMMARY:DSI Annual Conference 2027 · Boston\, USA
@@ -8205,16 +9072,15 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-euroma-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
-DTSTART;VALUE=DATE:20270115
-DTEND;VALUE=DATE:20270116
-SUMMARY:CFP DEADLINE: EurOMA 2027 (estimated)
-DESCRIPTION:34th EurOMA Conference 2027 (Academic\, Global)\nEurope (TBA)
- \nCall: https://www.euroma-online.org/\nEstimated: EurOMA usually takes c
- ompetitive or working papers in mid-January for a conference in early Jul
- y. The 2027 call and host were not verified.\nPlanner: https://sourabhbha
- ttacharya.github.io/SBT/journal-special-issues/
-URL:https://www.euroma-online.org/
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:CFP DEADLINE: EurOMA 2027
+DESCRIPTION:34th EurOMA Conference 2027 (Academic\, Global)\nYork\, UK\nC
+ all: https://euroma27.org/call-for-papers/\n34th EurOMA Conference\, host
+ ed by the University of York. Full papers are due 15 April 2027.\nPlanner
+ : https://sourabhbhattacharya.github.io/SBT/journal-special-issues/
+URL:https://euroma27.org/call-for-papers/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -8229,21 +9095,20 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-euroma-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
-DTSTART;VALUE=DATE:20270704
-DTEND;VALUE=DATE:20270708
-SUMMARY:EurOMA 2027 · Europe (TBA) (expected dates)
-DESCRIPTION:34th EurOMA Conference 2027 (Academic\, Global)\nEurope (TBA)
- \nCall: https://www.euroma-online.org/\nEstimated: EurOMA usually takes c
- ompetitive or working papers in mid-January for a conference in early Jul
- y. The 2027 call and host were not verified.\nPlanner: https://sourabhbha
- ttacharya.github.io/SBT/journal-special-issues/
-URL:https://www.euroma-online.org/
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270621
+DTEND;VALUE=DATE:20270624
+SUMMARY:EurOMA 2027 · York\, UK
+DESCRIPTION:34th EurOMA Conference 2027 (Academic\, Global)\nYork\, UK\nC
+ all: https://euroma27.org/call-for-papers/\n34th EurOMA Conference\, host
+ ed by the University of York. Full papers are due 15 April 2027.\nPlanner
+ : https://sourabhbhattacharya.github.io/SBT/journal-special-issues/
+URL:https://euroma27.org/call-for-papers/
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icis-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
 SUMMARY:CFP DEADLINE: ICIS 2027 (estimated)
@@ -8267,7 +9132,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icis-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271212
 DTEND;VALUE=DATE:20271216
 SUMMARY:ICIS 2027 · TBA (expected dates)
@@ -8281,17 +9146,17 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ecis-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
-DTSTART;VALUE=DATE:20261130
-DTEND;VALUE=DATE:20261201
-SUMMARY:CFP DEADLINE: ECIS 2027 (estimated)
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:CFP DEADLINE: ECIS 2027
 DESCRIPTION:European Conference on Information Systems 2027 (Academic\, G
- lobal)\nEurope (TBA)\nCall: https://aisnet.org/page/ECIS\nEstimated: ECIS
-  papers are usually due around late November or early December for a June
-  conference. Check the ECIS 2027 site now\, because the deadline may be i
- mminent.\nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-spec
- ial-issues/
-URL:https://aisnet.org/page/ECIS
+ lobal)\nLuxembourg City\, Luxembourg\nCall: https://ecis2027.uni.lu/\nCom
+ pleted and short research papers were due 30 October 2026. Doctoral conso
+ rtium 21–23 May\, main conference 24–26 May 2027; notifications on 1 
+ February 2027.\nPlanner: https://sourabhbhattacharya.github.io/SBT/journa
+ l-special-issues/
+URL:https://ecis2027.uni.lu/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -8306,22 +9171,22 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ecis-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
-DTSTART;VALUE=DATE:20270614
-DTEND;VALUE=DATE:20270619
-SUMMARY:ECIS 2027 · Europe (TBA) (expected dates)
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270524
+DTEND;VALUE=DATE:20270527
+SUMMARY:ECIS 2027 · Luxembourg City\, Luxembourg
 DESCRIPTION:European Conference on Information Systems 2027 (Academic\, G
- lobal)\nEurope (TBA)\nCall: https://aisnet.org/page/ECIS\nEstimated: ECIS
-  papers are usually due around late November or early December for a June
-  conference. Check the ECIS 2027 site now\, because the deadline may be i
- mminent.\nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-spec
- ial-issues/
-URL:https://aisnet.org/page/ECIS
+ lobal)\nLuxembourg City\, Luxembourg\nCall: https://ecis2027.uni.lu/\nCom
+ pleted and short research papers were due 30 October 2026. Doctoral conso
+ rtium 21–23 May\, main conference 24–26 May 2027; notifications on 1 
+ February 2027.\nPlanner: https://sourabhbhattacharya.github.io/SBT/journa
+ l-special-issues/
+URL:https://ecis2027.uni.lu/
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-amcis-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:CFP DEADLINE: AMCIS 2027 (estimated)
@@ -8345,7 +9210,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-amcis-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270812
 DTEND;VALUE=DATE:20270815
 SUMMARY:AMCIS 2027 · Americas (TBA) (expected dates)
@@ -8359,7 +9224,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-pacis-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:CFP DEADLINE: PACIS 2027 (estimated)
@@ -8384,7 +9249,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-pacis-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270705
 DTEND;VALUE=DATE:20270710
 SUMMARY:PACIS 2027 · Asia-Pacific (TBA) (expected dates)
@@ -8399,7 +9264,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-hicss-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270105
 DTEND;VALUE=DATE:20270109
 SUMMARY:HICSS-60 (2027) · Hawaii\, USA (expected dates)
@@ -8414,7 +9279,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-afa-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270103
 DTEND;VALUE=DATE:20270106
 SUMMARY:AFA Annual Meeting 2027 · USA (with ASSA; TBC) (expected dates)
@@ -8429,7 +9294,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-wfa-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:CFP DEADLINE: WFA 2027 (estimated)
@@ -8453,7 +9318,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-wfa-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270620
 DTEND;VALUE=DATE:20270624
 SUMMARY:WFA 2027 · TBA (expected dates)
@@ -8467,7 +9332,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-efa-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:CFP DEADLINE: EFA 2027 (estimated)
@@ -8491,7 +9356,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-efa-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270825
 DTEND;VALUE=DATE:20270829
 SUMMARY:EFA 2027 · Europe (TBA) (expected dates)
@@ -8505,7 +9370,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-fma-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:CFP DEADLINE: FMA Annual Meeting 2027 (estimated)
@@ -8529,7 +9394,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-fma-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271020
 DTEND;VALUE=DATE:20271024
 SUMMARY:FMA Annual Meeting 2027 · USA (TBA) (expected dates)
@@ -8543,7 +9408,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-aaa-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270113
 DTEND;VALUE=DATE:20270114
 SUMMARY:CFP DEADLINE: AAA Annual Meeting 2027 (estimated)
@@ -8567,7 +9432,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-aaa-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270807
 DTEND;VALUE=DATE:20270812
 SUMMARY:AAA Annual Meeting 2027 · USA (TBA) (expected dates)
@@ -8581,16 +9446,15 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-eaa-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:CFP DEADLINE: EAA Congress 2027
 DESCRIPTION:European Accounting Association 49th Annual Congress (Academi
  c\, Global)\nTurin\, Italy\nCall: https://eaa-online.org/congress-2027/ke
- y-dates/\nFull papers are due online by 1 Dec 2026\, and the venue is Tur
- in. The exact congress dates are estimated (EAA is usually held in May).\
- nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-special-issue
- s/
+ y-dates/\nHosted by the University of Turin\, Department of Management. F
+ ull papers are due online by 1 December 2026.\nPlanner: https://sourabhbh
+ attacharya.github.io/SBT/journal-special-issues/
 URL:https://eaa-online.org/congress-2027/key-dates/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -8606,22 +9470,21 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-eaa-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
-DTSTART;VALUE=DATE:20270519
-DTEND;VALUE=DATE:20270522
-SUMMARY:EAA Congress 2027 · Turin\, Italy (expected dates)
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20270526
+DTEND;VALUE=DATE:20270529
+SUMMARY:EAA Congress 2027 · Turin\, Italy
 DESCRIPTION:European Accounting Association 49th Annual Congress (Academi
  c\, Global)\nTurin\, Italy\nCall: https://eaa-online.org/congress-2027/ke
- y-dates/\nFull papers are due online by 1 Dec 2026\, and the venue is Tur
- in. The exact congress dates are estimated (EAA is usually held in May).\
- nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-special-issue
- s/
+ y-dates/\nHosted by the University of Turin\, Department of Management. F
+ ull papers are due online by 1 December 2026.\nPlanner: https://sourabhbh
+ attacharya.github.io/SBT/journal-special-issues/
 URL:https://eaa-online.org/congress-2027/key-dates/
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-assa-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270103
 DTEND;VALUE=DATE:20270106
 SUMMARY:ASSA/AEA Annual Meeting 2027 · USA (TBC) (expected dates)
@@ -8636,7 +9499,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-esem-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270215
 DTEND;VALUE=DATE:20270216
 SUMMARY:CFP DEADLINE: ESEM 2027 (estimated)
@@ -8661,7 +9524,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-esem-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270823
 DTEND;VALUE=DATE:20270828
 SUMMARY:ESEM 2027 · Europe (TBA) (expected dates)
@@ -8676,7 +9539,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ames-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:CFP DEADLINE: Econometric Society Asian Meetings 2027 (estimated)
@@ -8701,7 +9564,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ames-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270615
 DTEND;VALUE=DATE:20270816
 SUMMARY:Econometric Society Asian Meetings 2027 · Asia (TBA) (expected d
@@ -8717,7 +9580,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-sase-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270125
 DTEND;VALUE=DATE:20270126
 SUMMARY:CFP DEADLINE: SASE 2027 (estimated)
@@ -8742,7 +9605,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-sase-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270701
 DTEND;VALUE=DATE:20270704
 SUMMARY:SASE 2027 · TBA (expected dates)
@@ -8757,7 +9620,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-iacmr-2028-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271215
 DTEND;VALUE=DATE:20271216
 SUMMARY:CFP DEADLINE: IACMR Biennial Conference (next: 2028) (estimated)
@@ -8782,7 +9645,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-iacmr-2028-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20280615
 DTEND;VALUE=DATE:20280619
 SUMMARY:IACMR Biennial Conference (next: 2028) · China (TBA) (expected d
@@ -8798,7 +9661,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-asiaaom-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270831
 DTEND;VALUE=DATE:20270901
 SUMMARY:CFP DEADLINE: Asia Academy of Management 2027 (estimated)
@@ -8822,7 +9685,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-asiaaom-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271210
 DTEND;VALUE=DATE:20271213
 SUMMARY:Asia Academy of Management 2027 · Asia (TBA) (expected dates)
@@ -8836,7 +9699,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-isb-arc-2026-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261221
 DTEND;VALUE=DATE:20261223
 SUMMARY:ISB ARC 2026 · Hyderabad\, India
@@ -8851,7 +9714,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-isb-arc-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270615
 DTEND;VALUE=DATE:20270616
 SUMMARY:CFP DEADLINE: ISB ARC 2027 (estimated)
@@ -8875,7 +9738,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-isb-arc-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271220
 DTEND;VALUE=DATE:20271222
 SUMMARY:ISB ARC 2027 · Hyderabad\, India (expected dates)
@@ -8889,7 +9752,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-iimcfrc-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 SUMMARY:CFP DEADLINE: IIMCFRC 2026
@@ -8914,7 +9777,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-iimcfrc-2026-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261212
 DTEND;VALUE=DATE:20261215
 SUMMARY:IIMCFRC 2026 · Kolkata\, India
@@ -8929,7 +9792,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-imrc-2026-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261207
 SUMMARY:IMRC 2026 · Ahmedabad\, India
@@ -8945,7 +9808,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-isc-2026-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261216
 SUMMARY:ISC 2026 · Bengaluru\, India
@@ -8958,7 +9821,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-indam-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:CFP DEADLINE: INDAM 2027
@@ -8983,7 +9846,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-indam-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270106
 DTEND;VALUE=DATE:20270110
 SUMMARY:INDAM 2027 · Sambalpur\, India
@@ -8998,7 +9861,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-imrdc-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270122
 DTEND;VALUE=DATE:20270124
 SUMMARY:IMRDC 2027 · Bengaluru\, India
@@ -9012,7 +9875,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-imarc-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261110
 DTEND;VALUE=DATE:20261111
 SUMMARY:CFP DEADLINE: iMarC 2027
@@ -9038,7 +9901,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-imarc-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270203
 SUMMARY:iMarC 2027 · Shillong\, India
@@ -9054,7 +9917,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-airc-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
 SUMMARY:CFP DEADLINE: AIRC 2027
@@ -9079,7 +9942,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-airc-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270224
 DTEND;VALUE=DATE:20270228
 SUMMARY:AIRC 2027 · Lucknow\, India
@@ -9094,7 +9957,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icopex-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20260925
 DTEND;VALUE=DATE:20260926
 SUMMARY:CFP DEADLINE: ICOPEX 2027
@@ -9118,7 +9981,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icopex-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270111
 DTEND;VALUE=DATE:20270114
 SUMMARY:ICOPEX 2027 · Kozhikode\, India
@@ -9132,7 +9995,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-mdc-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:CFP DEADLINE: MDC 2027
@@ -9156,7 +10019,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-mdc-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270128
 DTEND;VALUE=DATE:20270130
 SUMMARY:MDC 2027 · Kharagpur\, India
@@ -9170,7 +10033,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-rutgers-atp-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270107
 DTEND;VALUE=DATE:20270109
 SUMMARY:Rutgers-ATP 2027 · Chennai\, India
@@ -9186,16 +10049,17 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ifrc-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:CFP DEADLINE: IFRC 2027
 DESCRIPTION:International Finance Research Colloquium 2027 (Academic\, In
  dia)\nMumbai\, India\nCall: https://www.nldalmia.in/ifrc-2027\nThe theme 
- is sustainable\, digital and data-driven finance. The extended deadline i
- s 30 November 2026\, but parts of the page still show 30 September\, so c
- onfirm with the organisers.\nPlanner: https://sourabhbhattacharya.github.
- io/SBT/journal-special-issues/
+ is sustainable\, digital and data-driven finance. 30 November 2026 is the
+  extended deadline (originally 30 September); notification 10 December\, 
+ presenter registration by 20 December. Doctoral colloquium 27–28 Januar
+ y\, main conference 29–30 January.\nPlanner: https://sourabhbhattachary
+ a.github.io/SBT/journal-special-issues/
 URL:https://www.nldalmia.in/ifrc-2027
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -9211,22 +10075,23 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ifrc-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270131
 SUMMARY:IFRC 2027 · Mumbai\, India
 DESCRIPTION:International Finance Research Colloquium 2027 (Academic\, In
  dia)\nMumbai\, India\nCall: https://www.nldalmia.in/ifrc-2027\nThe theme 
- is sustainable\, digital and data-driven finance. The extended deadline i
- s 30 November 2026\, but parts of the page still show 30 September\, so c
- onfirm with the organisers.\nPlanner: https://sourabhbhattacharya.github.
- io/SBT/journal-special-issues/
+ is sustainable\, digital and data-driven finance. 30 November 2026 is the
+  extended deadline (originally 30 September); notification 10 December\, 
+ presenter registration by 20 December. Doctoral colloquium 27–28 Januar
+ y\, main conference 29–30 January.\nPlanner: https://sourabhbhattachary
+ a.github.io/SBT/journal-special-issues/
 URL:https://www.nldalmia.in/ifrc-2027
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-iitk-dc-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:CFP DEADLINE: IITK DoMS DC 2027
@@ -9250,7 +10115,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-iitk-dc-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270206
 DTEND;VALUE=DATE:20270207
 SUMMARY:IITK DoMS DC 2027 · Kanpur\, India
@@ -9264,7 +10129,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ircdc-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261230
 DTEND;VALUE=DATE:20261231
 SUMMARY:CFP DEADLINE: IRCDC 2027
@@ -9288,7 +10153,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ircdc-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270320
 DTEND;VALUE=DATE:20270321
 SUMMARY:IRCDC 2027 · Mumbai\, India
@@ -9302,7 +10167,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-code-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270105
 DTEND;VALUE=DATE:20270108
 SUMMARY:CODE@ISB 2027 · Hyderabad\, India
@@ -9316,16 +10181,16 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-acef-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:CFP DEADLINE: ACEF 2027 (estimated)
 DESCRIPTION:8th Annual Conference on Economics and Finance (Academic\, In
  dia)\nHyderabad\, India\nCall: https://www.bits-pilani.ac.in/hyderabad/ac
- ef2027/\nThe conference dates are confirmed\, but the submission deadline
-  is not posted. Registration opens after 15 December 2026\, so we estimat
- e the deadline at about 30 November; check the site soon.\nPlanner: https
- ://sourabhbhattacharya.github.io/SBT/journal-special-issues/
+ ef2027/\nDates confirmed at BITS Pilani Hyderabad Campus (pre-conference 
+ workshop on 28 January). The submission deadline is still not posted\, so
+  about 30 November is an estimate; check the site soon.\nPlanner: https:/
+ /sourabhbhattacharya.github.io/SBT/journal-special-issues/
 URL:https://www.bits-pilani.ac.in/hyderabad/acef2027/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -9341,22 +10206,22 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-acef-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270128
 DTEND;VALUE=DATE:20270131
 SUMMARY:ACEF 2027 · Hyderabad\, India
 DESCRIPTION:8th Annual Conference on Economics and Finance (Academic\, In
  dia)\nHyderabad\, India\nCall: https://www.bits-pilani.ac.in/hyderabad/ac
- ef2027/\nThe conference dates are confirmed\, but the submission deadline
-  is not posted. Registration opens after 15 December 2026\, so we estimat
- e the deadline at about 30 November; check the site soon.\nPlanner: https
- ://sourabhbhattacharya.github.io/SBT/journal-special-issues/
+ ef2027/\nDates confirmed at BITS Pilani Hyderabad Campus (pre-conference 
+ workshop on 28 January). The submission deadline is still not posted\, so
+  about 30 November is an estimate; check the site soon.\nPlanner: https:/
+ /sourabhbhattacharya.github.io/SBT/journal-special-issues/
 URL:https://www.bits-pilani.ac.in/hyderabad/acef2027/
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-rsi-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:CFP DEADLINE: Research Summit India 2027
@@ -9382,7 +10247,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-rsi-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270129
 DTEND;VALUE=DATE:20270201
 SUMMARY:Research Summit India 2027 · Gurugram\, India
@@ -9398,17 +10263,17 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-edii-bce-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
-DTSTART;VALUE=DATE:20261215
-DTEND;VALUE=DATE:20261216
-SUMMARY:CFP DEADLINE: EDII BCE 2027 (estimated)
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+SUMMARY:CFP DEADLINE: EDII BCE 2027
 DESCRIPTION:17th Biennial Conference on Entrepreneurship (Academic\, Indi
- a)\nAhmedabad\, India\nCall: https://groups.google.com/g/knowledge-forum-
- im-bhu/c/tNTFH1C8joM\nThe conference dates are confirmed\, but the deadli
- ne is not stated in the announcement (see conference.ediindia.org)\, so t
- he date shown is an estimate.\nPlanner: https://sourabhbhattacharya.githu
- b.io/SBT/journal-special-issues/
-URL:https://groups.google.com/g/knowledge-forum-im-bhu/c/tNTFH1C8joM
+ a)\nGandhinagar (Ahmedabad)\, India\nCall: https://conference.ediindia.or
+ g/\nExtended abstracts were due 7 August 2026 and full papers 13 November
+  2026. Doctoral colloquium on 23 February 2027 at EDII\, Bhat\, Gandhinag
+ ar.\nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-special-i
+ ssues/
+URL:https://conference.ediindia.org/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -9423,22 +10288,22 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-edii-bce-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270224
 DTEND;VALUE=DATE:20270227
-SUMMARY:EDII BCE 2027 · Ahmedabad\, India
+SUMMARY:EDII BCE 2027 · Gandhinagar (Ahmedabad)\, India
 DESCRIPTION:17th Biennial Conference on Entrepreneurship (Academic\, Indi
- a)\nAhmedabad\, India\nCall: https://groups.google.com/g/knowledge-forum-
- im-bhu/c/tNTFH1C8joM\nThe conference dates are confirmed\, but the deadli
- ne is not stated in the announcement (see conference.ediindia.org)\, so t
- he date shown is an estimate.\nPlanner: https://sourabhbhattacharya.githu
- b.io/SBT/journal-special-issues/
-URL:https://groups.google.com/g/knowledge-forum-im-bhu/c/tNTFH1C8joM
+ a)\nGandhinagar (Ahmedabad)\, India\nCall: https://conference.ediindia.or
+ g/\nExtended abstracts were due 7 August 2026 and full papers 13 November
+  2026. Doctoral colloquium on 23 February 2027 at EDII\, Bhat\, Gandhinag
+ ar.\nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-special-i
+ ssues/
+URL:https://conference.ediindia.org/
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-incis-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 SUMMARY:CFP DEADLINE: InCIS 2027
@@ -9462,7 +10327,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-incis-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270312
 DTEND;VALUE=DATE:20270315
 SUMMARY:InCIS 2027 · Chennai\, India
@@ -9476,7 +10341,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-imc-irc-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270621
 DTEND;VALUE=DATE:20270622
 SUMMARY:CFP DEADLINE: IMC-IRC 2027 (estimated)
@@ -9500,7 +10365,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-imc-irc-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270917
 DTEND;VALUE=DATE:20270919
 SUMMARY:IMC-IRC 2027 · Noida\, India (expected dates)
@@ -9514,7 +10379,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-cpp-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270531
 DTEND;VALUE=DATE:20270601
 SUMMARY:CFP DEADLINE: ICPP 2027 (estimated)
@@ -9538,7 +10403,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-cpp-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270901
 DTEND;VALUE=DATE:20270904
 SUMMARY:ICPP 2027 · Bengaluru\, India (expected dates)
@@ -9552,7 +10417,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-isb-src-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270315
 DTEND;VALUE=DATE:20270316
 SUMMARY:CFP DEADLINE: ISB SRC 2027 (estimated)
@@ -9576,7 +10441,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-isb-src-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270729
 DTEND;VALUE=DATE:20270731
 SUMMARY:ISB SRC 2027 · Hyderabad\, India (expected dates)
@@ -9590,7 +10455,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-scipy-india-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:CFP DEADLINE: SciPy India 2026
@@ -9615,7 +10480,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-scipy-india-2026-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261219
 DTEND;VALUE=DATE:20261221
 SUMMARY:SciPy India 2026 · Chennai\, India
@@ -9630,7 +10495,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-isb-dss-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:CFP DEADLINE: ISB DSS 2027
@@ -9655,7 +10520,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-isb-dss-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270129
 DTEND;VALUE=DATE:20270130
 SUMMARY:ISB DSS 2027 · Hyderabad\, India
@@ -9670,7 +10535,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-comsnets-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270105
 DTEND;VALUE=DATE:20270110
 SUMMARY:COMSNETS 2027 · Bengaluru\, India
@@ -9684,7 +10549,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-cods-2026-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261217
 SUMMARY:CODS-COMAD 2026 · Gandhinagar\, India
@@ -9698,7 +10563,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icvgip-2026-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261221
 DTEND;VALUE=DATE:20261225
 SUMMARY:ICVGIP 2026 · Kolkata\, India
@@ -9714,7 +10579,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-cvip-2026-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261209
 DTEND;VALUE=DATE:20261213
 SUMMARY:CVIP 2026 · Kozhikode\, India
@@ -9729,7 +10594,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-mlds-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:CFP DEADLINE: MLDS 2027 (estimated)
@@ -9754,7 +10619,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-mlds-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270225
 DTEND;VALUE=DATE:20270227
 SUMMARY:MLDS 2027 · Bengaluru\, India
@@ -9769,7 +10634,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-des-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:CFP DEADLINE: DES 2027 (estimated)
@@ -9793,7 +10658,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-des-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270513
 DTEND;VALUE=DATE:20270515
 SUMMARY:DES 2027 · Bengaluru\, India
@@ -9807,7 +10672,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-cypher-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270630
 DTEND;VALUE=DATE:20270701
 SUMMARY:CFP DEADLINE: Cypher 2027 (estimated)
@@ -9831,7 +10696,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-cypher-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270915
 DTEND;VALUE=DATE:20270918
 SUMMARY:Cypher 2027 · Bengaluru\, India (expected dates)
@@ -9845,7 +10710,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ntlf-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:CFP DEADLINE: NTLF 2027 (estimated)
@@ -9870,7 +10735,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ntlf-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270224
 DTEND;VALUE=DATE:20270226
 SUMMARY:NTLF 2027 · Mumbai\, India
@@ -9885,7 +10750,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-gff-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270630
 DTEND;VALUE=DATE:20270701
 SUMMARY:CFP DEADLINE: GFF 2027 (estimated)
@@ -9909,7 +10774,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-gff-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270907
 DTEND;VALUE=DATE:20270911
 SUMMARY:GFF 2027 · Mumbai\, India (expected dates)
@@ -9923,7 +10788,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-isle-2026-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:CFP DEADLINE: ISLE 2026 (estimated)
@@ -9948,7 +10813,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-isle-2026-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261219
 DTEND;VALUE=DATE:20261222
 SUMMARY:ISLE 2026 · Varanasi\, India
@@ -9963,7 +10828,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icombs-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:CFP DEADLINE: ICOMBS 2027 (estimated)
@@ -9988,7 +10853,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icombs-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270312
 DTEND;VALUE=DATE:20270314
 SUMMARY:ICOMBS 2027 · Hyderabad\, India (expected dates)
@@ -10003,7 +10868,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icbf-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270315
 DTEND;VALUE=DATE:20270316
 SUMMARY:CFP DEADLINE: ICBF 2027 (estimated)
@@ -10027,7 +10892,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icbf-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270409
 DTEND;VALUE=DATE:20270411
 SUMMARY:ICBF 2027 · Hyderabad\, India (expected dates)
@@ -10041,7 +10906,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ichrm-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270530
 DTEND;VALUE=DATE:20270531
 SUMMARY:CFP DEADLINE: ICHRM 2027 (estimated)
@@ -10065,7 +10930,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ichrm-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270617
 DTEND;VALUE=DATE:20270619
 SUMMARY:ICHRM 2027 · Hyderabad\, India (expected dates)
@@ -10079,7 +10944,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-pramaan-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:CFP DEADLINE: Pramaan 2027 (estimated)
@@ -10105,7 +10970,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-pramaan-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270826
 DTEND;VALUE=DATE:20270828
 SUMMARY:Pramaan 2027 · Hyderabad\, India (expected dates)
@@ -10121,7 +10986,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-cere-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:CFP DEADLINE: CERE 2027 (estimated)
@@ -10146,7 +11011,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-cere-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270504
 SUMMARY:CERE 2027 · Indore\, India (expected dates)
@@ -10161,7 +11026,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icfmcf-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270426
 SUMMARY:CFP DEADLINE: ICFMCF 2027 (estimated)
@@ -10186,7 +11051,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icfmcf-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270702
 DTEND;VALUE=DATE:20270705
 SUMMARY:ICFMCF 2027 · Host IIT TBA\, India (expected dates)
@@ -10201,7 +11066,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-merc-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270320
 DTEND;VALUE=DATE:20270321
 SUMMARY:CFP DEADLINE: MERC 2027 (estimated)
@@ -10225,7 +11090,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-merc-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270528
 DTEND;VALUE=DATE:20270531
 SUMMARY:MERC 2027 · Kashipur\, India (expected dates)
@@ -10239,7 +11104,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-iimr-icc-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:CFP DEADLINE: IIMR ICC 2027 (estimated)
@@ -10265,7 +11130,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-iimr-icc-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270129
 DTEND;VALUE=DATE:20270131
 SUMMARY:IIMR ICC 2027 · Raipur\, India (expected dates)
@@ -10281,7 +11146,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-pyconf-hyd-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:CFP DEADLINE: PyConf Hyderabad 2027 (estimated)
@@ -10305,7 +11170,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-pyconf-hyd-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270313
 DTEND;VALUE=DATE:20270315
 SUMMARY:PyConf Hyderabad 2027 · Hyderabad\, India (expected dates)
@@ -10319,7 +11184,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-neurips-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270514
 DTEND;VALUE=DATE:20270515
 SUMMARY:CFP DEADLINE: NeurIPS 2027 (estimated)
@@ -10344,7 +11209,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-neurips-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271206
 DTEND;VALUE=DATE:20271213
 SUMMARY:NeurIPS 2027 · Europe (city TBA) (expected dates)
@@ -10359,7 +11224,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icml-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270114
 DTEND;VALUE=DATE:20270115
 SUMMARY:CFP DEADLINE: ICML 2027
@@ -10384,7 +11249,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icml-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270731
 DTEND;VALUE=DATE:20270807
 SUMMARY:ICML 2027 · Rio de Janeiro\, Brazil
@@ -10399,7 +11264,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-iclr-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270426
 DTEND;VALUE=DATE:20270501
 SUMMARY:ICLR 2027 · San Francisco\, USA
@@ -10414,7 +11279,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-aaai-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270216
 DTEND;VALUE=DATE:20270224
 SUMMARY:AAAI-27 · Montréal\, Canada
@@ -10428,7 +11293,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ijcai-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270104
 DTEND;VALUE=DATE:20270105
 SUMMARY:CFP DEADLINE: IJCAI 2027
@@ -10453,7 +11318,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ijcai-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270807
 DTEND;VALUE=DATE:20270814
 SUMMARY:IJCAI 2027 · Kyoto\, Japan
@@ -10468,7 +11333,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-kdd-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270208
 DTEND;VALUE=DATE:20270209
 SUMMARY:CFP DEADLINE: KDD 2027 (estimated)
@@ -10494,7 +11359,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-kdd-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270801
 DTEND;VALUE=DATE:20270806
 SUMMARY:KDD 2027 · San Jose\, USA
@@ -10510,7 +11375,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-www-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:CFP DEADLINE: WWW 2027
@@ -10535,7 +11400,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-www-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270510
 DTEND;VALUE=DATE:20270515
 SUMMARY:WWW 2027 · Dublin\, Ireland
@@ -10550,7 +11415,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-wsdm-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270215
 DTEND;VALUE=DATE:20270220
 SUMMARY:WSDM 2027 · Hong Kong\, China
@@ -10564,7 +11429,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-cikm-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270524
 DTEND;VALUE=DATE:20270525
 SUMMARY:CFP DEADLINE: CIKM 2027 (estimated)
@@ -10589,7 +11454,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-cikm-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271025
 DTEND;VALUE=DATE:20271030
 SUMMARY:CIKM 2027 · Sydney\, Australia (expected dates)
@@ -10604,7 +11469,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-recsys-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270414
 DTEND;VALUE=DATE:20270415
 SUMMARY:CFP DEADLINE: RecSys 2027 (estimated)
@@ -10628,7 +11493,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-recsys-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270823
 DTEND;VALUE=DATE:20270828
 SUMMARY:RecSys 2027 · Honolulu\, USA
@@ -10642,7 +11507,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-sigir-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270114
 DTEND;VALUE=DATE:20270115
 SUMMARY:CFP DEADLINE: SIGIR 2027
@@ -10666,7 +11531,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-sigir-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270718
 DTEND;VALUE=DATE:20270725
 SUMMARY:SIGIR 2027 · San Jose\, USA
@@ -10680,7 +11545,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-acl-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270104
 DTEND;VALUE=DATE:20270105
 SUMMARY:CFP DEADLINE: ACL 2027
@@ -10704,7 +11569,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-acl-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270817
 DTEND;VALUE=DATE:20270823
 SUMMARY:ACL 2027 · Kyoto\, Japan
@@ -10718,7 +11583,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-emnlp-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270525
 DTEND;VALUE=DATE:20270526
 SUMMARY:CFP DEADLINE: EMNLP 2027 (estimated)
@@ -10742,7 +11607,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-emnlp-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271025
 DTEND;VALUE=DATE:20271031
 SUMMARY:EMNLP 2027 · TBA (expected dates)
@@ -10756,7 +11621,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-naacl-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261012
 DTEND;VALUE=DATE:20261013
 SUMMARY:CFP DEADLINE: NAACL 2027
@@ -10781,7 +11646,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-naacl-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270601
 DTEND;VALUE=DATE:20270606
 SUMMARY:NAACL 2027 · San Francisco\, USA
@@ -10796,7 +11661,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-cvpr-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261110
 DTEND;VALUE=DATE:20261111
 SUMMARY:CFP DEADLINE: CVPR 2027
@@ -10821,7 +11686,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-cvpr-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270620
 DTEND;VALUE=DATE:20270625
 SUMMARY:CVPR 2027 · Seattle\, USA
@@ -10836,7 +11701,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-iccv-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:CFP DEADLINE: ICCV 2027 (estimated)
@@ -10861,7 +11726,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-iccv-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271003
 DTEND;VALUE=DATE:20271008
 SUMMARY:ICCV 2027 · Hong Kong\, China
@@ -10876,7 +11741,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-aistats-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20260929
 DTEND;VALUE=DATE:20260930
 SUMMARY:CFP DEADLINE: AISTATS 2027
@@ -10900,7 +11765,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-aistats-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270503
 DTEND;VALUE=DATE:20270507
 SUMMARY:AISTATS 2027 · Montréal\, Canada
@@ -10914,7 +11779,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-uai-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270212
 DTEND;VALUE=DATE:20270213
 SUMMARY:CFP DEADLINE: UAI 2027 (estimated)
@@ -10938,7 +11803,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-uai-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270720
 DTEND;VALUE=DATE:20270725
 SUMMARY:UAI 2027 · TBA (expected dates)
@@ -10952,7 +11817,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-facct-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261027
 DTEND;VALUE=DATE:20261028
 SUMMARY:CFP DEADLINE: FAccT 2027
@@ -10977,7 +11842,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-facct-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270621
 DTEND;VALUE=DATE:20270625
 SUMMARY:FAccT 2027 · Porto\, Portugal
@@ -10992,7 +11857,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-aies-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270513
 DTEND;VALUE=DATE:20270514
 SUMMARY:CFP DEADLINE: AIES 2027 (estimated)
@@ -11016,7 +11881,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-aies-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271011
 DTEND;VALUE=DATE:20271014
 SUMMARY:AIES 2027 · TBA (expected dates)
@@ -11030,7 +11895,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icdm-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270606
 DTEND;VALUE=DATE:20270607
 SUMMARY:CFP DEADLINE: ICDM 2027 (estimated)
@@ -11055,7 +11920,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icdm-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271115
 DTEND;VALUE=DATE:20271119
 SUMMARY:ICDM 2027 · Brisbane\, Australia (expected dates)
@@ -11070,7 +11935,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ec-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270202
 DTEND;VALUE=DATE:20270203
 SUMMARY:CFP DEADLINE: EC 2027 (estimated)
@@ -11094,7 +11959,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ec-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270705
 DTEND;VALUE=DATE:20270710
 SUMMARY:EC 2027 · TBA (expected dates)
@@ -11108,7 +11973,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-chi-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270121
 DTEND;VALUE=DATE:20270122
 SUMMARY:CFP DEADLINE: CHI 2027
@@ -11133,7 +11998,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-chi-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270510
 DTEND;VALUE=DATE:20270515
 SUMMARY:CHI 2027 · Pittsburgh\, USA
@@ -11148,7 +12013,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-cscw-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:CFP DEADLINE: CSCW 2027 (estimated)
@@ -11173,7 +12038,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-cscw-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271015
 DTEND;VALUE=DATE:20271021
 SUMMARY:CSCW 2027 · TBA (expected dates)
@@ -11188,16 +12053,18 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icwsm-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:CFP DEADLINE: ICWSM 2027
 DESCRIPTION:International AAAI Conference on Web and Social Media (Academ
- ic\, Global)\nEdinburgh\, UK\nCall: https://www.icwsm.org/2027/\nRound 3 
- (the final round) is due 15 Jan 2027 (AoE); rounds 1 and 2 are closed. Co
- nference dates are TBA\, so June is an estimate.\nPlanner: https://sourab
- hbhattacharya.github.io/SBT/journal-special-issues/
-URL:https://www.icwsm.org/2027/
+ ic\, Global)\nEdinburgh\, UK\nCall: https://www.icwsm.org/2027/submit/\nR
+ ound 3 (the final round\, and the only one for posters\, demos\, datasets
+ \, workshops and tutorials) is due 15 January 2027 (AoE); notification 15
+  March 2027. Conference dates are not yet posted\, so June is an estimate
+ .\nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-special-iss
+ ues/
+URL:https://www.icwsm.org/2027/submit/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -11212,21 +12079,23 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-icwsm-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270607
 DTEND;VALUE=DATE:20270611
 SUMMARY:ICWSM 2027 · Edinburgh\, UK (expected dates)
 DESCRIPTION:International AAAI Conference on Web and Social Media (Academ
- ic\, Global)\nEdinburgh\, UK\nCall: https://www.icwsm.org/2027/\nRound 3 
- (the final round) is due 15 Jan 2027 (AoE); rounds 1 and 2 are closed. Co
- nference dates are TBA\, so June is an estimate.\nPlanner: https://sourab
- hbhattacharya.github.io/SBT/journal-special-issues/
-URL:https://www.icwsm.org/2027/
+ ic\, Global)\nEdinburgh\, UK\nCall: https://www.icwsm.org/2027/submit/\nR
+ ound 3 (the final round\, and the only one for posters\, demos\, datasets
+ \, workshops and tutorials) is due 15 January 2027 (AoE); notification 15
+  March 2027. Conference dates are not yet posted\, so June is an estimate
+ .\nPlanner: https://sourabhbhattacharya.github.io/SBT/journal-special-iss
+ ues/
+URL:https://www.icwsm.org/2027/submit/
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-code-mit-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270913
 DTEND;VALUE=DATE:20270914
 SUMMARY:CFP DEADLINE: CODE@MIT 2027 (estimated)
@@ -11252,7 +12121,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-code-mit-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271112
 DTEND;VALUE=DATE:20271114
 SUMMARY:CODE@MIT 2027 · Cambridge\, USA (expected dates)
@@ -11268,7 +12137,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-wise-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270823
 DTEND;VALUE=DATE:20270824
 SUMMARY:CFP DEADLINE: WISE 2027 (estimated)
@@ -11294,7 +12163,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-wise-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271215
 DTEND;VALUE=DATE:20271218
 SUMMARY:WISE 2027 · TBA (expected dates)
@@ -11310,7 +12179,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-cist-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270612
 DTEND;VALUE=DATE:20270613
 SUMMARY:CFP DEADLINE: CIST 2027 (estimated)
@@ -11335,7 +12204,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-cist-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271016
 DTEND;VALUE=DATE:20271018
 SUMMARY:CIST 2027 · TBA (expected dates)
@@ -11350,7 +12219,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-scecr-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
 SUMMARY:CFP DEADLINE: SCECR 2027 (estimated)
@@ -11375,7 +12244,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-scecr-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270621
 DTEND;VALUE=DATE:20270624
 SUMMARY:SCECR 2027 · TBA (expected dates)
@@ -11390,7 +12259,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-isms-mksc-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270215
 DTEND;VALUE=DATE:20270216
 SUMMARY:CFP DEADLINE: ISMS Marketing Science 2027 (estimated)
@@ -11417,7 +12286,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-isms-mksc-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270624
 DTEND;VALUE=DATE:20270627
 SUMMARY:ISMS Marketing Science 2027 · Seattle\, USA
@@ -11434,17 +12303,16 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-informs-analytics-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
-DTSTART;VALUE=DATE:20270111
-DTEND;VALUE=DATE:20270112
-SUMMARY:CFP DEADLINE: INFORMS Analytics+ 2027 (estimated)
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20261216
+DTEND;VALUE=DATE:20261217
+SUMMARY:CFP DEADLINE: INFORMS Analytics+ 2027
 DESCRIPTION:INFORMS Analytics+ Conference (formerly Business Analytics Co
  nference) (Industry\, Global)\nWashington DC\, USA\nCall: https://meeting
- s.informs.org/wordpress/analytics\nDates and venue (Washington Hilton) ar
- e confirmed. The 2027 presentation deadline is not posted; the estimate f
- ollows the 2026 deadline (12 Jan 2026).\nPlanner: https://sourabhbhattach
- arya.github.io/SBT/journal-special-issues/
-URL:https://meetings.informs.org/wordpress/analytics
+ s.informs.org/wordpress/analytics/submit/\nPresentation submissions are d
+ ue 16 December 2026\, 11:59 pm EST. Held at the Washington Hilton.\nPlann
+ er: https://sourabhbhattacharya.github.io/SBT/journal-special-issues/
+URL:https://meetings.informs.org/wordpress/analytics/submit/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -11459,22 +12327,21 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-informs-analytics-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270404
 DTEND;VALUE=DATE:20270407
 SUMMARY:INFORMS Analytics+ 2027 · Washington DC\, USA
 DESCRIPTION:INFORMS Analytics+ Conference (formerly Business Analytics Co
  nference) (Industry\, Global)\nWashington DC\, USA\nCall: https://meeting
- s.informs.org/wordpress/analytics\nDates and venue (Washington Hilton) ar
- e confirmed. The 2027 presentation deadline is not posted; the estimate f
- ollows the 2026 deadline (12 Jan 2026).\nPlanner: https://sourabhbhattach
- arya.github.io/SBT/journal-special-issues/
-URL:https://meetings.informs.org/wordpress/analytics
+ s.informs.org/wordpress/analytics/submit/\nPresentation submissions are d
+ ue 16 December 2026\, 11:59 pm EST. Held at the Washington Hilton.\nPlann
+ er: https://sourabhbhattacharya.github.io/SBT/journal-special-issues/
+URL:https://meetings.informs.org/wordpress/analytics/submit/
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-odsc-east-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:CFP DEADLINE: ODSC AI East 2027 (estimated)
@@ -11500,7 +12367,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-odsc-east-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270510
 DTEND;VALUE=DATE:20270513
 SUMMARY:ODSC AI East 2027 · Boston\, USA
@@ -11516,7 +12383,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-odsc-west-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270630
 DTEND;VALUE=DATE:20270701
 SUMMARY:CFP DEADLINE: ODSC AI West 2027 (estimated)
@@ -11540,7 +12407,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-odsc-west-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271026
 DTEND;VALUE=DATE:20271029
 SUMMARY:ODSC AI West 2027 · San Francisco\, USA (expected dates)
@@ -11554,7 +12421,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ai-summit-london-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:CFP DEADLINE: AI Summit London 2027 (estimated)
@@ -11579,7 +12446,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ai-summit-london-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270609
 DTEND;VALUE=DATE:20270611
 SUMMARY:AI Summit London 2027 · London\, UK
@@ -11594,7 +12461,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ai-summit-ny-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270930
 DTEND;VALUE=DATE:20271001
 SUMMARY:CFP DEADLINE: AI Summit New York 2027 (estimated)
@@ -11618,7 +12485,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ai-summit-ny-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271208
 DTEND;VALUE=DATE:20271210
 SUMMARY:AI Summit New York 2027 · New York\, USA (expected dates)
@@ -11632,7 +12499,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ai4-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270430
 DTEND;VALUE=DATE:20270501
 SUMMARY:CFP DEADLINE: Ai4 2027 (estimated)
@@ -11657,7 +12524,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-ai4-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270802
 DTEND;VALUE=DATE:20270806
 SUMMARY:Ai4 2027 · Las Vegas\, USA
@@ -11672,7 +12539,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-pydata-global-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270831
 DTEND;VALUE=DATE:20270901
 SUMMARY:CFP DEADLINE: PyData Global 2027 (estimated)
@@ -11695,7 +12562,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-pydata-global-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271208
 DTEND;VALUE=DATE:20271211
 SUMMARY:PyData Global 2027 · Online (expected dates)
@@ -11708,7 +12575,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-dais-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270215
 DTEND;VALUE=DATE:20270216
 SUMMARY:CFP DEADLINE: Data + AI Summit 2027 (estimated)
@@ -11735,7 +12602,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-dais-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270621
 DTEND;VALUE=DATE:20270625
 SUMMARY:Data + AI Summit 2027 · San Francisco\, USA
@@ -11752,16 +12619,16 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-amld-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
-DTSTART;VALUE=DATE:20261215
-DTEND;VALUE=DATE:20261216
+DTSTAMP:20261124T082641Z
+DTSTART;VALUE=DATE:20261123
+DTEND;VALUE=DATE:20261124
 SUMMARY:CFP DEADLINE: AMLD 2027 (estimated)
 DESCRIPTION:AMLD Intelligence Summit (Applied Machine Learning Days) (Ind
  ustry\, Global)\nLausanne\, Switzerland\nCall: https://www.appliedmldays.
- org/amld/2027/overview\nCalls for posters\, workshops and tracks are list
- ed\, but no deadlines are posted\, so the close date is an estimate. Held
-  at the SwissTech Convention Center.\nPlanner: https://sourabhbhattachary
- a.github.io/SBT/journal-special-issues/
+ org/amld/2027/overview\nHeld at the SwissTech Convention Center. The call
+ s for posters and workshops were already marked closed when checked on 24
+  November 2026 (no deadline shown)\, so the close date is approximate.\nP
+ lanner: https://sourabhbhattacharya.github.io/SBT/journal-special-issues/
 URL:https://www.appliedmldays.org/amld/2027/overview
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -11777,22 +12644,22 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-amld-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270309
 DTEND;VALUE=DATE:20270312
 SUMMARY:AMLD 2027 · Lausanne\, Switzerland
 DESCRIPTION:AMLD Intelligence Summit (Applied Machine Learning Days) (Ind
  ustry\, Global)\nLausanne\, Switzerland\nCall: https://www.appliedmldays.
- org/amld/2027/overview\nCalls for posters\, workshops and tracks are list
- ed\, but no deadlines are posted\, so the close date is an estimate. Held
-  at the SwissTech Convention Center.\nPlanner: https://sourabhbhattachary
- a.github.io/SBT/journal-special-issues/
+ org/amld/2027/overview\nHeld at the SwissTech Convention Center. The call
+ s for posters and workshops were already marked closed when checked on 24
+  November 2026 (no deadline shown)\, so the close date is approximate.\nP
+ lanner: https://sourabhbhattacharya.github.io/SBT/journal-special-issues/
 URL:https://www.appliedmldays.org/amld/2027/overview
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-wsai-2027-close@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20270531
 DTEND;VALUE=DATE:20270601
 SUMMARY:CFP DEADLINE: World Summit AI 2027 (estimated)
@@ -11817,7 +12684,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cf-wsai-2027-event@sbt-cfp-planner
-DTSTAMP:20261123T064334Z
+DTSTAMP:20261124T082641Z
 DTSTART;VALUE=DATE:20271006
 DTEND;VALUE=DATE:20271008
 SUMMARY:World Summit AI 2027 · Amsterdam\, Netherlands
