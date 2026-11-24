@@ -102,8 +102,28 @@ h1{font-family:var(--display);font-weight:600;font-size:clamp(30px,5vw,50px);lin
 .jn:hover{text-decoration:underline}
 .jpick{flex:0 1 300px;min-width:0}
 .jpick[hidden]{display:none}
-.jpick select{width:100%;background:var(--surface);border:1px solid var(--line);border-radius:0;padding:7px 10px;font-size:13.5px}
-.jpick select.on{border-color:var(--accent);background:var(--accent-soft);color:var(--accent);font-weight:600}
+.jpick{position:relative}
+.jbtn{width:100%;display:flex;align-items:center;gap:6px;justify-content:space-between;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:0;padding:7px 10px;font-size:13.5px;cursor:pointer;color:var(--ink)}
+.jbtn span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.jbtn.on{border-color:var(--accent);background:var(--accent-soft);color:var(--accent);font-weight:600}
+.jdrop{position:absolute;z-index:30;top:calc(100% + 4px);left:0;width:min(440px,calc(100vw - 32px));background:var(--surface);border:1px solid var(--ink);box-shadow:0 10px 30px rgba(0,0,0,.18);display:flex;flex-direction:column;max-height:min(70vh,560px)}
+.jdrop[hidden]{display:none}
+.jdq{border:0;border-bottom:1px solid var(--line);background:transparent;padding:9px 12px;font-size:14px;outline:none;color:var(--ink)}
+.jquick{display:flex;flex-wrap:wrap;gap:6px 14px;padding:8px 12px;border-bottom:1px solid var(--line);background:var(--surface-2);font-size:13px}
+.jquick label,.jlist label{display:flex;align-items:center;gap:6px;cursor:pointer}
+.jquick b{font-weight:600}
+.jlist{list-style:none;margin:0;padding:4px 0;overflow:auto;flex:1;min-height:80px}
+.jlist li label{padding:5px 12px;font-size:13.5px;align-items:flex-start}
+.jlist li label:hover{background:var(--surface-2)}
+.jlist input,.jquick input{accent-color:var(--accent);margin-top:2px;flex:none}
+.jlist .n{color:var(--muted);font-size:12px;margin-left:auto;padding-left:8px;white-space:nowrap}
+.jlist .r{font-size:11px;color:var(--accent);font-weight:700;white-space:nowrap}
+.jlist .fv{color:var(--gold)}
+.jfoot{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 12px;border-top:1px solid var(--line)}
+.jfoot .sel{font-size:12.5px;color:var(--muted);margin-right:auto}
+.jfoot button{border:1px solid var(--line);background:var(--surface);padding:6px 10px;font-size:13px;cursor:pointer;color:var(--ink)}
+.jfoot button.go{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
+.jmsg{font-size:12.5px;color:var(--open);padding:0 12px 8px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .jhead{display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;margin-top:16px;font-size:14.5px}
 .jhead b{font-family:var(--display);font-size:17px}
@@ -214,7 +234,14 @@ footer{color:var(--muted);font-size:13px;padding:18px 0 44px;border-top:1px soli
     <div class="areas" id="areas" role="group" aria-label="Area"></div>
     <div class="tools">
       <label class="search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input id="q" type="search" placeholder="Search journal, conference, topic, city…" aria-label="Search"></label>
-      <label class="jpick" id="jpickwrap"><span class="sr">Journal</span><select id="jsel" aria-label="Choose a journal"></select></label>
+      <div class="jpick" id="jpickwrap"><button type="button" class="jbtn" id="jsel" aria-haspopup="true" aria-expanded="false" aria-controls="jdrop"><span id="jsellbl">All journals</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="jdrop" id="jdrop" hidden role="dialog" aria-label="Choose journals">
+          <input class="jdq" id="jdq" type="search" placeholder="Find a journal…" aria-label="Find a journal">
+          <div class="jquick" id="jquick"><label><input type="checkbox" data-grp="A*"><b>All A*</b></label><label><input type="checkbox" data-grp="A"><b>All A</b></label><label><input type="checkbox" data-grp="ft"><b>All FT50</b></label><label><input type="checkbox" data-grp="fav"><b>★ My favourites</b></label></div>
+          <ul class="jlist" id="jlist"></ul>
+          <div class="jmsg" id="jmsg" hidden></div>
+          <div class="jfoot"><span class="sel" id="jcount"></span><button type="button" data-jp="clear">Clear</button><button type="button" data-jp="fav" title="Remember the ticked journals in this browser">☆ Save favourites</button><button type="button" class="go" data-jp="apply">✓ Apply</button></div>
+        </div></div>
       <div class="seg" id="rating" role="group" aria-label="Journal list"><button data-v="all" aria-pressed="true" title="All journals: FT50 plus every ABDC 2025 A* and A journal">A* + A + FT50</button><button data-v="A*" aria-pressed="false">A*</button><button data-v="A" aria-pressed="false">A</button><button data-v="ft" aria-pressed="false">FT50</button></div>
       <div class="seg" id="region" role="group" aria-label="Region"><button data-v="all" aria-pressed="true">India + global</button><button data-v="India" aria-pressed="false">India</button><button data-v="Global" aria-pressed="false">Global</button></div>
       <div class="seg" id="ctype" role="group" aria-label="Type"><button data-v="all" aria-pressed="true">All</button><button data-v="Academic" aria-pressed="false">Academic</button><button data-v="Industry" aria-pressed="false">Industry</button></div>
@@ -1480,9 +1507,10 @@ const range=(a,b)=>{if(!b||a===b)return fmt(a);const x=dt(a),y=dt(b);
   return fmt(a).replace(/ \d{4}$/,x.getUTCFullYear()===y.getUTCFullYear()?"":" "+x.getUTCFullYear())+" – "+fmt(b)};
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);
 
-const S={sec:"si",area:"all",q:"",region:"all",ctype:"all",status:"open",rating:"all",journal:""};
-try{const v=JSON.parse(localStorage.getItem("cfp-state")||"{}");Object.assign(S,v);S.q=""}catch(e){}
-const save=()=>{try{localStorage.setItem("cfp-state",JSON.stringify({sec:S.sec,area:S.area,region:S.region,ctype:S.ctype,status:S.status,rating:S.rating}))}catch(e){}};
+const S={sec:"si",area:"all",q:"",region:"all",ctype:"all",status:"open",rating:"all",js:[]};
+try{const v=JSON.parse(localStorage.getItem("cfp-state")||"{}");Object.assign(S,v);S.q="";if(!Array.isArray(S.js))S.js=[]}catch(e){}
+const save=()=>{try{localStorage.setItem("cfp-state",JSON.stringify({sec:S.sec,area:S.area,region:S.region,ctype:S.ctype,status:S.status,rating:S.rating,js:S.js}))}catch(e){}};
+let FAV=[];try{FAV=JSON.parse(localStorage.getItem("cfp-fav-journals")||"[]");if(!Array.isArray(FAV))FAV=[]}catch(e){FAV=[]}
 
 const live=CONFS.filter(c=>(c.end||c.start)>=TODAY); // past events never shown
 const items=()=>S.sec==="si"?CALLS:live;
@@ -1490,7 +1518,7 @@ const matchQ=x=>{if(!S.q)return true;const h=[x.title,x.journal,x.abbr,x.name,x.
   return S.q.toLowerCase().split(/\s+/).every(t=>h.includes(t))};
 const passStatus=x=>{const d=days(x.close);if(S.status==="open")return d>=0;if(S.status==="30")return d>=0&&d<=30;return true};
 const isFT=x=>x.ft50===1||x.ft50===3;
-const passBase=x=>matchQ(x)&&(S.sec!=="si"||!S.journal||x.journal===S.journal)&&(S.sec!=="si"||S.rating==="all"||(S.rating==="ft"?isFT(x):x.abdc===S.rating))&&(S.sec==="si"||((S.region==="all"||x.region===S.region)&&(S.ctype==="all"||x.type===S.ctype)))&&passStatus(x);
+const passBase=x=>matchQ(x)&&(S.sec!=="si"||!S.js.length||S.js.includes(x.journal))&&(S.sec!=="si"||S.rating==="all"||(S.rating==="ft"?isFT(x):x.abdc===S.rating))&&(S.sec==="si"||((S.region==="all"||x.region===S.region)&&(S.ctype==="all"||x.type===S.ctype)))&&passStatus(x);
 
 function statusPill(x){const d=days(x.close);
   if(d<0)return `<span class="pill">Closed ${fmt(x.close)}</span>`;
@@ -1524,12 +1552,28 @@ function card(x){const d=dt(x.close),closed=days(x.close)<0;
   }
   return `<article class="card${closed?" closed":""}">${dl}<div class="body"><div class="pills">${pills}</div>${head}<ul class="facts">${facts.join("")}</ul>${x.note?`<p class="note">${esc(x.note)}</p>`:""}<div class="links"><a href="${esc(x.url)}" target="_blank" rel="noopener">${S.sec==="si"?"Read the call":"Conference call"} ${I.ext}</a></div></div></article>`}
 
-function fillJsel(){const el=document.getElementById("jsel");const cnt=new Map();
+const JP={sel:new Set(),q:""};const JMETA=new Map(JOURNALS.map(j=>[j[0],j]));
+const jRating=n=>{const j=JMETA.get(n)||[];return j[1]||""},jFT=n=>{const j=JMETA.get(n)||[];return j[4]===1||j[4]===3};
+function jNames(){const cnt=new Map();
   CALLS.filter(c=>(S.status==="any"||days(c.close)>=0)&&(S.rating==="all"||(S.rating==="ft"?isFT(c):c.abdc===S.rating))).forEach(c=>cnt.set(c.journal,(cnt.get(c.journal)||0)+1));
-  if(S.journal&&!cnt.has(S.journal))cnt.set(S.journal,0);
-  const names=[...cnt.keys()].sort((a,b)=>a.localeCompare(b));
-  el.innerHTML=`<option value="">All journals (${names.filter(n=>cnt.get(n)).length} with calls)</option>`+names.map(n=>`<option value="${esc(n)}"${n===S.journal?" selected":""}>${esc(n)} (${cnt.get(n)})</option>`).join("");
-  el.classList.toggle("on",!!S.journal)}
+  [...S.js,...JP.sel,...FAV].forEach(n=>{if(!cnt.has(n))cnt.set(n,0)});
+  return {cnt,names:[...cnt.keys()].sort((a,b)=>a.localeCompare(b))}}
+const inGrp=(n,g)=>g==="fav"?FAV.includes(n):g==="ft"?jFT(n):jRating(n)===g;
+function fillJsel(){const {cnt,names}=jNames(),el=document.getElementById("jsel"),n=S.js.length;
+  const withCalls=names.filter(x=>cnt.get(x)).length;
+  const fav=n&&FAV.length===n&&S.js.every(x=>FAV.includes(x));
+  document.getElementById("jsellbl").textContent=!n?`All journals (${withCalls} with calls)`:fav?`★ My favourites (${n})`:n===1?S.js[0]:`${n} journals selected`;
+  el.classList.toggle("on",!!n)}
+function drawJlist(){const {cnt,names}=jNames(),q=JP.q.toLowerCase();
+  const vis=names.filter(x=>!q||(x+" "+((JMETA.get(x)||[])[5]||"")).toLowerCase().includes(q));
+  document.getElementById("jlist").innerHTML=vis.length?vis.map(x=>`<li><label><input type="checkbox" value="${esc(x)}"${JP.sel.has(x)?" checked":""}><span>${FAV.includes(x)?'<span class="fv" title="Favourite">★</span> ':""}${esc(x)} <span class="r">${esc(jRating(x))}${jFT(x)?" · FT50":""}</span></span><span class="n">${cnt.get(x)} call${cnt.get(x)===1?"":"s"}</span></label></li>`).join(""):`<li style="padding:10px 12px;color:var(--muted)">No journal matches.</li>`;
+  document.querySelectorAll("#jquick input").forEach(i=>{const g=i.dataset.grp,m=names.filter(x=>inGrp(x,g)),k=m.filter(x=>JP.sel.has(x)).length;
+    i.checked=m.length>0&&k===m.length;i.indeterminate=k>0&&k<m.length;i.disabled=!m.length;i.parentElement.title=g==="fav"&&!FAV.length?"No favourites saved yet: tick journals and press Save favourites":m.length+" journal"+(m.length===1?"":"s")});
+  document.getElementById("jcount").textContent=JP.sel.size?`${JP.sel.size} ticked`:"None ticked = all journals"}
+function jmsg(t){const m=document.getElementById("jmsg");m.textContent=t;m.hidden=!t}
+function openJdrop(o){const d=document.getElementById("jdrop"),b=document.getElementById("jsel");
+  if(o){JP.sel=new Set(S.js);JP.q="";document.getElementById("jdq").value="";jmsg("");drawJlist()}
+  d.hidden=!o;b.setAttribute("aria-expanded",o);if(o)document.getElementById("jdq").focus()}
 function render(){
   document.querySelectorAll(".sec").forEach(b=>b.setAttribute("aria-selected",b.dataset.sec===S.sec));
   const pp=S.sec==="pp";document.getElementById("papers").hidden=!pp;document.getElementById("bar").hidden=pp;document.getElementById("list").hidden=pp;
@@ -1552,10 +1596,10 @@ function render(){
   if(shut.length)h+=`<h2 class="month">${S.sec==="si"?"Closed calls":"Submissions closed, event still ahead"}<small>${shut.length}</small></h2><div class="grid">${shut.map(card).join("")}</div>`;
   if(!L.length){const al=(AREAS.find(a=>a[0]===S.area)||[])[1],fl=[];
     if(S.sec==="si"&&S.rating==="ft")fl.push("FT50 only");if(S.sec==="si"&&(S.rating==="A*"||S.rating==="A"))fl.push("ABDC "+S.rating+" only");if(S.status==="30")fl.push("closing in 30 days");
-    if(S.sec==="cf"&&S.region!=="all")fl.push(S.region);if(S.sec==="cf"&&S.ctype!=="all")fl.push(S.ctype);if(S.journal&&S.sec==="si")fl.push(S.journal);if(S.q)fl.push("“"+S.q+"”");
+    if(S.sec==="cf"&&S.region!=="all")fl.push(S.region);if(S.sec==="cf"&&S.ctype!=="all")fl.push(S.ctype);if(S.js.length&&S.sec==="si")fl.push(S.js.length===1?S.js[0]:S.js.length+" selected journals");if(S.q)fl.push("“"+S.q+"”");
     h=`<div class="empty">No open ${S.sec==="si"?"special-issue calls":"conference calls"}${S.area!=="all"?" in <b>"+esc(al)+"</b>":""}${fl.length?" with: "+esc(fl.join(", ")):""} right now. <button class="chip" data-reset="1">Clear filters</button></div>`}
-  if(S.sec==="si"&&S.journal){const j=JOURNALS.find(r=>r[0]===S.journal)||[];
-    h=`<div class="jhead"><span>Showing special issues in <b>${esc(S.journal)}</b>${j[1]?` · ABDC 2025 ${esc(j[1])}`:""}${j[4]===1||j[4]===3?" · FT50":""}</span><button class="chip" data-clearj="1">Show all journals</button></div>`+h}
+  if(S.sec==="si"&&S.js.length){const one=S.js.length===1,j=JMETA.get(S.js[0])||[];
+    h=`<div class="jhead"><span>Showing special issues in <b>${one?esc(S.js[0]):S.js.length+" selected journals"}</b>${one&&j[1]?` · ABDC 2025 ${esc(j[1])}`:""}${one&&(j[4]===1||j[4]===3)?" · FT50":""}${one?"":`<br><small>${esc(S.js.join(" · "))}</small>`}</span><button class="chip" data-clearj="1">Show all journals</button></div>`+h}
   document.getElementById("list").innerHTML=h;
   const soon=open.filter(x=>days(x.close)<=14).length;
   document.getElementById("stats").textContent=`${open.length} open ${S.sec==="si"?"call"+(open.length===1?"":"s"):"call"+(open.length===1?"":"s")+" for papers or speakers"}${soon?` · ${soon} closing within 14 days`:""}${shut.length?` · ${shut.length} closed`:""}`;
@@ -1579,10 +1623,14 @@ const FORL={3501:"Accounting",3502:"Finance",3503:"Business systems",3504:"Comme
 document.getElementById("checked").textContent="Dates last checked "+fmt(LAST_CHECKED);
 document.getElementById("upd").innerHTML=UPDATES.map(u=>`<li><time>${fmt(u.date)}</time><ul>${u.items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></li>`).join("");
 journals();
-document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;
-  if(t.dataset.reset){Object.assign(S,{area:"all",q:"",region:"all",ctype:"all",status:"open",rating:"all",journal:""});document.getElementById("q").value="";render();return}
-  if(t.dataset.clearj){S.journal="";render();return}
-  if(t.dataset.jcalls||t.dataset.pickj){S.sec="si";S.area="all";S.rating="all";S.status="open";S.q="";document.getElementById("q").value="";S.journal=t.dataset.jcalls||t.dataset.pickj;render();window.scrollTo({top:0,behavior:"smooth"});return}
+document.addEventListener("click",e=>{const dr=document.getElementById("jdrop");
+  if(!dr.hidden&&!e.target.closest("#jpickwrap"))openJdrop(false);
+  if(e.target.closest("#jdrop"))return;
+  const t=e.target.closest("button");if(!t)return;
+  if(t.id==="jsel"){openJdrop(dr.hidden);return}
+  if(t.dataset.reset){Object.assign(S,{area:"all",q:"",region:"all",ctype:"all",status:"open",rating:"all",js:[]});document.getElementById("q").value="";render();return}
+  if(t.dataset.clearj){S.js=[];render();return}
+  if(t.dataset.jcalls||t.dataset.pickj){S.sec="si";S.area="all";S.rating="all";S.status="open";S.q="";document.getElementById("q").value="";S.js=[t.dataset.jcalls||t.dataset.pickj];render();window.scrollTo({top:0,behavior:"smooth"});return}
   if(t.dataset.sec){S.sec=t.dataset.sec;S.area="all"}
   else if(t.dataset.area){S.area=t.dataset.area}
   else if(t.parentElement&&["region","ctype","status","rating"].includes(t.parentElement.id)){S[t.parentElement.id]=t.dataset.v}
@@ -1591,7 +1639,17 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
   else return;
   render()});
 document.getElementById("q").addEventListener("input",e=>{S.q=e.target.value.trim();render()});
-document.getElementById("jsel").addEventListener("change",e=>{S.journal=e.target.value;render()});
+document.getElementById("jdrop").addEventListener("change",e=>{const i=e.target;if(i.type!=="checkbox")return;
+  if(i.dataset.grp){const {names}=jNames(),m=names.filter(x=>inGrp(x,i.dataset.grp));m.forEach(x=>i.checked?JP.sel.add(x):JP.sel.delete(x))}
+  else i.checked?JP.sel.add(i.value):JP.sel.delete(i.value);
+  jmsg("");drawJlist()});
+document.getElementById("jdq").addEventListener("input",e=>{JP.q=e.target.value.trim();drawJlist()});
+document.getElementById("jdrop").addEventListener("click",e=>{const b=e.target.closest("button[data-jp]");if(!b)return;const a=b.dataset.jp;
+  if(a==="clear"){JP.sel.clear();jmsg("");drawJlist()}
+  else if(a==="fav"){FAV=[...JP.sel].sort((x,y)=>x.localeCompare(y));try{localStorage.setItem("cfp-fav-journals",JSON.stringify(FAV))}catch(err){}
+    drawJlist();jmsg(FAV.length?`Saved ${FAV.length} favourite journal${FAV.length===1?"":"s"} in this browser. Tick “★ My favourites” to pick them again.`:"Favourites cleared.")}
+  else if(a==="apply"){S.js=[...JP.sel];S.area="all";openJdrop(false);render()}});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!document.getElementById("jdrop").hidden){openJdrop(false);document.getElementById("jsel").focus()}});
 document.getElementById("jq").addEventListener("input",e=>{JS.q=e.target.value.trim();JS.n=60;journals()});
 (()=>{const base=new URL("deadlines.ics",location.href).href,webcal=base.replace(/^https?:/,"webcal:");
   document.getElementById("r-google").href="https://calendar.google.com/calendar/r?cid="+encodeURIComponent(webcal);
