@@ -216,7 +216,27 @@ footer{color:var(--muted);font-size:13px;padding:18px 0 44px;border-top:1px soli
 .fld.chk{flex-direction:row;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink);font-weight:400;padding-bottom:8px}
 .go{background:var(--accent);color:var(--accent-ink);border:0;border-radius:2px;padding:9px 20px;font-weight:600;cursor:pointer}
 .go[disabled]{opacity:.6;cursor:wait}
-.paper{border-bottom:1px solid var(--line);padding:16px 0}
+.paper{border-bottom:1px solid var(--line);padding:16px 0;display:flex;gap:12px;align-items:flex-start}
+.paper .pbody{min-width:0;flex:1}
+.pick{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--muted);cursor:pointer;padding-top:3px;width:44px;text-align:center}
+.pick input{width:20px;height:20px;accent-color:var(--accent);cursor:pointer;margin:0}
+.pick:has(input:checked){color:var(--accent);font-weight:700}
+.pbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0 0;padding:8px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pbar[hidden]{display:none}
+.pbar label{display:flex;gap:6px;align-items:center;font-size:13.5px;cursor:pointer}
+.pbar label input{accent-color:var(--accent);width:17px;height:17px}
+.pbar .sp{flex:1}
+.libbtn{border:1px solid var(--accent);background:var(--surface);color:var(--accent);padding:7px 12px;font-size:13.5px;font-weight:600;cursor:pointer}
+.libbtn[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.plib[hidden]{display:none}
+.plibtools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0 4px}
+.plibtools .search{flex:1 1 220px}
+.plibtools select,.plibtools button{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 10px;font-size:13.5px;cursor:pointer;border-radius:0}
+.plibtools button.dark{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
+.plibnote{font-size:13px;color:var(--muted);font-style:italic;margin:6px 0 0}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;font-size:14px;z-index:60;display:flex;gap:12px;align-items:center;max-width:calc(100vw - 32px)}
+.toast button{background:none;border:0;color:var(--gold-soft);font-weight:700;cursor:pointer;text-decoration:underline;font-size:14px}
+.toast[hidden]{display:none}
 .paper h3{margin:0;font-family:var(--display);font-size:18.5px;line-height:1.3;font-weight:600}
 .paper h3 a{color:var(--ink);text-decoration:none}.paper h3 a:hover{color:var(--accent);text-decoration:underline}
 .pmeta{font-size:13.5px;color:var(--muted);margin-top:4px}
@@ -331,8 +351,22 @@ footer{color:var(--muted);font-size:13px;padding:18px 0 44px;border-top:1px soli
       </div>
     </form>
     <p class="stats" id="pstat">Searches titles and abstracts (or titles only, or full text) of articles in the journals you choose, using the free OpenAlex index of scholarly works. Results link to the article (DOI) and to a free copy when one exists.</p>
+    <div class="pbar" id="pbar" hidden><label id="pallwrap"><input type="checkbox" id="pall"> Save all shown</label><span class="sp"></span><button type="button" class="libbtn" id="plibbtn" aria-pressed="false">📚 My papers <span id="plibn">0</span></button></div>
+    <div class="plib" id="plib" hidden>
+      <div class="plibtools">
+        <label class="search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input id="plq" type="search" placeholder="Search my papers (AND, OR, NOT, &quot;phrase&quot;)" aria-label="Search my papers"></label>
+        <select id="plsort" aria-label="Sort my papers"><option value="added">Recently saved</option><option value="new">Newest first</option><option value="old">Oldest first</option><option value="cit">Most cited</option><option value="title">Title A–Z</option><option value="j">Journal A–Z</option></select>
+      </div>
+      <div class="plibtools">
+        <button type="button" class="dark" data-lib="bib">Export BibTeX</button><button type="button" data-lib="ris">RIS (EndNote, Zotero, Mendeley)</button><button type="button" data-lib="csv">Excel / CSV</button><button type="button" data-lib="copy">Copy references (APA)</button><button type="button" data-lib="backup">Back up</button><button type="button" data-lib="import">Restore / import</button><button type="button" data-lib="clear">Remove all</button>
+        <input type="file" id="plimport" accept=".json,application/json" hidden>
+      </div>
+      <p class="plibnote" id="plibnote"></p>
+      <div id="plist"></div>
+    </div>
     <div id="presults"></div>
     <div id="pmorewrap"></div>
+    <div class="toast" id="toast" role="status" hidden><span id="toastt"></span><button type="button" id="toastu" hidden>Undo</button></div>
   </section>
   <div id="list"></div>
   <section class="panel" id="jpanel">
@@ -1726,6 +1760,7 @@ function openJdrop(o){const d=document.getElementById("jdrop"),b=document.getEle
 function render(){
   document.querySelectorAll(".sec").forEach(b=>b.setAttribute("aria-selected",b.dataset.sec===S.sec));
   const pp=S.sec==="pp";document.getElementById("papers").hidden=!pp;document.getElementById("bar").hidden=pp;document.getElementById("list").hidden=pp;
+  document.getElementById("n-si").textContent=CALLS.filter(x=>days(x.close)>=0).length;document.getElementById("n-cf").textContent=live.filter(x=>days(x.close)>=0).length;
   if(pp){document.getElementById("jpanel").hidden=true;save();return}
   document.getElementById("region").hidden=document.getElementById("ctype").hidden=S.sec!=="cf";document.getElementById("rating").hidden=S.sec!=="si";document.getElementById("jpickwrap").hidden=S.sec!=="si";fillJsel();
   document.getElementById("jpanel").hidden=S.sec!=="si";
@@ -1866,35 +1901,38 @@ async function oaFetch(issns){
   let r=await fetch(u);
   if(!r.ok&&r.status===400&&!sp&&PS.sort==="rel")r=await fetch(u.replace(/&sort=[^&]*/,"")); /* fallback if relevance sort is refused for field searches */
   if(!r.ok)throw new Error("OpenAlex "+r.status);return r.json()}
-function paperHTML(w){
-  const src=w.primary_location&&w.primary_location.source||{};
+/* ---- my papers library (kept in this browser) ---- */
+let LIB=[];try{const v=JSON.parse(localStorage.getItem("cfp-papers")||"[]");if(Array.isArray(v))LIB=v}catch(e){}
+const LIBM=new Map(LIB.map(r=>[r.id,r]));
+const storeLib=()=>{try{localStorage.setItem("cfp-papers",JSON.stringify(LIB))}catch(e){toast("Could not save: browser storage is full or blocked.")}};
+function rec(w){const src=w.primary_location&&w.primary_location.source||{};
   const j=(src.issn||[]).map(i=>jByIssn.get(String(i).toUpperCase())).find(Boolean);
-  const jname=j?j[0]:(src.display_name||"");
-  const au=(w.authorships||[]).map(a=>a.author&&a.author.display_name).filter(Boolean);
-  const auS=au.length>4?au.slice(0,3).join(", ")+" et al.":au.join(", ");
-  const doi=w.doi||(w.primary_location&&w.primary_location.landing_page_url)||w.id;
-  const oa=w.open_access&&w.open_access.is_oa&&w.open_access.oa_url;
-  const ab=absText(w.abstract_inverted_index);
-  return `<article class="paper"><div class="pmeta"><span class="jn2">${esc(jname)}</span>${j?` · ABDC ${esc(j[1])}${j[4]===1||j[4]===3?" · FT50":""}`:""}</div>
-  <h3><a href="${esc(doi)}" target="_blank" rel="noopener">${esc(w.display_name||w.title||"Untitled")}</a></h3>
-  <div class="pmeta">${esc(auS)}${auS?" · ":""}${w.publication_date?fmt(w.publication_date):esc(w.publication_year||"")} · cited ${(w.cited_by_count||0).toLocaleString("en-IN")} times</div>
-  ${ab?`<p class="pabs clip">${esc(ab)}</p>`:""}
-  <div class="plinks"><a href="${esc(doi)}" target="_blank" rel="noopener">Article ${I.ext}</a>${oa&&oa!==doi?`<a href="${esc(oa)}" target="_blank" rel="noopener">Free copy ${I.ext}</a>`:""}${ab?`<button type="button" data-more="1">Show abstract</button>`:""}</div></article>`}
+  const bi=w.biblio||{};
+  return {id:w.id,t:w.display_name||w.title||"Untitled",au:(w.authorships||[]).map(a=>a.author&&a.author.display_name).filter(Boolean),
+    y:w.publication_year||(w.publication_date||"").slice(0,4),d:w.publication_date||"",j:j?j[0]:(src.display_name||""),r:j?(j[1]+(j[4]===1||j[4]===3?" · FT50":"")):"",
+    doi:w.doi||"",url:w.doi||(w.primary_location&&w.primary_location.landing_page_url)||w.id,oa:(w.open_access&&w.open_access.is_oa&&w.open_access.oa_url)||"",
+    c:w.cited_by_count||0,v:bi.volume||"",is:bi.issue||"",fp:bi.first_page||"",lp:bi.last_page||"",ab:absText(w.abstract_inverted_index).slice(0,3000)}}
+function paperHTML(p){const auS=p.au.length>4?p.au.slice(0,3).join(", ")+" et al.":p.au.join(", "),saved=LIBM.has(p.id);
+  return `<article class="paper" data-id="${esc(p.id)}"><label class="pick" title="${saved?"Remove from my papers":"Save to my papers"}"><input type="checkbox" data-pid="${esc(p.id)}"${saved?" checked":""}><span>${saved?"Saved":"Save"}</span></label><div class="pbody"><div class="pmeta"><span class="jn2">${esc(p.j)}</span>${p.r?` · ABDC ${esc(p.r)}`:""}</div>
+  <h3><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.t)}</a></h3>
+  <div class="pmeta">${esc(auS)}${auS?" · ":""}${p.d?fmt(p.d):esc(p.y||"")} · cited ${(p.c||0).toLocaleString("en-IN")} times</div>
+  ${p.ab?`<p class="pabs clip">${esc(p.ab)}</p>`:""}
+  <div class="plinks"><a href="${esc(p.url)}" target="_blank" rel="noopener">Article ${I.ext}</a>${p.oa&&p.oa!==p.url?`<a href="${esc(p.oa)}" target="_blank" rel="noopener">Free copy ${I.ext}</a>`:""}${p.ab?`<button type="button" data-more="1">Show abstract</button>`:""}</div></div></article>`}
 async function runSearch(more){
   if(PS.busy)return;PS.busy=true;const btn=document.querySelector("#pform .go");btn.disabled=true;
   const st=document.getElementById("pstat"),res=document.getElementById("presults"),mw=document.getElementById("pmorewrap");
-  if(!more){PS.page=1;PS.items=[];PS.seen=new Set();res.innerHTML="";}
+  if(!more){PS.page=1;PS.items=[];PS.seen=new Set();res.innerHTML="";showLib(false)}
   const js=scopeJournals(PS.scope),issns=[...new Set(js.map(j=>j[7]||j[8]).filter(Boolean))];
   st.textContent=`Searching ${js.length} journal${js.length===1?"":"s"}…`;mw.innerHTML="";
   try{
     const parts=await Promise.all(chunks(issns,100).map(c=>oaFetch(c)));
     const total=parts.reduce((n,p)=>n+(p.meta&&p.meta.count||0),0);
-    let batch=parts.flatMap(p=>p.results||[]).filter(w=>!PS.seen.has(w.id));
+    let batch=parts.flatMap(p=>p.results||[]).filter(w=>!PS.seen.has(w.id)).map(w=>Object.assign(rec(w),{_rel:w.relevance_score||0}));
     batch.forEach(w=>PS.seen.add(w.id));
-    const key={rel:w=>-(w.relevance_score||0),new:w=>-(Date.parse(w.publication_date||0)||0),cit:w=>-(w.cited_by_count||0)}[PS.sort];
+    const key={rel:w=>-(w._rel||0),new:w=>-(Date.parse(w.d||0)||0),cit:w=>-(w.c||0)}[PS.sort];
     batch.sort((a,b)=>key(a)-key(b));
     PS.items.push(...batch);
-    res.insertAdjacentHTML("beforeend",batch.map(paperHTML).join(""));
+    batch.forEach(w=>delete w._rel);res.insertAdjacentHTML("beforeend",batch.map(paperHTML).join(""));syncPbar();
     st.textContent=total?`About ${total.toLocaleString("en-IN")} articles match “${PS.q}” in ${js.length===1?js[0][0]:js.length+" journals"}. Showing ${PS.items.length}.`:`No articles match “${PS.q}” in ${js.length===1?js[0][0]:"these journals"}${PS.year?" in the chosen years":""}. Try fewer or broader keywords.`;
     if(PS.items.length<total&&batch.length)mw.innerHTML=`<p><button class="go" type="button" id="pmore">Show more results</button></p>`;
   }catch(e){
@@ -1906,6 +1944,60 @@ document.getElementById("pform").addEventListener("submit",e=>{e.preventDefault(
   PS.q=document.getElementById("pq").value.trim();if(!PS.q)return;
   PS.in=document.getElementById("pin").value;PS.scope=document.getElementById("pscope").value;PS.year=document.getElementById("pyear").value;PS.sort=document.getElementById("psort").value;PS.oa=document.getElementById("poa").checked;
   runSearch(false)});
+function toast(t,undo){const el=document.getElementById("toast"),u=document.getElementById("toastu");document.getElementById("toastt").textContent=t;u.hidden=!undo;u.onclick=()=>{undo();el.hidden=true};el.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>el.hidden=true,undo?6000:3500)}
+function libAdd(p){if(!p||LIBM.has(p.id))return;const r=Object.assign({},p,{added:Date.now()});LIB.unshift(r);LIBM.set(r.id,r)}
+function libDel(id){if(!LIBM.has(id))return;LIB=LIB.filter(r=>r.id!==id);LIBM.delete(id)}
+function setPick(id,on){document.querySelectorAll(`.paper input[data-pid="${CSS.escape(id)}"]`).forEach(i=>{i.checked=on;const l=i.closest(".pick");l.title=on?"Remove from my papers":"Save to my papers";l.querySelector("span").textContent=on?"Saved":"Save"})}
+function syncPbar(){document.getElementById("plibn").textContent=LIB.length;const libOn=!document.getElementById("plib").hidden;
+  document.getElementById("pbar").hidden=!PS.items.length&&!LIB.length;document.getElementById("pallwrap").hidden=libOn||!PS.items.length;
+  const all=document.getElementById("pall"),k=PS.items.filter(p=>LIBM.has(p.id)).length;all.checked=PS.items.length>0&&k===PS.items.length;all.indeterminate=k>0&&k<PS.items.length}
+const LQ={q:"",sort:"added"};
+function drawLib(){const ast=LQ.q?qParse(LQ.q):null;
+  let L=LIB.filter(r=>!ast||qEval(ast,f=>(f==="title"?r.t:f==="journal"?r.j:f==="author"||f==="editor"?r.au.join(" "):[r.t,r.j,r.au.join(" "),r.ab,r.y].join(" ")).toLowerCase()));
+  const cmp={added:(a,b)=>(b.added||0)-(a.added||0),new:(a,b)=>String(b.d||b.y).localeCompare(String(a.d||a.y)),old:(a,b)=>String(a.d||a.y).localeCompare(String(b.d||b.y)),cit:(a,b)=>(b.c||0)-(a.c||0),title:(a,b)=>a.t.localeCompare(b.t),j:(a,b)=>a.j.localeCompare(b.j)||String(b.y).localeCompare(String(a.y))}[LQ.sort];
+  L=[...L].sort(cmp);
+  document.getElementById("plibnote").textContent=LIB.length?`${LIB.length} saved paper${LIB.length===1?"":"s"}${LQ.q?`, ${L.length} matching`:""}. Exports use the papers shown. Your library is kept in this browser on this device; use Back up to move it to another device.`:"";
+  document.getElementById("plist").innerHTML=LIB.length?(L.length?L.map(paperHTML).join(""):`<div class="empty">No saved paper matches “${esc(LQ.q)}”.</div>`):`<div class="empty">No papers saved yet. Search for articles and tick <b>Save</b> next to any result to build your own collection.</div>`;
+  return L}
+function showLib(on){document.getElementById("plib").hidden=!on;document.getElementById("presults").hidden=on;document.getElementById("pmorewrap").hidden=on;
+  document.getElementById("plibbtn").setAttribute("aria-pressed",on);if(on)drawLib();syncPbar()}
+function dl(name,text,type){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;document.body.appendChild(a);a.click();a.remove()}
+const lastName=n=>{const p=String(n).trim().split(/\s+/);return p[p.length-1]||"anon"};
+const doiBare=d=>String(d||"").replace(/^https?:\/\/(dx\.)?doi\.org\//i,"");
+const pages=r=>r.fp?(r.lp&&r.lp!==r.fp?r.fp+"–"+r.lp:r.fp):"";
+function toBib(L){const used=new Set();return L.map(r=>{let k=(lastName(r.au[0]||"anon")+r.y+((r.t.match(/[A-Za-z]{4,}/)||[""])[0])).normalize("NFD").replace(/[^A-Za-z0-9]/g,"").toLowerCase();let k2=k,i=1;while(used.has(k2))k2=k+String.fromCharCode(96+(++i));used.add(k2);
+  const b=s=>String(s).replace(/[{}]/g,"");const F=[["title","{"+b(r.t)+"}"],["author",r.au.map(b).join(" and ")],["journal",b(r.j)],["year",r.y],["volume",r.v],["number",r.is],["pages",r.fp?(r.lp&&r.lp!==r.fp?r.fp+"--"+r.lp:r.fp):""],["doi",doiBare(r.doi)],["url",r.url]].filter(f=>f[1]);
+  return `@article{${k2},\n`+F.map(([a,v])=>`  ${a} = {${v}}`).join(",\n")+"\n}"}).join("\n\n")+"\n"}
+function toRis(L){return L.map(r=>["TY  - JOUR","TI  - "+r.t,...r.au.map(a=>"AU  - "+a),r.j&&"JO  - "+r.j,r.y&&"PY  - "+r.y,r.v&&"VL  - "+r.v,r.is&&"IS  - "+r.is,r.fp&&"SP  - "+r.fp,r.lp&&"EP  - "+r.lp,r.doi&&"DO  - "+doiBare(r.doi),"UR  - "+r.url,r.ab&&"AB  - "+r.ab.replace(/\s+/g," "),"ER  - "].filter(Boolean).join("\r\n")).join("\r\n")+"\r\n"}
+function toCsv(L){const q=v=>'"'+String(v??"").replace(/"/g,'""')+'"';return "\ufeff"+["Title","Authors","Year","Journal","ABDC / FT50","Volume","Issue","Pages","DOI","Link","Free copy","Cited by","Abstract"].map(q).join(",")+"\r\n"+
+  L.map(r=>[r.t,r.au.join("; "),r.y,r.j,r.r,r.v,r.is,pages(r),doiBare(r.doi),r.url,r.oa,r.c,r.ab].map(q).join(",")).join("\r\n")+"\r\n"}
+function apa(r){const n=a=>{const p=a.trim().split(/\s+/),l=p.pop();return l+(p.length?", "+p.map(x=>x[0]+".").join(" "):"")};
+  const au=r.au.length>20?r.au.slice(0,19).map(n).join(", ")+", … "+n(r.au[r.au.length-1]):r.au.length>1?r.au.slice(0,-1).map(n).join(", ")+", & "+n(r.au[r.au.length-1]):r.au.map(n).join("");
+  return `${au}${au?" ":""}(${r.y||"n.d."}). ${r.t.replace(/\.$/,"")}. ${r.j}${r.v?", "+r.v:""}${r.is?"("+r.is+")":""}${pages(r)?", "+pages(r):""}.${r.doi?" https://doi.org/"+doiBare(r.doi):r.url?" "+r.url:""}`}
+document.getElementById("papers").addEventListener("change",e=>{const i=e.target;
+  if(i.dataset.pid){const id=i.dataset.pid;
+    if(i.checked){libAdd(PS.items.find(p=>p.id===id)||LIBM.get(id));storeLib();setPick(id,true)}
+    else{const r=LIBM.get(id);libDel(id);storeLib();setPick(id,false);toast("Removed from my papers.",()=>{libAdd(r);r&&(LIBM.get(r.id).added=r.added);storeLib();setPick(id,true);if(!document.getElementById("plib").hidden)drawLib();syncPbar()});
+      if(!document.getElementById("plib").hidden)drawLib()}
+    syncPbar()}
+  else if(i.id==="pall"){PS.items.forEach(p=>{if(i.checked)libAdd(p);else libDel(p.id);setPick(p.id,i.checked)});storeLib();syncPbar();toast(i.checked?`Saved ${PS.items.length} papers.`:"Removed the papers shown from my papers.")}
+  else if(i.id==="plsort"){LQ.sort=i.value;drawLib()}
+  else if(i.id==="plimport"&&i.files[0]){const fr=new FileReader();fr.onload=()=>{try{const v=JSON.parse(fr.result);const arr=Array.isArray(v)?v:v.papers;let n=0;
+      (arr||[]).forEach(r=>{if(r&&r.id&&r.t&&!LIBM.has(r.id)){r.au=Array.isArray(r.au)?r.au:[];LIB.push(r);LIBM.set(r.id,r);n++}});storeLib();drawLib();syncPbar();toast(`Imported ${n} new paper${n===1?"":"s"}.`)}catch(err){toast("That file is not a My papers backup.")}};fr.readAsText(i.files[0]);i.value=""}});
+document.getElementById("plq").addEventListener("input",e=>{LQ.q=e.target.value.trim();drawLib()});
+document.getElementById("plibbtn").addEventListener("click",()=>showLib(document.getElementById("plib").hidden));
+document.getElementById("plib").addEventListener("click",async e=>{const b=e.target.closest("[data-lib]");if(!b)return;const a=b.dataset.lib,L=drawLib();
+  if(a==="import"){document.getElementById("plimport").click();return}
+  if(!L.length){toast("No saved papers to export.");return}
+  const stamp=new Date().toISOString().slice(0,10);
+  if(a==="bib")dl(`my-papers-${stamp}.bib`,toBib(L),"application/x-bibtex");
+  else if(a==="ris")dl(`my-papers-${stamp}.ris`,toRis(L),"application/x-research-info-systems");
+  else if(a==="csv")dl(`my-papers-${stamp}.csv`,toCsv(L),"text/csv");
+  else if(a==="backup")dl(`my-papers-backup-${stamp}.json`,JSON.stringify({app:"Journal Special Issues and CFP",saved:stamp,papers:LIB},null,1),"application/json");
+  else if(a==="copy"){const t=L.map(apa).join("\n\n");try{await navigator.clipboard.writeText(t);toast(`Copied ${L.length} reference${L.length===1?"":"s"}.`)}catch(err){dl(`my-papers-${stamp}.txt`,t,"text/plain")}}
+  else if(a==="clear"){const old=LIB.slice();LIB.forEach(r=>setPick(r.id,false));LIB=[];LIBM.clear();storeLib();drawLib();syncPbar();
+    toast(`Removed ${old.length} papers.`,()=>{LIB=old;old.forEach(r=>LIBM.set(r.id,r));storeLib();old.forEach(r=>setPick(r.id,true));drawLib();syncPbar()})}});
+syncPbar();
 document.getElementById("papers").addEventListener("click",e=>{const t=e.target;
   if(t.id==="pmore"){PS.page++;runSearch(true)}
   if(t.dataset&&t.dataset.more){const p=t.closest(".paper").querySelector(".pabs");const c=p.classList.toggle("clip");t.textContent=c?"Show abstract":"Hide abstract"}});
