@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,400&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-/* Editorial "journal" look, deliberately different from the Entrance Exam Planner:
+/* Editorial "journal" look:
    warm paper background, serif headings, oxblood accent, ruled lines instead of shadows, square corners. */
 :root{
   --bg:#f6f2ea; --surface:#fffdf8; --surface-2:#f1ebdf; --ink:#1f1b16; --muted:#6a6155; --line:#e2d9c8; --rule:#1f1b16;
@@ -377,12 +377,8 @@ footer{color:var(--muted);font-size:13px;padding:18px 0 44px;border-top:1px soli
     <div class="tblwrap"><table class="tbl" id="jtable"></table></div>
     <p class="stats" id="jmore"></p>
   </section>
-  <section class="panel">
-    <h2>What changed</h2>
-    <ul class="upd" id="upd"></ul>
-  </section>
 </main>
-<footer class="in">Dates come from journal, publisher and conference websites; dates marked “estimated” follow the last edition’s pattern and are replaced when the official call appears. Always confirm on the linked call before submitting. Companion to the <a href="../exam-planner/">Entrance Exam Planner</a>.
+<footer class="in">Dates come from journal, publisher and conference websites; dates marked “estimated” follow the last edition’s pattern and are replaced when the official call appears. Always confirm on the linked call before submitting.
   <p class="copy">© <span id="cy">2026</span> Sourabh Bhattacharya. All rights reserved. The compilation, selection, arrangement, text and design of this page are protected by copyright. You may view it, link to it and subscribe to its calendar for personal, non-commercial use; copying or republishing the page or its data, in whole or in part, needs prior written permission.</p>
   <p class="copy">Journal ratings are from the ABDC Journal Quality List © Australian Business Deans Council. “FT50” refers to the Financial Times Research Rank journal list; the Financial Times is not affiliated with this page. Journal names, special-issue calls and conference names belong to their publishers and organisers and are summarised here for information only, with links to the original calls. This page is provided as is, without warranty: always check dates and requirements on the official call before submitting.</p>
 </footer>
@@ -1812,7 +1808,6 @@ function journals(){const open=new Map();CALLS.forEach(c=>{if(days(c.close)>=0)o
 const FORL={3501:"Accounting",3502:"Finance",3503:"Business systems",3504:"Commercial services",3505:"HR & industrial relations",3506:"Marketing",3507:"Strategy, management & OB",3508:"Tourism",3509:"Logistics & supply chain",3599:"Other business",3801:"Applied economics",3802:"Econometrics",3803:"Economic theory",3899:"Other economics",4609:"Information systems",4801:"Commercial law",4905:"Statistics"};
 (()=>{const y=new Date().getFullYear();document.getElementById("cy").textContent=y>2026?"2026–"+y:"2026"})();
 document.getElementById("checked").textContent="Dates last checked "+fmt(LAST_CHECKED);
-document.getElementById("upd").innerHTML=UPDATES.map(u=>`<li><time>${fmt(u.date)}</time><ul>${u.items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></li>`).join("");
 journals();
 document.addEventListener("click",e=>{const dr=document.getElementById("jdrop");
   if(!dr.hidden&&!e.target.closest("#jpickwrap"))openJdrop(false);
