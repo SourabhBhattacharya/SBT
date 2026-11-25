@@ -196,6 +196,19 @@ footer{color:var(--muted);font-size:13px;padding:18px 0 44px;border-top:1px soli
 
 /* paper search */
 .pform{margin-top:22px;display:grid;gap:12px}
+.advbtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 11px;font-size:13.5px;cursor:pointer;border-radius:0}
+.advbtn[aria-expanded="true"]{background:var(--ink);color:var(--bg);font-weight:600}
+.adv{border:1px solid var(--rule);background:var(--surface);padding:14px 16px;margin-top:10px;display:grid;gap:10px}
+.adv[hidden]{display:none}
+.adv .ag{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.adv label{display:flex;flex-direction:column;gap:3px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.adv input,.adv select{text-transform:none;letter-spacing:0;font-weight:400;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:0;padding:8px 10px;font-size:14px;min-width:0}
+.adv .ab{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.adv .ab button{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 12px;font-size:13.5px;cursor:pointer}
+.adv .ab button.go2{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
+.adv .tips{font-size:13px;color:var(--muted);line-height:1.55;margin:0}
+.adv code{font-family:var(--mono);font-size:12px;background:var(--surface-2);padding:1px 5px;color:var(--ink);white-space:nowrap}
+.qerr{color:var(--urgent)}
 .pq{flex:1 1 auto}.pq input{font-size:16px;padding:11px 0}
 .prow{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
 .fld{display:flex;flex-direction:column;gap:3px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;min-width:0}
@@ -259,7 +272,8 @@ footer{color:var(--muted);font-size:13px;padding:18px 0 44px;border-top:1px soli
   <div class="in">
     <div class="areas" id="areas" role="group" aria-label="Area"></div>
     <div class="tools">
-      <label class="search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input id="q" type="search" placeholder="Search journal, conference, topic, city…" aria-label="Search"></label>
+      <label class="search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input id="q" type="search" placeholder="Search topic, journal, city… (AND, OR, NOT, &quot;phrase&quot;)" aria-label="Search"></label>
+      <button type="button" class="advbtn" id="advq" aria-expanded="false" aria-controls="advpanel" title="Advanced search: AND, OR, NOT, exact phrases, search one field">Advanced</button>
       <div class="jpick" id="jpickwrap"><button type="button" class="jbtn" id="jsel" aria-haspopup="true" aria-expanded="false" aria-controls="jdrop"><span id="jsellbl">All journals</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
         <div class="jdrop" id="jdrop" hidden role="dialog" aria-label="Choose journals">
           <input class="jdq" id="jdq" type="search" placeholder="Find a journal…" aria-label="Find a journal">
@@ -275,6 +289,17 @@ footer{color:var(--muted);font-size:13px;padding:18px 0 44px;border-top:1px soli
       <label><span class="sr">Deadline month</span><select class="msel" id="msel" aria-label="Deadline month"></select></label>
       <button type="button" class="mylist" id="mylist" aria-pressed="false" title="Show only the calls you starred">★ My list <span id="mycount">0</span></button>
     </div>
+    <div class="adv" id="advpanel" hidden data-target="q">
+      <div class="ag">
+        <label>All of these words<input data-a="all" placeholder="e.g. AI marketing"></label>
+        <label>This exact phrase<input data-a="phrase" placeholder="e.g. supply chain"></label>
+        <label>Any of these words<input data-a="any" placeholder="e.g. India China"></label>
+        <label>None of these words<input data-a="none" placeholder="e.g. tourism"></label>
+        <label>Search in<select data-a="field"><option value="">Everything</option><option value="title">Title / conference name</option><option value="journal">Journal</option><option value="editor">Guest editors</option><option value="org">Organiser</option><option value="place">City / country</option><option value="publisher">Publisher</option></select></label>
+      </div>
+      <div class="ab"><button type="button" class="go2" data-adv="apply">Search</button><button type="button" data-adv="clear">Clear</button></div>
+      <p class="tips">You can also type operators straight into the search box: <code>AI AND (pricing OR retail)</code> · <code>sustainability NOT tourism</code> or <code>-tourism</code> · <code>"family firm"</code> for an exact phrase · fields: <code>journal:"Management Science"</code>, <code>title:AI</code>, <code>editor:Gupta</code>, <code>place:Hyderabad</code>, <code>org:IIM</code>, <code>publisher:Emerald</code>, <code>area:finance</code>. Words with no operator must all match; OR is applied before AND, so <code>AI OR ML pricing</code> means (AI or ML) and pricing.</p>
+    </div>
     <div class="stats"><span id="stats"></span><a class="myics" id="myics" href="#" hidden>Download my list as a calendar file (.ics)</a></div>
   </div>
 </div>
@@ -283,17 +308,29 @@ footer{color:var(--muted);font-size:13px;padding:18px 0 44px;border-top:1px soli
   <section id="papers" hidden>
     <form id="pform" class="pform" autocomplete="off">
       <label class="search pq"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input id="pq" type="search" placeholder="Keywords, e.g. generative AI pricing, family firm succession…" aria-label="Keywords" required></label>
+      <button type="button" class="advbtn" id="advp" aria-expanded="false" aria-controls="advppanel" style="justify-self:start">Advanced search</button>
+      <div class="adv" id="advppanel" hidden data-target="pq" style="margin-top:0">
+        <div class="ag">
+          <label>All of these words<input data-a="all" placeholder="e.g. pricing algorithm"></label>
+          <label>This exact phrase<input data-a="phrase" placeholder="e.g. generative AI"></label>
+          <label>Any of these words<input data-a="any" placeholder="e.g. retail ecommerce"></label>
+          <label>None of these words<input data-a="none" placeholder="e.g. healthcare"></label>
+        </div>
+        <div class="ab"><button type="button" class="go2" data-adv="apply">Search</button><button type="button" data-adv="clear">Clear</button></div>
+        <p class="tips">Or type operators in the box: <code>"family firm" AND (succession OR governance) NOT China</code>. AND, OR and NOT work in capitals or lower case; <code>-word</code> excludes a word; quotes match an exact phrase; brackets group terms.</p>
+      </div>
       <div class="prow">
         <label class="fld"><span>Journals</span><select id="pscope">
           <option value="all">All tracked journals (FT50 + ABDC A*/A)</option><option value="ft">FT50 journals</option><option value="A*">ABDC A* journals</option><option value="A">ABDC A journals</option>
           <optgroup label="By area" id="pareas"></optgroup><optgroup label="One journal" id="pjournals"></optgroup></select></label>
+        <label class="fld"><span>Search in</span><select id="pin"><option value="ta">Title and abstract</option><option value="t">Title only</option><option value="all">Title, abstract and full text</option></select></label>
         <label class="fld"><span>Published</span><select id="pyear"><option value="">Any year</option><option value="2">Last 2 years</option><option value="5" selected>Last 5 years</option><option value="10">Last 10 years</option></select></label>
         <label class="fld"><span>Sort by</span><select id="psort"><option value="rel">Relevance</option><option value="new">Newest first</option><option value="cit">Most cited</option></select></label>
         <label class="fld chk"><input type="checkbox" id="poa"> <span>Free to read only</span></label>
         <button class="go" type="submit">Search</button>
       </div>
     </form>
-    <p class="stats" id="pstat">Searches titles and abstracts of articles in the journals you choose, using the free OpenAlex index of scholarly works. Results link to the article (DOI) and to a free copy when one exists.</p>
+    <p class="stats" id="pstat">Searches titles and abstracts (or titles only, or full text) of articles in the journals you choose, using the free OpenAlex index of scholarly works. Results link to the article (DOI) and to a free copy when one exists.</p>
     <div id="presults"></div>
     <div id="pmorewrap"></div>
   </section>
@@ -1571,8 +1608,63 @@ let FAV=[];try{FAV=JSON.parse(localStorage.getItem("cfp-fav-journals")||"[]");if
 
 const live=CONFS.filter(c=>(c.end||c.start)>=TODAY); // past events never shown
 const items=()=>S.sec==="si"?CALLS:live;
-const matchQ=x=>{if(!S.q)return true;const h=[x.title,x.journal,x.abbr,x.name,x.full,x.org,x.place,x.area,x.note,x.kw,x.editors,x.publisher].join(" ").toLowerCase();
-  return S.q.toLowerCase().split(/\s+/).every(t=>h.includes(t))};
+/* ---- boolean query parser: AND / OR / NOT (or -word), "phrases", (groups), field:term ---- */
+function qTokens(str){const T=[];let i=0;const n=str.length;
+  while(i<n){const c=str[i];
+    if(/\s/.test(c)){i++;continue}
+    if(c==="("||c===")"){T.push({k:c});i++;continue}
+    if(c==="|"){while(str[i]==="|")i++;T.push({k:"OR"});continue}
+    if(c==="&"){while(str[i]==="&")i++;T.push({k:"AND"});continue}
+    let neg=false;if((c==="-"||c==="!")&&i+1<n&&!/\s/.test(str[i+1])){neg=true;i++}else if(c==="+"&&i+1<n){i++}
+    let f="",m=/^([a-z]+):(?=\S)/i.exec(str.slice(i));if(m){f=m[1].toLowerCase();i+=m[0].length}
+    let v,ph=false;
+    if(str[i]==='"'){const e=str.indexOf('"',i+1);v=str.slice(i+1,e<0?n:e);i=e<0?n:e+1;ph=true}
+    else{let j=i;while(j<n&&!/[\s()"]/.test(str[j]))j++;v=str.slice(i,j);i=j}
+    v=v.trim();if(!v&&!f)continue;
+    if(!f&&!ph&&!neg){const u=v.toUpperCase();if(u==="AND"||u==="OR"||u==="NOT"){T.push({k:u});continue}}
+    if(neg)T.push({k:"NOT"});
+    T.push({k:"term",v:v.replace(/\s+/g," "),f,ph})}
+  return T}
+function qParse(str){const T=qTokens(str);let p=0;const pk=()=>T[p];
+  const term=()=>{const t=pk();if(!t)return null;
+    if(t.k==="NOT"){p++;const x=term();return x?{t:"not",a:x}:null}
+    if(t.k==="("){p++;const x=orE();if(pk()&&pk().k===")")p++;return x}
+    if(t.k==="term"){p++;return {t:"term",v:t.v,f:t.f,ph:t.ph}}
+    p++;return term()};
+  /* OR binds tighter than AND (as in Scopus): "AI OR ML pricing" = (AI OR ML) AND pricing */
+  const orG=()=>{const a=[];let x=term();if(x)a.push(x);
+    while(pk()&&pk().k==="OR"){p++;x=term();if(x)a.push(x)}
+    return a.length===1?a[0]:a.length?{t:"or",a}:null};
+  const orE=()=>{const a=[];let x=orG();if(x)a.push(x);
+    while(pk()&&pk().k!==")"){if(pk().k==="AND"||pk().k==="OR"){p++;continue}x=orG();if(x)a.push(x)}
+    return a.length===1?a[0]:a.length?{t:"and",a}:null};
+  let r=orE();while(p<T.length){p++;const x=orE();if(x)r=r?{t:"and",a:[r,x]}:x}
+  return r}
+function qEval(n,get){if(!n)return true;
+  if(n.t==="and")return n.a.every(x=>qEval(x,get));if(n.t==="or")return n.a.some(x=>qEval(x,get));if(n.t==="not")return !qEval(n.a,get);
+  if(!n.re){const v=n.v.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g,"\\$&").replace(/ /g,"\\s+");
+    n.re=new RegExp("(?:^|[^\\p{L}\\p{N}])"+v+(n.v.length<=3?"(?![\\p{L}\\p{N}])":""),"u")}
+  return n.re.test(get(n.f))} /* words match at the start of a word ("innovat" finds innovation); words of 3 letters or fewer and phrases must match whole words */
+function qToOA(n,top){if(!n)return "";const w=s=>top?s:"("+s+")";
+  if(n.t==="term")return n.ph||/\s/.test(n.v)?`"${n.v.replace(/"/g,"")}"`:n.v.replace(/[",]/g,"");
+  if(n.t==="not")return "NOT "+qToOA(n.a);
+  if(n.t==="or")return w(n.a.map(x=>qToOA(x)).join(" OR "));
+  const pos=n.a.filter(x=>x.t!=="not"),neg=n.a.filter(x=>x.t==="not");
+  let s=pos.map(x=>qToOA(x)).join(" AND ");if(neg.length)s=(s||"")+(s?" ":"")+neg.map(x=>"NOT "+qToOA(x.a)).join(" ");
+  return w(s)}
+const QF={title:["title","name","full"],name:["title","name","full"],journal:["journal","abbr"],editor:["editors"],editors:["editors"],org:["org"],organiser:["org"],organizer:["org"],place:["place"],city:["place"],country:["place"],publisher:["publisher"],area:["area"],kw:["kw","note"],keyword:["kw","note"],theme:["kw","note","title"]};
+const QALL=["title","journal","abbr","name","full","org","place","area","note","kw","editors","publisher"];
+let QC={q:null,ast:null};
+const matchQ=x=>{if(!S.q)return true;if(QC.q!==S.q)QC={q:S.q,ast:qParse(S.q)};
+  const cache={};const get=f=>{const k=QF[f]?f:"";if(cache[k]==null){const fl=QF[f]||QALL;cache[k]=fl.map(y=>Array.isArray(x[y])?x[y].join(" "):x[y]??"").join(" ").toLowerCase().replace(/\s+/g," ")}return cache[k]};
+  return qEval(QC.ast,f=>QF[f]?get(f):get(""))};
+/* unknown field prefixes (e.g. "covid:") are treated as plain words */
+function qBuild(o,field){const ws=s=>(s||"").trim().split(/\s+/).filter(Boolean).map(w=>w.replace(/"/g,""));const fp=field?field+":":"";const parts=[];
+  ws(o.all).forEach(w=>parts.push(fp+w));
+  if((o.phrase||"").trim())parts.push(fp+'"'+o.phrase.trim().replace(/"/g,"")+'"');
+  const any=ws(o.any);if(any.length)parts.push(any.length>1?"("+any.map(w=>fp+w).join(" OR ")+")":fp+any[0]);
+  ws(o.none).forEach(w=>parts.push("-"+fp+w));
+  return parts.join(" ")}
 const passStatus=x=>{const d=days(x.close);if(S.status==="open")return d>=0;if(S.status==="30")return d>=0&&d<=30;return true};
 const isFT=x=>x.ft50===1||x.ft50===3;
 const passBase=(x,noM)=>(noM||!S.month||x.close.slice(0,7)===S.month)&&(!S.mine||SAVED.has(keyOf(x)))&&matchQ(x)&&(S.sec!=="si"||!S.js.length||S.js.includes(x.journal))&&(S.sec!=="si"||S.rating==="all"||(S.rating==="ft"?isFT(x):x.abdc===S.rating))&&(S.sec==="si"||((S.region==="all"||x.region===S.region)&&(S.ctype==="all"||x.type===S.ctype)))&&passStatus(x);
@@ -1709,6 +1801,15 @@ document.getElementById("jdrop").addEventListener("change",e=>{const i=e.target;
   if(i.dataset.grp){const {names}=jNames(),m=names.filter(x=>inGrp(x,i.dataset.grp));m.forEach(x=>i.checked?JP.sel.add(x):JP.sel.delete(x))}
   else i.checked?JP.sel.add(i.value):JP.sel.delete(i.value);
   jmsg("");drawJlist()});
+function advToggle(btn,panel,o){btn.setAttribute("aria-expanded",o);panel.hidden=!o;if(o)panel.querySelector("input").focus()}
+[["advq","advpanel"],["advp","advppanel"]].forEach(([b,pn])=>{const btn=document.getElementById(b),panel=document.getElementById(pn);
+  btn.addEventListener("click",e=>{e.stopPropagation();advToggle(btn,panel,panel.hidden)});
+  const apply=()=>{const o={};panel.querySelectorAll("[data-a]").forEach(i=>o[i.dataset.a]=i.value);const q=qBuild(o,o.field||"");if(!q)return;
+    const box=document.getElementById(panel.dataset.target);box.value=q;
+    if(panel.dataset.target==="q"){S.q=q;S.area="all";render()}else document.getElementById("pform").requestSubmit()};
+  panel.addEventListener("click",e=>{e.stopPropagation();const a=e.target.closest("[data-adv]");if(!a)return;
+    if(a.dataset.adv==="apply")apply();else{panel.querySelectorAll("input[data-a]").forEach(i=>i.value="");panel.querySelector("select[data-a]")&&(panel.querySelector("select[data-a]").value="")}});
+  panel.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.matches("input")){e.preventDefault();apply()}})});
 document.getElementById("msel").addEventListener("change",e=>{S.month=e.target.value;if(S.month&&S.status==="30")S.status="open";S.area="all";render()});
 document.getElementById("myics").addEventListener("click",e=>{e.preventDefault();
   const d=s=>s.replace(/-/g,""),nx=s=>{const t=new Date(s+"T00:00:00Z");t.setUTCDate(t.getUTCDate()+1);return t.toISOString().slice(0,10).replace(/-/g,"")};
@@ -1739,7 +1840,7 @@ document.getElementById("jq").addEventListener("input",e=>{JS.q=e.target.value.t
   if("serviceWorker" in navigator&&location.protocol==="https:")navigator.serviceWorker.register("sw.js").catch(()=>{});})();
 /* ---- paper search (OpenAlex, keyless; one ISSN per journal, batched 100 per request (OpenAlex OR-filter limit)) ---- */
 const OA="https://api.openalex.org/works";
-const PS={q:"",scope:"all",year:"5",sort:"rel",oa:false,page:1,items:[],seen:new Set(),busy:false};
+const PS={q:"",in:"ta",scope:"all",year:"5",sort:"rel",oa:false,page:1,items:[],seen:new Set(),busy:false};
 (function initPapers(){
   const ar=document.getElementById("pareas"),pj=document.getElementById("pjournals");
   ar.innerHTML=AREAS.filter(a=>a[0]!=="all"&&a[0]!=="ai").map(a=>`<option value="area:${a[0]}">${esc(a[1])}</option>`).join("");
@@ -1759,8 +1860,12 @@ async function oaFetch(issns){
   if(PS.year){const y=new Date().getFullYear()-(+PS.year)+1;f.push(`from_publication_date:${y}-01-01`)}
   if(PS.oa)f.push("open_access.is_oa:true");
   const sort={rel:"relevance_score:desc",new:"publication_date:desc",cit:"cited_by_count:desc"}[PS.sort];
-  const u=`${OA}?search=${encodeURIComponent(PS.q)}&filter=${encodeURIComponent(f.join(","))}&sort=${sort}&per_page=25&page=${PS.page}`;
-  const r=await fetch(u);if(!r.ok)throw new Error("OpenAlex "+r.status);return r.json()}
+  const oq=qToOA(qParse(PS.q),true)||PS.q;let sp="";
+  if(PS.in==="all")sp=`search=${encodeURIComponent(oq)}&`;else f.push((PS.in==="t"?"title.search:":"title_and_abstract.search:")+oq.replace(/,/g," "));
+  const u=`${OA}?${sp}filter=${encodeURIComponent(f.join(","))}&sort=${sort}&per_page=25&page=${PS.page}`;
+  let r=await fetch(u);
+  if(!r.ok&&r.status===400&&!sp&&PS.sort==="rel")r=await fetch(u.replace(/&sort=[^&]*/,"")); /* fallback if relevance sort is refused for field searches */
+  if(!r.ok)throw new Error("OpenAlex "+r.status);return r.json()}
 function paperHTML(w){
   const src=w.primary_location&&w.primary_location.source||{};
   const j=(src.issn||[]).map(i=>jByIssn.get(String(i).toUpperCase())).find(Boolean);
@@ -1799,7 +1904,7 @@ async function runSearch(more){
   }finally{PS.busy=false;btn.disabled=false}}
 document.getElementById("pform").addEventListener("submit",e=>{e.preventDefault();
   PS.q=document.getElementById("pq").value.trim();if(!PS.q)return;
-  PS.scope=document.getElementById("pscope").value;PS.year=document.getElementById("pyear").value;PS.sort=document.getElementById("psort").value;PS.oa=document.getElementById("poa").checked;
+  PS.in=document.getElementById("pin").value;PS.scope=document.getElementById("pscope").value;PS.year=document.getElementById("pyear").value;PS.sort=document.getElementById("psort").value;PS.oa=document.getElementById("poa").checked;
   runSearch(false)});
 document.getElementById("papers").addEventListener("click",e=>{const t=e.target;
   if(t.id==="pmore"){PS.page++;runSearch(true)}
