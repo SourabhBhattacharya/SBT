@@ -276,26 +276,26 @@ footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:
 // ---- Weekly update log: the Saturday check adds a new entry at the TOP and sets LAST_CHECKED ----
 // ADMISSION_YEAR = the year students in this list will start college. The weekly update moves it forward each year.
 const ADMISSION_YEAR = 2027;
-const LAST_CHECKED = "2026-11-21";
+const LAST_CHECKED = "2026-11-28";
 const UPDATES = [
+ {date:"2026-11-28",items:["Ashoka: Round 1 closed 23 Nov; the card now shows Round 2 (apply by 20 Jan 2027, assessment 31 Jan, decision 14 Apr; official).","Plaksha B.Tech: official 2027 rounds out; Round 1 closes 20 Dec 2026 (was estimated 15 Dec), then 15 Feb, 24 Mar, 2 May, 6 Jun.","FLAME: Early Decision still closes 29 Nov (FEAT 4–6 Dec); next cycle closes 3 Jan 2027.","JEE Main Session 1: correction window open until 29 Nov.","Closing soon: FLAME and NIFT late fee (29 Nov), NID DAT, LNAT-JGLS and CULEE (30 Nov), SLAT (4 Dec), Krea Round 2 (~6 Dec). NDA I 2027 forms open 2 Dec."]},
  {date:"2026-11-21",items:["JEE Advanced 2027: IIT Delhi has fixed the exam for 23 May 2027 (official); registration dates come later.","NIFT 2027: deadline extended to 24 Nov 2026 (late fee 25–29 Nov).","SAT 5 Dec sitting: late registration open until 24 Nov.","Azim Premji University: Round 1 closed 20 Nov; the card now shows Round 2 (expected dates).","Closing soon: JEE Main Session 1 (22 Nov), Ashoka Round 1 (23 Nov), Christ and Hong Kong (25 Nov), ACT late (27 Nov), FLAME (29 Nov), NID DAT, LNAT-JGLS and CULEE (30 Nov)."]},
  {date:"2026-11-14",items:["ACT December sitting (11–12 Dec): regular deadline passed on 13 Nov; late-fee registration open until 27 Nov.","Ashoka Round 1: assessment confirmed for 6 Dec 2026, decisions on 3 Feb 2027 (apply by 23 Nov).","Azim Premji University Round 1: entrance test expected ~20 Dec 2026, interviews ~4–8 Jan 2027 (apply by 20 Nov).","All other dates re-checked: NIFT closes 16 Nov (late fee to 21 Nov), Christ 25 Nov, FLAME 29 Nov, NID DAT 30 Nov, JEE Main Session 1 closes 22 Nov."]},
  {date:"2026-11-07",items:["NIFT 2027: form is open now and closes 16 Nov 2026 (late fee until 21 Nov); exam 10 Jan 2027 confirmed. Earlier listing had expected dates.","CLAT 2027: deadline extended to 7 Nov 2026 (today); exam stays 6 Dec.","All other dates re-checked: AILET closes 10 Nov, IIM Bangalore BSc test 15 Nov, JEE Main Session 1 closes 22 Nov."]},
  {date:"2026-11-02",items:["Colleges & universities tab expanded: IIT Madras BS degrees (January term: apply by 29 Jan 2027), IIM Bangalore BSc (test 15 Nov), IPMAT Rohtak, other IIMs and IIFT via IPMAT Indore, NALSAR Hyderabad BBA–MBA, IISc BS (Research), DOST Telangana, Mahindra University, Plaksha, Jamia and AMU."]},
  {date:"2026-11-02",items:["Each section and tab now has its own search box: a search in Study in India no longer carries over to Study abroad or to another tab."]},
  {date:"2026-11-02", items:["New Colleges & universities tab: Ashoka (Round 1 closes 23 Nov), Christ (25 Nov), FLAME (29 Nov), Azim Premji (20 Nov), Krea, IIIT Hyderabad UGEE, Shiv Nadar, St. Stephen's, top DU colleges, St. Xavier's Mumbai and Kolkata, University of Hyderabad."]},
- {date:"2026-11-02", items:["Added SEED (Symbiosis design; last date ~25 Dec 2026) and BITSDAT (BITS Design School; apply by 31 Jan 2027, test 29 Mar – 5 Apr).","NATA is listed as NATA 2027 (Architecture) under Design & architecture."]},
- {date:"2026-11-02", items:["New Ivy League tab under Study abroad: deadlines, decision dates and financial-aid policy for all 8 Ivies.","More law exams: LNAT for Jindal Global Law School (early deadline 30 Nov), Christ University CULEE, NMIMS LAT, MH CET Law, AP LAWCET."]}
+ {date:"2026-11-02", items:["Added SEED (Symbiosis design; last date ~25 Dec 2026) and BITSDAT (BITS Design School; apply by 31 Jan 2027, test 29 Mar – 5 Apr).","NATA is listed as NATA 2027 (Architecture) under Design & architecture."]}
 ];
 // ---- end of update log ----
 
 const EXAMS = [
- {id:"ashoka",name:"Ashoka University (Sonipat)",full:"Ashoka University UG admissions",cat:"College",stream:"Any",body:"Ashoka University",url:"https://www.ashoka.edu.in/admissions/undergraduate-students/",
-  open:"2026-10-07",close:"2026-11-23",closeExp:false,exam:"2026-12-06",examLbl:"Round 1 assessment 6 Dec 2026; decision 3 Feb 2027",examExp:false,examTitle:"Assessment",
+ {id:"ashoka",name:"Ashoka University (Sonipat): Round 2",full:"Ashoka University UG admissions",cat:"College",stream:"Any",body:"Ashoka University",url:"https://www.ashoka.edu.in/admissions/undergraduate-students/",
+  open:"2026-11-24",close:"2027-01-20",closeExp:false,exam:"2027-01-31",examLbl:"Round 2 assessment 31 Jan 2027; decision 14 Apr 2027",examExp:false,examTitle:"Assessment",
   elig:"Class 12 in any stream (passed or appearing).",
   pattern:"Application with essays, then Ashoka Aptitude Assessment and an on-the-spot essay; shortlisted students are interviewed.",
   cutoff:"Holistic; no published cutoff. Need-based financial aid and scholarships available.",
-  note:"Four rounds; apply in any one: 23 Nov 2026, 20 Jan, 14 Apr, 23 May 2027. The round does not affect your chances. First-year cost for 2027-28 is about ₹13.55 lakh (tuition + residence).",
+  note:"Round 1 closed on 23 Nov 2026 (assessment 6 Dec, decision 3 Feb 2027). Now showing Round 2. Remaining deadlines: 20 Jan, 14 Apr (assessment 25 Apr) and 23 May 2027 (assessment 30 May; Round 4 subject to change). Apply in any one round; the round does not affect your chances. First-year cost for 2027-28 is about ₹13.55 lakh (tuition + residence).",
   kw:"ashoka liberal arts sonipat economics computer science humanities private university"},
  {id:"christ",name:"Christ University (Bengaluru, Pune, Delhi NCR)",full:"Christ University Entrance Test (ET-CU)",cat:"College",stream:"Any",body:"Christ (Deemed to be University)",url:"https://christuniversity.in",
   open:"2026-10-15",close:"2026-11-25",closeExp:false,exam:"2026-12-06",examLbl:"Session 1 test ~early Dec 2026; Sessions 2–3 Apr–May 2027",examExp:true,examTitle:"Test",
@@ -309,7 +309,7 @@ const EXAMS = [
   elig:"Class 12 in any stream (around 60%; 50% SC/ST).",
   pattern:"FEAT (online, about 90 min) + essay, then personal interview, all done from home. SAT/ACT or JEE Main scores can replace FEAT.",
   cutoff:"Holistic.",
-  note:"Early Decision is the first of five cycles; later cycles run to June 2027. Liberal education, business, communication and design programmes.",
+  note:"Early Decision interviews 11–13 Dec 2026. Next: Online Cycle I, apply by 3 Jan 2027 (FEAT 8–10 Jan, result 10 Feb); Cycle II 1 Feb, Cycle III 28 Mar, Cycle IV 2 May 2027. Liberal education, business, communication and design programmes.",
   kw:"flame pune liberal arts bba design private university"},
  {id:"azimpremji",name:"Azim Premji University (Bengaluru, Bhopal): Round 2",full:"Azim Premji University UG admissions",cat:"College",stream:"Any",body:"Azim Premji University",url:"https://azimpremjiuniversity.edu.in",
   open:"2026-12-01",close:"2027-03-15",closeExp:true,exam:"2027-04-18",examLbl:"Round 2 test ~mid-Apr 2027; interviews ~May",examExp:true,examTitle:"Selection",
@@ -431,11 +431,11 @@ const EXAMS = [
   note:"Bahadurpally, Hyderabad. Early rounds from ~January; final deadline was 9 Jul in 2026. Tuition about ₹5 lakh a year (B.Tech/BBA).",
   kw:"mahindra university hyderabad btech bba law design private"},
  {id:"plaksha",name:"Plaksha University (Mohali): B.Tech",full:"Plaksha University undergraduate admissions",cat:"College",stream:"PCM",body:"Plaksha University",url:"https://plaksha.edu.in/admissions",
-  open:"2026-10-28",close:"2026-12-15",closeExp:true,exam:"2027-01-10",examLbl:"Round 1 interviews ~Nov – Jan",examExp:true,examTitle:"Interview",
+  open:"2026-11-14",close:"2026-12-20",closeExp:false,exam:"2027-01-06",examLbl:"Round 1 interviews 18 Nov 2026 – 4 Jan 2027; decisions 23 Dec & 6 Jan",examExp:false,examTitle:"Decisions",
   elig:"Class 12 with PCM.",
   pattern:"Application with JEE Main / SAT score or Plaksha's own test, profile and interview.",
   cutoff:"Holistic; need-based and merit scholarships.",
-  note:"Up to five rounds; 2026 cycle deadlines ~15 Dec, 15 Feb, 21 Mar, 30 Apr, 7 Jun. Earlier rounds have better odds for aid. Tech-focused B.Tech (CS & AI, Data Science & Economics, Robotics…).",
+  note:"Five rounds for 2027 (official): 20 Dec 2026, 15 Feb, 24 Mar, 2 May, 6 Jun 2027. Earlier rounds have better odds for aid. Tech-focused B.Tech (CS & AI, Data Science & Economics, Robotics…).",
   kw:"plaksha mohali btech ai data science private university"},
  {id:"jamia",name:"Jamia Millia Islamia (New Delhi)",full:"JMI entrance tests for UG programmes",cat:"College",stream:"Any",body:"Jamia Millia Islamia",url:"https://admission.jmi.ac.in",
   open:"2027-02-20",close:"2027-03-25",closeExp:true,exam:"2027-04-26",examLbl:"JMI tests from ~late Apr 2027",examExp:true,
@@ -715,7 +715,7 @@ const EXAMS = [
   elig:"Class 12 with Physics, Chemistry, Maths (passed 2025/2026 or appearing 2027). No age limit. For NIT/IIIT seats: 75% in Class 12 (65% SC/ST) or top 20 percentile of your board.",
   pattern:"Computer-based, 3 hours, 75 questions (25 each in P, C, M), 300 marks, +4 / −1.",
   cutoff:"Qualifying percentile for JEE Advanced (2026): General 93.41, OBC-NCL 80.92, EWS ~81–82, SC ~63–64, ST ~50–52.",
-  note:"Late fee 23–26 Nov; correction window 27–29 Nov; admit card 13 Jan 2027. Scores are used for NITs, IIITs, Navy B.Tech and Army TES.",
+  note:"Correction window 27–29 Nov (until 11:50 pm); exam-city slip expected ~30 Dec; admit card ~13 Jan 2027. Scores are used for NITs, IIITs, Navy B.Tech and Army TES.",
   kw:"nit iiit josaa engineering btech"},
  {id:"clat",name:"CLAT 2027",full:"Common Law Admission Test",cat:"Law",stream:"Any",body:"Consortium of NLUs",url:"https://consortiumofnlus.ac.in",
   open:"2026-08-03",close:"2026-11-07",closeExp:false,exam:"2026-12-06",examLbl:"6 Dec 2026",examExp:false,
